@@ -1,0 +1,14 @@
+version: 2.1
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - package
+
+jobs:
+  package:
+    docker:
+      - image: circleci/openjdk:11.0.4-stretch
+    steps:
+      - checkout
+      - run: mvn package -f ./v2/pom.xml
