@@ -3,12 +3,14 @@ version: 2.1
 workflows:
   build-and-deploy:
     jobs:
-      - package
+      - deploy:
+          context: maven-central
 
 jobs:
-  package:
+  deploy:
     docker:
       - image: circleci/openjdk:11.0.4-stretch
     steps:
       - checkout
       - run: mvn package -f ./v2/pom.xml
+      - run: mvn deploy -f ./v2/pom.xml -s ./settings.xml
