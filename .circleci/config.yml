@@ -18,10 +18,10 @@ jobs:
       - image: circleci/openjdk:11.0.4-stretch
     steps:
       - checkout
-      - run: mvn test -f ./v2/pom.xml
+      - run: mvn -Drevision=2.0.${CIRCLE_BUILD_NUM} test -f ./v2/pom.xml
   deploy:
     docker:
       - image: circleci/openjdk:11.0.4-stretch
     steps:
       - checkout
-      - run: mvn deploy -f ./v2/pom.xml -s ./settings.xml
+      - run: mvn -Drevision=2.0.${CIRCLE_BUILD_NUM} deploy -f ./v2/pom.xml -s ./settings.xml

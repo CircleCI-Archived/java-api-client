@@ -4,7 +4,7 @@
 
     <groupId>com.circleci</groupId>
     <artifactId>java-client</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>openapi-java-client</name>
 
@@ -199,6 +199,7 @@
     </dependencies>
 
     <properties>
+        <revision>1.0.0-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.5.22</swagger-annotations-version>
         <maven.compiler.release>8</maven.compiler.release>
