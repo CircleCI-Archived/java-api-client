@@ -7,6 +7,30 @@
     <version>${revision}</version>
     <packaging>jar</packaging>
     <name>openapi-java-client</name>
+    <description>Client for CircleCI's API v2</description>
+    <url>https://github.com/CircleCI-Public/java-api-client/</url>
+
+    <scm>
+        <connection>scm:git:git@github.com:CircleCI-Public/java-api-client.git</connection>
+        <url>https://github.com/CircleCI-Public/java-api-client/</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>CircleCI</name>
+            <email>sayhi@circleci.com</email>
+            <organization>CircleCI</organization>
+            <organizationUrl>https://circleci.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <build>
         <plugins>
@@ -91,7 +115,16 @@
                             <head>Http Response Details:</head>
                         </tag>
                     </tags>
+                    <doclint>none</doclint>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
