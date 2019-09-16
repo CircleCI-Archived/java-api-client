@@ -6,4 +6,12 @@
             <password>${env.SONATYPE_PASSWORD}</password>
         </server>
     </servers>
+    <profiles>
+        <profile>
+            <id>sign-artifacts</id>
+            <properties>
+                <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+            </properties>
+        </profile>
+    </profiles>
 </settings>
