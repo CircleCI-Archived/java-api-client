@@ -101,13 +101,13 @@ public class DefaultApiExample {
         basic_auth.setPassword("YOUR PASSWORD");
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
+        Object jobNumber = 123; // Object | The number of the job.
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-        CheckoutKeyInput checkoutKeyInput = new CheckoutKeyInput(); // CheckoutKeyInput | 
         try {
-            CheckoutKey result = apiInstance.createCheckoutKey(projectSlug, checkoutKeyInput);
+            Message result = apiInstance.cancelJob(jobNumber, projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#createCheckoutKey");
+            System.err.println("Exception when calling DefaultApi#cancelJob");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,6 +124,7 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**cancelJob**](docs/DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job.
 *DefaultApi* | [**createCheckoutKey**](docs/DefaultApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key.
 *DefaultApi* | [**createEnvVar**](docs/DefaultApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable.
 *DefaultApi* | [**deleteCheckoutKey**](docs/DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key.
@@ -150,6 +151,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentVariablePair](docs/EnvironmentVariablePair.md)
  - [EnvironmentVariablePair1](docs/EnvironmentVariablePair1.md)
  - [Job](docs/Job.md)
+ - [Message](docs/Message.md)
  - [MessageResponse](docs/MessageResponse.md)
  - [Pipeline](docs/Pipeline.md)
  - [PipelineConfig](docs/PipelineConfig.md)

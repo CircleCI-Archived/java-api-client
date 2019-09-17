@@ -4,6 +4,7 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cancelJob**](DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job.
 [**createCheckoutKey**](DefaultApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key.
 [**createEnvVar**](DefaultApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable.
 [**deleteCheckoutKey**](DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key.
@@ -22,6 +23,91 @@ Method | HTTP request | Description
 [**listWorkflowJobs**](DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/jobs | Get a workflow&#39;s jobs.
 [**triggerPipeline**](DefaultApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline.
 
+
+
+## cancelJob
+
+> Message cancelJob(jobNumber, projectSlug)
+
+Cancel job.
+
+Cancel job with a given job number.
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        Object jobNumber = 123; // Object | The number of the job.
+        String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        try {
+            Message result = apiInstance.cancelJob(jobNumber, projectSlug);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#cancelJob");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **jobNumber** | [**Object**](.md)| The number of the job. | [default to null]
+ **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
+
+### Return type
+
+[**Message**](Message.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** |  |  -  |
 
 
 ## createCheckoutKey

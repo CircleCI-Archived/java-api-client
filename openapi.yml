@@ -1113,6 +1113,41 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
+  /project/{project-slug}/{job-number}:
+    post:
+      summary: Cancel job.
+      description: Cancel job with a given job number.
+      operationId: cancelJob
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Message.
+                required:
+                - message
+                description: Simple response message
+                title: Message
+          description: ''
+      parameters:
+      - in: path
+        name: job-number
+        description: The number of the job.
+        schema: {}
+        required: true
+        example: '123'
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
   /workflow/{id}:
     get:
       summary: Get a workflow.

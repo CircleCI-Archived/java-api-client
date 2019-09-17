@@ -18,6 +18,7 @@ import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
+import com.circleci.client.v2.model.Message;
 import com.circleci.client.v2.model.MessageResponse;
 import com.circleci.client.v2.model.PipelineConfig;
 import com.circleci.client.v2.model.PipelineLight;
@@ -45,6 +46,23 @@ public class DefaultApiTest {
 
     private final DefaultApi api = new DefaultApi();
 
+    
+    /**
+     * Cancel job.
+     *
+     * Cancel job with a given job number.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void cancelJobTest() throws ApiException {
+        Object jobNumber = null;
+        String projectSlug = null;
+        Message response = api.cancelJob(jobNumber, projectSlug);
+
+        // TODO: test validations
+    }
     
     /**
      * Create a new checkout key.
