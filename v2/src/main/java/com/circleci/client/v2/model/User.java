@@ -20,12 +20,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 
 /**
  * User
  */
 
 public class User {
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
+  private UUID id;
+
   public static final String JSON_PROPERTY_LOGIN = "login";
   @JsonProperty(JSON_PROPERTY_LOGIN)
   private String login;
@@ -33,6 +38,24 @@ public class User {
   public static final String JSON_PROPERTY_NAME = "name";
   @JsonProperty(JSON_PROPERTY_NAME)
   private String name;
+
+  public User id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The unique ID of the user.
+   * @return id
+  **/
+  @ApiModelProperty(required = true, value = "The unique ID of the user.")
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
 
   public User login(String login) {
     this.login = login;
@@ -80,13 +103,14 @@ public class User {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.login, user.login) &&
+    return Objects.equals(this.id, user.id) &&
+        Objects.equals(this.login, user.login) &&
         Objects.equals(this.name, user.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(login, name);
+    return Objects.hash(id, login, name);
   }
 
 
@@ -94,6 +118,7 @@ public class User {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    login: ").append(toIndentedString(login)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");

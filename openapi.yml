@@ -24,6 +24,10 @@ paths:
               schema:
                 type: object
                 properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: The unique ID of the user.
                   login:
                     type: string
                     description: The login information for the user on the VCS.
@@ -32,6 +36,7 @@ paths:
                     type: string
                     description: The name of the user.
                 required:
+                - id
                 - login
                 - name
                 title: User
