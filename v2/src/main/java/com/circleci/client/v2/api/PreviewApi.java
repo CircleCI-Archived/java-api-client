@@ -31,14 +31,14 @@ import java.util.List;
 import java.util.Map;
 
 
-public class DefaultApi {
+public class PreviewApi {
   private ApiClient apiClient;
 
-  public DefaultApi() {
+  public PreviewApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public DefaultApi(ApiClient apiClient) {
+  public PreviewApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -51,7 +51,7 @@ public class DefaultApi {
   }
 
   /**
-   * Cancel job.
+   * Cancel job
    * Cancel job with a given job number.
    * @param jobNumber The number of the job. (required)
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
@@ -68,7 +68,7 @@ public class DefaultApi {
       }
 
   /**
-   * Cancel job.
+   * Cancel job
    * Cancel job with a given job number.
    * @param jobNumber The number of the job. (required)
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
@@ -122,7 +122,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Create a new checkout key.
+   * Create a new checkout key
    * Creates a new checkout key. This API request is only usable with a user API token.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param checkoutKeyInput  (optional)
@@ -139,7 +139,7 @@ public class DefaultApi {
       }
 
   /**
-   * Create a new checkout key.
+   * Create a new checkout key
    * Creates a new checkout key. This API request is only usable with a user API token.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param checkoutKeyInput  (optional)
@@ -187,7 +187,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Create an environment variable.
+   * Create an environment variable
    * Creates a new environment variable.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param environmentVariablePair1  (optional)
@@ -204,7 +204,7 @@ public class DefaultApi {
       }
 
   /**
-   * Create an environment variable.
+   * Create an environment variable
    * Creates a new environment variable.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param environmentVariablePair1  (optional)
@@ -252,7 +252,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Delete a checkout key.
+   * Delete a checkout key
    * Deletes the checkout key.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param fingerprint An SSH key fingerprint. (required)
@@ -269,7 +269,7 @@ public class DefaultApi {
       }
 
   /**
-   * Delete a checkout key.
+   * Delete a checkout key
    * Deletes the checkout key.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param fingerprint An SSH key fingerprint. (required)
@@ -323,7 +323,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Delete an environment variable.
+   * Delete an environment variable
    * Deletes the environment variable named :name.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param name The name of the environment variable. (required)
@@ -340,7 +340,7 @@ public class DefaultApi {
       }
 
   /**
-   * Delete an environment variable.
+   * Delete an environment variable
    * Deletes the environment variable named :name.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param name The name of the environment variable. (required)
@@ -394,7 +394,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get a checkout key.
+   * Get a checkout key
    * Returns an individual checkout key.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param fingerprint An SSH key fingerprint. (required)
@@ -411,7 +411,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get a checkout key.
+   * Get a checkout key
    * Returns an individual checkout key.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param fingerprint An SSH key fingerprint. (required)
@@ -465,7 +465,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get the currently signed in user.
+   * User Information
    * Provides information about the user that is currently signed in.
    * @return User
    * @throws ApiException if fails to make API call
@@ -480,7 +480,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get the currently signed in user.
+   * User Information
    * Provides information about the user that is currently signed in.
    * @return ApiResponse&lt;User&gt;
    * @throws ApiException if fails to make API call
@@ -520,7 +520,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get masked environment variables.
+   * Get masked environment variables
    * Returns the masked value of environment variable :name.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param name The name of the environment variable. (required)
@@ -537,7 +537,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get masked environment variables.
+   * Get masked environment variables
    * Returns the masked value of environment variable :name.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param name The name of the environment variable. (required)
@@ -591,7 +591,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get a pipeline.
+   * Get a pipeline
    * Returns a pipeline by ID.
    * @param pipelineId The unique ID of the pipeline. (required)
    * @return PipelineWithWorkflows
@@ -607,7 +607,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get a pipeline.
+   * Get a pipeline
    * Returns a pipeline by ID.
    * @param pipelineId The unique ID of the pipeline. (required)
    * @return ApiResponse&lt;PipelineWithWorkflows&gt;
@@ -654,7 +654,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get a pipeline&#39;s configuration.
+   * Get a pipeline&#39;s configuration
    * Returns a pipeline&#39;s configuration by ID.
    * @param pipelineId The unique ID of the pipeline. (required)
    * @return PipelineConfig
@@ -670,7 +670,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get a pipeline&#39;s configuration.
+   * Get a pipeline&#39;s configuration
    * Returns a pipeline&#39;s configuration by ID.
    * @param pipelineId The unique ID of the pipeline. (required)
    * @return ApiResponse&lt;PipelineConfig&gt;
@@ -717,7 +717,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get a project.
+   * Get a project
    * Retrieves a project by project slug.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @return Project
@@ -733,7 +733,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get a project.
+   * Get a project
    * Retrieves a project by project slug.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @return ApiResponse&lt;Project&gt;
@@ -780,7 +780,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get a workflow.
+   * Get a workflow
    * Returns summary fields of a workflow by ID.
    * @param id The unique ID of the workflow. (required)
    * @return Workflow
@@ -796,7 +796,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get a workflow.
+   * Get a workflow
    * Returns summary fields of a workflow by ID.
    * @param id The unique ID of the workflow. (required)
    * @return ApiResponse&lt;Workflow&gt;
@@ -843,7 +843,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get all checkout keys.
+   * Get all checkout keys
    * Returns a sequence of checkout keys for &#x60;:project&#x60;.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @return List&lt;CheckoutKey&gt;
@@ -859,7 +859,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get all checkout keys.
+   * Get all checkout keys
    * Returns a sequence of checkout keys for &#x60;:project&#x60;.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @return ApiResponse&lt;List&lt;CheckoutKey&gt;&gt;
@@ -906,7 +906,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get an environment variable.
+   * Get an environment variable
    * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @return List&lt;EnvironmentVariablePair&gt;
@@ -922,7 +922,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get an environment variable.
+   * Get an environment variable
    * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @return ApiResponse&lt;List&lt;EnvironmentVariablePair&gt;&gt;
@@ -969,7 +969,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get your pipelines.
+   * Get your pipelines
    * Returns a sequence of all pipelines for this project triggered by the user.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
@@ -986,7 +986,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get your pipelines.
+   * Get your pipelines
    * Returns a sequence of all pipelines for this project triggered by the user.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
@@ -1035,7 +1035,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get all pipelines.
+   * Get all pipelines
    * Returns all pipelines for this project.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
@@ -1052,7 +1052,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get all pipelines.
+   * Get all pipelines
    * Returns all pipelines for this project.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
@@ -1101,7 +1101,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get a workflow&#39;s jobs.
+   * Get a workflow&#39;s jobs
    * Returns a sequence of jobs for a workflow.
    * @param id The unique ID of the workflow. (required)
    * @return WorkflowJobListResponse
@@ -1117,7 +1117,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get a workflow&#39;s jobs.
+   * Get a workflow&#39;s jobs
    * Returns a sequence of jobs for a workflow.
    * @param id The unique ID of the workflow. (required)
    * @return ApiResponse&lt;WorkflowJobListResponse&gt;
@@ -1164,7 +1164,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Trigger a new pipeline.
+   * Trigger a new pipeline
    * Triggers a new pipeline on the project.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param triggerPipelineParameters  (optional)
@@ -1181,7 +1181,7 @@ public class DefaultApi {
       }
 
   /**
-   * Trigger a new pipeline.
+   * Trigger a new pipeline
    * Triggers a new pipeline on the project.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param triggerPipelineParameters  (optional)

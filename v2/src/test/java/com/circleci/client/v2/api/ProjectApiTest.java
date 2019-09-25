@@ -18,18 +18,8 @@ import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
-import com.circleci.client.v2.model.Message;
 import com.circleci.client.v2.model.MessageResponse;
-import com.circleci.client.v2.model.PipelineConfig;
-import com.circleci.client.v2.model.PipelineLight;
-import com.circleci.client.v2.model.PipelineListResponse;
-import com.circleci.client.v2.model.PipelineWithWorkflows;
 import com.circleci.client.v2.model.Project;
-import com.circleci.client.v2.model.TriggerPipelineParameters;
-import java.util.UUID;
-import com.circleci.client.v2.model.User;
-import com.circleci.client.v2.model.Workflow;
-import com.circleci.client.v2.model.WorkflowJobListResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -39,33 +29,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for DefaultApi
+ * API tests for ProjectApi
  */
 @Ignore
-public class DefaultApiTest {
+public class ProjectApiTest {
 
-    private final DefaultApi api = new DefaultApi();
+    private final ProjectApi api = new ProjectApi();
 
     
     /**
-     * Cancel job.
-     *
-     * Cancel job with a given job number.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void cancelJobTest() throws ApiException {
-        Object jobNumber = null;
-        String projectSlug = null;
-        Message response = api.cancelJob(jobNumber, projectSlug);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Create a new checkout key.
+     * Create a new checkout key
      *
      * Creates a new checkout key. This API request is only usable with a user API token.
      *
@@ -82,7 +55,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Create an environment variable.
+     * Create an environment variable
      *
      * Creates a new environment variable.
      *
@@ -99,7 +72,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Delete a checkout key.
+     * Delete a checkout key
      *
      * Deletes the checkout key.
      *
@@ -116,7 +89,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Delete an environment variable.
+     * Delete an environment variable
      *
      * Deletes the environment variable named :name.
      *
@@ -133,7 +106,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Get a checkout key.
+     * Get a checkout key
      *
      * Returns an individual checkout key.
      *
@@ -150,22 +123,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Get the currently signed in user.
-     *
-     * Provides information about the user that is currently signed in.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getCurrentUserTest() throws ApiException {
-        User response = api.getCurrentUser();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get masked environment variables.
+     * Get masked environment variables
      *
      * Returns the masked value of environment variable :name.
      *
@@ -182,39 +140,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Get a pipeline.
-     *
-     * Returns a pipeline by ID.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getPipelineByIdTest() throws ApiException {
-        UUID pipelineId = null;
-        PipelineWithWorkflows response = api.getPipelineById(pipelineId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get a pipeline&#39;s configuration.
-     *
-     * Returns a pipeline&#39;s configuration by ID.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getPipelineConfigByIdTest() throws ApiException {
-        UUID pipelineId = null;
-        PipelineConfig response = api.getPipelineConfigById(pipelineId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get a project.
+     * Get a project
      *
      * Retrieves a project by project slug.
      *
@@ -230,23 +156,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Get a workflow.
-     *
-     * Returns summary fields of a workflow by ID.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getWorkflowByIdTest() throws ApiException {
-        UUID id = null;
-        Workflow response = api.getWorkflowById(id);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get all checkout keys.
+     * Get all checkout keys
      *
      * Returns a sequence of checkout keys for &#x60;:project&#x60;.
      *
@@ -262,7 +172,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Get an environment variable.
+     * Get an environment variable
      *
      * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
      *
@@ -273,73 +183,6 @@ public class DefaultApiTest {
     public void listEnvVarsTest() throws ApiException {
         String projectSlug = null;
         List<EnvironmentVariablePair> response = api.listEnvVars(projectSlug);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get your pipelines.
-     *
-     * Returns a sequence of all pipelines for this project triggered by the user.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void listMyPipelinesTest() throws ApiException {
-        String projectSlug = null;
-        String pageToken = null;
-        PipelineListResponse response = api.listMyPipelines(projectSlug, pageToken);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get all pipelines.
-     *
-     * Returns all pipelines for this project.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void listPipelinesForProjectTest() throws ApiException {
-        String projectSlug = null;
-        String pageToken = null;
-        PipelineListResponse response = api.listPipelinesForProject(projectSlug, pageToken);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get a workflow&#39;s jobs.
-     *
-     * Returns a sequence of jobs for a workflow.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void listWorkflowJobsTest() throws ApiException {
-        UUID id = null;
-        WorkflowJobListResponse response = api.listWorkflowJobs(id);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Trigger a new pipeline.
-     *
-     * Triggers a new pipeline on the project.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void triggerPipelineTest() throws ApiException {
-        String projectSlug = null;
-        TriggerPipelineParameters triggerPipelineParameters = null;
-        PipelineLight response = api.triggerPipeline(projectSlug, triggerPipelineParameters);
 
         // TODO: test validations
     }

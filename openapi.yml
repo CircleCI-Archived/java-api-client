@@ -13,8 +13,11 @@ security:
 paths:
   /me:
     get:
-      summary: Get the currently signed in user.
+      summary: User Information
       description: Provides information about the user that is currently signed in.
+      tags:
+      - User
+      - Preview
       operationId: getCurrentUser
       responses:
         200:
@@ -42,8 +45,11 @@ paths:
                 title: User
   /pipeline/{pipeline-id}:
     get:
-      summary: Get a pipeline.
+      summary: Get a pipeline
       description: Returns a pipeline by ID.
+      tags:
+      - Pipelines
+      - Preview
       operationId: getPipelineById
       responses:
         200:
@@ -211,8 +217,11 @@ paths:
         required: true
   /pipeline/{pipeline-id}/config:
     get:
-      summary: Get a pipeline's configuration.
+      summary: Get a pipeline's configuration
       description: Returns a pipeline's configuration by ID.
+      tags:
+      - Pipeline
+      - Preview
       operationId: getPipelineConfigById
       responses:
         200:
@@ -243,8 +252,11 @@ paths:
         required: true
   /project/{project-slug}:
     get:
-      summary: Get a project.
+      summary: Get a project
       description: Retrieves a project by project slug.
+      tags:
+      - Project
+      - Preview
       operationId: getProjectBySlug
       responses:
         200:
@@ -305,8 +317,11 @@ paths:
         allowReserved: true
   /project/{project-slug}/checkout-key:
     get:
-      summary: Get all checkout keys.
+      summary: Get all checkout keys
       description: Returns a sequence of checkout keys for `:project`.
+      tags:
+      - Project
+      - Preview
       operationId: listCheckoutKeys
       responses:
         200:
@@ -360,8 +375,11 @@ paths:
         example: gh/CircleCI-Public/api-preview-docs
         allowReserved: true
     post:
-      summary: Create a new checkout key.
+      summary: Create a new checkout key
       description: Creates a new checkout key. This API request is only usable with a user API token.
+      tags:
+      - Project
+      - Preview
       operationId: createCheckoutKey
       responses:
         202:
@@ -431,8 +449,11 @@ paths:
               title: CheckoutKeyInput
   /project/{project-slug}/checkout-key/{fingerprint}:
     delete:
-      summary: Delete a checkout key.
+      summary: Delete a checkout key
       description: Deletes the checkout key.
+      tags:
+      - Project
+      - Preview
       operationId: deleteCheckoutKey
       responses:
         200:
@@ -466,8 +487,11 @@ paths:
         required: true
         example: c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f
     get:
-      summary: Get a checkout key.
+      summary: Get a checkout key
       description: Returns an individual checkout key.
+      tags:
+      - Project
+      - Preview
       operationId: getCheckoutKey
       responses:
         200:
@@ -527,8 +551,11 @@ paths:
         example: c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f
   /project/{project-slug}/envvar:
     get:
-      summary: Get an environment variable.
+      summary: Get an environment variable
       description: Returns four 'x' characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
+      tags:
+      - Project
+      - Preview
       operationId: listEnvVars
       responses:
         200:
@@ -562,8 +589,11 @@ paths:
         example: gh/CircleCI-Public/api-preview-docs
         allowReserved: true
     post:
-      summary: Create an environment variable.
+      summary: Create an environment variable
       description: Creates a new environment variable.
+      tags:
+      - Project
+      - Preview
       operationId: createEnvVar
       responses:
         201:
@@ -614,8 +644,11 @@ paths:
               title: EnvironmentVariablePair
   /project/{project-slug}/envvar/{name}:
     delete:
-      summary: Delete an environment variable.
+      summary: Delete an environment variable
       description: Deletes the environment variable named :name.
+      tags:
+      - Project
+      - Preview
       operationId: deleteEnvVar
       responses:
         200:
@@ -649,8 +682,11 @@ paths:
         required: true
         example: foo
     get:
-      summary: Get masked environment variables.
+      summary: Get masked environment variables
       description: Returns the masked value of environment variable :name.
+      tags:
+      - Project
+      - Preview
       operationId: getEnvVar
       responses:
         200:
@@ -690,8 +726,11 @@ paths:
         example: foo
   /project/{project-slug}/pipeline:
     post:
-      summary: Trigger a new pipeline.
+      summary: Trigger a new pipeline
       description: Triggers a new pipeline on the project.
+      tags:
+      - Pipeline
+      - Preview
       operationId: triggerPipeline
       responses:
         202:
@@ -764,8 +803,11 @@ paths:
               description: The information you can supply when triggering a pipeline.
               title: TriggerPipelineParameters
     get:
-      summary: Get all pipelines.
+      summary: Get all pipelines
       description: Returns all pipelines for this project.
+      tags:
+      - Pipeline
+      - Preview
       operationId: listPipelinesForProject
       responses:
         202:
@@ -942,8 +984,11 @@ paths:
         allowEmptyValue: true
   /project/{project-slug}/pipeline/mine:
     get:
-      summary: Get your pipelines.
+      summary: Get your pipelines
       description: Returns a sequence of all pipelines for this project triggered by the user.
+      tags:
+      - Pipeline
+      - Preview
       operationId: listMyPipelines
       responses:
         200:
@@ -1120,8 +1165,11 @@ paths:
         allowEmptyValue: true
   /project/{project-slug}/{job-number}:
     post:
-      summary: Cancel job.
+      summary: Cancel job
       description: Cancel job with a given job number.
+      tags:
+      - Job
+      - Preview
       operationId: cancelJob
       responses:
         202:
@@ -1155,8 +1203,11 @@ paths:
         allowReserved: true
   /workflow/{id}:
     get:
-      summary: Get a workflow.
+      summary: Get a workflow
       description: Returns summary fields of a workflow by ID.
+      tags:
+      - Workflow
+      - Preview
       operationId: getWorkflowById
       responses:
         200:
@@ -1238,8 +1289,11 @@ paths:
         required: true
   /workflow/{id}/jobs:
     get:
-      summary: Get a workflow's jobs.
+      summary: Get a workflow's jobs
       description: Returns a sequence of jobs for a workflow.
+      tags:
+      - Workflow
+      - Preview
       operationId: listWorkflowJobs
       responses:
         200:

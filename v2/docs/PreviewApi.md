@@ -1,27 +1,27 @@
-# DefaultApi
+# PreviewApi
 
 All URIs are relative to *https://circleci.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelJob**](DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job.
-[**createCheckoutKey**](DefaultApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key.
-[**createEnvVar**](DefaultApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable.
-[**deleteCheckoutKey**](DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key.
-[**deleteEnvVar**](DefaultApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable.
-[**getCheckoutKey**](DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key.
-[**getCurrentUser**](DefaultApi.md#getCurrentUser) | **GET** /me | Get the currently signed in user.
-[**getEnvVar**](DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables.
-[**getPipelineById**](DefaultApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline.
-[**getPipelineConfigById**](DefaultApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration.
-[**getProjectBySlug**](DefaultApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project.
-[**getWorkflowById**](DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow.
-[**listCheckoutKeys**](DefaultApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys.
-[**listEnvVars**](DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable.
-[**listMyPipelines**](DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines.
-[**listPipelinesForProject**](DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines.
-[**listWorkflowJobs**](DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/jobs | Get a workflow&#39;s jobs.
-[**triggerPipeline**](DefaultApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline.
+[**cancelJob**](PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job
+[**createCheckoutKey**](PreviewApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
+[**createEnvVar**](PreviewApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
+[**deleteCheckoutKey**](PreviewApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
+[**deleteEnvVar**](PreviewApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable
+[**getCheckoutKey**](PreviewApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
+[**getCurrentUser**](PreviewApi.md#getCurrentUser) | **GET** /me | User Information
+[**getEnvVar**](PreviewApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables
+[**getPipelineById**](PreviewApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
+[**getPipelineConfigById**](PreviewApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
+[**getProjectBySlug**](PreviewApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
+[**getWorkflowById**](PreviewApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
+[**listCheckoutKeys**](PreviewApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
+[**listEnvVars**](PreviewApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable
+[**listMyPipelines**](PreviewApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
+[**listPipelinesForProject**](PreviewApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
+[**listWorkflowJobs**](PreviewApi.md#listWorkflowJobs) | **GET** /workflow/{id}/jobs | Get a workflow&#39;s jobs
+[**triggerPipeline**](PreviewApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
 
 
 
@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 > Message cancelJob(jobNumber, projectSlug)
 
-Cancel job.
+Cancel job
 
 Cancel job with a given job number.
 
@@ -42,7 +42,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -66,14 +66,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         Object jobNumber = 123; // Object | The number of the job.
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
             Message result = apiInstance.cancelJob(jobNumber, projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#cancelJob");
+            System.err.println("Exception when calling PreviewApi#cancelJob");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 > CheckoutKey createCheckoutKey(projectSlug, checkoutKeyInput)
 
-Create a new checkout key.
+Create a new checkout key
 
 Creates a new checkout key. This API request is only usable with a user API token.
 
@@ -127,7 +127,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -151,14 +151,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         CheckoutKeyInput checkoutKeyInput = new CheckoutKeyInput(); // CheckoutKeyInput | 
         try {
             CheckoutKey result = apiInstance.createCheckoutKey(projectSlug, checkoutKeyInput);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#createCheckoutKey");
+            System.err.println("Exception when calling PreviewApi#createCheckoutKey");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 > EnvironmentVariablePair createEnvVar(projectSlug, environmentVariablePair1)
 
-Create an environment variable.
+Create an environment variable
 
 Creates a new environment variable.
 
@@ -212,7 +212,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -236,14 +236,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         EnvironmentVariablePair1 environmentVariablePair1 = new EnvironmentVariablePair1(); // EnvironmentVariablePair1 | 
         try {
             EnvironmentVariablePair result = apiInstance.createEnvVar(projectSlug, environmentVariablePair1);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#createEnvVar");
+            System.err.println("Exception when calling PreviewApi#createEnvVar");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 > MessageResponse deleteCheckoutKey(projectSlug, fingerprint)
 
-Delete a checkout key.
+Delete a checkout key
 
 Deletes the checkout key.
 
@@ -297,7 +297,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -321,14 +321,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String fingerprint = c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f; // String | An SSH key fingerprint.
         try {
             MessageResponse result = apiInstance.deleteCheckoutKey(projectSlug, fingerprint);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#deleteCheckoutKey");
+            System.err.println("Exception when calling PreviewApi#deleteCheckoutKey");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 > MessageResponse deleteEnvVar(projectSlug, name)
 
-Delete an environment variable.
+Delete an environment variable
 
 Deletes the environment variable named :name.
 
@@ -382,7 +382,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -406,14 +406,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String name = foo; // String | The name of the environment variable.
         try {
             MessageResponse result = apiInstance.deleteEnvVar(projectSlug, name);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#deleteEnvVar");
+            System.err.println("Exception when calling PreviewApi#deleteEnvVar");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 
 > CheckoutKey getCheckoutKey(projectSlug, fingerprint)
 
-Get a checkout key.
+Get a checkout key
 
 Returns an individual checkout key.
 
@@ -467,7 +467,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -491,14 +491,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String fingerprint = c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f; // String | An SSH key fingerprint.
         try {
             CheckoutKey result = apiInstance.getCheckoutKey(projectSlug, fingerprint);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getCheckoutKey");
+            System.err.println("Exception when calling PreviewApi#getCheckoutKey");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -539,7 +539,7 @@ Name | Type | Description  | Notes
 
 > User getCurrentUser()
 
-Get the currently signed in user.
+User Information
 
 Provides information about the user that is currently signed in.
 
@@ -552,7 +552,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -576,12 +576,12 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         try {
             User result = apiInstance.getCurrentUser();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getCurrentUser");
+            System.err.println("Exception when calling PreviewApi#getCurrentUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -618,7 +618,7 @@ This endpoint does not need any parameter.
 
 > EnvironmentVariablePair getEnvVar(projectSlug, name)
 
-Get masked environment variables.
+Get masked environment variables
 
 Returns the masked value of environment variable :name.
 
@@ -631,7 +631,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -655,14 +655,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String name = foo; // String | The name of the environment variable.
         try {
             EnvironmentVariablePair result = apiInstance.getEnvVar(projectSlug, name);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getEnvVar");
+            System.err.println("Exception when calling PreviewApi#getEnvVar");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -703,7 +703,7 @@ Name | Type | Description  | Notes
 
 > PipelineWithWorkflows getPipelineById(pipelineId)
 
-Get a pipeline.
+Get a pipeline
 
 Returns a pipeline by ID.
 
@@ -716,7 +716,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -740,13 +740,13 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         UUID pipelineId = new UUID(); // UUID | The unique ID of the pipeline.
         try {
             PipelineWithWorkflows result = apiInstance.getPipelineById(pipelineId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getPipelineById");
+            System.err.println("Exception when calling PreviewApi#getPipelineById");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 > PipelineConfig getPipelineConfigById(pipelineId)
 
-Get a pipeline&#39;s configuration.
+Get a pipeline&#39;s configuration
 
 Returns a pipeline&#39;s configuration by ID.
 
@@ -799,7 +799,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -823,13 +823,13 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         UUID pipelineId = new UUID(); // UUID | The unique ID of the pipeline.
         try {
             PipelineConfig result = apiInstance.getPipelineConfigById(pipelineId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getPipelineConfigById");
+            System.err.println("Exception when calling PreviewApi#getPipelineConfigById");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -869,7 +869,7 @@ Name | Type | Description  | Notes
 
 > Project getProjectBySlug(projectSlug)
 
-Get a project.
+Get a project
 
 Retrieves a project by project slug.
 
@@ -882,7 +882,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -906,13 +906,13 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
             Project result = apiInstance.getProjectBySlug(projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getProjectBySlug");
+            System.err.println("Exception when calling PreviewApi#getProjectBySlug");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -952,7 +952,7 @@ Name | Type | Description  | Notes
 
 > Workflow getWorkflowById(id)
 
-Get a workflow.
+Get a workflow
 
 Returns summary fields of a workflow by ID.
 
@@ -965,7 +965,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -989,13 +989,13 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         UUID id = new UUID(); // UUID | The unique ID of the workflow.
         try {
             Workflow result = apiInstance.getWorkflowById(id);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getWorkflowById");
+            System.err.println("Exception when calling PreviewApi#getWorkflowById");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1035,7 +1035,7 @@ Name | Type | Description  | Notes
 
 > List&lt;CheckoutKey&gt; listCheckoutKeys(projectSlug)
 
-Get all checkout keys.
+Get all checkout keys
 
 Returns a sequence of checkout keys for &#x60;:project&#x60;.
 
@@ -1048,7 +1048,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1072,13 +1072,13 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
             List<CheckoutKey> result = apiInstance.listCheckoutKeys(projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listCheckoutKeys");
+            System.err.println("Exception when calling PreviewApi#listCheckoutKeys");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1118,7 +1118,7 @@ Name | Type | Description  | Notes
 
 > List&lt;EnvironmentVariablePair&gt; listEnvVars(projectSlug)
 
-Get an environment variable.
+Get an environment variable
 
 Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
 
@@ -1131,7 +1131,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1155,13 +1155,13 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
             List<EnvironmentVariablePair> result = apiInstance.listEnvVars(projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listEnvVars");
+            System.err.println("Exception when calling PreviewApi#listEnvVars");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1201,7 +1201,7 @@ Name | Type | Description  | Notes
 
 > PipelineListResponse listMyPipelines(projectSlug, pageToken)
 
-Get your pipelines.
+Get your pipelines
 
 Returns a sequence of all pipelines for this project triggered by the user.
 
@@ -1214,7 +1214,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1238,14 +1238,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
             PipelineListResponse result = apiInstance.listMyPipelines(projectSlug, pageToken);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listMyPipelines");
+            System.err.println("Exception when calling PreviewApi#listMyPipelines");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1286,7 +1286,7 @@ Name | Type | Description  | Notes
 
 > PipelineListResponse listPipelinesForProject(projectSlug, pageToken)
 
-Get all pipelines.
+Get all pipelines
 
 Returns all pipelines for this project.
 
@@ -1299,7 +1299,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1323,14 +1323,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
             PipelineListResponse result = apiInstance.listPipelinesForProject(projectSlug, pageToken);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listPipelinesForProject");
+            System.err.println("Exception when calling PreviewApi#listPipelinesForProject");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1371,7 +1371,7 @@ Name | Type | Description  | Notes
 
 > WorkflowJobListResponse listWorkflowJobs(id)
 
-Get a workflow&#39;s jobs.
+Get a workflow&#39;s jobs
 
 Returns a sequence of jobs for a workflow.
 
@@ -1384,7 +1384,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1408,13 +1408,13 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         UUID id = new UUID(); // UUID | The unique ID of the workflow.
         try {
             WorkflowJobListResponse result = apiInstance.listWorkflowJobs(id);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listWorkflowJobs");
+            System.err.println("Exception when calling PreviewApi#listWorkflowJobs");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1454,7 +1454,7 @@ Name | Type | Description  | Notes
 
 > PipelineLight triggerPipeline(projectSlug, triggerPipelineParameters)
 
-Trigger a new pipeline.
+Trigger a new pipeline
 
 Triggers a new pipeline on the project.
 
@@ -1467,7 +1467,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.Configuration;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.models.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.PreviewApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1491,14 +1491,14 @@ public class Example {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         TriggerPipelineParameters triggerPipelineParameters = new TriggerPipelineParameters(); // TriggerPipelineParameters | 
         try {
             PipelineLight result = apiInstance.triggerPipeline(projectSlug, triggerPipelineParameters);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#triggerPipeline");
+            System.err.println("Exception when calling PreviewApi#triggerPipeline");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

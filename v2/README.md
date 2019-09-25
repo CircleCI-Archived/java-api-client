@@ -75,9 +75,9 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.circleci.client.v2.*;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.model.*;
-import com.circleci.client.v2.api.DefaultApi;
+import com.circleci.client.v2.api.JobApi;
 
-public class DefaultApiExample {
+public class JobApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -100,14 +100,14 @@ public class DefaultApiExample {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        JobApi apiInstance = new JobApi(defaultClient);
         Object jobNumber = 123; // Object | The number of the job.
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
             Message result = apiInstance.cancelJob(jobNumber, projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#cancelJob");
+            System.err.println("Exception when calling JobApi#cancelJob");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,24 +124,42 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**cancelJob**](docs/DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job.
-*DefaultApi* | [**createCheckoutKey**](docs/DefaultApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key.
-*DefaultApi* | [**createEnvVar**](docs/DefaultApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable.
-*DefaultApi* | [**deleteCheckoutKey**](docs/DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key.
-*DefaultApi* | [**deleteEnvVar**](docs/DefaultApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable.
-*DefaultApi* | [**getCheckoutKey**](docs/DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key.
-*DefaultApi* | [**getCurrentUser**](docs/DefaultApi.md#getCurrentUser) | **GET** /me | Get the currently signed in user.
-*DefaultApi* | [**getEnvVar**](docs/DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables.
-*DefaultApi* | [**getPipelineById**](docs/DefaultApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline.
-*DefaultApi* | [**getPipelineConfigById**](docs/DefaultApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration.
-*DefaultApi* | [**getProjectBySlug**](docs/DefaultApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project.
-*DefaultApi* | [**getWorkflowById**](docs/DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow.
-*DefaultApi* | [**listCheckoutKeys**](docs/DefaultApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys.
-*DefaultApi* | [**listEnvVars**](docs/DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable.
-*DefaultApi* | [**listMyPipelines**](docs/DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines.
-*DefaultApi* | [**listPipelinesForProject**](docs/DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines.
-*DefaultApi* | [**listWorkflowJobs**](docs/DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/jobs | Get a workflow&#39;s jobs.
-*DefaultApi* | [**triggerPipeline**](docs/DefaultApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline.
+*JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job
+*PipelineApi* | [**getPipelineConfigById**](docs/PipelineApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
+*PipelineApi* | [**listMyPipelines**](docs/PipelineApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
+*PipelineApi* | [**listPipelinesForProject**](docs/PipelineApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
+*PipelineApi* | [**triggerPipeline**](docs/PipelineApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
+*PipelinesApi* | [**getPipelineById**](docs/PipelinesApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
+*PreviewApi* | [**cancelJob**](docs/PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job
+*PreviewApi* | [**createCheckoutKey**](docs/PreviewApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
+*PreviewApi* | [**createEnvVar**](docs/PreviewApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
+*PreviewApi* | [**deleteCheckoutKey**](docs/PreviewApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
+*PreviewApi* | [**deleteEnvVar**](docs/PreviewApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable
+*PreviewApi* | [**getCheckoutKey**](docs/PreviewApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
+*PreviewApi* | [**getCurrentUser**](docs/PreviewApi.md#getCurrentUser) | **GET** /me | User Information
+*PreviewApi* | [**getEnvVar**](docs/PreviewApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables
+*PreviewApi* | [**getPipelineById**](docs/PreviewApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
+*PreviewApi* | [**getPipelineConfigById**](docs/PreviewApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
+*PreviewApi* | [**getProjectBySlug**](docs/PreviewApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
+*PreviewApi* | [**getWorkflowById**](docs/PreviewApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
+*PreviewApi* | [**listCheckoutKeys**](docs/PreviewApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
+*PreviewApi* | [**listEnvVars**](docs/PreviewApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable
+*PreviewApi* | [**listMyPipelines**](docs/PreviewApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
+*PreviewApi* | [**listPipelinesForProject**](docs/PreviewApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
+*PreviewApi* | [**listWorkflowJobs**](docs/PreviewApi.md#listWorkflowJobs) | **GET** /workflow/{id}/jobs | Get a workflow&#39;s jobs
+*PreviewApi* | [**triggerPipeline**](docs/PreviewApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
+*ProjectApi* | [**createCheckoutKey**](docs/ProjectApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
+*ProjectApi* | [**createEnvVar**](docs/ProjectApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
+*ProjectApi* | [**deleteCheckoutKey**](docs/ProjectApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
+*ProjectApi* | [**deleteEnvVar**](docs/ProjectApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable
+*ProjectApi* | [**getCheckoutKey**](docs/ProjectApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
+*ProjectApi* | [**getEnvVar**](docs/ProjectApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables
+*ProjectApi* | [**getProjectBySlug**](docs/ProjectApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
+*ProjectApi* | [**listCheckoutKeys**](docs/ProjectApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
+*ProjectApi* | [**listEnvVars**](docs/ProjectApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable
+*UserApi* | [**getCurrentUser**](docs/UserApi.md#getCurrentUser) | **GET** /me | User Information
+*WorkflowApi* | [**getWorkflowById**](docs/WorkflowApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
+*WorkflowApi* | [**listWorkflowJobs**](docs/WorkflowApi.md#listWorkflowJobs) | **GET** /workflow/{id}/jobs | Get a workflow&#39;s jobs
 
 
 ## Documentation for Models
