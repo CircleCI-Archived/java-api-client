@@ -125,11 +125,11 @@ All URIs are relative to *https://circleci.com/api/v2*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job
+*PipelineApi* | [**getPipelineById**](docs/PipelineApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *PipelineApi* | [**getPipelineConfigById**](docs/PipelineApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *PipelineApi* | [**listMyPipelines**](docs/PipelineApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 *PipelineApi* | [**listPipelinesForProject**](docs/PipelineApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
 *PipelineApi* | [**triggerPipeline**](docs/PipelineApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
-*PipelinesApi* | [**getPipelineById**](docs/PipelinesApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *PreviewApi* | [**cancelJob**](docs/PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job
 *PreviewApi* | [**createCheckoutKey**](docs/PreviewApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
 *PreviewApi* | [**createEnvVar**](docs/PreviewApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable

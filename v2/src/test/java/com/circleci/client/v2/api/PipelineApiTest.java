@@ -17,6 +17,7 @@ import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.model.PipelineConfig;
 import com.circleci.client.v2.model.PipelineLight;
 import com.circleci.client.v2.model.PipelineListResponse;
+import com.circleci.client.v2.model.PipelineWithWorkflows;
 import com.circleci.client.v2.model.TriggerPipelineParameters;
 import java.util.UUID;
 import org.junit.Test;
@@ -35,6 +36,22 @@ public class PipelineApiTest {
 
     private final PipelineApi api = new PipelineApi();
 
+    
+    /**
+     * Get a pipeline
+     *
+     * Returns a pipeline by ID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getPipelineByIdTest() throws ApiException {
+        UUID pipelineId = null;
+        PipelineWithWorkflows response = api.getPipelineById(pipelineId);
+
+        // TODO: test validations
+    }
     
     /**
      * Get a pipeline&#39;s configuration

@@ -48,7 +48,7 @@ paths:
       summary: Get a pipeline
       description: Returns a pipeline by ID.
       tags:
-      - Pipelines
+      - Pipeline
       - Preview
       operationId: getPipelineById
       responses:
