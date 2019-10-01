@@ -75,9 +75,9 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.circleci.client.v2.*;
 import com.circleci.client.v2.auth.*;
 import com.circleci.client.v2.model.*;
-import com.circleci.client.v2.api.JobApi;
+import com.circleci.client.v2.api.DefaultApi;
 
-public class JobApiExample {
+public class DefaultApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -100,14 +100,14 @@ public class JobApiExample {
         basic_auth.setUsername("YOUR USERNAME");
         basic_auth.setPassword("YOUR PASSWORD");
 
-        JobApi apiInstance = new JobApi(defaultClient);
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
         Object jobNumber = 123; // Object | The number of the job.
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
-            Message result = apiInstance.cancelJob(jobNumber, projectSlug);
+            TestsResponse result = apiInstance.getTests(jobNumber, projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling JobApi#cancelJob");
+            System.err.println("Exception when calling DefaultApi#getTests");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,6 +124,7 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata.
 *JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job
 *PipelineApi* | [**getPipelineById**](docs/PipelineApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *PipelineApi* | [**getPipelineConfigById**](docs/PipelineApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
@@ -183,6 +184,8 @@ Class | Method | HTTP request | Description
  - [PipelineWithWorkflowsWorkflows](docs/PipelineWithWorkflowsWorkflows.md)
  - [Project](docs/Project.md)
  - [ProjectVcsInfo](docs/ProjectVcsInfo.md)
+ - [TestsResponse](docs/TestsResponse.md)
+ - [TestsResponseItems](docs/TestsResponseItems.md)
  - [TriggerPipelineParameters](docs/TriggerPipelineParameters.md)
  - [User](docs/User.md)
  - [Workflow](docs/Workflow.md)

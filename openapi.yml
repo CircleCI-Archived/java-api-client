@@ -1201,6 +1201,75 @@ paths:
         required: true
         example: gh/CircleCI-Public/api-preview-docs
         allowReserved: true
+  /project/{project-slug}/{job-number}/tests:
+    get:
+      summary: Get test metadata.
+      description: Get test metadata for a build.
+      operationId: getTests
+      responses:
+        '200':
+          description: the test results, paginated.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        message:
+                          type: string
+                          x-nullable: true
+                          description: The failure message associated with the test.
+                          example: ''
+                        file:
+                          type: string
+                          description: The file in which the test is defined.
+                          example: ''
+                        result:
+                          type: string
+                          description: Indication of whether the test succeeded.
+                          example: ''
+                        name:
+                          type: string
+                          description: The name of the test.
+                          example: ''
+                        classname:
+                          type: string
+                          description: The programmatic location of the test.
+                          example: ''
+                      required:
+                      - message
+                      - file
+                      - result
+                      - name
+                      - classname
+                    title: TestsResponse
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
+                required:
+                - items
+                - next_page_token
+                title: TestsResponse
+      parameters:
+      - in: path
+        name: job-number
+        description: The number of the job.
+        schema: {}
+        required: true
+        example: '123'
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
   /workflow/{id}:
     get:
       summary: Get a workflow
