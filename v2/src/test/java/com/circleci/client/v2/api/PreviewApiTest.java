@@ -18,7 +18,6 @@ import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
-import com.circleci.client.v2.model.Message;
 import com.circleci.client.v2.model.MessageResponse;
 import com.circleci.client.v2.model.PipelineConfig;
 import com.circleci.client.v2.model.PipelineLight;
@@ -59,7 +58,7 @@ public class PreviewApiTest {
     public void cancelJobTest() throws ApiException {
         Object jobNumber = null;
         String projectSlug = null;
-        Message response = api.cancelJob(jobNumber, projectSlug);
+        MessageResponse response = api.cancelJob(jobNumber, projectSlug);
 
         // TODO: test validations
     }

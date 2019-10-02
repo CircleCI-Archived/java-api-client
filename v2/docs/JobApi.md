@@ -4,13 +4,13 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelJob**](JobApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job
+[**cancelJob**](JobApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number} | Cancel job
 
 
 
 ## cancelJob
 
-> Message cancelJob(jobNumber, projectSlug)
+> MessageResponse cancelJob(jobNumber, projectSlug)
 
 Cancel job
 
@@ -53,7 +53,7 @@ public class Example {
         Object jobNumber = 123; // Object | The number of the job.
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
-            Message result = apiInstance.cancelJob(jobNumber, projectSlug);
+            MessageResponse result = apiInstance.cancelJob(jobNumber, projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling JobApi#cancelJob");
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Message**](Message.md)
+[**MessageResponse**](MessageResponse.md)
 
 ### Authorization
 

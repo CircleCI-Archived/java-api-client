@@ -1,12 +1,12 @@
 
 
-# Message
+# JobDetailsContexts
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** | Message. | 
+**name** | **String** | The name of the context. | 
 
 
 

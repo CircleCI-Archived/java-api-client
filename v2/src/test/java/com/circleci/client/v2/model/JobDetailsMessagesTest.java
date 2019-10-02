@@ -24,17 +24,25 @@ import org.junit.Test;
 
 
 /**
- * Model tests for Message
+ * Model tests for JobDetailsMessages
  */
-public class MessageTest {
-    private final Message model = new Message();
+public class JobDetailsMessagesTest {
+    private final JobDetailsMessages model = new JobDetailsMessages();
 
     /**
-     * Model tests for Message
+     * Model tests for JobDetailsMessages
      */
     @Test
-    public void testMessage() {
-        // TODO: test Message
+    public void testJobDetailsMessages() {
+        // TODO: test JobDetailsMessages
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
@@ -43,6 +51,14 @@ public class MessageTest {
     @Test
     public void messageTest() {
         // TODO: test message
+    }
+
+    /**
+     * Test the property 'reason'
+     */
+    @Test
+    public void reasonTest() {
+        // TODO: test reason
     }
 
 }

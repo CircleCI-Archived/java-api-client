@@ -20,33 +20,34 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 
 /**
- * Simple response message
+ * Info about a pipeline the job is a part of.
  */
-@ApiModel(description = "Simple response message")
+@ApiModel(description = "Info about a pipeline the job is a part of.")
 
-public class Message {
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  private String message;
+public class JobDetailsPipeline {
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
+  private UUID id;
 
-  public Message message(String message) {
-    this.message = message;
+  public JobDetailsPipeline id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Message.
-   * @return message
+   * The unique ID of the pipeline.
+   * @return id
   **/
-  @ApiModelProperty(required = true, value = "Message.")
-  public String getMessage() {
-    return message;
+  @ApiModelProperty(required = true, value = "The unique ID of the pipeline.")
+  public UUID getId() {
+    return id;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setId(UUID id) {
+    this.id = id;
   }
 
 
@@ -58,21 +59,21 @@ public class Message {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Message message = (Message) o;
-    return Objects.equals(this.message, message.message);
+    JobDetailsPipeline jobDetailsPipeline = (JobDetailsPipeline) o;
+    return Objects.equals(this.id, jobDetailsPipeline.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Message {\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("class JobDetailsPipeline {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

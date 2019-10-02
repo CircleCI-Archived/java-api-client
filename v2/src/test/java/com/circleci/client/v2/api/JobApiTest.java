@@ -14,7 +14,7 @@
 package com.circleci.client.v2.api;
 
 import com.circleci.client.v2.ApiException;
-import com.circleci.client.v2.model.Message;
+import com.circleci.client.v2.model.MessageResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +44,7 @@ public class JobApiTest {
     public void cancelJobTest() throws ApiException {
         Object jobNumber = null;
         String projectSlug = null;
-        Message response = api.cancelJob(jobNumber, projectSlug);
+        MessageResponse response = api.cancelJob(jobNumber, projectSlug);
 
         // TODO: test validations
     }

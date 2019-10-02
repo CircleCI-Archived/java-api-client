@@ -104,10 +104,10 @@ public class DefaultApiExample {
         Object jobNumber = 123; // Object | The number of the job.
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
-            TestsResponse result = apiInstance.getTests(jobNumber, projectSlug);
+            JobDetails result = apiInstance.getJobDetails(jobNumber, projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getTests");
+            System.err.println("Exception when calling DefaultApi#getJobDetails");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,14 +124,15 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**getJobDetails**](docs/DefaultApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details.
 *DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata.
-*JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job
+*JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number} | Cancel job
 *PipelineApi* | [**getPipelineById**](docs/PipelineApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *PipelineApi* | [**getPipelineConfigById**](docs/PipelineApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *PipelineApi* | [**listMyPipelines**](docs/PipelineApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 *PipelineApi* | [**listPipelinesForProject**](docs/PipelineApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
 *PipelineApi* | [**triggerPipeline**](docs/PipelineApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
-*PreviewApi* | [**cancelJob**](docs/PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/{job-number} | Cancel job
+*PreviewApi* | [**cancelJob**](docs/PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number} | Cancel job
 *PreviewApi* | [**createCheckoutKey**](docs/PreviewApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
 *PreviewApi* | [**createEnvVar**](docs/PreviewApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
 *PreviewApi* | [**deleteCheckoutKey**](docs/PreviewApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
@@ -170,7 +171,15 @@ Class | Method | HTTP request | Description
  - [EnvironmentVariablePair](docs/EnvironmentVariablePair.md)
  - [EnvironmentVariablePair1](docs/EnvironmentVariablePair1.md)
  - [Job](docs/Job.md)
- - [Message](docs/Message.md)
+ - [JobDetails](docs/JobDetails.md)
+ - [JobDetailsContexts](docs/JobDetailsContexts.md)
+ - [JobDetailsExecutor](docs/JobDetailsExecutor.md)
+ - [JobDetailsLatestWorkflow](docs/JobDetailsLatestWorkflow.md)
+ - [JobDetailsMessages](docs/JobDetailsMessages.md)
+ - [JobDetailsOrganization](docs/JobDetailsOrganization.md)
+ - [JobDetailsParallelRuns](docs/JobDetailsParallelRuns.md)
+ - [JobDetailsPipeline](docs/JobDetailsPipeline.md)
+ - [JobDetailsProject](docs/JobDetailsProject.md)
  - [MessageResponse](docs/MessageResponse.md)
  - [Pipeline](docs/Pipeline.md)
  - [PipelineConfig](docs/PipelineConfig.md)

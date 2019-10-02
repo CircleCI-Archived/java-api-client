@@ -8,7 +8,7 @@ import com.circleci.client.v2.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.circleci.client.v2.model.Message;
+import com.circleci.client.v2.model.MessageResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +40,7 @@ public class JobApi {
    * Cancel job with a given job number.
    * @param jobNumber The number of the job. (required)
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
-   * @return Message
+   * @return MessageResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -48,7 +48,7 @@ public class JobApi {
         <tr><td> 202 </td><td>  </td><td>  -  </td></tr>
      </table>
    */
-  public Message cancelJob(Object jobNumber, String projectSlug) throws ApiException {
+  public MessageResponse cancelJob(Object jobNumber, String projectSlug) throws ApiException {
     return cancelJobWithHttpInfo(jobNumber, projectSlug).getData();
       }
 
@@ -57,7 +57,7 @@ public class JobApi {
    * Cancel job with a given job number.
    * @param jobNumber The number of the job. (required)
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
-   * @return ApiResponse&lt;Message&gt;
+   * @return ApiResponse&lt;MessageResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -65,7 +65,7 @@ public class JobApi {
         <tr><td> 202 </td><td>  </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Message> cancelJobWithHttpInfo(Object jobNumber, String projectSlug) throws ApiException {
+  public ApiResponse<MessageResponse> cancelJobWithHttpInfo(Object jobNumber, String projectSlug) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'jobNumber' is set
@@ -79,7 +79,7 @@ public class JobApi {
     }
     
     // create path and map variables
-    String localVarPath = "/project/{project-slug}/{job-number}"
+    String localVarPath = "/project/{project-slug}/job/{job-number}"
       .replaceAll("\\{" + "job-number" + "\\}", apiClient.escapeString(jobNumber.toString()))
       .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()));
 
@@ -103,7 +103,7 @@ public class JobApi {
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<Message> localVarReturnType = new GenericType<Message>() {};
+    GenericType<MessageResponse> localVarReturnType = new GenericType<MessageResponse>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

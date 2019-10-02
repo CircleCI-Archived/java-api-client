@@ -724,6 +724,244 @@ paths:
           type: string
         required: true
         example: foo
+  /project/{project-slug}/job/{job-number}:
+    post:
+      summary: Cancel job
+      description: Cancel job with a given job number.
+      tags:
+      - Job
+      - Preview
+      operationId: cancelJob
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable message
+                required:
+                - message
+                description: message response
+                title: MessageResponse
+          description: ''
+      parameters:
+      - in: path
+        name: job-number
+        description: The number of the job.
+        schema: {}
+        required: true
+        example: '123'
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
+    get:
+      summary: Get job details.
+      description: Returns job details.
+      operationId: getJobDetails
+      responses:
+        200:
+          description: Job details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  web_url:
+                    type: string
+                    description: URL of the job in CircleCI Web UI.
+                  project:
+                    type: object
+                    properties:
+                      slug:
+                        type: string
+                        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+                        example: gh/CircleCI-Public/api-preview-docs
+                      name:
+                        type: string
+                        description: The name of the project
+                        example: api-preview-docs
+                      external_url:
+                        type: string
+                        description: URL to the repository hosting the project's code
+                        example: https://github.com/CircleCI-Public/api-preview-docs
+                    required:
+                    - slug
+                    - name
+                    - external_url
+                    description: Information about a project.
+                  parallel_runs:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        index:
+                          type: integer
+                          format: int64
+                          description: Index of the parallel run.
+                        status:
+                          type: string
+                          description: Status of the parallel run.
+                      required:
+                      - index
+                      - status
+                      description: Info about a status of the parallel run.
+                    description: Info about parallels runs and their status.
+                  started_at:
+                    type: string
+                    format: date-time
+                    description: The date and time the job started.
+                  latest_workflow:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                        description: The unique ID of the workflow.
+                      name:
+                        type: string
+                        description: The name of the workflow.
+                        example: build-and-test
+                    required:
+                    - id
+                    - name
+                    description: Info about the latest workflow the job was a part of.
+                  name:
+                    type: string
+                    description: The name of the job.
+                  executor:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        description: Executor type.
+                      resource_class:
+                        type: string
+                        description: Resource class name.
+                    required:
+                    - type
+                    - resource_class
+                    description: Information about executor used for a job.
+                  parallelism:
+                    type: integer
+                    format: int64
+                    description: A number of parallel runs the job has.
+                  status:
+                    description: The current status of the job.
+                  number:
+                    type: integer
+                    format: int64
+                    description: The number of the job.
+                  pipeline:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                        description: The unique ID of the pipeline.
+                    required:
+                    - id
+                    description: Info about a pipeline the job is a part of.
+                  duration:
+                    type: integer
+                    format: int64
+                    x-nullable: true
+                    description: Duration of a job in milliseconds.
+                  created_at:
+                    type: string
+                    format: date-time
+                    description: The time when the job was created.
+                  messages:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          description: Message type.
+                        message:
+                          type: string
+                          description: Information describing message.
+                        reason:
+                          type: string
+                          description: Value describing the reason for message to be added to the job.
+                      required:
+                      - type
+                      - message
+                      description: Message from CircleCI execution platform.
+                    description: Messages from CircleCI execution platform.
+                  contexts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: The name of the context.
+                      required:
+                      - name
+                      description: Information about the context.
+                    description: List of contexts used by the job.
+                  organization:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: The name of the organization.
+                    required:
+                    - name
+                    description: Information about an organization.
+                  queued_at:
+                    type: string
+                    format: date-time
+                    description: The time when the job was placed in a queue.
+                  stopped_at:
+                    type: string
+                    format: date-time
+                    x-nullable: true
+                    description: The time when the job stopped.
+                required:
+                - number
+                - name
+                - status
+                - started_at
+                - created_at
+                - queued_at
+                - duration
+                - executor
+                - project
+                - organization
+                - contexts
+                - web_url
+                - parallel_runs
+                - latest_workflow
+                - pipeline
+                - parallelism
+                - messages
+                description: Job Details
+                title: Job Details
+      parameters:
+      - in: path
+        name: job-number
+        description: The number of the job.
+        schema: {}
+        required: true
+        example: '123'
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
   /project/{project-slug}/pipeline:
     post:
       summary: Trigger a new pipeline
@@ -1163,44 +1401,6 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
-  /project/{project-slug}/{job-number}:
-    post:
-      summary: Cancel job
-      description: Cancel job with a given job number.
-      tags:
-      - Job
-      - Preview
-      operationId: cancelJob
-      responses:
-        202:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Message.
-                required:
-                - message
-                description: Simple response message
-                title: Message
-          description: ''
-      parameters:
-      - in: path
-        name: job-number
-        description: The number of the job.
-        schema: {}
-        required: true
-        example: '123'
-      - in: path
-        name: project-slug
-        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-        schema:
-          type: string
-        required: true
-        example: gh/CircleCI-Public/api-preview-docs
-        allowReserved: true
   /project/{project-slug}/{job-number}/tests:
     get:
       summary: Get test metadata.
@@ -1410,6 +1610,7 @@ paths:
                         stop_time:
                           type: string
                           format: date-time
+                          x-nullable: true
                           description: The time when the job stopped.
                         type:
                           enum:
