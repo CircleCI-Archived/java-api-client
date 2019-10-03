@@ -101,13 +101,11 @@ public class DefaultApiExample {
         basic_auth.setPassword("YOUR PASSWORD");
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
-        Object jobNumber = 123; // Object | The number of the job.
-        String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
-            JobDetails result = apiInstance.getJobDetails(jobNumber, projectSlug);
+            List<Collaboration> result = apiInstance.getCollaborations();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getJobDetails");
+            System.err.println("Exception when calling DefaultApi#getCollaborations");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,6 +122,7 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**getCollaborations**](docs/DefaultApi.md#getCollaborations) | **GET** /me/collaborations | The set of organziations for which a user is a member or a collaborator.
 *DefaultApi* | [**getJobDetails**](docs/DefaultApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details.
 *DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata.
 *JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number} | Cancel job
@@ -168,6 +167,7 @@ Class | Method | HTTP request | Description
 
  - [CheckoutKey](docs/CheckoutKey.md)
  - [CheckoutKeyInput](docs/CheckoutKeyInput.md)
+ - [Collaboration](docs/Collaboration.md)
  - [EnvironmentVariablePair](docs/EnvironmentVariablePair.md)
  - [EnvironmentVariablePair1](docs/EnvironmentVariablePair1.md)
  - [Job](docs/Job.md)

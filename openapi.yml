@@ -43,6 +43,35 @@ paths:
                 - login
                 - name
                 title: User
+  /me/collaborations:
+    get:
+      summary: The set of organziations for which a user is a member or a collaborator.
+      description: Provides all collaborations which are organizations including 1) orgs that the current user belongs to (BB & GH), 2) orgs that they do not belong to but they collaborate on repos (BB & GH), and 3) current user's account
+      operationId: getCollaborations
+      responses:
+        200:
+          description: Collaborations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    vcs-type:
+                      type: string
+                      description: The VCS provider
+                    name:
+                      type: string
+                      description: The name of the organization
+                    avatar_url:
+                      type: string
+                      description: URL to the user's avatar on the VCS
+                  required:
+                  - vcs-type
+                  - name
+                  - avatar_url
+                  title: Collaboration
   /pipeline/{pipeline-id}:
     get:
       summary: Get a pipeline

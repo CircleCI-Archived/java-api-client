@@ -14,6 +14,7 @@
 package com.circleci.client.v2.api;
 
 import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.model.Collaboration;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.TestsResponse;
 import org.junit.Test;
@@ -32,6 +33,21 @@ public class DefaultApiTest {
 
     private final DefaultApi api = new DefaultApi();
 
+    
+    /**
+     * The set of organziations for which a user is a member or a collaborator.
+     *
+     * Provides all collaborations which are organizations including 1) orgs that the current user belongs to (BB &amp; GH), 2) orgs that they do not belong to but they collaborate on repos (BB &amp; GH), and 3) current user&#39;s account
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getCollaborationsTest() throws ApiException {
+        List<Collaboration> response = api.getCollaborations();
+
+        // TODO: test validations
+    }
     
     /**
      * Get job details.
