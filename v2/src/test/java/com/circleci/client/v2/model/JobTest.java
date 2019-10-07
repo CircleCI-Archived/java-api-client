@@ -66,6 +66,14 @@ public class JobTest {
     }
 
     /**
+     * Test the property 'startedAt'
+     */
+    @Test
+    public void startedAtTest() {
+        // TODO: test startedAt
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
@@ -111,6 +119,14 @@ public class JobTest {
     @Test
     public void startTimeTest() {
         // TODO: test startTime
+    }
+
+    /**
+     * Test the property 'stoppedAt'
+     */
+    @Test
+    public void stoppedAtTest() {
+        // TODO: test stoppedAt
     }
 
 }

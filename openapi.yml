@@ -1627,6 +1627,10 @@ paths:
                           type: string
                           format: uuid
                           description: The unique ID of the job.
+                        started_at:
+                          type: string
+                          format: date-time
+                          description: The date and time the job started.
                         name:
                           type: string
                           description: The name of the job.
@@ -1651,11 +1655,17 @@ paths:
                           type: string
                           format: date-time
                           description: The date and time the job started.
+                        stopped_at:
+                          type: string
+                          format: date-time
+                          x-nullable: true
+                          description: The time when the job stopped.
                       required:
                       - id
                       - name
                       - job_number
                       - start_time
+                      - started_at
                       - dependencies
                       - project_slug
                       - status
