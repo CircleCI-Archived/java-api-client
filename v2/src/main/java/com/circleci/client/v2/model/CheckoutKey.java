@@ -78,9 +78,9 @@ public class CheckoutKey {
   @JsonProperty(JSON_PROPERTY_PREFERRED)
   private Boolean preferred;
 
-  public static final String JSON_PROPERTY_TIME = "time";
-  @JsonProperty(JSON_PROPERTY_TIME)
-  private OffsetDateTime time;
+  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  private OffsetDateTime createdAt;
 
   public CheckoutKey publicKey(String publicKey) {
     this.publicKey = publicKey;
@@ -154,22 +154,22 @@ public class CheckoutKey {
     this.preferred = preferred;
   }
 
-  public CheckoutKey time(OffsetDateTime time) {
-    this.time = time;
+  public CheckoutKey createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
     return this;
   }
 
    /**
    * The date and time the checkout key was created.
-   * @return time
+   * @return createdAt
   **/
   @ApiModelProperty(required = true, value = "The date and time the checkout key was created.")
-  public OffsetDateTime getTime() {
-    return time;
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
   }
 
-  public void setTime(OffsetDateTime time) {
-    this.time = time;
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
 
@@ -186,12 +186,12 @@ public class CheckoutKey {
         Objects.equals(this.type, checkoutKey.type) &&
         Objects.equals(this.fingerprint, checkoutKey.fingerprint) &&
         Objects.equals(this.preferred, checkoutKey.preferred) &&
-        Objects.equals(this.time, checkoutKey.time);
+        Objects.equals(this.createdAt, checkoutKey.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(publicKey, type, fingerprint, preferred, time);
+    return Objects.hash(publicKey, type, fingerprint, preferred, createdAt);
   }
 
 
@@ -203,7 +203,7 @@ public class CheckoutKey {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
     sb.append("    preferred: ").append(toIndentedString(preferred)).append("\n");
-    sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

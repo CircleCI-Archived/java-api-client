@@ -382,7 +382,7 @@ paths:
                       type: boolean
                       description: A boolean value that indicates if this key is preferred.
                       example: true
-                    time:
+                    created-at:
                       type: string
                       format: date-time
                       description: The date and time the checkout key was created.
@@ -392,7 +392,7 @@ paths:
                   - type
                   - fingerprint
                   - preferred
-                  - time
+                  - created-at
                   title: CheckoutKey
       parameters:
       - in: path
@@ -438,7 +438,7 @@ paths:
                     type: boolean
                     description: A boolean value that indicates if this key is preferred.
                     example: true
-                  time:
+                  created-at:
                     type: string
                     format: date-time
                     description: The date and time the checkout key was created.
@@ -448,7 +448,7 @@ paths:
                 - type
                 - fingerprint
                 - preferred
-                - time
+                - created-at
                 title: CheckoutKey
       parameters:
       - in: path
@@ -550,7 +550,7 @@ paths:
                     type: boolean
                     description: A boolean value that indicates if this key is preferred.
                     example: true
-                  time:
+                  created-at:
                     type: string
                     format: date-time
                     description: The date and time the checkout key was created.
@@ -560,7 +560,7 @@ paths:
                 - type
                 - fingerprint
                 - preferred
-                - time
+                - created-at
                 title: CheckoutKey
       parameters:
       - in: path

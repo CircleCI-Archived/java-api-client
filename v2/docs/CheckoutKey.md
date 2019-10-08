@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **type** | [**TypeEnum**](#TypeEnum) | The type of checkout key. This may be either &#x60;deploy-key&#x60; or &#x60;github-user-key&#x60;. | 
 **fingerprint** | **String** | An SSH key fingerprint. | 
 **preferred** | **Boolean** | A boolean value that indicates if this key is preferred. | 
-**time** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the checkout key was created. | 
+**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the checkout key was created. | 
 
 
 

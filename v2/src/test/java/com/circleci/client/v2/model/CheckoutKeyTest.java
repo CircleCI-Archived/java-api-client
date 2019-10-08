@@ -71,11 +71,11 @@ public class CheckoutKeyTest {
     }
 
     /**
-     * Test the property 'time'
+     * Test the property 'createdAt'
      */
     @Test
-    public void timeTest() {
-        // TODO: test time
+    public void createdAtTest() {
+        // TODO: test createdAt
     }
 
 }
