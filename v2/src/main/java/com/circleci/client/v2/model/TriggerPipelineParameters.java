@@ -87,7 +87,7 @@ public class TriggerPipelineParameters {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"deploy_prod\": true}", value = "An object containing pipeline parameters and their values.")
+  @ApiModelProperty(example = "{\"deploy_prod\":true}", value = "An object containing pipeline parameters and their values.")
   public Object getParameters() {
     return parameters;
   }

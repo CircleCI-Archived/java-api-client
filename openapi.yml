@@ -1065,7 +1065,8 @@ paths:
                 parameters:
                   type: object
                   description: An object containing pipeline parameters and their values.
-                  example: '{"deploy_prod": true}'
+                  example:
+                    deploy_prod: true
               x-nullable: true
               description: The information you can supply when triggering a pipeline.
               title: TriggerPipelineParameters
