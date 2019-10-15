@@ -1641,21 +1641,12 @@ paths:
                           example: gh/CircleCI-Public/api-preview-docs
                         status:
                           description: The current status of the job.
-                        stop_time:
-                          type: string
-                          format: date-time
-                          x-nullable: true
-                          description: The time when the job stopped.
                         type:
                           enum:
                           - build
                           - approval
                           type: string
                           description: The type of job.
-                        start_time:
-                          type: string
-                          format: date-time
-                          description: The date and time the job started.
                         stopped_at:
                           type: string
                           format: date-time
@@ -1665,7 +1656,6 @@ paths:
                       - id
                       - name
                       - job_number
-                      - start_time
                       - started_at
                       - dependencies
                       - project_slug

@@ -13,9 +13,7 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the job. | 
 **projectSlug** | **String** | The project-slug for the job. | 
 **status** | **Object** | The current status of the job. | 
-**stopTime** | [**OffsetDateTime**](OffsetDateTime.md) | The time when the job stopped. |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | The type of job. | 
-**startTime** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the job started. | 
 **stoppedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The time when the job stopped. |  [optional]
 
 

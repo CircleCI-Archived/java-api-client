@@ -59,10 +59,6 @@ public class Job {
   @JsonProperty(JSON_PROPERTY_STATUS)
   private Object status = null;
 
-  public static final String JSON_PROPERTY_STOP_TIME = "stop_time";
-  @JsonProperty(JSON_PROPERTY_STOP_TIME)
-  private OffsetDateTime stopTime;
-
   /**
    * The type of job.
    */
@@ -101,10 +97,6 @@ public class Job {
   public static final String JSON_PROPERTY_TYPE = "type";
   @JsonProperty(JSON_PROPERTY_TYPE)
   private TypeEnum type;
-
-  public static final String JSON_PROPERTY_START_TIME = "start_time";
-  @JsonProperty(JSON_PROPERTY_START_TIME)
-  private OffsetDateTime startTime;
 
   public static final String JSON_PROPERTY_STOPPED_AT = "stopped_at";
   @JsonProperty(JSON_PROPERTY_STOPPED_AT)
@@ -241,25 +233,6 @@ public class Job {
     this.status = status;
   }
 
-  public Job stopTime(OffsetDateTime stopTime) {
-    this.stopTime = stopTime;
-    return this;
-  }
-
-   /**
-   * The time when the job stopped.
-   * @return stopTime
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The time when the job stopped.")
-  public OffsetDateTime getStopTime() {
-    return stopTime;
-  }
-
-  public void setStopTime(OffsetDateTime stopTime) {
-    this.stopTime = stopTime;
-  }
-
   public Job type(TypeEnum type) {
     this.type = type;
     return this;
@@ -276,24 +249,6 @@ public class Job {
 
   public void setType(TypeEnum type) {
     this.type = type;
-  }
-
-  public Job startTime(OffsetDateTime startTime) {
-    this.startTime = startTime;
-    return this;
-  }
-
-   /**
-   * The date and time the job started.
-   * @return startTime
-  **/
-  @ApiModelProperty(required = true, value = "The date and time the job started.")
-  public OffsetDateTime getStartTime() {
-    return startTime;
-  }
-
-  public void setStartTime(OffsetDateTime startTime) {
-    this.startTime = startTime;
   }
 
   public Job stoppedAt(OffsetDateTime stoppedAt) {
@@ -332,15 +287,13 @@ public class Job {
         Objects.equals(this.name, job.name) &&
         Objects.equals(this.projectSlug, job.projectSlug) &&
         Objects.equals(this.status, job.status) &&
-        Objects.equals(this.stopTime, job.stopTime) &&
         Objects.equals(this.type, job.type) &&
-        Objects.equals(this.startTime, job.startTime) &&
         Objects.equals(this.stoppedAt, job.stoppedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dependencies, jobNumber, id, startedAt, name, projectSlug, status, stopTime, type, startTime, stoppedAt);
+    return Objects.hash(dependencies, jobNumber, id, startedAt, name, projectSlug, status, type, stoppedAt);
   }
 
 
@@ -355,9 +308,7 @@ public class Job {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectSlug: ").append(toIndentedString(projectSlug)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    stopTime: ").append(toIndentedString(stopTime)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    stoppedAt: ").append(toIndentedString(stoppedAt)).append("\n");
     sb.append("}");
     return sb.toString();

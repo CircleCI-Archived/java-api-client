@@ -98,27 +98,11 @@ public class JobTest {
     }
 
     /**
-     * Test the property 'stopTime'
-     */
-    @Test
-    public void stopTimeTest() {
-        // TODO: test stopTime
-    }
-
-    /**
      * Test the property 'type'
      */
     @Test
     public void typeTest() {
         // TODO: test type
-    }
-
-    /**
-     * Test the property 'startTime'
-     */
-    @Test
-    public void startTimeTest() {
-        // TODO: test startTime
     }
 
     /**
