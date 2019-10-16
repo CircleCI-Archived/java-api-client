@@ -754,43 +754,6 @@ paths:
         required: true
         example: foo
   /project/{project-slug}/job/{job-number}:
-    post:
-      summary: Cancel job
-      description: Cancel job with a given job number.
-      tags:
-      - Job
-      - Preview
-      operationId: cancelJob
-      responses:
-        202:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: A human-readable message
-                required:
-                - message
-                description: message response
-                title: MessageResponse
-          description: ''
-      parameters:
-      - in: path
-        name: job-number
-        description: The number of the job.
-        schema: {}
-        required: true
-        example: '123'
-      - in: path
-        name: project-slug
-        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-        schema:
-          type: string
-        required: true
-        example: gh/CircleCI-Public/api-preview-docs
-        allowReserved: true
     get:
       summary: Get job details.
       description: Returns job details.
@@ -976,6 +939,44 @@ paths:
                 - messages
                 description: Job Details
                 title: Job Details
+      parameters:
+      - in: path
+        name: job-number
+        description: The number of the job.
+        schema: {}
+        required: true
+        example: '123'
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
+  /project/{project-slug}/job/{job-number}/cancel:
+    post:
+      summary: Cancel job
+      description: Cancel job with a given job number.
+      tags:
+      - Job
+      - Preview
+      operationId: cancelJob
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable message
+                required:
+                - message
+                description: message response
+                title: MessageResponse
+          description: ''
       parameters:
       - in: path
         name: job-number

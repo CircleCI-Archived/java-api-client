@@ -125,13 +125,13 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getCollaborations**](docs/DefaultApi.md#getCollaborations) | **GET** /me/collaborations | The set of organziations for which a user is a member or a collaborator.
 *DefaultApi* | [**getJobDetails**](docs/DefaultApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details.
 *DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata.
-*JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number} | Cancel job
+*JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 *PipelineApi* | [**getPipelineById**](docs/PipelineApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *PipelineApi* | [**getPipelineConfigById**](docs/PipelineApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *PipelineApi* | [**listMyPipelines**](docs/PipelineApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 *PipelineApi* | [**listPipelinesForProject**](docs/PipelineApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
 *PipelineApi* | [**triggerPipeline**](docs/PipelineApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
-*PreviewApi* | [**cancelJob**](docs/PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number} | Cancel job
+*PreviewApi* | [**cancelJob**](docs/PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 *PreviewApi* | [**createCheckoutKey**](docs/PreviewApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
 *PreviewApi* | [**createEnvVar**](docs/PreviewApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
 *PreviewApi* | [**deleteCheckoutKey**](docs/PreviewApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key

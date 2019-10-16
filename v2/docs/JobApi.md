@@ -4,7 +4,7 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelJob**](JobApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number} | Cancel job
+[**cancelJob**](JobApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 
 
 

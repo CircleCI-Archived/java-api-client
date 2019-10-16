@@ -4,7 +4,7 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelJob**](PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number} | Cancel job
+[**cancelJob**](PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 [**createCheckoutKey**](PreviewApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
 [**createEnvVar**](PreviewApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
 [**deleteCheckoutKey**](PreviewApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
