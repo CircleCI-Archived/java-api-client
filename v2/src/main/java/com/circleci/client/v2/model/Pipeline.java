@@ -60,21 +60,9 @@ public class Pipeline {
   public enum StateEnum {
     CREATED("created"),
     
-    RUNNING("running"),
-    
-    FAILED("failed"),
-    
     ERRORED("errored"),
     
-    SUCCESSFUL("successful"),
-    
-    ON_HOLD("on_hold"),
-    
-    BLOCKED("blocked"),
-    
-    PENDING("pending"),
-    
-    CANCELED("canceled");
+    PENDING("pending");
 
     private String value;
 

@@ -144,14 +144,8 @@ paths:
                   state:
                     enum:
                     - created
-                    - running
-                    - failed
                     - errored
-                    - successful
-                    - on_hold
-                    - blocked
                     - pending
-                    - canceled
                     type: string
                     description: The current state of the pipeline.
                   created_at:
@@ -1015,14 +1009,8 @@ paths:
                   state:
                     enum:
                     - created
-                    - running
-                    - failed
                     - errored
-                    - successful
-                    - on_hold
-                    - blocked
                     - pending
-                    - canceled
                     type: string
                     description: The current state of the pipeline.
                   number:
@@ -1135,14 +1123,8 @@ paths:
                         state:
                           enum:
                           - created
-                          - running
-                          - failed
                           - errored
-                          - successful
-                          - on_hold
-                          - blocked
                           - pending
-                          - canceled
                           type: string
                           description: The current state of the pipeline.
                         created_at:
@@ -1316,14 +1298,8 @@ paths:
                         state:
                           enum:
                           - created
-                          - running
-                          - failed
                           - errored
-                          - successful
-                          - on_hold
-                          - blocked
                           - pending
-                          - canceled
                           type: string
                           description: The current state of the pipeline.
                         created_at:

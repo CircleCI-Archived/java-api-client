@@ -23,14 +23,8 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 CREATED | &quot;created&quot;
-RUNNING | &quot;running&quot;
-FAILED | &quot;failed&quot;
 ERRORED | &quot;errored&quot;
-SUCCESSFUL | &quot;successful&quot;
-ON_HOLD | &quot;on_hold&quot;
-BLOCKED | &quot;blocked&quot;
 PENDING | &quot;pending&quot;
-CANCELED | &quot;canceled&quot;
 
 
 
