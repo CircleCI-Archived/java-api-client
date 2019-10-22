@@ -256,5 +256,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | the test results, paginated. |  -  |
+| **200** | A paginated list of test results. |  -  |
 

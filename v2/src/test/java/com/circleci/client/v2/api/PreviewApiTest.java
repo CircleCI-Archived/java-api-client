@@ -14,6 +14,7 @@
 package com.circleci.client.v2.api;
 
 import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.model.ArtifactListResponse;
 import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
@@ -176,6 +177,23 @@ public class PreviewApiTest {
         String projectSlug = null;
         String name = null;
         EnvironmentVariablePair response = api.getEnvVar(projectSlug, name);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a job&#39;s artifacts
+     *
+     * Returns a job&#39;s artifacts.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getJobArtifactsTest() throws ApiException {
+        Object jobNumber = null;
+        String projectSlug = null;
+        ArtifactListResponse response = api.getJobArtifacts(jobNumber, projectSlug);
 
         // TODO: test validations
     }

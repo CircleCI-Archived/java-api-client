@@ -1408,14 +1408,75 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
+  /project/{project-slug}/{job-number}/artifacts:
+    get:
+      summary: Get a job's artifacts
+      description: Returns a job's artifacts.
+      tags:
+      - Job
+      - Preview
+      operationId: getJobArtifacts
+      responses:
+        200:
+          description: A paginated list of the job's artifacts.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                          description: The artifact path.
+                        node_index:
+                          type: integer
+                          format: int64
+                          minimum: 0
+                          description: The index of the node that stored the artifact.
+                        url:
+                          type: string
+                          description: The URL to download the artifact contents.
+                      required:
+                      - path
+                      - node_index
+                      - url
+                      description: An artifact
+                      title: Artifact
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
+                required:
+                - items
+                - next_page_token
+                title: ArtifactListResponse
+      parameters:
+      - in: path
+        name: job-number
+        description: The number of the job.
+        schema: {}
+        required: true
+        example: '123'
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
   /project/{project-slug}/{job-number}/tests:
     get:
       summary: Get test metadata.
       description: Get test metadata for a build.
       operationId: getTests
       responses:
-        '200':
-          description: the test results, paginated.
+        200:
+          description: A paginated list of test results.
           content:
             application/json:
               schema:

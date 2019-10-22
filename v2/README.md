@@ -126,6 +126,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getJobDetails**](docs/DefaultApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details.
 *DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata.
 *JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
+*JobApi* | [**getJobArtifacts**](docs/JobApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
 *PipelineApi* | [**getPipelineById**](docs/PipelineApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *PipelineApi* | [**getPipelineConfigById**](docs/PipelineApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *PipelineApi* | [**listMyPipelines**](docs/PipelineApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
@@ -139,6 +140,7 @@ Class | Method | HTTP request | Description
 *PreviewApi* | [**getCheckoutKey**](docs/PreviewApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
 *PreviewApi* | [**getCurrentUser**](docs/PreviewApi.md#getCurrentUser) | **GET** /me | User Information
 *PreviewApi* | [**getEnvVar**](docs/PreviewApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables
+*PreviewApi* | [**getJobArtifacts**](docs/PreviewApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
 *PreviewApi* | [**getPipelineById**](docs/PreviewApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *PreviewApi* | [**getPipelineConfigById**](docs/PreviewApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *PreviewApi* | [**getProjectBySlug**](docs/PreviewApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
@@ -165,6 +167,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [Artifact](docs/Artifact.md)
+ - [ArtifactListResponse](docs/ArtifactListResponse.md)
  - [CheckoutKey](docs/CheckoutKey.md)
  - [CheckoutKeyInput](docs/CheckoutKeyInput.md)
  - [Collaboration](docs/Collaboration.md)

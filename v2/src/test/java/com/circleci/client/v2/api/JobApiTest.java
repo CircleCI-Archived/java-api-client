@@ -14,6 +14,7 @@
 package com.circleci.client.v2.api;
 
 import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.model.ArtifactListResponse;
 import com.circleci.client.v2.model.MessageResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -45,6 +46,23 @@ public class JobApiTest {
         Object jobNumber = null;
         String projectSlug = null;
         MessageResponse response = api.cancelJob(jobNumber, projectSlug);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a job&#39;s artifacts
+     *
+     * Returns a job&#39;s artifacts.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getJobArtifactsTest() throws ApiException {
+        Object jobNumber = null;
+        String projectSlug = null;
+        ArtifactListResponse response = api.getJobArtifacts(jobNumber, projectSlug);
 
         // TODO: test validations
     }

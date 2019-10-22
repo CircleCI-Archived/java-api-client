@@ -173,7 +173,7 @@ public class DefaultApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> the test results, paginated. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A paginated list of test results. </td><td>  -  </td></tr>
      </table>
    */
   public TestsResponse getTests(Object jobNumber, String projectSlug) throws ApiException {
@@ -190,7 +190,7 @@ public class DefaultApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> the test results, paginated. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A paginated list of test results. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<TestsResponse> getTestsWithHttpInfo(Object jobNumber, String projectSlug) throws ApiException {
