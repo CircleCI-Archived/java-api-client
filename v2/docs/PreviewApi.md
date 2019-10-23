@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | The checkout key. |  -  |
+| **201** | The checkout key. |  -  |
 
 
 ## createEnvVar

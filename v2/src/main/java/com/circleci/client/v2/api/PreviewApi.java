@@ -194,7 +194,7 @@ public class PreviewApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> The checkout key. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The checkout key. </td><td>  -  </td></tr>
      </table>
    */
   public CheckoutKey createCheckoutKey(String projectSlug, CheckoutKeyInput checkoutKeyInput) throws ApiException {
@@ -211,7 +211,7 @@ public class PreviewApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> The checkout key. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The checkout key. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<CheckoutKey> createCheckoutKeyWithHttpInfo(String projectSlug, CheckoutKeyInput checkoutKeyInput) throws ApiException {
