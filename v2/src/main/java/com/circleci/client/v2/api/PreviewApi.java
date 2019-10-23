@@ -122,6 +122,69 @@ public class PreviewApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Cancel a workflow
+   * Cancels a running workflow.
+   * @param id The unique ID of the workflow. (required)
+   * @return MessageResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+     </table>
+   */
+  public MessageResponse cancelWorkflow(UUID id) throws ApiException {
+    return cancelWorkflowWithHttpInfo(id).getData();
+      }
+
+  /**
+   * Cancel a workflow
+   * Cancels a running workflow.
+   * @param id The unique ID of the workflow. (required)
+   * @return ApiResponse&lt;MessageResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<MessageResponse> cancelWorkflowWithHttpInfo(UUID id) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling cancelWorkflow");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/workflow/{id}/cancel"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<MessageResponse> localVarReturnType = new GenericType<MessageResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Create a new checkout key
    * Creates a new checkout key. This API request is only usable with a user API token.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)

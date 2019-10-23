@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *PipelineApi* | [**listPipelinesForProject**](docs/PipelineApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
 *PipelineApi* | [**triggerPipeline**](docs/PipelineApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
 *PreviewApi* | [**cancelJob**](docs/PreviewApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
+*PreviewApi* | [**cancelWorkflow**](docs/PreviewApi.md#cancelWorkflow) | **POST** /workflow/{id}/cancel | Cancel a workflow
 *PreviewApi* | [**createCheckoutKey**](docs/PreviewApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
 *PreviewApi* | [**createEnvVar**](docs/PreviewApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
 *PreviewApi* | [**deleteCheckoutKey**](docs/PreviewApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
@@ -161,6 +162,7 @@ Class | Method | HTTP request | Description
 *ProjectApi* | [**listCheckoutKeys**](docs/ProjectApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
 *ProjectApi* | [**listEnvVars**](docs/ProjectApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable
 *UserApi* | [**getCurrentUser**](docs/UserApi.md#getCurrentUser) | **GET** /me | User Information
+*WorkflowApi* | [**cancelWorkflow**](docs/WorkflowApi.md#cancelWorkflow) | **POST** /workflow/{id}/cancel | Cancel a workflow
 *WorkflowApi* | [**getWorkflowById**](docs/WorkflowApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
 *WorkflowApi* | [**listWorkflowJobs**](docs/WorkflowApi.md#listWorkflowJobs) | **GET** /workflow/{id}/jobs | Get a workflow&#39;s jobs
 

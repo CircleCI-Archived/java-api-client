@@ -14,6 +14,7 @@
 package com.circleci.client.v2.api;
 
 import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.model.MessageResponse;
 import java.util.UUID;
 import com.circleci.client.v2.model.Workflow;
 import com.circleci.client.v2.model.WorkflowJobListResponse;
@@ -33,6 +34,22 @@ public class WorkflowApiTest {
 
     private final WorkflowApi api = new WorkflowApi();
 
+    
+    /**
+     * Cancel a workflow
+     *
+     * Cancels a running workflow.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void cancelWorkflowTest() throws ApiException {
+        UUID id = null;
+        MessageResponse response = api.cancelWorkflow(id);
+
+        // TODO: test validations
+    }
     
     /**
      * Get a workflow

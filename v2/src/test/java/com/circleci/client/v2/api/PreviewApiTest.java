@@ -65,6 +65,22 @@ public class PreviewApiTest {
     }
     
     /**
+     * Cancel a workflow
+     *
+     * Cancels a running workflow.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void cancelWorkflowTest() throws ApiException {
+        UUID id = null;
+        MessageResponse response = api.cancelWorkflow(id);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new checkout key
      *
      * Creates a new checkout key. This API request is only usable with a user API token.

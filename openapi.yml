@@ -1558,6 +1558,10 @@ paths:
               operationId: listWorkflowJobs
               parameters:
                 id: $response.body#/id
+            CancelWorkflow:
+              operationId: cancelWorkflow
+              parameters:
+                id: $response.body#/id
           content:
             application/json:
               schema:
@@ -1616,6 +1620,37 @@ paths:
                 - project_slug
                 description: A workflow
                 title: Workflow
+      parameters:
+      - in: path
+        name: id
+        description: The unique ID of the workflow.
+        schema:
+          type: string
+          format: uuid
+        required: true
+  /workflow/{id}/cancel:
+    post:
+      summary: Cancel a workflow
+      description: Cancels a running workflow.
+      tags:
+      - Workflow
+      - Preview
+      operationId: cancelWorkflow
+      responses:
+        202:
+          description: A confirmation message.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable message
+                required:
+                - message
+                description: message response
+                title: MessageResponse
       parameters:
       - in: path
         name: id
