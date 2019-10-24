@@ -1203,7 +1203,7 @@ Name | Type | Description  | Notes
 
 ## listCheckoutKeys
 
-> List&lt;CheckoutKey&gt; listCheckoutKeys(projectSlug)
+> CheckoutKeyListResponse listCheckoutKeys(projectSlug)
 
 Get all checkout keys
 
@@ -1245,7 +1245,7 @@ public class Example {
         PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
-            List<CheckoutKey> result = apiInstance.listCheckoutKeys(projectSlug);
+            CheckoutKeyListResponse result = apiInstance.listCheckoutKeys(projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PreviewApi#listCheckoutKeys");
@@ -1267,7 +1267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;CheckoutKey&gt;**](CheckoutKey.md)
+[**CheckoutKeyListResponse**](CheckoutKeyListResponse.md)
 
 ### Authorization
 
@@ -1286,7 +1286,7 @@ Name | Type | Description  | Notes
 
 ## listEnvVars
 
-> List&lt;EnvironmentVariablePair&gt; listEnvVars(projectSlug)
+> EnvironmentVariableListResponse listEnvVars(projectSlug)
 
 Get an environment variable
 
@@ -1328,7 +1328,7 @@ public class Example {
         PreviewApi apiInstance = new PreviewApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         try {
-            List<EnvironmentVariablePair> result = apiInstance.listEnvVars(projectSlug);
+            EnvironmentVariableListResponse result = apiInstance.listEnvVars(projectSlug);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PreviewApi#listEnvVars");
@@ -1350,7 +1350,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;EnvironmentVariablePair&gt;**](EnvironmentVariablePair.md)
+[**EnvironmentVariableListResponse**](EnvironmentVariableListResponse.md)
 
 ### Authorization
 

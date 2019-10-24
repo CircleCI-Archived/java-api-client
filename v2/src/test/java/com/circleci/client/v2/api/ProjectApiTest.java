@@ -16,6 +16,8 @@ package com.circleci.client.v2.api;
 import com.circleci.client.v2.ApiException;
 import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
+import com.circleci.client.v2.model.CheckoutKeyListResponse;
+import com.circleci.client.v2.model.EnvironmentVariableListResponse;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
 import com.circleci.client.v2.model.MessageResponse;
@@ -166,7 +168,7 @@ public class ProjectApiTest {
     @Test
     public void listCheckoutKeysTest() throws ApiException {
         String projectSlug = null;
-        List<CheckoutKey> response = api.listCheckoutKeys(projectSlug);
+        CheckoutKeyListResponse response = api.listCheckoutKeys(projectSlug);
 
         // TODO: test validations
     }
@@ -182,7 +184,7 @@ public class ProjectApiTest {
     @Test
     public void listEnvVarsTest() throws ApiException {
         String projectSlug = null;
-        List<EnvironmentVariablePair> response = api.listEnvVars(projectSlug);
+        EnvironmentVariableListResponse response = api.listEnvVars(projectSlug);
 
         // TODO: test validations
     }

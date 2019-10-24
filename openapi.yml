@@ -352,42 +352,53 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    public-key:
-                      type: string
-                      description: A public SSH key.
-                      example: ssh-rsa ...
-                    type:
-                      enum:
-                      - deploy-key
-                      - github-user-key
-                      type: string
-                      description: The type of checkout key. This may be either `deploy-key` or `github-user-key`.
-                      title: CheckoutKeyType
-                      example: deploy-key
-                    fingerprint:
-                      type: string
-                      description: An SSH key fingerprint.
-                      example: c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f
-                    preferred:
-                      type: boolean
-                      description: A boolean value that indicates if this key is preferred.
-                      example: true
-                    created-at:
-                      type: string
-                      format: date-time
-                      description: The date and time the checkout key was created.
-                      example: '2015-09-21T17:29:21.042Z'
-                  required:
-                  - public-key
-                  - type
-                  - fingerprint
-                  - preferred
-                  - created-at
-                  title: CheckoutKey
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        public-key:
+                          type: string
+                          description: A public SSH key.
+                          example: ssh-rsa ...
+                        type:
+                          enum:
+                          - deploy-key
+                          - github-user-key
+                          type: string
+                          description: The type of checkout key. This may be either `deploy-key` or `github-user-key`.
+                          title: CheckoutKeyType
+                          example: deploy-key
+                        fingerprint:
+                          type: string
+                          description: An SSH key fingerprint.
+                          example: c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f
+                        preferred:
+                          type: boolean
+                          description: A boolean value that indicates if this key is preferred.
+                          example: true
+                        created-at:
+                          type: string
+                          format: date-time
+                          description: The date and time the checkout key was created.
+                          example: '2015-09-21T17:29:21.042Z'
+                      required:
+                      - public-key
+                      - type
+                      - fingerprint
+                      - preferred
+                      - created-at
+                      title: CheckoutKey
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
+                required:
+                - items
+                - next_page_token
+                title: CheckoutKeyListResponse
       parameters:
       - in: path
         name: project-slug
@@ -586,22 +597,33 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                      description: The name of the environment variable.
-                      example: foo
-                    value:
-                      type: string
-                      description: The value of the environment variable.
-                      example: xxxx1234
-                  required:
-                  - name
-                  - value
-                  title: EnvironmentVariablePair
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: The name of the environment variable.
+                          example: foo
+                        value:
+                          type: string
+                          description: The value of the environment variable.
+                          example: xxxx1234
+                      required:
+                      - name
+                      - value
+                      title: EnvironmentVariablePair
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
+                required:
+                - items
+                - next_page_token
+                title: EnvironmentVariableListResponse
       parameters:
       - in: path
         name: project-slug

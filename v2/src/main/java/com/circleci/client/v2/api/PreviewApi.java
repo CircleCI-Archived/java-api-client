@@ -11,6 +11,8 @@ import javax.ws.rs.core.GenericType;
 import com.circleci.client.v2.model.ArtifactListResponse;
 import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
+import com.circleci.client.v2.model.CheckoutKeyListResponse;
+import com.circleci.client.v2.model.EnvironmentVariableListResponse;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
 import com.circleci.client.v2.model.MessageResponse;
@@ -980,7 +982,7 @@ public class PreviewApi {
    * Get all checkout keys
    * Returns a sequence of checkout keys for &#x60;:project&#x60;.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
-   * @return List&lt;CheckoutKey&gt;
+   * @return CheckoutKeyListResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -988,7 +990,7 @@ public class PreviewApi {
         <tr><td> 200 </td><td> A sequence of checkout keys. </td><td>  -  </td></tr>
      </table>
    */
-  public List<CheckoutKey> listCheckoutKeys(String projectSlug) throws ApiException {
+  public CheckoutKeyListResponse listCheckoutKeys(String projectSlug) throws ApiException {
     return listCheckoutKeysWithHttpInfo(projectSlug).getData();
       }
 
@@ -996,7 +998,7 @@ public class PreviewApi {
    * Get all checkout keys
    * Returns a sequence of checkout keys for &#x60;:project&#x60;.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
-   * @return ApiResponse&lt;List&lt;CheckoutKey&gt;&gt;
+   * @return ApiResponse&lt;CheckoutKeyListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1004,7 +1006,7 @@ public class PreviewApi {
         <tr><td> 200 </td><td> A sequence of checkout keys. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<List<CheckoutKey>> listCheckoutKeysWithHttpInfo(String projectSlug) throws ApiException {
+  public ApiResponse<CheckoutKeyListResponse> listCheckoutKeysWithHttpInfo(String projectSlug) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1036,14 +1038,14 @@ public class PreviewApi {
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<List<CheckoutKey>> localVarReturnType = new GenericType<List<CheckoutKey>>() {};
+    GenericType<CheckoutKeyListResponse> localVarReturnType = new GenericType<CheckoutKeyListResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Get an environment variable
    * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
-   * @return List&lt;EnvironmentVariablePair&gt;
+   * @return EnvironmentVariableListResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1051,7 +1053,7 @@ public class PreviewApi {
         <tr><td> 200 </td><td> A sequence of environment variables. </td><td>  -  </td></tr>
      </table>
    */
-  public List<EnvironmentVariablePair> listEnvVars(String projectSlug) throws ApiException {
+  public EnvironmentVariableListResponse listEnvVars(String projectSlug) throws ApiException {
     return listEnvVarsWithHttpInfo(projectSlug).getData();
       }
 
@@ -1059,7 +1061,7 @@ public class PreviewApi {
    * Get an environment variable
    * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
-   * @return ApiResponse&lt;List&lt;EnvironmentVariablePair&gt;&gt;
+   * @return ApiResponse&lt;EnvironmentVariableListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1067,7 +1069,7 @@ public class PreviewApi {
         <tr><td> 200 </td><td> A sequence of environment variables. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<List<EnvironmentVariablePair>> listEnvVarsWithHttpInfo(String projectSlug) throws ApiException {
+  public ApiResponse<EnvironmentVariableListResponse> listEnvVarsWithHttpInfo(String projectSlug) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1099,7 +1101,7 @@ public class PreviewApi {
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<List<EnvironmentVariablePair>> localVarReturnType = new GenericType<List<EnvironmentVariablePair>>() {};
+    GenericType<EnvironmentVariableListResponse> localVarReturnType = new GenericType<EnvironmentVariableListResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
