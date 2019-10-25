@@ -771,8 +771,11 @@ paths:
         example: foo
   /project/{project-slug}/job/{job-number}:
     get:
-      summary: Get job details.
+      summary: Get job details
       description: Returns job details.
+      tags:
+      - Job
+      - Preview
       operationId: getJobDetails
       responses:
         200:
@@ -1493,8 +1496,11 @@ paths:
         allowReserved: true
   /project/{project-slug}/{job-number}/tests:
     get:
-      summary: Get test metadata.
+      summary: Get test metadata
       description: Get test metadata for a build.
+      tags:
+      - Job
+      - Preview
       operationId: getTests
       responses:
         200:

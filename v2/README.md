@@ -123,10 +123,10 @@ All URIs are relative to *https://circleci.com/api/v2*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**getCollaborations**](docs/DefaultApi.md#getCollaborations) | **GET** /me/collaborations | The set of organziations for which a user is a member or a collaborator.
-*DefaultApi* | [**getJobDetails**](docs/DefaultApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details.
-*DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata.
 *JobApi* | [**cancelJob**](docs/JobApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 *JobApi* | [**getJobArtifacts**](docs/JobApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
+*JobApi* | [**getJobDetails**](docs/JobApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details
+*JobApi* | [**getTests**](docs/JobApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
 *PipelineApi* | [**getPipelineById**](docs/PipelineApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *PipelineApi* | [**getPipelineConfigById**](docs/PipelineApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *PipelineApi* | [**listMyPipelines**](docs/PipelineApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
@@ -142,9 +142,11 @@ Class | Method | HTTP request | Description
 *PreviewApi* | [**getCurrentUser**](docs/PreviewApi.md#getCurrentUser) | **GET** /me | User Information
 *PreviewApi* | [**getEnvVar**](docs/PreviewApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables
 *PreviewApi* | [**getJobArtifacts**](docs/PreviewApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
+*PreviewApi* | [**getJobDetails**](docs/PreviewApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details
 *PreviewApi* | [**getPipelineById**](docs/PreviewApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *PreviewApi* | [**getPipelineConfigById**](docs/PreviewApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *PreviewApi* | [**getProjectBySlug**](docs/PreviewApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
+*PreviewApi* | [**getTests**](docs/PreviewApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
 *PreviewApi* | [**getWorkflowById**](docs/PreviewApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
 *PreviewApi* | [**listCheckoutKeys**](docs/PreviewApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
 *PreviewApi* | [**listEnvVars**](docs/PreviewApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable

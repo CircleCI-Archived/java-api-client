@@ -21,12 +21,14 @@ import com.circleci.client.v2.model.CheckoutKeyListResponse;
 import com.circleci.client.v2.model.EnvironmentVariableListResponse;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
+import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import com.circleci.client.v2.model.PipelineConfig;
 import com.circleci.client.v2.model.PipelineLight;
 import com.circleci.client.v2.model.PipelineListResponse;
 import com.circleci.client.v2.model.PipelineWithWorkflows;
 import com.circleci.client.v2.model.Project;
+import com.circleci.client.v2.model.TestsResponse;
 import com.circleci.client.v2.model.TriggerPipelineParameters;
 import java.util.UUID;
 import com.circleci.client.v2.model.User;
@@ -217,6 +219,23 @@ public class PreviewApiTest {
     }
     
     /**
+     * Get job details
+     *
+     * Returns job details.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getJobDetailsTest() throws ApiException {
+        Object jobNumber = null;
+        String projectSlug = null;
+        JobDetails response = api.getJobDetails(jobNumber, projectSlug);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get a pipeline
      *
      * Returns a pipeline by ID.
@@ -260,6 +279,23 @@ public class PreviewApiTest {
     public void getProjectBySlugTest() throws ApiException {
         String projectSlug = null;
         Project response = api.getProjectBySlug(projectSlug);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get test metadata
+     *
+     * Get test metadata for a build.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getTestsTest() throws ApiException {
+        Object jobNumber = null;
+        String projectSlug = null;
+        TestsResponse response = api.getTests(jobNumber, projectSlug);
 
         // TODO: test validations
     }
