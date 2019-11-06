@@ -1374,6 +1374,7 @@ public class DefaultApi {
    * Get all pipelines
    * Returns all pipelines for this project.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return PipelineListResponse
    * @throws ApiException if fails to make API call
@@ -1383,14 +1384,15 @@ public class DefaultApi {
         <tr><td> 202 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
      </table>
    */
-  public PipelineListResponse listPipelinesForProject(String projectSlug, String pageToken) throws ApiException {
-    return listPipelinesForProjectWithHttpInfo(projectSlug, pageToken).getData();
+  public PipelineListResponse listPipelinesForProject(String projectSlug, String branch, String pageToken) throws ApiException {
+    return listPipelinesForProjectWithHttpInfo(projectSlug, branch, pageToken).getData();
       }
 
   /**
    * Get all pipelines
    * Returns all pipelines for this project.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return ApiResponse&lt;PipelineListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1400,7 +1402,7 @@ public class DefaultApi {
         <tr><td> 202 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PipelineListResponse> listPipelinesForProjectWithHttpInfo(String projectSlug, String pageToken) throws ApiException {
+  public ApiResponse<PipelineListResponse> listPipelinesForProjectWithHttpInfo(String projectSlug, String branch, String pageToken) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1417,6 +1419,7 @@ public class DefaultApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
 
     

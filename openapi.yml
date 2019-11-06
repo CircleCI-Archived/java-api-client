@@ -1253,6 +1253,13 @@ paths:
         example: gh/CircleCI-Public/api-preview-docs
         allowReserved: true
       - in: query
+        name: branch
+        description: The name of a vcs branch.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
+      - in: query
         name: page-token
         description: A token to retrieve the next page of results.
         schema:

@@ -392,8 +392,9 @@ public class DefaultApiTest {
     @Test
     public void listPipelinesForProjectTest() throws ApiException {
         String projectSlug = null;
+        String branch = null;
         String pageToken = null;
-        PipelineListResponse response = api.listPipelinesForProject(projectSlug, pageToken);
+        PipelineListResponse response = api.listPipelinesForProject(projectSlug, branch, pageToken);
 
         // TODO: test validations
     }

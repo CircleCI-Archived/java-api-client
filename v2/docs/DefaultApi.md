@@ -1706,7 +1706,7 @@ Name | Type | Description  | Notes
 
 ## listPipelinesForProject
 
-> PipelineListResponse listPipelinesForProject(projectSlug, pageToken)
+> PipelineListResponse listPipelinesForProject(projectSlug, branch, pageToken)
 
 Get all pipelines
 
@@ -1747,9 +1747,10 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
-            PipelineListResponse result = apiInstance.listPipelinesForProject(projectSlug, pageToken);
+            PipelineListResponse result = apiInstance.listPipelinesForProject(projectSlug, branch, pageToken);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#listPipelinesForProject");
@@ -1768,6 +1769,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
+ **branch** | **String**| The name of a vcs branch. | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
 
 ### Return type
