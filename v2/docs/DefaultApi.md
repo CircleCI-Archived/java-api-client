@@ -1956,5 +1956,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | The created pipeline. |  -  |
+| **201** | The created pipeline. |  -  |
 

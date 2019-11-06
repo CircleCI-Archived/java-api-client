@@ -1021,7 +1021,7 @@ paths:
       - Preview
       operationId: triggerPipeline
       responses:
-        202:
+        201:
           description: The created pipeline.
           content:
             application/json:

@@ -1512,7 +1512,7 @@ public class DefaultApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> The created pipeline. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The created pipeline. </td><td>  -  </td></tr>
      </table>
    */
   public PipelineLight triggerPipeline(String projectSlug, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
@@ -1529,7 +1529,7 @@ public class DefaultApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> The created pipeline. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The created pipeline. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<PipelineLight> triggerPipelineWithHttpInfo(String projectSlug, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
