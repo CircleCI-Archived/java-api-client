@@ -533,8 +533,8 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * The set of organziations for which a user is a member or a collaborator.
-   * Provides all collaborations which are organizations including 1) orgs that the current user belongs to (BB &amp; GH), 2) orgs that they do not belong to but they collaborate on repos (BB &amp; GH), and 3) current user&#39;s account
+   * Collaborations
+   * Provides the set of organizations of which a user is a member or a collaborator.  The set of organizations that a user can collaborate on is composed of:  * Organizations that the current user belongs to across VCS types (e.g. BitBucket, GitHub) * The parent organization of repository that the user can collaborate on, but is not necessarily a member of * The organization of the current user&#39;s account
    * @return List&lt;Collaboration&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -548,8 +548,8 @@ public class DefaultApi {
       }
 
   /**
-   * The set of organziations for which a user is a member or a collaborator.
-   * Provides all collaborations which are organizations including 1) orgs that the current user belongs to (BB &amp; GH), 2) orgs that they do not belong to but they collaborate on repos (BB &amp; GH), and 3) current user&#39;s account
+   * Collaborations
+   * Provides the set of organizations of which a user is a member or a collaborator.  The set of organizations that a user can collaborate on is composed of:  * Organizations that the current user belongs to across VCS types (e.g. BitBucket, GitHub) * The parent organization of repository that the user can collaborate on, but is not necessarily a member of * The organization of the current user&#39;s account
    * @return ApiResponse&lt;List&lt;Collaboration&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

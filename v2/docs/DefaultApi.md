@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**deleteCheckoutKey**](DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
 [**deleteEnvVar**](DefaultApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable
 [**getCheckoutKey**](DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
-[**getCollaborations**](DefaultApi.md#getCollaborations) | **GET** /me/collaborations | The set of organziations for which a user is a member or a collaborator.
+[**getCollaborations**](DefaultApi.md#getCollaborations) | **GET** /me/collaborations | Collaborations
 [**getCurrentUser**](DefaultApi.md#getCurrentUser) | **GET** /me | User Information
 [**getEnvVar**](DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables
 [**getJobArtifacts**](DefaultApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
@@ -627,9 +627,9 @@ Name | Type | Description  | Notes
 
 > List&lt;Collaboration&gt; getCollaborations()
 
-The set of organziations for which a user is a member or a collaborator.
+Collaborations
 
-Provides all collaborations which are organizations including 1) orgs that the current user belongs to (BB &amp; GH), 2) orgs that they do not belong to but they collaborate on repos (BB &amp; GH), and 3) current user&#39;s account
+Provides the set of organizations of which a user is a member or a collaborator.  The set of organizations that a user can collaborate on is composed of:  * Organizations that the current user belongs to across VCS types (e.g. BitBucket, GitHub) * The parent organization of repository that the user can collaborate on, but is not necessarily a member of * The organization of the current user&#39;s account
 
 ### Example
 

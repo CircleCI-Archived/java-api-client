@@ -46,8 +46,18 @@ paths:
                 title: User
   /me/collaborations:
     get:
-      summary: The set of organziations for which a user is a member or a collaborator.
-      description: Provides all collaborations which are organizations including 1) orgs that the current user belongs to (BB & GH), 2) orgs that they do not belong to but they collaborate on repos (BB & GH), and 3) current user's account
+      summary: Collaborations
+      description: |-
+        Provides the set of organizations of which a user is a member or a collaborator.
+
+        The set of organizations that a user can collaborate on is composed of:
+
+        * Organizations that the current user belongs to across VCS types (e.g. BitBucket, GitHub)
+        * The parent organization of repository that the user can collaborate on, but is not necessarily a member of
+        * The organization of the current user's account
+      tags:
+      - User
+      - Preview
       operationId: getCollaborations
       responses:
         200:

@@ -131,7 +131,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**deleteCheckoutKey**](docs/DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
 *DefaultApi* | [**deleteEnvVar**](docs/DefaultApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable
 *DefaultApi* | [**getCheckoutKey**](docs/DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
-*DefaultApi* | [**getCollaborations**](docs/DefaultApi.md#getCollaborations) | **GET** /me/collaborations | The set of organziations for which a user is a member or a collaborator.
+*DefaultApi* | [**getCollaborations**](docs/DefaultApi.md#getCollaborations) | **GET** /me/collaborations | Collaborations
 *DefaultApi* | [**getCurrentUser**](docs/DefaultApi.md#getCurrentUser) | **GET** /me | User Information
 *DefaultApi* | [**getEnvVar**](docs/DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables
 *DefaultApi* | [**getJobArtifacts**](docs/DefaultApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
