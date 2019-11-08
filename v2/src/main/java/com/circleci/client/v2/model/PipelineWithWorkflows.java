@@ -118,15 +118,19 @@ public class PipelineWithWorkflows {
   }
 
   public PipelineWithWorkflows addWorkflowsItem(PipelineWithWorkflowsWorkflows workflowsItem) {
+    if (this.workflows == null) {
+      this.workflows = new ArrayList<>();
+    }
     this.workflows.add(workflowsItem);
     return this;
   }
 
    /**
-   * The workflows this pipeline has triggered.
+   * DEPRECATION NOTICE: workflows will shortly be removed from pipeline response.
    * @return workflows
   **/
-  @ApiModelProperty(required = true, value = "The workflows this pipeline has triggered.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "DEPRECATION NOTICE: workflows will shortly be removed from pipeline response.")
   public List<PipelineWithWorkflowsWorkflows> getWorkflows() {
     return workflows;
   }

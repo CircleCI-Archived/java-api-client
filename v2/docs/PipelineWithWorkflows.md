@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**workflows** | [**List&lt;PipelineWithWorkflowsWorkflows&gt;**](PipelineWithWorkflowsWorkflows.md) | The workflows this pipeline has triggered. | 
+**workflows** | [**List&lt;PipelineWithWorkflowsWorkflows&gt;**](PipelineWithWorkflowsWorkflows.md) | DEPRECATION NOTICE: workflows will shortly be removed from pipeline response. |  [optional]
 **id** | [**UUID**](UUID.md) | The unique ID of the pipeline. | 
 **errors** | [**List&lt;PipelineWithWorkflowsErrors&gt;**](PipelineWithWorkflowsErrors.md) | A sequence of errors that have occurred within the pipeline. | 
 **projectSlug** | **String** | The project-slug for the pipeline. | 

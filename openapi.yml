@@ -116,7 +116,7 @@ paths:
                       required:
                       - id
                       description: Basic information about a workflow
-                    description: The workflows this pipeline has triggered.
+                    description: 'DEPRECATION NOTICE: workflows will shortly be removed from pipeline response.'
                   id:
                     type: string
                     format: uuid
@@ -238,7 +238,6 @@ paths:
                 - project_slug
                 - state
                 - trigger
-                - workflows
                 description: 'NOTE: The definition of pipeline is subject to change.'
                 title: PipelineWithWorkflows
       parameters:
