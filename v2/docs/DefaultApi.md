@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**getCheckoutKey**](DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
 [**getCollaborations**](DefaultApi.md#getCollaborations) | **GET** /me/collaborations | Collaborations
 [**getCurrentUser**](DefaultApi.md#getCurrentUser) | **GET** /me | User Information
-[**getEnvVar**](DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables
+[**getEnvVar**](DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get a masked environment variable
 [**getJobArtifacts**](DefaultApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
 [**getJobDetails**](DefaultApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details
 [**getPipelineById**](DefaultApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**getTests**](DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
 [**getWorkflowById**](DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
 [**listCheckoutKeys**](DefaultApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
-[**listEnvVars**](DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable
+[**listEnvVars**](DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | List all environment variables
 [**listMyPipelines**](DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 [**listPipelinesForProject**](DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
 [**listWorkflowJobs**](DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/job | Get a workflow&#39;s jobs
@@ -786,7 +786,7 @@ This endpoint does not need any parameter.
 
 > EnvironmentVariablePair getEnvVar(projectSlug, name)
 
-Get masked environment variables
+Get a masked environment variable
 
 Returns the masked value of environment variable :name.
 
@@ -1541,7 +1541,7 @@ Name | Type | Description  | Notes
 
 > EnvironmentVariableListResponse listEnvVars(projectSlug)
 
-Get an environment variable
+List all environment variables
 
 Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
 

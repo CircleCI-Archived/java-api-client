@@ -133,7 +133,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getCheckoutKey**](docs/DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
 *DefaultApi* | [**getCollaborations**](docs/DefaultApi.md#getCollaborations) | **GET** /me/collaborations | Collaborations
 *DefaultApi* | [**getCurrentUser**](docs/DefaultApi.md#getCurrentUser) | **GET** /me | User Information
-*DefaultApi* | [**getEnvVar**](docs/DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get masked environment variables
+*DefaultApi* | [**getEnvVar**](docs/DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get a masked environment variable
 *DefaultApi* | [**getJobArtifacts**](docs/DefaultApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
 *DefaultApi* | [**getJobDetails**](docs/DefaultApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details
 *DefaultApi* | [**getPipelineById**](docs/DefaultApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
@@ -142,7 +142,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
 *DefaultApi* | [**getWorkflowById**](docs/DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
 *DefaultApi* | [**listCheckoutKeys**](docs/DefaultApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
-*DefaultApi* | [**listEnvVars**](docs/DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable
+*DefaultApi* | [**listEnvVars**](docs/DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | List all environment variables
 *DefaultApi* | [**listMyPipelines**](docs/DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 *DefaultApi* | [**listPipelinesForProject**](docs/DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
 *DefaultApi* | [**listWorkflowJobs**](docs/DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/job | Get a workflow&#39;s jobs

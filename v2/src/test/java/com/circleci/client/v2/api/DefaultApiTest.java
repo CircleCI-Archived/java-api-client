@@ -202,7 +202,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Get masked environment variables
+     * Get a masked environment variable
      *
      * Returns the masked value of environment variable :name.
      *
@@ -350,7 +350,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Get an environment variable
+     * List all environment variables
      *
      * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
      *

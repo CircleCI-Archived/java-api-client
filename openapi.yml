@@ -595,7 +595,7 @@ paths:
         example: c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f
   /project/{project-slug}/envvar:
     get:
-      summary: Get an environment variable
+      summary: List all environment variables
       description: Returns four 'x' characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
       tags:
       - Project
@@ -737,7 +737,7 @@ paths:
         required: true
         example: foo
     get:
-      summary: Get masked environment variables
+      summary: Get a masked environment variable
       description: Returns the masked value of environment variable :name.
       tags:
       - Project

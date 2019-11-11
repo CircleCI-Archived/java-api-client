@@ -644,7 +644,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get masked environment variables
+   * Get a masked environment variable
    * Returns the masked value of environment variable :name.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param name The name of the environment variable. (required)
@@ -661,7 +661,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get masked environment variables
+   * Get a masked environment variable
    * Returns the masked value of environment variable :name.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param name The name of the environment variable. (required)
@@ -1243,7 +1243,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get an environment variable
+   * List all environment variables
    * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @return EnvironmentVariableListResponse
@@ -1259,7 +1259,7 @@ public class DefaultApi {
       }
 
   /**
-   * Get an environment variable
+   * List all environment variables
    * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @return ApiResponse&lt;EnvironmentVariableListResponse&gt;
