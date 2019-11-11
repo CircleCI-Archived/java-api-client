@@ -1704,7 +1704,7 @@ paths:
           type: string
           format: uuid
         required: true
-  /workflow/{id}/jobs:
+  /workflow/{id}/job:
     get:
       summary: Get a workflow's jobs
       description: Returns a sequence of jobs for a workflow.

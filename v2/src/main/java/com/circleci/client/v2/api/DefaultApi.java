@@ -1476,7 +1476,7 @@ public class DefaultApi {
     }
     
     // create path and map variables
-    String localVarPath = "/workflow/{id}/jobs"
+    String localVarPath = "/workflow/{id}/job"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params

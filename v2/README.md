@@ -145,7 +145,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**listEnvVars**](docs/DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable
 *DefaultApi* | [**listMyPipelines**](docs/DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 *DefaultApi* | [**listPipelinesForProject**](docs/DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
-*DefaultApi* | [**listWorkflowJobs**](docs/DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/jobs | Get a workflow&#39;s jobs
+*DefaultApi* | [**listWorkflowJobs**](docs/DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/job | Get a workflow&#39;s jobs
 *DefaultApi* | [**triggerPipeline**](docs/DefaultApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
 
 

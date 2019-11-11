@@ -25,7 +25,7 @@ Method | HTTP request | Description
 [**listEnvVars**](DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | Get an environment variable
 [**listMyPipelines**](DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 [**listPipelinesForProject**](DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
-[**listWorkflowJobs**](DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/jobs | Get a workflow&#39;s jobs
+[**listWorkflowJobs**](DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/job | Get a workflow&#39;s jobs
 [**triggerPipeline**](DefaultApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
 
 
