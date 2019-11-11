@@ -29,6 +29,7 @@ import com.circleci.client.v2.model.PipelineLight;
 import com.circleci.client.v2.model.PipelineListResponse;
 import com.circleci.client.v2.model.PipelineWithWorkflows;
 import com.circleci.client.v2.model.Project;
+import com.circleci.client.v2.model.RerunWorkflowParameters;
 import com.circleci.client.v2.model.TestsResponse;
 import com.circleci.client.v2.model.TriggerPipelineParameters;
 import java.util.UUID;
@@ -411,6 +412,23 @@ public class DefaultApiTest {
     public void listWorkflowJobsTest() throws ApiException {
         UUID id = null;
         WorkflowJobListResponse response = api.listWorkflowJobs(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Rerun a workflow
+     *
+     * Reruns a workflow.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void rerunWorkflowTest() throws ApiException {
+        UUID id = null;
+        RerunWorkflowParameters rerunWorkflowParameters = null;
+        MessageResponse response = api.rerunWorkflow(id, rerunWorkflowParameters);
 
         // TODO: test validations
     }

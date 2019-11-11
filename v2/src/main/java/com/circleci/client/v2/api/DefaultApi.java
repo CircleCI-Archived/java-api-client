@@ -23,6 +23,7 @@ import com.circleci.client.v2.model.PipelineLight;
 import com.circleci.client.v2.model.PipelineListResponse;
 import com.circleci.client.v2.model.PipelineWithWorkflows;
 import com.circleci.client.v2.model.Project;
+import com.circleci.client.v2.model.RerunWorkflowParameters;
 import com.circleci.client.v2.model.TestsResponse;
 import com.circleci.client.v2.model.TriggerPipelineParameters;
 import java.util.UUID;
@@ -1501,6 +1502,71 @@ public class DefaultApi {
 
     GenericType<WorkflowJobListResponse> localVarReturnType = new GenericType<WorkflowJobListResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Rerun a workflow
+   * Reruns a workflow.
+   * @param id The unique ID of the workflow. (required)
+   * @param rerunWorkflowParameters  (optional)
+   * @return MessageResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+     </table>
+   */
+  public MessageResponse rerunWorkflow(UUID id, RerunWorkflowParameters rerunWorkflowParameters) throws ApiException {
+    return rerunWorkflowWithHttpInfo(id, rerunWorkflowParameters).getData();
+      }
+
+  /**
+   * Rerun a workflow
+   * Reruns a workflow.
+   * @param id The unique ID of the workflow. (required)
+   * @param rerunWorkflowParameters  (optional)
+   * @return ApiResponse&lt;MessageResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<MessageResponse> rerunWorkflowWithHttpInfo(UUID id, RerunWorkflowParameters rerunWorkflowParameters) throws ApiException {
+    Object localVarPostBody = rerunWorkflowParameters;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling rerunWorkflow");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/workflow/{id}/rerun"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<MessageResponse> localVarReturnType = new GenericType<MessageResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Trigger a new pipeline

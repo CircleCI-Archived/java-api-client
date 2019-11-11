@@ -1797,6 +1797,59 @@ paths:
           type: string
           format: uuid
         required: true
+  /workflow/{id}/rerun:
+    post:
+      summary: Rerun a workflow
+      description: Reruns a workflow.
+      tags:
+      - Workflow
+      - Preview
+      operationId: rerunWorkflow
+      responses:
+        202:
+          description: A confirmation message.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable message
+                required:
+                - message
+                description: message response
+                title: MessageResponse
+      parameters:
+      - in: path
+        name: id
+        description: The unique ID of the workflow.
+        schema:
+          type: string
+          format: uuid
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                jobs:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                  description: A list of job IDs to rerun.
+                  example:
+                  - c65b68ef-e73b-4bf2-be9a-7a322a9df150
+                  - 5e957edd-5e8c-4985-9178-5d0d69561822
+                from_failed:
+                  type: boolean
+                  description: Whether to rerun the workflow from the failed job. Mutually exclusive with the jobs parameter.
+                  example: false
+              x-nullable: true
+              description: The information you can supply when rerunning a workflow.
+              title: RerunWorkflowParameters
 components:
   securitySchemes:
     api_key_query:
