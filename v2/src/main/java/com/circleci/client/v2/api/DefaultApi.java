@@ -1572,6 +1572,8 @@ public class DefaultApi {
    * Trigger a new pipeline
    * Triggers a new pipeline on the project.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param xAttributionLogin The login or user-readable identifier for the pipeline&#39;s triggerer. (optional)
+   * @param xAttributionActorId The id the integration uses to identify the pipeline&#39;s triggerer. (optional)
    * @param triggerPipelineParameters  (optional)
    * @return PipelineLight
    * @throws ApiException if fails to make API call
@@ -1581,14 +1583,16 @@ public class DefaultApi {
         <tr><td> 201 </td><td> The created pipeline. </td><td>  -  </td></tr>
      </table>
    */
-  public PipelineLight triggerPipeline(String projectSlug, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
-    return triggerPipelineWithHttpInfo(projectSlug, triggerPipelineParameters).getData();
+  public PipelineLight triggerPipeline(String projectSlug, String xAttributionLogin, String xAttributionActorId, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
+    return triggerPipelineWithHttpInfo(projectSlug, xAttributionLogin, xAttributionActorId, triggerPipelineParameters).getData();
       }
 
   /**
    * Trigger a new pipeline
    * Triggers a new pipeline on the project.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param xAttributionLogin The login or user-readable identifier for the pipeline&#39;s triggerer. (optional)
+   * @param xAttributionActorId The id the integration uses to identify the pipeline&#39;s triggerer. (optional)
    * @param triggerPipelineParameters  (optional)
    * @return ApiResponse&lt;PipelineLight&gt;
    * @throws ApiException if fails to make API call
@@ -1598,7 +1602,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> The created pipeline. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PipelineLight> triggerPipelineWithHttpInfo(String projectSlug, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
+  public ApiResponse<PipelineLight> triggerPipelineWithHttpInfo(String projectSlug, String xAttributionLogin, String xAttributionActorId, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
     Object localVarPostBody = triggerPipelineParameters;
     
     // verify the required parameter 'projectSlug' is set
@@ -1616,7 +1620,11 @@ public class DefaultApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
-    
+    if (xAttributionLogin != null)
+      localVarHeaderParams.put("x-attribution-login", apiClient.parameterToString(xAttributionLogin));
+if (xAttributionActorId != null)
+      localVarHeaderParams.put("x-attribution-actor-id", apiClient.parameterToString(xAttributionActorId));
+
     
     final String[] localVarAccepts = {
       "application/json"

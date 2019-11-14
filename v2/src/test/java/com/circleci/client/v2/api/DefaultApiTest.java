@@ -444,8 +444,10 @@ public class DefaultApiTest {
     @Test
     public void triggerPipelineTest() throws ApiException {
         String projectSlug = null;
+        String xAttributionLogin = null;
+        String xAttributionActorId = null;
         TriggerPipelineParameters triggerPipelineParameters = null;
-        PipelineLight response = api.triggerPipeline(projectSlug, triggerPipelineParameters);
+        PipelineLight response = api.triggerPipeline(projectSlug, xAttributionLogin, xAttributionActorId, triggerPipelineParameters);
 
         // TODO: test validations
     }

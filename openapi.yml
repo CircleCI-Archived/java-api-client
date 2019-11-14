@@ -1072,6 +1072,18 @@ paths:
         required: true
         example: gh/CircleCI-Public/api-preview-docs
         allowReserved: true
+      - in: header
+        name: x-attribution-login
+        description: The login or user-readable identifier for the pipeline's triggerer.
+        schema:
+          type: string
+        required: false
+      - in: header
+        name: x-attribution-actor-id
+        description: The id the integration uses to identify the pipeline's triggerer.
+        schema:
+          type: string
+        required: false
       requestBody:
         content:
           application/json:

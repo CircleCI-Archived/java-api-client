@@ -1962,7 +1962,7 @@ Name | Type | Description  | Notes
 
 ## triggerPipeline
 
-> PipelineLight triggerPipeline(projectSlug, triggerPipelineParameters)
+> PipelineLight triggerPipeline(projectSlug, xAttributionLogin, xAttributionActorId, triggerPipelineParameters)
 
 Trigger a new pipeline
 
@@ -2003,9 +2003,11 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        String xAttributionLogin = "xAttributionLogin_example"; // String | The login or user-readable identifier for the pipeline's triggerer.
+        String xAttributionActorId = "xAttributionActorId_example"; // String | The id the integration uses to identify the pipeline's triggerer.
         TriggerPipelineParameters triggerPipelineParameters = new TriggerPipelineParameters(); // TriggerPipelineParameters | 
         try {
-            PipelineLight result = apiInstance.triggerPipeline(projectSlug, triggerPipelineParameters);
+            PipelineLight result = apiInstance.triggerPipeline(projectSlug, xAttributionLogin, xAttributionActorId, triggerPipelineParameters);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#triggerPipeline");
@@ -2024,6 +2026,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
+ **xAttributionLogin** | **String**| The login or user-readable identifier for the pipeline&#39;s triggerer. | [optional]
+ **xAttributionActorId** | **String**| The id the integration uses to identify the pipeline&#39;s triggerer. | [optional]
  **triggerPipelineParameters** | [**TriggerPipelineParameters**](TriggerPipelineParameters.md)|  | [optional]
 
 ### Return type
