@@ -181,6 +181,7 @@ Class | Method | HTTP request | Description
  - [PipelineWithWorkflowsTrigger](docs/PipelineWithWorkflowsTrigger.md)
  - [PipelineWithWorkflowsTriggerActor](docs/PipelineWithWorkflowsTriggerActor.md)
  - [PipelineWithWorkflowsVcs](docs/PipelineWithWorkflowsVcs.md)
+ - [PipelineWithWorkflowsVcsCommit](docs/PipelineWithWorkflowsVcsCommit.md)
  - [PipelineWithWorkflowsWorkflows](docs/PipelineWithWorkflowsWorkflows.md)
  - [Project](docs/Project.md)
  - [ProjectVcsInfo](docs/ProjectVcsInfo.md)

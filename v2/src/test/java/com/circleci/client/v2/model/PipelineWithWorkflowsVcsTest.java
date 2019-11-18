@@ -13,6 +13,7 @@
 
 package com.circleci.client.v2.model;
 
+import com.circleci.client.v2.model.PipelineWithWorkflowsVcsCommit;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -83,6 +84,14 @@ public class PipelineWithWorkflowsVcsTest {
     @Test
     public void tagTest() {
         // TODO: test tag
+    }
+
+    /**
+     * Test the property 'commit'
+     */
+    @Test
+    public void commitTest() {
+        // TODO: test commit
     }
 
 }

@@ -191,7 +191,7 @@ paths:
                         required:
                         - login
                         - avatar_url
-                        description: The user who triggered the Pipeline
+                        description: The user who triggered the Pipeline.
                     required:
                     - type
                     - received_at
@@ -224,6 +224,21 @@ paths:
                         type: string
                         description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                         example: v3.1.4159
+                      commit:
+                        type: object
+                        properties:
+                          subject:
+                            type: string
+                            x-nullable: true
+                            description: The subject of the commit message.
+                          body:
+                            type: string
+                            x-nullable: true
+                            description: The body of the commit message.
+                        required:
+                        - subject
+                        - body
+                        description: The latest commit in the pipeline.
                     required:
                     - provider_name
                     - origin_repository_url
@@ -1206,7 +1221,7 @@ paths:
                               required:
                               - login
                               - avatar_url
-                              description: The user who triggered the Pipeline
+                              description: The user who triggered the Pipeline.
                           required:
                           - type
                           - received_at
@@ -1239,6 +1254,21 @@ paths:
                               type: string
                               description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                               example: v3.1.4159
+                            commit:
+                              type: object
+                              properties:
+                                subject:
+                                  type: string
+                                  x-nullable: true
+                                  description: The subject of the commit message.
+                                body:
+                                  type: string
+                                  x-nullable: true
+                                  description: The body of the commit message.
+                              required:
+                              - subject
+                              - body
+                              description: The latest commit in the pipeline.
                           required:
                           - provider_name
                           - origin_repository_url
@@ -1388,7 +1418,7 @@ paths:
                               required:
                               - login
                               - avatar_url
-                              description: The user who triggered the Pipeline
+                              description: The user who triggered the Pipeline.
                           required:
                           - type
                           - received_at
@@ -1421,6 +1451,21 @@ paths:
                               type: string
                               description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                               example: v3.1.4159
+                            commit:
+                              type: object
+                              properties:
+                                subject:
+                                  type: string
+                                  x-nullable: true
+                                  description: The subject of the commit message.
+                                body:
+                                  type: string
+                                  x-nullable: true
+                                  description: The body of the commit message.
+                              required:
+                              - subject
+                              - body
+                              description: The latest commit in the pipeline.
                           required:
                           - provider_name
                           - origin_repository_url

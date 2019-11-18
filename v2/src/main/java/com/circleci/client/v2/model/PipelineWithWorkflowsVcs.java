@@ -15,6 +15,7 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.circleci.client.v2.model.PipelineWithWorkflowsVcsCommit;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -50,6 +51,10 @@ public class PipelineWithWorkflowsVcs {
   public static final String JSON_PROPERTY_TAG = "tag";
   @JsonProperty(JSON_PROPERTY_TAG)
   private String tag;
+
+  public static final String JSON_PROPERTY_COMMIT = "commit";
+  @JsonProperty(JSON_PROPERTY_COMMIT)
+  private PipelineWithWorkflowsVcsCommit commit = null;
 
   public PipelineWithWorkflowsVcs providerName(String providerName) {
     this.providerName = providerName;
@@ -161,6 +166,25 @@ public class PipelineWithWorkflowsVcs {
     this.tag = tag;
   }
 
+  public PipelineWithWorkflowsVcs commit(PipelineWithWorkflowsVcsCommit commit) {
+    this.commit = commit;
+    return this;
+  }
+
+   /**
+   * Get commit
+   * @return commit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public PipelineWithWorkflowsVcsCommit getCommit() {
+    return commit;
+  }
+
+  public void setCommit(PipelineWithWorkflowsVcsCommit commit) {
+    this.commit = commit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,12 +200,13 @@ public class PipelineWithWorkflowsVcs {
         Objects.equals(this.targetRepositoryUrl, pipelineWithWorkflowsVcs.targetRepositoryUrl) &&
         Objects.equals(this.revision, pipelineWithWorkflowsVcs.revision) &&
         Objects.equals(this.branch, pipelineWithWorkflowsVcs.branch) &&
-        Objects.equals(this.tag, pipelineWithWorkflowsVcs.tag);
+        Objects.equals(this.tag, pipelineWithWorkflowsVcs.tag) &&
+        Objects.equals(this.commit, pipelineWithWorkflowsVcs.commit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerName, originRepositoryUrl, targetRepositoryUrl, revision, branch, tag);
+    return Objects.hash(providerName, originRepositoryUrl, targetRepositoryUrl, revision, branch, tag, commit);
   }
 
 
@@ -195,6 +220,7 @@ public class PipelineWithWorkflowsVcs {
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    commit: ").append(toIndentedString(commit)).append("\n");
     sb.append("}");
     return sb.toString();
   }
