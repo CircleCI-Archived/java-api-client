@@ -36,6 +36,7 @@ import java.util.UUID;
 import com.circleci.client.v2.model.User;
 import com.circleci.client.v2.model.Workflow;
 import com.circleci.client.v2.model.WorkflowJobListResponse;
+import com.circleci.client.v2.model.WorkflowListResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -412,6 +413,22 @@ public class DefaultApiTest {
     public void listWorkflowJobsTest() throws ApiException {
         UUID id = null;
         WorkflowJobListResponse response = api.listWorkflowJobs(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a pipeline&#39;s workflows
+     *
+     * Returns a paginated list of workflows by pipeline ID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listWorkflowsByPipelineIdTest() throws ApiException {
+        UUID pipelineId = null;
+        WorkflowListResponse response = api.listWorkflowsByPipelineId(pipelineId);
 
         // TODO: test validations
     }

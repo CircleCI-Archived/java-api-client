@@ -146,6 +146,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**listMyPipelines**](docs/DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 *DefaultApi* | [**listPipelinesForProject**](docs/DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
 *DefaultApi* | [**listWorkflowJobs**](docs/DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/job | Get a workflow&#39;s jobs
+*DefaultApi* | [**listWorkflowsByPipelineId**](docs/DefaultApi.md#listWorkflowsByPipelineId) | **GET** /pipeline/{pipeline-id}/workflow | Get a pipeline&#39;s workflows
 *DefaultApi* | [**rerunWorkflow**](docs/DefaultApi.md#rerunWorkflow) | **POST** /workflow/{id}/rerun | Rerun a workflow
 *DefaultApi* | [**triggerPipeline**](docs/DefaultApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
 
@@ -192,6 +193,7 @@ Class | Method | HTTP request | Description
  - [User](docs/User.md)
  - [Workflow](docs/Workflow.md)
  - [WorkflowJobListResponse](docs/WorkflowJobListResponse.md)
+ - [WorkflowListResponse](docs/WorkflowListResponse.md)
 
 
 ## Documentation for Authorization

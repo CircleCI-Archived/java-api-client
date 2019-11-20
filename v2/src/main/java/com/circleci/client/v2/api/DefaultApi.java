@@ -30,6 +30,7 @@ import java.util.UUID;
 import com.circleci.client.v2.model.User;
 import com.circleci.client.v2.model.Workflow;
 import com.circleci.client.v2.model.WorkflowJobListResponse;
+import com.circleci.client.v2.model.WorkflowListResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1501,6 +1502,69 @@ public class DefaultApi {
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
     GenericType<WorkflowJobListResponse> localVarReturnType = new GenericType<WorkflowJobListResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get a pipeline&#39;s workflows
+   * Returns a paginated list of workflows by pipeline ID.
+   * @param pipelineId The unique ID of the pipeline. (required)
+   * @return WorkflowListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A paginated list of workflow objects. </td><td>  -  </td></tr>
+     </table>
+   */
+  public WorkflowListResponse listWorkflowsByPipelineId(UUID pipelineId) throws ApiException {
+    return listWorkflowsByPipelineIdWithHttpInfo(pipelineId).getData();
+      }
+
+  /**
+   * Get a pipeline&#39;s workflows
+   * Returns a paginated list of workflows by pipeline ID.
+   * @param pipelineId The unique ID of the pipeline. (required)
+   * @return ApiResponse&lt;WorkflowListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A paginated list of workflow objects. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<WorkflowListResponse> listWorkflowsByPipelineIdWithHttpInfo(UUID pipelineId) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'pipelineId' is set
+    if (pipelineId == null) {
+      throw new ApiException(400, "Missing the required parameter 'pipelineId' when calling listWorkflowsByPipelineId");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/pipeline/{pipeline-id}/workflow"
+      .replaceAll("\\{" + "pipeline-id" + "\\}", apiClient.escapeString(pipelineId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<WorkflowListResponse> localVarReturnType = new GenericType<WorkflowListResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
