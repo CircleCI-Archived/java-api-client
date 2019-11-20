@@ -1887,6 +1887,10 @@ paths:
                     items:
                       type: object
                       properties:
+                        canceled_by:
+                          type: string
+                          format: uuid
+                          description: The unique ID of the user.
                         dependencies:
                           type: array
                           items:
@@ -1909,6 +1913,10 @@ paths:
                         name:
                           type: string
                           description: The name of the job.
+                        approved_by:
+                          type: string
+                          format: uuid
+                          description: The unique ID of the user.
                         project_slug:
                           type: string
                           description: The project-slug for the job.

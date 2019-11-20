@@ -42,6 +42,14 @@ public class JobTest {
     }
 
     /**
+     * Test the property 'canceledBy'
+     */
+    @Test
+    public void canceledByTest() {
+        // TODO: test canceledBy
+    }
+
+    /**
      * Test the property 'dependencies'
      */
     @Test
@@ -79,6 +87,14 @@ public class JobTest {
     @Test
     public void nameTest() {
         // TODO: test name
+    }
+
+    /**
+     * Test the property 'approvedBy'
+     */
+    @Test
+    public void approvedByTest() {
+        // TODO: test approvedBy
     }
 
     /**

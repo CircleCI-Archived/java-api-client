@@ -31,6 +31,10 @@ import java.util.UUID;
 @ApiModel(description = "Job")
 
 public class Job {
+  public static final String JSON_PROPERTY_CANCELED_BY = "canceled_by";
+  @JsonProperty(JSON_PROPERTY_CANCELED_BY)
+  private UUID canceledBy;
+
   public static final String JSON_PROPERTY_DEPENDENCIES = "dependencies";
   @JsonProperty(JSON_PROPERTY_DEPENDENCIES)
   private List<UUID> dependencies = new ArrayList<>();
@@ -50,6 +54,10 @@ public class Job {
   public static final String JSON_PROPERTY_NAME = "name";
   @JsonProperty(JSON_PROPERTY_NAME)
   private String name;
+
+  public static final String JSON_PROPERTY_APPROVED_BY = "approved_by";
+  @JsonProperty(JSON_PROPERTY_APPROVED_BY)
+  private UUID approvedBy;
 
   public static final String JSON_PROPERTY_PROJECT_SLUG = "project_slug";
   @JsonProperty(JSON_PROPERTY_PROJECT_SLUG)
@@ -101,6 +109,25 @@ public class Job {
   public static final String JSON_PROPERTY_STOPPED_AT = "stopped_at";
   @JsonProperty(JSON_PROPERTY_STOPPED_AT)
   private OffsetDateTime stoppedAt;
+
+  public Job canceledBy(UUID canceledBy) {
+    this.canceledBy = canceledBy;
+    return this;
+  }
+
+   /**
+   * The unique ID of the user.
+   * @return canceledBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique ID of the user.")
+  public UUID getCanceledBy() {
+    return canceledBy;
+  }
+
+  public void setCanceledBy(UUID canceledBy) {
+    this.canceledBy = canceledBy;
+  }
 
   public Job dependencies(List<UUID> dependencies) {
     this.dependencies = dependencies;
@@ -197,6 +224,25 @@ public class Job {
     this.name = name;
   }
 
+  public Job approvedBy(UUID approvedBy) {
+    this.approvedBy = approvedBy;
+    return this;
+  }
+
+   /**
+   * The unique ID of the user.
+   * @return approvedBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique ID of the user.")
+  public UUID getApprovedBy() {
+    return approvedBy;
+  }
+
+  public void setApprovedBy(UUID approvedBy) {
+    this.approvedBy = approvedBy;
+  }
+
   public Job projectSlug(String projectSlug) {
     this.projectSlug = projectSlug;
     return this;
@@ -280,11 +326,13 @@ public class Job {
       return false;
     }
     Job job = (Job) o;
-    return Objects.equals(this.dependencies, job.dependencies) &&
+    return Objects.equals(this.canceledBy, job.canceledBy) &&
+        Objects.equals(this.dependencies, job.dependencies) &&
         Objects.equals(this.jobNumber, job.jobNumber) &&
         Objects.equals(this.id, job.id) &&
         Objects.equals(this.startedAt, job.startedAt) &&
         Objects.equals(this.name, job.name) &&
+        Objects.equals(this.approvedBy, job.approvedBy) &&
         Objects.equals(this.projectSlug, job.projectSlug) &&
         Objects.equals(this.status, job.status) &&
         Objects.equals(this.type, job.type) &&
@@ -293,7 +341,7 @@ public class Job {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dependencies, jobNumber, id, startedAt, name, projectSlug, status, type, stoppedAt);
+    return Objects.hash(canceledBy, dependencies, jobNumber, id, startedAt, name, approvedBy, projectSlug, status, type, stoppedAt);
   }
 
 
@@ -301,11 +349,13 @@ public class Job {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Job {\n");
+    sb.append("    canceledBy: ").append(toIndentedString(canceledBy)).append("\n");
     sb.append("    dependencies: ").append(toIndentedString(dependencies)).append("\n");
     sb.append("    jobNumber: ").append(toIndentedString(jobNumber)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    approvedBy: ").append(toIndentedString(approvedBy)).append("\n");
     sb.append("    projectSlug: ").append(toIndentedString(projectSlug)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
