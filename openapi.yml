@@ -1739,6 +1739,46 @@ paths:
         required: true
         example: gh/CircleCI-Public/api-preview-docs
         allowReserved: true
+  /user/{id}:
+    get:
+      summary: User Information
+      description: Provides information about the user with the given ID.
+      tags:
+      - User
+      - Preview
+      operationId: getUser
+      responses:
+        200:
+          description: User login information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: The unique ID of the user.
+                  login:
+                    type: string
+                    description: The login information for the user on the VCS.
+                    title: Login
+                  name:
+                    type: string
+                    description: The name of the user.
+                required:
+                - id
+                - login
+                - name
+                title: User
+      parameters:
+      - in: path
+        name: id
+        description: The unique ID of the user.
+        schema:
+          type: string
+          format: uuid
+        required: true
   /workflow/{id}:
     get:
       summary: Get a workflow

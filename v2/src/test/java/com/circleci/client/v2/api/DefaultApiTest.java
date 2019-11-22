@@ -319,6 +319,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * User Information
+     *
+     * Provides information about the user with the given ID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getUserTest() throws ApiException {
+        UUID id = null;
+        User response = api.getUser(id);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get a workflow
      *
      * Returns summary fields of a workflow by ID.

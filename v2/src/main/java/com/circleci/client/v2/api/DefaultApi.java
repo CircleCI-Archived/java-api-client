@@ -1118,6 +1118,69 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * User Information
+   * Provides information about the user with the given ID.
+   * @param id The unique ID of the user. (required)
+   * @return User
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User login information. </td><td>  -  </td></tr>
+     </table>
+   */
+  public User getUser(UUID id) throws ApiException {
+    return getUserWithHttpInfo(id).getData();
+      }
+
+  /**
+   * User Information
+   * Provides information about the user with the given ID.
+   * @param id The unique ID of the user. (required)
+   * @return ApiResponse&lt;User&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User login information. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<User> getUserWithHttpInfo(UUID id) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getUser");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/user/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<User> localVarReturnType = new GenericType<User>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Get a workflow
    * Returns summary fields of a workflow by ID.
    * @param id The unique ID of the workflow. (required)

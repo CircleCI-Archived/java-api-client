@@ -140,6 +140,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getPipelineConfigById**](docs/DefaultApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *DefaultApi* | [**getProjectBySlug**](docs/DefaultApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
 *DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
+*DefaultApi* | [**getUser**](docs/DefaultApi.md#getUser) | **GET** /user/{id} | User Information
 *DefaultApi* | [**getWorkflowById**](docs/DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
 *DefaultApi* | [**listCheckoutKeys**](docs/DefaultApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
 *DefaultApi* | [**listEnvVars**](docs/DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | List all environment variables
