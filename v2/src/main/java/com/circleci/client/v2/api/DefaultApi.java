@@ -1571,6 +1571,7 @@ public class DefaultApi {
    * Get a pipeline&#39;s workflows
    * Returns a paginated list of workflows by pipeline ID.
    * @param pipelineId The unique ID of the pipeline. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
    * @return WorkflowListResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1579,14 +1580,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of workflow objects. </td><td>  -  </td></tr>
      </table>
    */
-  public WorkflowListResponse listWorkflowsByPipelineId(UUID pipelineId) throws ApiException {
-    return listWorkflowsByPipelineIdWithHttpInfo(pipelineId).getData();
+  public WorkflowListResponse listWorkflowsByPipelineId(UUID pipelineId, String pageToken) throws ApiException {
+    return listWorkflowsByPipelineIdWithHttpInfo(pipelineId, pageToken).getData();
       }
 
   /**
    * Get a pipeline&#39;s workflows
    * Returns a paginated list of workflows by pipeline ID.
    * @param pipelineId The unique ID of the pipeline. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
    * @return ApiResponse&lt;WorkflowListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1595,7 +1597,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of workflow objects. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<WorkflowListResponse> listWorkflowsByPipelineIdWithHttpInfo(UUID pipelineId) throws ApiException {
+  public ApiResponse<WorkflowListResponse> listWorkflowsByPipelineIdWithHttpInfo(UUID pipelineId, String pageToken) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'pipelineId' is set
@@ -1612,6 +1614,7 @@ public class DefaultApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
 
     
     

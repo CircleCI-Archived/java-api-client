@@ -397,6 +397,13 @@ paths:
           type: string
           format: uuid
         required: true
+      - in: query
+        name: page-token
+        description: A token to retrieve the next page of results.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
   /project/{project-slug}:
     get:
       summary: Get a project

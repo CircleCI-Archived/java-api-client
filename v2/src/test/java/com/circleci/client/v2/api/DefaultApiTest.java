@@ -444,7 +444,8 @@ public class DefaultApiTest {
     @Test
     public void listWorkflowsByPipelineIdTest() throws ApiException {
         UUID pipelineId = null;
-        WorkflowListResponse response = api.listWorkflowsByPipelineId(pipelineId);
+        String pageToken = null;
+        WorkflowListResponse response = api.listWorkflowsByPipelineId(pipelineId, pageToken);
 
         // TODO: test validations
     }

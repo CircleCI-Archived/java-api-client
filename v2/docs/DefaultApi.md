@@ -1962,7 +1962,7 @@ Name | Type | Description  | Notes
 
 ## listWorkflowsByPipelineId
 
-> WorkflowListResponse listWorkflowsByPipelineId(pipelineId)
+> WorkflowListResponse listWorkflowsByPipelineId(pipelineId, pageToken)
 
 Get a pipeline&#39;s workflows
 
@@ -2003,8 +2003,9 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         UUID pipelineId = new UUID(); // UUID | The unique ID of the pipeline.
+        String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
-            WorkflowListResponse result = apiInstance.listWorkflowsByPipelineId(pipelineId);
+            WorkflowListResponse result = apiInstance.listWorkflowsByPipelineId(pipelineId, pageToken);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#listWorkflowsByPipelineId");
@@ -2023,6 +2024,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pipelineId** | [**UUID**](.md)| The unique ID of the pipeline. |
+ **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
 
 ### Return type
 
