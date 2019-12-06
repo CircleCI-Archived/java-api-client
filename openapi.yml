@@ -104,19 +104,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  workflows:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          format: uuid
-                          description: The unique ID of the workflow.
-                      required:
-                      - id
-                      description: Basic information about a workflow
-                    description: 'DEPRECATION NOTICE: workflows will shortly be removed from pipeline response.'
                   id:
                     type: string
                     format: uuid
@@ -246,15 +233,15 @@ paths:
                     - revision
                     description: VCS information for the pipeline.
                 required:
-                - created_at
-                - errors
                 - id
                 - number
                 - project_slug
+                - created_at
+                - errors
                 - state
                 - trigger
                 description: 'NOTE: The definition of pipeline is subject to change.'
-                title: PipelineWithWorkflows
+                title: Pipeline
       parameters:
       - in: path
         name: pipeline-id

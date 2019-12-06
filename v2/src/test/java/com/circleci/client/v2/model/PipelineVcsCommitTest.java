@@ -24,33 +24,33 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PipelineWithWorkflowsErrors
+ * Model tests for PipelineVcsCommit
  */
-public class PipelineWithWorkflowsErrorsTest {
-    private final PipelineWithWorkflowsErrors model = new PipelineWithWorkflowsErrors();
+public class PipelineVcsCommitTest {
+    private final PipelineVcsCommit model = new PipelineVcsCommit();
 
     /**
-     * Model tests for PipelineWithWorkflowsErrors
+     * Model tests for PipelineVcsCommit
      */
     @Test
-    public void testPipelineWithWorkflowsErrors() {
-        // TODO: test PipelineWithWorkflowsErrors
+    public void testPipelineVcsCommit() {
+        // TODO: test PipelineVcsCommit
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'subject'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
+    public void subjectTest() {
+        // TODO: test subject
     }
 
     /**
-     * Test the property 'message'
+     * Test the property 'body'
      */
     @Test
-    public void messageTest() {
-        // TODO: test message
+    public void bodyTest() {
+        // TODO: test body
     }
 
 }

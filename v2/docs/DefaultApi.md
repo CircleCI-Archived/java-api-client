@@ -1041,7 +1041,7 @@ Name | Type | Description  | Notes
 
 ## getPipelineById
 
-> PipelineWithWorkflows getPipelineById(pipelineId)
+> Pipeline getPipelineById(pipelineId)
 
 Get a pipeline
 
@@ -1083,7 +1083,7 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         UUID pipelineId = new UUID(); // UUID | The unique ID of the pipeline.
         try {
-            PipelineWithWorkflows result = apiInstance.getPipelineById(pipelineId);
+            Pipeline result = apiInstance.getPipelineById(pipelineId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getPipelineById");
@@ -1105,7 +1105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PipelineWithWorkflows**](PipelineWithWorkflows.md)
+[**Pipeline**](Pipeline.md)
 
 ### Authorization
 

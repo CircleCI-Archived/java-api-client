@@ -15,25 +15,29 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.circleci.client.v2.model.PipelineTriggerActor;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 
 /**
- * An error with a type and message.
+ * A summary of the trigger.
  */
-@ApiModel(description = "An error with a type and message.")
+@ApiModel(description = "A summary of the trigger.")
 
-public class PipelineWithWorkflowsErrors {
+public class PipelineTrigger {
   /**
-   * The type of error.
+   * The type of trigger.
    */
   public enum TypeEnum {
-    CONFIG("config"),
+    EXPLICIT("explicit"),
     
-    PLAN("plan");
+    API("api"),
+    
+    WEBHOOK("webhook");
 
     private String value;
 
@@ -66,20 +70,24 @@ public class PipelineWithWorkflowsErrors {
   @JsonProperty(JSON_PROPERTY_TYPE)
   private TypeEnum type;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  private String message;
+  public static final String JSON_PROPERTY_RECEIVED_AT = "received_at";
+  @JsonProperty(JSON_PROPERTY_RECEIVED_AT)
+  private OffsetDateTime receivedAt;
 
-  public PipelineWithWorkflowsErrors type(TypeEnum type) {
+  public static final String JSON_PROPERTY_ACTOR = "actor";
+  @JsonProperty(JSON_PROPERTY_ACTOR)
+  private PipelineTriggerActor actor = null;
+
+  public PipelineTrigger type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * The type of error.
+   * The type of trigger.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "The type of error.")
+  @ApiModelProperty(required = true, value = "The type of trigger.")
   public TypeEnum getType() {
     return type;
   }
@@ -88,22 +96,40 @@ public class PipelineWithWorkflowsErrors {
     this.type = type;
   }
 
-  public PipelineWithWorkflowsErrors message(String message) {
-    this.message = message;
+  public PipelineTrigger receivedAt(OffsetDateTime receivedAt) {
+    this.receivedAt = receivedAt;
     return this;
   }
 
    /**
-   * A human-readable error message.
-   * @return message
+   * The date and time the trigger was received.
+   * @return receivedAt
   **/
-  @ApiModelProperty(required = true, value = "A human-readable error message.")
-  public String getMessage() {
-    return message;
+  @ApiModelProperty(required = true, value = "The date and time the trigger was received.")
+  public OffsetDateTime getReceivedAt() {
+    return receivedAt;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setReceivedAt(OffsetDateTime receivedAt) {
+    this.receivedAt = receivedAt;
+  }
+
+  public PipelineTrigger actor(PipelineTriggerActor actor) {
+    this.actor = actor;
+    return this;
+  }
+
+   /**
+   * Get actor
+   * @return actor
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public PipelineTriggerActor getActor() {
+    return actor;
+  }
+
+  public void setActor(PipelineTriggerActor actor) {
+    this.actor = actor;
   }
 
 
@@ -115,23 +141,25 @@ public class PipelineWithWorkflowsErrors {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PipelineWithWorkflowsErrors pipelineWithWorkflowsErrors = (PipelineWithWorkflowsErrors) o;
-    return Objects.equals(this.type, pipelineWithWorkflowsErrors.type) &&
-        Objects.equals(this.message, pipelineWithWorkflowsErrors.message);
+    PipelineTrigger pipelineTrigger = (PipelineTrigger) o;
+    return Objects.equals(this.type, pipelineTrigger.type) &&
+        Objects.equals(this.receivedAt, pipelineTrigger.receivedAt) &&
+        Objects.equals(this.actor, pipelineTrigger.actor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, message);
+    return Objects.hash(type, receivedAt, actor);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineWithWorkflowsErrors {\n");
+    sb.append("class PipelineTrigger {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    receivedAt: ").append(toIndentedString(receivedAt)).append("\n");
+    sb.append("    actor: ").append(toIndentedString(actor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -13,7 +13,7 @@
 
 package com.circleci.client.v2.model;
 
-import com.circleci.client.v2.model.PipelineWithWorkflowsVcsCommit;
+import com.circleci.client.v2.model.PipelineVcsCommit;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -25,17 +25,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PipelineWithWorkflowsVcs
+ * Model tests for PipelineVcs
  */
-public class PipelineWithWorkflowsVcsTest {
-    private final PipelineWithWorkflowsVcs model = new PipelineWithWorkflowsVcs();
+public class PipelineVcsTest {
+    private final PipelineVcs model = new PipelineVcs();
 
     /**
-     * Model tests for PipelineWithWorkflowsVcs
+     * Model tests for PipelineVcs
      */
     @Test
-    public void testPipelineWithWorkflowsVcs() {
-        // TODO: test PipelineWithWorkflowsVcs
+    public void testPipelineVcs() {
+        // TODO: test PipelineVcs
     }
 
     /**

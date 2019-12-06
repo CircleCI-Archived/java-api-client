@@ -20,34 +20,55 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.UUID;
 
 /**
- * Basic information about a workflow
+ * The latest commit in the pipeline.
  */
-@ApiModel(description = "Basic information about a workflow")
+@ApiModel(description = "The latest commit in the pipeline.")
 
-public class PipelineWithWorkflowsWorkflows {
-  public static final String JSON_PROPERTY_ID = "id";
-  @JsonProperty(JSON_PROPERTY_ID)
-  private UUID id;
+public class PipelineVcsCommit {
+  public static final String JSON_PROPERTY_SUBJECT = "subject";
+  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  private String subject;
 
-  public PipelineWithWorkflowsWorkflows id(UUID id) {
-    this.id = id;
+  public static final String JSON_PROPERTY_BODY = "body";
+  @JsonProperty(JSON_PROPERTY_BODY)
+  private String body;
+
+  public PipelineVcsCommit subject(String subject) {
+    this.subject = subject;
     return this;
   }
 
    /**
-   * The unique ID of the workflow.
-   * @return id
+   * The subject of the commit message.
+   * @return subject
   **/
-  @ApiModelProperty(required = true, value = "The unique ID of the workflow.")
-  public UUID getId() {
-    return id;
+  @ApiModelProperty(required = true, value = "The subject of the commit message.")
+  public String getSubject() {
+    return subject;
   }
 
-  public void setId(UUID id) {
-    this.id = id;
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public PipelineVcsCommit body(String body) {
+    this.body = body;
+    return this;
+  }
+
+   /**
+   * The body of the commit message.
+   * @return body
+  **/
+  @ApiModelProperty(required = true, value = "The body of the commit message.")
+  public String getBody() {
+    return body;
+  }
+
+  public void setBody(String body) {
+    this.body = body;
   }
 
 
@@ -59,21 +80,23 @@ public class PipelineWithWorkflowsWorkflows {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PipelineWithWorkflowsWorkflows pipelineWithWorkflowsWorkflows = (PipelineWithWorkflowsWorkflows) o;
-    return Objects.equals(this.id, pipelineWithWorkflowsWorkflows.id);
+    PipelineVcsCommit pipelineVcsCommit = (PipelineVcsCommit) o;
+    return Objects.equals(this.subject, pipelineVcsCommit.subject) &&
+        Objects.equals(this.body, pipelineVcsCommit.body);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(subject, body);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineWithWorkflowsWorkflows {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class PipelineVcsCommit {\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("}");
     return sb.toString();
   }

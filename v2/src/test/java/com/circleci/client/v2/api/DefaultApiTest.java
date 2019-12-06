@@ -24,10 +24,10 @@ import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
+import com.circleci.client.v2.model.Pipeline;
 import com.circleci.client.v2.model.PipelineConfig;
 import com.circleci.client.v2.model.PipelineLight;
 import com.circleci.client.v2.model.PipelineListResponse;
-import com.circleci.client.v2.model.PipelineWithWorkflows;
 import com.circleci.client.v2.model.Project;
 import com.circleci.client.v2.model.RerunWorkflowParameters;
 import com.circleci.client.v2.model.TestsResponse;
@@ -264,7 +264,7 @@ public class DefaultApiTest {
     @Test
     public void getPipelineByIdTest() throws ApiException {
         UUID pipelineId = null;
-        PipelineWithWorkflows response = api.getPipelineById(pipelineId);
+        Pipeline response = api.getPipelineById(pipelineId);
 
         // TODO: test validations
     }

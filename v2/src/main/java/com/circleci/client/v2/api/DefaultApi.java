@@ -18,10 +18,10 @@ import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
+import com.circleci.client.v2.model.Pipeline;
 import com.circleci.client.v2.model.PipelineConfig;
 import com.circleci.client.v2.model.PipelineLight;
 import com.circleci.client.v2.model.PipelineListResponse;
-import com.circleci.client.v2.model.PipelineWithWorkflows;
 import com.circleci.client.v2.model.Project;
 import com.circleci.client.v2.model.RerunWorkflowParameters;
 import com.circleci.client.v2.model.TestsResponse;
@@ -861,7 +861,7 @@ public class DefaultApi {
    * Get a pipeline
    * Returns a pipeline by ID.
    * @param pipelineId The unique ID of the pipeline. (required)
-   * @return PipelineWithWorkflows
+   * @return Pipeline
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -869,7 +869,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A pipeline object. </td><td>  -  </td></tr>
      </table>
    */
-  public PipelineWithWorkflows getPipelineById(UUID pipelineId) throws ApiException {
+  public Pipeline getPipelineById(UUID pipelineId) throws ApiException {
     return getPipelineByIdWithHttpInfo(pipelineId).getData();
       }
 
@@ -877,7 +877,7 @@ public class DefaultApi {
    * Get a pipeline
    * Returns a pipeline by ID.
    * @param pipelineId The unique ID of the pipeline. (required)
-   * @return ApiResponse&lt;PipelineWithWorkflows&gt;
+   * @return ApiResponse&lt;Pipeline&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -885,7 +885,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A pipeline object. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PipelineWithWorkflows> getPipelineByIdWithHttpInfo(UUID pipelineId) throws ApiException {
+  public ApiResponse<Pipeline> getPipelineByIdWithHttpInfo(UUID pipelineId) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'pipelineId' is set
@@ -917,7 +917,7 @@ public class DefaultApi {
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<PipelineWithWorkflows> localVarReturnType = new GenericType<PipelineWithWorkflows>() {};
+    GenericType<Pipeline> localVarReturnType = new GenericType<Pipeline>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

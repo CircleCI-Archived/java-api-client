@@ -1,6 +1,6 @@
 
 
-# PipelineWithWorkflowsTriggerActor
+# PipelineTriggerActor
 
 ## Properties
 

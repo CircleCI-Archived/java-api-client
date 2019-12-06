@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "The user who triggered the Pipeline.")
 
-public class PipelineWithWorkflowsTriggerActor {
+public class PipelineTriggerActor {
   public static final String JSON_PROPERTY_LOGIN = "login";
   @JsonProperty(JSON_PROPERTY_LOGIN)
   private String login;
@@ -35,7 +35,7 @@ public class PipelineWithWorkflowsTriggerActor {
   @JsonProperty(JSON_PROPERTY_AVATAR_URL)
   private String avatarUrl;
 
-  public PipelineWithWorkflowsTriggerActor login(String login) {
+  public PipelineTriggerActor login(String login) {
     this.login = login;
     return this;
   }
@@ -53,7 +53,7 @@ public class PipelineWithWorkflowsTriggerActor {
     this.login = login;
   }
 
-  public PipelineWithWorkflowsTriggerActor avatarUrl(String avatarUrl) {
+  public PipelineTriggerActor avatarUrl(String avatarUrl) {
     this.avatarUrl = avatarUrl;
     return this;
   }
@@ -80,9 +80,9 @@ public class PipelineWithWorkflowsTriggerActor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PipelineWithWorkflowsTriggerActor pipelineWithWorkflowsTriggerActor = (PipelineWithWorkflowsTriggerActor) o;
-    return Objects.equals(this.login, pipelineWithWorkflowsTriggerActor.login) &&
-        Objects.equals(this.avatarUrl, pipelineWithWorkflowsTriggerActor.avatarUrl);
+    PipelineTriggerActor pipelineTriggerActor = (PipelineTriggerActor) o;
+    return Objects.equals(this.login, pipelineTriggerActor.login) &&
+        Objects.equals(this.avatarUrl, pipelineTriggerActor.avatarUrl);
   }
 
   @Override
@@ -94,7 +94,7 @@ public class PipelineWithWorkflowsTriggerActor {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineWithWorkflowsTriggerActor {\n");
+    sb.append("class PipelineTriggerActor {\n");
     sb.append("    login: ").append(toIndentedString(login)).append("\n");
     sb.append("    avatarUrl: ").append(toIndentedString(avatarUrl)).append("\n");
     sb.append("}");

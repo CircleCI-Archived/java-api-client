@@ -1,6 +1,6 @@
 
 
-# PipelineWithWorkflowsTrigger
+# PipelineTrigger
 
 ## Properties
 
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**TypeEnum**](#TypeEnum) | The type of trigger. | 
 **receivedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the trigger was received. | 
-**actor** | [**PipelineWithWorkflowsTriggerActor**](PipelineWithWorkflowsTriggerActor.md) |  | 
+**actor** | [**PipelineTriggerActor**](PipelineTriggerActor.md) |  | 
 
 
 

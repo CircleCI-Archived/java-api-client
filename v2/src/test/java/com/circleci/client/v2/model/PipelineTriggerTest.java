@@ -13,37 +13,54 @@
 
 package com.circleci.client.v2.model;
 
+import com.circleci.client.v2.model.PipelineTriggerActor;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.UUID;
+import java.time.OffsetDateTime;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for PipelineWithWorkflowsWorkflows
+ * Model tests for PipelineTrigger
  */
-public class PipelineWithWorkflowsWorkflowsTest {
-    private final PipelineWithWorkflowsWorkflows model = new PipelineWithWorkflowsWorkflows();
+public class PipelineTriggerTest {
+    private final PipelineTrigger model = new PipelineTrigger();
 
     /**
-     * Model tests for PipelineWithWorkflowsWorkflows
+     * Model tests for PipelineTrigger
      */
     @Test
-    public void testPipelineWithWorkflowsWorkflows() {
-        // TODO: test PipelineWithWorkflowsWorkflows
+    public void testPipelineTrigger() {
+        // TODO: test PipelineTrigger
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'type'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
+     * Test the property 'receivedAt'
+     */
+    @Test
+    public void receivedAtTest() {
+        // TODO: test receivedAt
+    }
+
+    /**
+     * Test the property 'actor'
+     */
+    @Test
+    public void actorTest() {
+        // TODO: test actor
     }
 
 }

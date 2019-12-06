@@ -13,9 +13,9 @@
 
 package com.circleci.client.v2.model;
 
-import com.circleci.client.v2.model.PipelineWithWorkflowsErrors;
-import com.circleci.client.v2.model.PipelineWithWorkflowsTrigger;
-import com.circleci.client.v2.model.PipelineWithWorkflowsVcs;
+import com.circleci.client.v2.model.PipelineErrors;
+import com.circleci.client.v2.model.PipelineTrigger;
+import com.circleci.client.v2.model.PipelineVcs;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

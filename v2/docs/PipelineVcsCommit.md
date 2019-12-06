@@ -1,6 +1,6 @@
 
 
-# PipelineWithWorkflowsVcsCommit
+# PipelineVcsCommit
 
 ## Properties
 

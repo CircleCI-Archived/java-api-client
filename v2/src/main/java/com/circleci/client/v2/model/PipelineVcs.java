@@ -15,7 +15,7 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.circleci.client.v2.model.PipelineWithWorkflowsVcsCommit;
+import com.circleci.client.v2.model.PipelineVcsCommit;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "VCS information for the pipeline.")
 
-public class PipelineWithWorkflowsVcs {
+public class PipelineVcs {
   public static final String JSON_PROPERTY_PROVIDER_NAME = "provider_name";
   @JsonProperty(JSON_PROPERTY_PROVIDER_NAME)
   private String providerName;
@@ -54,9 +54,9 @@ public class PipelineWithWorkflowsVcs {
 
   public static final String JSON_PROPERTY_COMMIT = "commit";
   @JsonProperty(JSON_PROPERTY_COMMIT)
-  private PipelineWithWorkflowsVcsCommit commit = null;
+  private PipelineVcsCommit commit = null;
 
-  public PipelineWithWorkflowsVcs providerName(String providerName) {
+  public PipelineVcs providerName(String providerName) {
     this.providerName = providerName;
     return this;
   }
@@ -74,7 +74,7 @@ public class PipelineWithWorkflowsVcs {
     this.providerName = providerName;
   }
 
-  public PipelineWithWorkflowsVcs originRepositoryUrl(String originRepositoryUrl) {
+  public PipelineVcs originRepositoryUrl(String originRepositoryUrl) {
     this.originRepositoryUrl = originRepositoryUrl;
     return this;
   }
@@ -92,7 +92,7 @@ public class PipelineWithWorkflowsVcs {
     this.originRepositoryUrl = originRepositoryUrl;
   }
 
-  public PipelineWithWorkflowsVcs targetRepositoryUrl(String targetRepositoryUrl) {
+  public PipelineVcs targetRepositoryUrl(String targetRepositoryUrl) {
     this.targetRepositoryUrl = targetRepositoryUrl;
     return this;
   }
@@ -110,7 +110,7 @@ public class PipelineWithWorkflowsVcs {
     this.targetRepositoryUrl = targetRepositoryUrl;
   }
 
-  public PipelineWithWorkflowsVcs revision(String revision) {
+  public PipelineVcs revision(String revision) {
     this.revision = revision;
     return this;
   }
@@ -128,7 +128,7 @@ public class PipelineWithWorkflowsVcs {
     this.revision = revision;
   }
 
-  public PipelineWithWorkflowsVcs branch(String branch) {
+  public PipelineVcs branch(String branch) {
     this.branch = branch;
     return this;
   }
@@ -147,7 +147,7 @@ public class PipelineWithWorkflowsVcs {
     this.branch = branch;
   }
 
-  public PipelineWithWorkflowsVcs tag(String tag) {
+  public PipelineVcs tag(String tag) {
     this.tag = tag;
     return this;
   }
@@ -166,7 +166,7 @@ public class PipelineWithWorkflowsVcs {
     this.tag = tag;
   }
 
-  public PipelineWithWorkflowsVcs commit(PipelineWithWorkflowsVcsCommit commit) {
+  public PipelineVcs commit(PipelineVcsCommit commit) {
     this.commit = commit;
     return this;
   }
@@ -177,11 +177,11 @@ public class PipelineWithWorkflowsVcs {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  public PipelineWithWorkflowsVcsCommit getCommit() {
+  public PipelineVcsCommit getCommit() {
     return commit;
   }
 
-  public void setCommit(PipelineWithWorkflowsVcsCommit commit) {
+  public void setCommit(PipelineVcsCommit commit) {
     this.commit = commit;
   }
 
@@ -194,14 +194,14 @@ public class PipelineWithWorkflowsVcs {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PipelineWithWorkflowsVcs pipelineWithWorkflowsVcs = (PipelineWithWorkflowsVcs) o;
-    return Objects.equals(this.providerName, pipelineWithWorkflowsVcs.providerName) &&
-        Objects.equals(this.originRepositoryUrl, pipelineWithWorkflowsVcs.originRepositoryUrl) &&
-        Objects.equals(this.targetRepositoryUrl, pipelineWithWorkflowsVcs.targetRepositoryUrl) &&
-        Objects.equals(this.revision, pipelineWithWorkflowsVcs.revision) &&
-        Objects.equals(this.branch, pipelineWithWorkflowsVcs.branch) &&
-        Objects.equals(this.tag, pipelineWithWorkflowsVcs.tag) &&
-        Objects.equals(this.commit, pipelineWithWorkflowsVcs.commit);
+    PipelineVcs pipelineVcs = (PipelineVcs) o;
+    return Objects.equals(this.providerName, pipelineVcs.providerName) &&
+        Objects.equals(this.originRepositoryUrl, pipelineVcs.originRepositoryUrl) &&
+        Objects.equals(this.targetRepositoryUrl, pipelineVcs.targetRepositoryUrl) &&
+        Objects.equals(this.revision, pipelineVcs.revision) &&
+        Objects.equals(this.branch, pipelineVcs.branch) &&
+        Objects.equals(this.tag, pipelineVcs.tag) &&
+        Objects.equals(this.commit, pipelineVcs.commit);
   }
 
   @Override
@@ -213,7 +213,7 @@ public class PipelineWithWorkflowsVcs {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineWithWorkflowsVcs {\n");
+    sb.append("class PipelineVcs {\n");
     sb.append("    providerName: ").append(toIndentedString(providerName)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    targetRepositoryUrl: ").append(toIndentedString(targetRepositoryUrl)).append("\n");

@@ -24,17 +24,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PipelineWithWorkflowsTriggerActor
+ * Model tests for PipelineTriggerActor
  */
-public class PipelineWithWorkflowsTriggerActorTest {
-    private final PipelineWithWorkflowsTriggerActor model = new PipelineWithWorkflowsTriggerActor();
+public class PipelineTriggerActorTest {
+    private final PipelineTriggerActor model = new PipelineTriggerActor();
 
     /**
-     * Model tests for PipelineWithWorkflowsTriggerActor
+     * Model tests for PipelineTriggerActor
      */
     @Test
-    public void testPipelineWithWorkflowsTriggerActor() {
-        // TODO: test PipelineWithWorkflowsTriggerActor
+    public void testPipelineTriggerActor() {
+        // TODO: test PipelineTriggerActor
     }
 
     /**
