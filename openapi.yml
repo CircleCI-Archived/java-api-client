@@ -2049,6 +2049,6 @@ components:
       name: Circle-Token
       in: header
     basic_auth:
-      description: HTTP basic authentication. The username should be set as the circle-token value, and the password should be left blank.
+      description: HTTP basic authentication. The username should be set as the circle-token value, and the password should be left blank. Note that project tokens are currently not supported on API v2.
       type: http
       scheme: basic
