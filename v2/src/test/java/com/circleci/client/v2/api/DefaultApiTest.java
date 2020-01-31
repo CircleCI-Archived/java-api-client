@@ -22,6 +22,8 @@ import com.circleci.client.v2.model.Collaboration;
 import com.circleci.client.v2.model.EnvironmentVariableListResponse;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
+import com.circleci.client.v2.model.InlineResponse200;
+import com.circleci.client.v2.model.InlineResponse2001;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import com.circleci.client.v2.model.Pipeline;
@@ -297,6 +299,42 @@ public class DefaultApiTest {
     public void getProjectBySlugTest() throws ApiException {
         String projectSlug = null;
         Project response = api.getProjectBySlug(projectSlug);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get summary metrics for a project&#39;s workflows
+     *
+     * Get summary metrics for a project&#39;s workflows. The past 250 workflow runs, going back at most 90 days, are included in the aggregations.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getProjectWorkflowMetricsTest() throws ApiException {
+        String projectSlug = null;
+        String pageToken = null;
+        String branch = null;
+        InlineResponse200 response = api.getProjectWorkflowMetrics(projectSlug, pageToken, branch);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get recent runs of a workflow
+     *
+     * Get recent runs of a workflow. The past 250 workflow runs, going back at most 90 days, are returned.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getProjectWorkflowRunsTest() throws ApiException {
+        String projectSlug = null;
+        String workflowName = null;
+        String branch = null;
+        InlineResponse2001 response = api.getProjectWorkflowRuns(projectSlug, workflowName, branch);
 
         // TODO: test validations
     }

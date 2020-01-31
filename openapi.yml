@@ -12,6 +12,250 @@ security:
 - api_key_header: []
 - basic_auth: []
 paths:
+  /insights/{project-slug}/workflows:
+    get:
+      summary: Get summary metrics for a project's workflows
+      description: Get summary metrics for a project's workflows. The past 250 workflow runs, going back at most 90 days, are included in the aggregations.
+      tags:
+      - Insights
+      - Preview
+      operationId: getProjectWorkflowMetrics
+      responses:
+        200:
+          description: Summary metrics by workflow
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: The name of the workflow.
+                          example: build-and-test
+                        window_start:
+                          type: string
+                          format: date-time
+                          description: The start of the aggregation window for workflow metrics.
+                        window_end:
+                          type: string
+                          format: date-time
+                          description: The end of the aggregation window for workflow metrics.
+                        metrics:
+                          type: object
+                          properties:
+                            success_rate:
+                              type: number
+                              format: float
+                              description: The ratio of successful runs / total runs.
+                            total_runs:
+                              type: integer
+                              format: int64
+                              minimum: 0
+                              description: The total number of runs.
+                            failed_runs:
+                              type: integer
+                              format: int64
+                              minimum: 0
+                              description: The number of failed runs.
+                            successful_runs:
+                              type: integer
+                              format: int64
+                              minimum: 0
+                              description: The number of successful runs.
+                            throughput:
+                              type: number
+                              format: float
+                              description: The average number of workflow runs per day.
+                            mttr:
+                              type: integer
+                              format: int64
+                              minimum: 0
+                              description: The mean time to recovery (mean time between failures and their next success) in seconds.
+                            total_credits_used:
+                              type: integer
+                              format: int64
+                              minimum: 0
+                              description: The total credits consumed by the workflow in the aggregation window.
+                            duration_metrics:
+                              type: object
+                              properties:
+                                min:
+                                  type: integer
+                                  format: int64
+                                  minimum: 0
+                                  description: The minimum duration, in seconds, among a group of runs.
+                                mean:
+                                  type: integer
+                                  format: int64
+                                  minimum: 0
+                                  description: The mean duration, in seconds, among a group of runs.
+                                median:
+                                  type: integer
+                                  format: int64
+                                  minimum: 0
+                                  description: The median duration, in seconds, among a group of runs.
+                                p95:
+                                  type: integer
+                                  format: int64
+                                  minimum: 0
+                                  description: The 95th percentile duration, in seconds, among a group of runs.
+                                max:
+                                  type: integer
+                                  format: int64
+                                  minimum: 0
+                                  description: The max duration, in seconds, among a group of runs.
+                                standard_deviation:
+                                  type: number
+                                  format: float
+                                  description: The standard deviation, in seconds, among a group of runs.
+                              required:
+                              - min
+                              - mean
+                              - median
+                              - p95
+                              - max
+                              - standard_deviation
+                              description: Metrics relating to the duration of runs for a workflow.
+                          required:
+                          - success_rate
+                          - total_runs
+                          - failed_runs
+                          - successful_runs
+                          - throughput
+                          - mttr
+                          - total_credits_used
+                          - duration_metrics
+                          description: Metrics relating to a workflow's runs.
+                      required:
+                      - name
+                      - window_start
+                      - window_end
+                      - metrics
+                    description: Workflow summary metrics.
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
+                required:
+                - items
+                - next_page_token
+                description: Paged workflow summary metrics.
+      parameters:
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
+      - in: query
+        name: page-token
+        description: A token to retrieve the next page of results.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
+      - in: query
+        name: branch
+        description: The name of a vcs branch.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
+  /insights/{project-slug}/workflows/{workflow-name}:
+    get:
+      summary: Get recent runs of a workflow
+      description: Get recent runs of a workflow. The past 250 workflow runs, going back at most 90 days, are returned.
+      tags:
+      - Insights
+      - Preview
+      operationId: getProjectWorkflowRuns
+      responses:
+        200:
+          description: Recent workflow runs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                          description: The unique ID of the workflow.
+                        duration:
+                          type: integer
+                          format: int64
+                          minimum: 0
+                          description: The duration in seconds of a run.
+                        created_at:
+                          type: string
+                          format: date-time
+                          description: The date and time the workflow was created.
+                        stopped_at:
+                          type: string
+                          format: date-time
+                          x-nullable: true
+                          description: The date and time the workflow stopped.
+                        credits-used:
+                          type: integer
+                          format: int64
+                          minimum: 0
+                          description: The number of credits used during execution
+                        status:
+                          enum:
+                          - success
+                          - failed
+                          - error
+                          - canceled
+                          - unauthorized
+                          type: string
+                          x-nullable: true
+                          description: Workflow status.
+                      required:
+                      - id
+                      - duration
+                      - created_at
+                      - stopped_at
+                      - credits-used
+                      - status
+                    description: Recent workflow runs.
+                required:
+                - items
+                description: Recent workflow runs.
+      parameters:
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
+      - in: path
+        name: workflow-name
+        description: The name of the workflow.
+        schema:
+          type: string
+        required: true
+        example: build-and-test
+      - in: query
+        name: branch
+        description: The name of a vcs branch.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
   /me:
     get:
       summary: User Information

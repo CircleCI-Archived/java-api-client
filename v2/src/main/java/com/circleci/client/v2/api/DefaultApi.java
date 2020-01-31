@@ -16,6 +16,8 @@ import com.circleci.client.v2.model.Collaboration;
 import com.circleci.client.v2.model.EnvironmentVariableListResponse;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
+import com.circleci.client.v2.model.InlineResponse200;
+import com.circleci.client.v2.model.InlineResponse2001;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import com.circleci.client.v2.model.Pipeline;
@@ -1044,6 +1046,149 @@ public class DefaultApi {
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
     GenericType<Project> localVarReturnType = new GenericType<Project>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get summary metrics for a project&#39;s workflows
+   * Get summary metrics for a project&#39;s workflows. The past 250 workflow runs, going back at most 90 days, are included in the aggregations.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param branch The name of a vcs branch. (optional)
+   * @return InlineResponse200
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Summary metrics by workflow </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse200 getProjectWorkflowMetrics(String projectSlug, String pageToken, String branch) throws ApiException {
+    return getProjectWorkflowMetricsWithHttpInfo(projectSlug, pageToken, branch).getData();
+      }
+
+  /**
+   * Get summary metrics for a project&#39;s workflows
+   * Get summary metrics for a project&#39;s workflows. The past 250 workflow runs, going back at most 90 days, are included in the aggregations.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param branch The name of a vcs branch. (optional)
+   * @return ApiResponse&lt;InlineResponse200&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Summary metrics by workflow </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse200> getProjectWorkflowMetricsWithHttpInfo(String projectSlug, String pageToken, String branch) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'projectSlug' is set
+    if (projectSlug == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectSlug' when calling getProjectWorkflowMetrics");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/insights/{project-slug}/workflows"
+      .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get recent runs of a workflow
+   * Get recent runs of a workflow. The past 250 workflow runs, going back at most 90 days, are returned.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param workflowName The name of the workflow. (required)
+   * @param branch The name of a vcs branch. (optional)
+   * @return InlineResponse2001
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Recent workflow runs </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse2001 getProjectWorkflowRuns(String projectSlug, String workflowName, String branch) throws ApiException {
+    return getProjectWorkflowRunsWithHttpInfo(projectSlug, workflowName, branch).getData();
+      }
+
+  /**
+   * Get recent runs of a workflow
+   * Get recent runs of a workflow. The past 250 workflow runs, going back at most 90 days, are returned.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param workflowName The name of the workflow. (required)
+   * @param branch The name of a vcs branch. (optional)
+   * @return ApiResponse&lt;InlineResponse2001&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Recent workflow runs </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse2001> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, String branch) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'projectSlug' is set
+    if (projectSlug == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectSlug' when calling getProjectWorkflowRuns");
+    }
+    
+    // verify the required parameter 'workflowName' is set
+    if (workflowName == null) {
+      throw new ApiException(400, "Missing the required parameter 'workflowName' when calling getProjectWorkflowRuns");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/insights/{project-slug}/workflows/{workflow-name}"
+      .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
+      .replaceAll("\\{" + "workflow-name" + "\\}", apiClient.escapeString(workflowName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

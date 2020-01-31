@@ -139,6 +139,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getPipelineById**](docs/DefaultApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
 *DefaultApi* | [**getPipelineConfigById**](docs/DefaultApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *DefaultApi* | [**getProjectBySlug**](docs/DefaultApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
+*DefaultApi* | [**getProjectWorkflowMetrics**](docs/DefaultApi.md#getProjectWorkflowMetrics) | **GET** /insights/{project-slug}/workflows | Get summary metrics for a project&#39;s workflows
+*DefaultApi* | [**getProjectWorkflowRuns**](docs/DefaultApi.md#getProjectWorkflowRuns) | **GET** /insights/{project-slug}/workflows/{workflow-name} | Get recent runs of a workflow
 *DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
 *DefaultApi* | [**getUser**](docs/DefaultApi.md#getUser) | **GET** /user/{id} | User Information
 *DefaultApi* | [**getWorkflowById**](docs/DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
@@ -163,6 +165,12 @@ Class | Method | HTTP request | Description
  - [EnvironmentVariableListResponse](docs/EnvironmentVariableListResponse.md)
  - [EnvironmentVariablePair](docs/EnvironmentVariablePair.md)
  - [EnvironmentVariablePair1](docs/EnvironmentVariablePair1.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse2001Items](docs/InlineResponse2001Items.md)
+ - [InlineResponse200Items](docs/InlineResponse200Items.md)
+ - [InlineResponse200Metrics](docs/InlineResponse200Metrics.md)
+ - [InlineResponse200MetricsDurationMetrics](docs/InlineResponse200MetricsDurationMetrics.md)
  - [Job](docs/Job.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobDetailsContexts](docs/JobDetailsContexts.md)
