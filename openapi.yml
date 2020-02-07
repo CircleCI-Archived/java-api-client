@@ -1838,6 +1838,178 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
+  /project/{project-slug}/pipeline/{pipeline-number}:
+    get:
+      summary: Get a pipeline
+      description: Returns a pipeline by number.
+      tags:
+      - Pipeline
+      operationId: getPipelineByNumber
+      responses:
+        200:
+          description: A pipeline object.
+          links:
+            ProjectFromPipeline:
+              operationId: getProjectBySlug
+              parameters:
+                project_slug: $response.body#/project_slug
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: The unique ID of the pipeline.
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          enum:
+                          - config
+                          - plan
+                          type: string
+                          description: The type of error.
+                        message:
+                          type: string
+                          description: A human-readable error message.
+                      required:
+                      - type
+                      - message
+                      description: An error with a type and message.
+                    description: A sequence of errors that have occurred within the pipeline.
+                  project_slug:
+                    type: string
+                    description: The project-slug for the pipeline.
+                    example: gh/CircleCI-Public/api-preview-docs
+                  updated_at:
+                    type: string
+                    format: date-time
+                    description: The date and time the pipeline was last updated.
+                  number:
+                    type: integer
+                    format: int64
+                    description: The number of the pipeline.
+                  state:
+                    enum:
+                    - created
+                    - errored
+                    - pending
+                    type: string
+                    description: The current state of the pipeline.
+                  created_at:
+                    type: string
+                    format: date-time
+                    description: The date and time the pipeline was created.
+                  trigger:
+                    type: object
+                    properties:
+                      type:
+                        enum:
+                        - explicit
+                        - api
+                        - webhook
+                        type: string
+                        description: The type of trigger.
+                      received_at:
+                        type: string
+                        format: date-time
+                        description: The date and time the trigger was received.
+                      actor:
+                        type: object
+                        properties:
+                          login:
+                            type: string
+                            description: The login information for the user on the VCS.
+                            title: Login
+                          avatar_url:
+                            type: string
+                            x-nullable: true
+                            description: URL to the user's avatar on the VCS
+                        required:
+                        - login
+                        - avatar_url
+                        description: The user who triggered the Pipeline.
+                    required:
+                    - type
+                    - received_at
+                    - actor
+                    description: A summary of the trigger.
+                  vcs:
+                    type: object
+                    properties:
+                      provider_name:
+                        type: string
+                        description: Name of the VCS provider (e.g. GitHub, Bitbucket).
+                        example: GitHub
+                      origin_repository_url:
+                        type: string
+                        description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
+                        example: https://github.com/CircleCI-Public/api-preview-docs
+                      target_repository_url:
+                        type: string
+                        description: URL for the repository the trigger targets (i.e. the repository where the PR will be merged). For fork-PR pipelines, this is the URL to the parent repo. For other pipelines, the `origin_` and `target_repository_url`s will be the same.
+                        example: https://github.com/CircleCI-Public/api-preview-docs
+                      revision:
+                        type: string
+                        description: The code revision the pipeline ran.
+                        example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
+                      branch:
+                        type: string
+                        description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                        example: feature/design-new-api
+                      tag:
+                        type: string
+                        description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                        example: v3.1.4159
+                      commit:
+                        type: object
+                        properties:
+                          subject:
+                            type: string
+                            x-nullable: true
+                            description: The subject of the commit message.
+                          body:
+                            type: string
+                            x-nullable: true
+                            description: The body of the commit message.
+                        required:
+                        - subject
+                        - body
+                        description: The latest commit in the pipeline.
+                    required:
+                    - provider_name
+                    - origin_repository_url
+                    - target_repository_url
+                    - revision
+                    description: VCS information for the pipeline.
+                required:
+                - id
+                - number
+                - project_slug
+                - created_at
+                - errors
+                - state
+                - trigger
+                description: 'NOTE: The definition of pipeline is subject to change.'
+                title: Pipeline
+      parameters:
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
+      - in: path
+        name: pipeline-number
+        description: The number of the pipeline.
+        schema: {}
+        required: true
   /project/{project-slug}/{job-number}/artifacts:
     get:
       summary: Get a job's artifacts

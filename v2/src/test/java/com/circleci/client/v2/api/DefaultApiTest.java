@@ -272,6 +272,23 @@ public class DefaultApiTest {
     }
     
     /**
+     * Get a pipeline
+     *
+     * Returns a pipeline by number.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getPipelineByNumberTest() throws ApiException {
+        String projectSlug = null;
+        Object pipelineNumber = null;
+        Pipeline response = api.getPipelineByNumber(projectSlug, pipelineNumber);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get a pipeline&#39;s configuration
      *
      * Returns a pipeline&#39;s configuration by ID.

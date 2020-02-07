@@ -923,6 +923,77 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Get a pipeline
+   * Returns a pipeline by number.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param pipelineNumber The number of the pipeline. (required)
+   * @return Pipeline
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A pipeline object. </td><td>  -  </td></tr>
+     </table>
+   */
+  public Pipeline getPipelineByNumber(String projectSlug, Object pipelineNumber) throws ApiException {
+    return getPipelineByNumberWithHttpInfo(projectSlug, pipelineNumber).getData();
+      }
+
+  /**
+   * Get a pipeline
+   * Returns a pipeline by number.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param pipelineNumber The number of the pipeline. (required)
+   * @return ApiResponse&lt;Pipeline&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A pipeline object. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Pipeline> getPipelineByNumberWithHttpInfo(String projectSlug, Object pipelineNumber) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'projectSlug' is set
+    if (projectSlug == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectSlug' when calling getPipelineByNumber");
+    }
+    
+    // verify the required parameter 'pipelineNumber' is set
+    if (pipelineNumber == null) {
+      throw new ApiException(400, "Missing the required parameter 'pipelineNumber' when calling getPipelineByNumber");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/project/{project-slug}/pipeline/{pipeline-number}"
+      .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
+      .replaceAll("\\{" + "pipeline-number" + "\\}", apiClient.escapeString(pipelineNumber.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<Pipeline> localVarReturnType = new GenericType<Pipeline>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Get a pipeline&#39;s configuration
    * Returns a pipeline&#39;s configuration by ID.
    * @param pipelineId The unique ID of the pipeline. (required)

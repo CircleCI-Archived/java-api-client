@@ -137,6 +137,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getJobArtifacts**](docs/DefaultApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
 *DefaultApi* | [**getJobDetails**](docs/DefaultApi.md#getJobDetails) | **GET** /project/{project-slug}/job/{job-number} | Get job details
 *DefaultApi* | [**getPipelineById**](docs/DefaultApi.md#getPipelineById) | **GET** /pipeline/{pipeline-id} | Get a pipeline
+*DefaultApi* | [**getPipelineByNumber**](docs/DefaultApi.md#getPipelineByNumber) | **GET** /project/{project-slug}/pipeline/{pipeline-number} | Get a pipeline
 *DefaultApi* | [**getPipelineConfigById**](docs/DefaultApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *DefaultApi* | [**getProjectBySlug**](docs/DefaultApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
 *DefaultApi* | [**getProjectWorkflowMetrics**](docs/DefaultApi.md#getProjectWorkflowMetrics) | **GET** /insights/{project-slug}/workflows | Get summary metrics for a project&#39;s workflows
