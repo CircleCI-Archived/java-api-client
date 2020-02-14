@@ -24,6 +24,7 @@ import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
 import com.circleci.client.v2.model.InlineResponse200;
 import com.circleci.client.v2.model.InlineResponse2001;
+import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import com.circleci.client.v2.model.Pipeline;
@@ -316,6 +317,25 @@ public class DefaultApiTest {
     public void getProjectBySlugTest() throws ApiException {
         String projectSlug = null;
         Project response = api.getProjectBySlug(projectSlug);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get recent runs of a workflow job
+     *
+     * Get recent runs of a job within a workflow. The past 250 job runs, going back at most 90 days, are returned.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getProjectJobRunsTest() throws ApiException {
+        String projectSlug = null;
+        String workflowName = null;
+        String jobName = null;
+        String branch = null;
+        InlineResponse2002 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, branch);
 
         // TODO: test validations
     }

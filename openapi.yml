@@ -256,6 +256,95 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
+  /insights/{project-slug}/workflows/{workflow-name}/jobs/{job-name}:
+    get:
+      summary: Get recent runs of a workflow job
+      description: Get recent runs of a job within a workflow. The past 250 job runs, going back at most 90 days, are returned.
+      tags:
+      - Insights
+      - Preview
+      operationId: getProjectJobRuns
+      responses:
+        200:
+          description: Recent job runs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                          description: The unique ID of the job.
+                        started_at:
+                          type: string
+                          format: date-time
+                          description: The date and time the job started.
+                        stopped_at:
+                          type: string
+                          format: date-time
+                          x-nullable: true
+                          description: The time when the job stopped.
+                        status:
+                          enum:
+                          - success
+                          - not_run
+                          - failed
+                          - canceled
+                          - unauthorized
+                          type: string
+                          x-nullable: true
+                          description: Job status.
+                        credits-used:
+                          type: integer
+                          format: int64
+                          minimum: 0
+                          description: The number of credits used during execution
+                      required:
+                      - id
+                      - started_at
+                      - stopped_at
+                      - status
+                      - credits-used
+                    description: Recent job runs.
+                required:
+                - items
+                description: Recent job runs.
+      parameters:
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
+      - in: path
+        name: workflow-name
+        description: The name of the workflow.
+        schema:
+          type: string
+        required: true
+        example: build-and-test
+      - in: path
+        name: job-name
+        description: The name of the job.
+        schema:
+          type: string
+        required: true
+        example: lint
+      - in: query
+        name: branch
+        description: The name of a vcs branch.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
   /me:
     get:
       summary: User Information
