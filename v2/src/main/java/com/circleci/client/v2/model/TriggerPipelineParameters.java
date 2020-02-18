@@ -15,11 +15,15 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.circleci.client.v2.model.AnyOfintegerstringboolean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * The information you can supply when triggering a pipeline.
@@ -37,7 +41,7 @@ public class TriggerPipelineParameters {
 
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
   @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  private Object parameters = null;
+  private Map<String, AnyOfintegerstringboolean> parameters = new HashMap<>();
 
   public TriggerPipelineParameters branch(String branch) {
     this.branch = branch;
@@ -77,8 +81,16 @@ public class TriggerPipelineParameters {
     this.tag = tag;
   }
 
-  public TriggerPipelineParameters parameters(Object parameters) {
+  public TriggerPipelineParameters parameters(Map<String, AnyOfintegerstringboolean> parameters) {
     this.parameters = parameters;
+    return this;
+  }
+
+  public TriggerPipelineParameters putParametersItem(String key, AnyOfintegerstringboolean parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new HashMap<>();
+    }
+    this.parameters.put(key, parametersItem);
     return this;
   }
 
@@ -88,11 +100,11 @@ public class TriggerPipelineParameters {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "{\"deploy_prod\":true}", value = "An object containing pipeline parameters and their values.")
-  public Object getParameters() {
+  public Map<String, AnyOfintegerstringboolean> getParameters() {
     return parameters;
   }
 
-  public void setParameters(Object parameters) {
+  public void setParameters(Map<String, AnyOfintegerstringboolean> parameters) {
     this.parameters = parameters;
   }
 
