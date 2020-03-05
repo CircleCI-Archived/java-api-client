@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**getPipelineConfigById**](DefaultApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 [**getProjectBySlug**](DefaultApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
 [**getProjectJobRuns**](DefaultApi.md#getProjectJobRuns) | **GET** /insights/{project-slug}/workflows/{workflow-name}/jobs/{job-name} | Get recent runs of a workflow job
+[**getProjectWorkflowJobMetrics**](DefaultApi.md#getProjectWorkflowJobMetrics) | **GET** /insights/{project-slug}/workflows/{workflow-name}/jobs | Get summary metrics for a project workflow&#39;s jobs.
 [**getProjectWorkflowMetrics**](DefaultApi.md#getProjectWorkflowMetrics) | **GET** /insights/{project-slug}/workflows | Get summary metrics for a project&#39;s workflows
 [**getProjectWorkflowRuns**](DefaultApi.md#getProjectWorkflowRuns) | **GET** /insights/{project-slug}/workflows/{workflow-name} | Get recent runs of a workflow
 [**getTests**](DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
@@ -1379,7 +1380,7 @@ Name | Type | Description  | Notes
 
 ## getProjectJobRuns
 
-> InlineResponse2002 getProjectJobRuns(projectSlug, workflowName, jobName, branch)
+> InlineResponse2003 getProjectJobRuns(projectSlug, workflowName, jobName, branch)
 
 Get recent runs of a workflow job
 
@@ -1424,7 +1425,7 @@ public class Example {
         String jobName = lint; // String | The name of the job.
         String branch = "branch_example"; // String | The name of a vcs branch.
         try {
-            InlineResponse2002 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, branch);
+            InlineResponse2003 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, branch);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectJobRuns");
@@ -1449,7 +1450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -1464,6 +1465,95 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Recent job runs |  -  |
+
+
+## getProjectWorkflowJobMetrics
+
+> InlineResponse2002 getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch)
+
+Get summary metrics for a project workflow&#39;s jobs.
+
+Get summary metrics for a project workflow&#39;s jobs. Job runs going back 90 days are included in the aggregation window.
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        String workflowName = build-and-test; // String | The name of the workflow.
+        String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
+        String branch = "branch_example"; // String | The name of a vcs branch.
+        try {
+            InlineResponse2002 result = apiInstance.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getProjectWorkflowJobMetrics");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
+ **workflowName** | **String**| The name of the workflow. |
+ **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
+ **branch** | **String**| The name of a vcs branch. | [optional]
+
+### Return type
+
+[**InlineResponse2002**](InlineResponse2002.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A paginated list of summary metrics by workflow job. |  -  |
 
 
 ## getProjectWorkflowMetrics

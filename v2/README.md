@@ -141,6 +141,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getPipelineConfigById**](docs/DefaultApi.md#getPipelineConfigById) | **GET** /pipeline/{pipeline-id}/config | Get a pipeline&#39;s configuration
 *DefaultApi* | [**getProjectBySlug**](docs/DefaultApi.md#getProjectBySlug) | **GET** /project/{project-slug} | Get a project
 *DefaultApi* | [**getProjectJobRuns**](docs/DefaultApi.md#getProjectJobRuns) | **GET** /insights/{project-slug}/workflows/{workflow-name}/jobs/{job-name} | Get recent runs of a workflow job
+*DefaultApi* | [**getProjectWorkflowJobMetrics**](docs/DefaultApi.md#getProjectWorkflowJobMetrics) | **GET** /insights/{project-slug}/workflows/{workflow-name}/jobs | Get summary metrics for a project workflow&#39;s jobs.
 *DefaultApi* | [**getProjectWorkflowMetrics**](docs/DefaultApi.md#getProjectWorkflowMetrics) | **GET** /insights/{project-slug}/workflows | Get summary metrics for a project&#39;s workflows
 *DefaultApi* | [**getProjectWorkflowRuns**](docs/DefaultApi.md#getProjectWorkflowRuns) | **GET** /insights/{project-slug}/workflows/{workflow-name} | Get recent runs of a workflow
 *DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
@@ -172,6 +173,10 @@ Class | Method | HTTP request | Description
  - [InlineResponse2001Items](docs/InlineResponse2001Items.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
  - [InlineResponse2002Items](docs/InlineResponse2002Items.md)
+ - [InlineResponse2002Metrics](docs/InlineResponse2002Metrics.md)
+ - [InlineResponse2002MetricsDurationMetrics](docs/InlineResponse2002MetricsDurationMetrics.md)
+ - [InlineResponse2003](docs/InlineResponse2003.md)
+ - [InlineResponse2003Items](docs/InlineResponse2003Items.md)
  - [InlineResponse200Items](docs/InlineResponse200Items.md)
  - [InlineResponse200Metrics](docs/InlineResponse200Metrics.md)
  - [InlineResponse200MetricsDurationMetrics](docs/InlineResponse200MetricsDurationMetrics.md)

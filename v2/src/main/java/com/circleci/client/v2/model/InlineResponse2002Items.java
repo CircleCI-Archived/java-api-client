@@ -15,169 +15,105 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.circleci.client.v2.model.InlineResponse2002Metrics;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.UUID;
 
 /**
  * InlineResponse2002Items
  */
 
 public class InlineResponse2002Items {
-  public static final String JSON_PROPERTY_ID = "id";
-  @JsonProperty(JSON_PROPERTY_ID)
-  private UUID id;
+  public static final String JSON_PROPERTY_NAME = "name";
+  @JsonProperty(JSON_PROPERTY_NAME)
+  private String name;
 
-  public static final String JSON_PROPERTY_STARTED_AT = "started_at";
-  @JsonProperty(JSON_PROPERTY_STARTED_AT)
-  private OffsetDateTime startedAt;
+  public static final String JSON_PROPERTY_WINDOW_START = "window_start";
+  @JsonProperty(JSON_PROPERTY_WINDOW_START)
+  private OffsetDateTime windowStart;
 
-  public static final String JSON_PROPERTY_STOPPED_AT = "stopped_at";
-  @JsonProperty(JSON_PROPERTY_STOPPED_AT)
-  private OffsetDateTime stoppedAt;
+  public static final String JSON_PROPERTY_WINDOW_END = "window_end";
+  @JsonProperty(JSON_PROPERTY_WINDOW_END)
+  private OffsetDateTime windowEnd;
 
-  /**
-   * Job status.
-   */
-  public enum StatusEnum {
-    SUCCESS("success"),
-    
-    NOT_RUN("not_run"),
-    
-    FAILED("failed"),
-    
-    CANCELED("canceled"),
-    
-    UNAUTHORIZED("unauthorized");
+  public static final String JSON_PROPERTY_METRICS = "metrics";
+  @JsonProperty(JSON_PROPERTY_METRICS)
+  private InlineResponse2002Metrics metrics = null;
 
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  private StatusEnum status;
-
-  public static final String JSON_PROPERTY_CREDITS_USED = "credits-used";
-  @JsonProperty(JSON_PROPERTY_CREDITS_USED)
-  private Long creditsUsed;
-
-  public InlineResponse2002Items id(UUID id) {
-    this.id = id;
+  public InlineResponse2002Items name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * The unique ID of the job.
-   * @return id
+   * The name of the job.
+   * @return name
   **/
-  @ApiModelProperty(required = true, value = "The unique ID of the job.")
-  public UUID getId() {
-    return id;
+  @ApiModelProperty(required = true, value = "The name of the job.")
+  public String getName() {
+    return name;
   }
 
-  public void setId(UUID id) {
-    this.id = id;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public InlineResponse2002Items startedAt(OffsetDateTime startedAt) {
-    this.startedAt = startedAt;
+  public InlineResponse2002Items windowStart(OffsetDateTime windowStart) {
+    this.windowStart = windowStart;
     return this;
   }
 
    /**
-   * The date and time the job started.
-   * @return startedAt
+   * The start of the aggregation window for job metrics.
+   * @return windowStart
   **/
-  @ApiModelProperty(required = true, value = "The date and time the job started.")
-  public OffsetDateTime getStartedAt() {
-    return startedAt;
+  @ApiModelProperty(required = true, value = "The start of the aggregation window for job metrics.")
+  public OffsetDateTime getWindowStart() {
+    return windowStart;
   }
 
-  public void setStartedAt(OffsetDateTime startedAt) {
-    this.startedAt = startedAt;
+  public void setWindowStart(OffsetDateTime windowStart) {
+    this.windowStart = windowStart;
   }
 
-  public InlineResponse2002Items stoppedAt(OffsetDateTime stoppedAt) {
-    this.stoppedAt = stoppedAt;
+  public InlineResponse2002Items windowEnd(OffsetDateTime windowEnd) {
+    this.windowEnd = windowEnd;
     return this;
   }
 
    /**
-   * The time when the job stopped.
-   * @return stoppedAt
+   * The end of the aggregation window for job metrics.
+   * @return windowEnd
   **/
-  @ApiModelProperty(required = true, value = "The time when the job stopped.")
-  public OffsetDateTime getStoppedAt() {
-    return stoppedAt;
+  @ApiModelProperty(required = true, value = "The end of the aggregation window for job metrics.")
+  public OffsetDateTime getWindowEnd() {
+    return windowEnd;
   }
 
-  public void setStoppedAt(OffsetDateTime stoppedAt) {
-    this.stoppedAt = stoppedAt;
+  public void setWindowEnd(OffsetDateTime windowEnd) {
+    this.windowEnd = windowEnd;
   }
 
-  public InlineResponse2002Items status(StatusEnum status) {
-    this.status = status;
+  public InlineResponse2002Items metrics(InlineResponse2002Metrics metrics) {
+    this.metrics = metrics;
     return this;
   }
 
    /**
-   * Job status.
-   * @return status
+   * Get metrics
+   * @return metrics
   **/
-  @ApiModelProperty(required = true, value = "Job status.")
-  public StatusEnum getStatus() {
-    return status;
+  @ApiModelProperty(required = true, value = "")
+  public InlineResponse2002Metrics getMetrics() {
+    return metrics;
   }
 
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-
-  public InlineResponse2002Items creditsUsed(Long creditsUsed) {
-    this.creditsUsed = creditsUsed;
-    return this;
-  }
-
-   /**
-   * The number of credits used during execution
-   * minimum: 0
-   * @return creditsUsed
-  **/
-  @ApiModelProperty(required = true, value = "The number of credits used during execution")
-  public Long getCreditsUsed() {
-    return creditsUsed;
-  }
-
-  public void setCreditsUsed(Long creditsUsed) {
-    this.creditsUsed = creditsUsed;
+  public void setMetrics(InlineResponse2002Metrics metrics) {
+    this.metrics = metrics;
   }
 
 
@@ -190,16 +126,15 @@ public class InlineResponse2002Items {
       return false;
     }
     InlineResponse2002Items inlineResponse2002Items = (InlineResponse2002Items) o;
-    return Objects.equals(this.id, inlineResponse2002Items.id) &&
-        Objects.equals(this.startedAt, inlineResponse2002Items.startedAt) &&
-        Objects.equals(this.stoppedAt, inlineResponse2002Items.stoppedAt) &&
-        Objects.equals(this.status, inlineResponse2002Items.status) &&
-        Objects.equals(this.creditsUsed, inlineResponse2002Items.creditsUsed);
+    return Objects.equals(this.name, inlineResponse2002Items.name) &&
+        Objects.equals(this.windowStart, inlineResponse2002Items.windowStart) &&
+        Objects.equals(this.windowEnd, inlineResponse2002Items.windowEnd) &&
+        Objects.equals(this.metrics, inlineResponse2002Items.metrics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, startedAt, stoppedAt, status, creditsUsed);
+    return Objects.hash(name, windowStart, windowEnd, metrics);
   }
 
 
@@ -207,11 +142,10 @@ public class InlineResponse2002Items {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2002Items {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
-    sb.append("    stoppedAt: ").append(toIndentedString(stoppedAt)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    creditsUsed: ").append(toIndentedString(creditsUsed)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    windowStart: ").append(toIndentedString(windowStart)).append("\n");
+    sb.append("    windowEnd: ").append(toIndentedString(windowEnd)).append("\n");
+    sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

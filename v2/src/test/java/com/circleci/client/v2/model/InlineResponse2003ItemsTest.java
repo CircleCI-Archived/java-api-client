@@ -13,62 +13,70 @@
 
 package com.circleci.client.v2.model;
 
-import com.circleci.client.v2.model.InlineResponse2002Metrics;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for InlineResponse2002Items
+ * Model tests for InlineResponse2003Items
  */
-public class InlineResponse2002ItemsTest {
-    private final InlineResponse2002Items model = new InlineResponse2002Items();
+public class InlineResponse2003ItemsTest {
+    private final InlineResponse2003Items model = new InlineResponse2003Items();
 
     /**
-     * Model tests for InlineResponse2002Items
+     * Model tests for InlineResponse2003Items
      */
     @Test
-    public void testInlineResponse2002Items() {
-        // TODO: test InlineResponse2002Items
+    public void testInlineResponse2003Items() {
+        // TODO: test InlineResponse2003Items
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'id'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'windowStart'
+     * Test the property 'startedAt'
      */
     @Test
-    public void windowStartTest() {
-        // TODO: test windowStart
+    public void startedAtTest() {
+        // TODO: test startedAt
     }
 
     /**
-     * Test the property 'windowEnd'
+     * Test the property 'stoppedAt'
      */
     @Test
-    public void windowEndTest() {
-        // TODO: test windowEnd
+    public void stoppedAtTest() {
+        // TODO: test stoppedAt
     }
 
     /**
-     * Test the property 'metrics'
+     * Test the property 'status'
      */
     @Test
-    public void metricsTest() {
-        // TODO: test metrics
+    public void statusTest() {
+        // TODO: test status
+    }
+
+    /**
+     * Test the property 'creditsUsed'
+     */
+    @Test
+    public void creditsUsedTest() {
+        // TODO: test creditsUsed
     }
 
 }

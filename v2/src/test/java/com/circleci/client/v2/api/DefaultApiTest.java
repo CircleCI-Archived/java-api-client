@@ -25,6 +25,7 @@ import com.circleci.client.v2.model.EnvironmentVariablePair1;
 import com.circleci.client.v2.model.InlineResponse200;
 import com.circleci.client.v2.model.InlineResponse2001;
 import com.circleci.client.v2.model.InlineResponse2002;
+import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import com.circleci.client.v2.model.Pipeline;
@@ -335,7 +336,26 @@ public class DefaultApiTest {
         String workflowName = null;
         String jobName = null;
         String branch = null;
-        InlineResponse2002 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, branch);
+        InlineResponse2003 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, branch);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get summary metrics for a project workflow&#39;s jobs.
+     *
+     * Get summary metrics for a project workflow&#39;s jobs. Job runs going back 90 days are included in the aggregation window.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getProjectWorkflowJobMetricsTest() throws ApiException {
+        String projectSlug = null;
+        String workflowName = null;
+        String pageToken = null;
+        String branch = null;
+        InlineResponse2002 response = api.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch);
 
         // TODO: test validations
     }

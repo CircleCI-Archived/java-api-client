@@ -19,6 +19,7 @@ import com.circleci.client.v2.model.EnvironmentVariablePair1;
 import com.circleci.client.v2.model.InlineResponse200;
 import com.circleci.client.v2.model.InlineResponse2001;
 import com.circleci.client.v2.model.InlineResponse2002;
+import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import com.circleci.client.v2.model.Pipeline;
@@ -1127,7 +1128,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
    * @param branch The name of a vcs branch. (optional)
-   * @return InlineResponse2002
+   * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1135,7 +1136,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2002 getProjectJobRuns(String projectSlug, String workflowName, String jobName, String branch) throws ApiException {
+  public InlineResponse2003 getProjectJobRuns(String projectSlug, String workflowName, String jobName, String branch) throws ApiException {
     return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, branch).getData();
       }
 
@@ -1146,7 +1147,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
    * @param branch The name of a vcs branch. (optional)
-   * @return ApiResponse&lt;InlineResponse2002&gt;
+   * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1154,7 +1155,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2002> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, String branch) throws ApiException {
+  public ApiResponse<InlineResponse2003> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, String branch) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1183,6 +1184,83 @@ public class DefaultApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get summary metrics for a project workflow&#39;s jobs.
+   * Get summary metrics for a project workflow&#39;s jobs. Job runs going back 90 days are included in the aggregation window.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param workflowName The name of the workflow. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param branch The name of a vcs branch. (optional)
+   * @return InlineResponse2002
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A paginated list of summary metrics by workflow job. </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse2002 getProjectWorkflowJobMetrics(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
+    return getProjectWorkflowJobMetricsWithHttpInfo(projectSlug, workflowName, pageToken, branch).getData();
+      }
+
+  /**
+   * Get summary metrics for a project workflow&#39;s jobs.
+   * Get summary metrics for a project workflow&#39;s jobs. Job runs going back 90 days are included in the aggregation window.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param workflowName The name of the workflow. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param branch The name of a vcs branch. (optional)
+   * @return ApiResponse&lt;InlineResponse2002&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A paginated list of summary metrics by workflow job. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse2002> getProjectWorkflowJobMetricsWithHttpInfo(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'projectSlug' is set
+    if (projectSlug == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectSlug' when calling getProjectWorkflowJobMetrics");
+    }
+    
+    // verify the required parameter 'workflowName' is set
+    if (workflowName == null) {
+      throw new ApiException(400, "Missing the required parameter 'workflowName' when calling getProjectWorkflowJobMetrics");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/insights/{project-slug}/workflows/{workflow-name}/jobs"
+      .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
+      .replaceAll("\\{" + "workflow-name" + "\\}", apiClient.escapeString(workflowName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
 
     

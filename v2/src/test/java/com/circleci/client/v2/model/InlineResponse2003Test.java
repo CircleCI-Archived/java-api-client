@@ -13,62 +13,39 @@
 
 package com.circleci.client.v2.model;
 
-import com.circleci.client.v2.model.InlineResponse2002Metrics;
+import com.circleci.client.v2.model.InlineResponse2003Items;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for InlineResponse2002Items
+ * Model tests for InlineResponse2003
  */
-public class InlineResponse2002ItemsTest {
-    private final InlineResponse2002Items model = new InlineResponse2002Items();
+public class InlineResponse2003Test {
+    private final InlineResponse2003 model = new InlineResponse2003();
 
     /**
-     * Model tests for InlineResponse2002Items
+     * Model tests for InlineResponse2003
      */
     @Test
-    public void testInlineResponse2002Items() {
-        // TODO: test InlineResponse2002Items
+    public void testInlineResponse2003() {
+        // TODO: test InlineResponse2003
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'items'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
-     * Test the property 'windowStart'
-     */
-    @Test
-    public void windowStartTest() {
-        // TODO: test windowStart
-    }
-
-    /**
-     * Test the property 'windowEnd'
-     */
-    @Test
-    public void windowEndTest() {
-        // TODO: test windowEnd
-    }
-
-    /**
-     * Test the property 'metrics'
-     */
-    @Test
-    public void metricsTest() {
-        // TODO: test metrics
+    public void itemsTest() {
+        // TODO: test items
     }
 
 }
