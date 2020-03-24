@@ -1711,7 +1711,7 @@ paths:
       - Pipeline
       operationId: listPipelinesForProject
       responses:
-        202:
+        200:
           description: A sequence of pipelines.
           links:
             NextPipelinePage:

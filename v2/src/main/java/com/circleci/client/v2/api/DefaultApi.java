@@ -1823,7 +1823,7 @@ public class DefaultApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
      </table>
    */
   public PipelineListResponse listPipelinesForProject(String projectSlug, String branch, String pageToken) throws ApiException {
@@ -1841,7 +1841,7 @@ public class DefaultApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<PipelineListResponse> listPipelinesForProjectWithHttpInfo(String projectSlug, String branch, String pageToken) throws ApiException {

@@ -2316,7 +2316,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | A sequence of pipelines. |  -  |
+| **200** | A sequence of pipelines. |  -  |
 
 
 ## listWorkflowJobs
