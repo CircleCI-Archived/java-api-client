@@ -1128,16 +1128,17 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
    * @param branch The name of a vcs branch. (optional)
+   * @param pageToken A token to retrieve the next page of results. (optional)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Recent job runs </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 getProjectJobRuns(String projectSlug, String workflowName, String jobName, String branch) throws ApiException {
-    return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, branch).getData();
+  public InlineResponse2003 getProjectJobRuns(String projectSlug, String workflowName, String jobName, String branch, String pageToken) throws ApiException {
+    return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, branch, pageToken).getData();
       }
 
   /**
@@ -1147,15 +1148,16 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
    * @param branch The name of a vcs branch. (optional)
+   * @param pageToken A token to retrieve the next page of results. (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Recent job runs </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, String branch) throws ApiException {
+  public ApiResponse<InlineResponse2003> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, String branch, String pageToken) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1185,6 +1187,7 @@ public class DefaultApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
 
     
     
@@ -1291,7 +1294,7 @@ public class DefaultApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Summary metrics by workflow </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A paginated list of summary metrics by workflow </td><td>  -  </td></tr>
      </table>
    */
   public InlineResponse200 getProjectWorkflowMetrics(String projectSlug, String pageToken, String branch) throws ApiException {
@@ -1309,7 +1312,7 @@ public class DefaultApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Summary metrics by workflow </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A paginated list of summary metrics by workflow </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse200> getProjectWorkflowMetricsWithHttpInfo(String projectSlug, String pageToken, String branch) throws ApiException {
@@ -1355,16 +1358,17 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param branch The name of a vcs branch. (optional)
+   * @param pageToken A token to retrieve the next page of results. (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Recent workflow runs </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 getProjectWorkflowRuns(String projectSlug, String workflowName, String branch) throws ApiException {
-    return getProjectWorkflowRunsWithHttpInfo(projectSlug, workflowName, branch).getData();
+  public InlineResponse2001 getProjectWorkflowRuns(String projectSlug, String workflowName, String branch, String pageToken) throws ApiException {
+    return getProjectWorkflowRunsWithHttpInfo(projectSlug, workflowName, branch, pageToken).getData();
       }
 
   /**
@@ -1373,15 +1377,16 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param branch The name of a vcs branch. (optional)
+   * @param pageToken A token to retrieve the next page of results. (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Recent workflow runs </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, String branch) throws ApiException {
+  public ApiResponse<InlineResponse2001> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, String branch, String pageToken) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1405,6 +1410,7 @@ public class DefaultApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
 
     
     

@@ -25,14 +25,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Recent job runs.
+ * Paginated recent job runs.
  */
-@ApiModel(description = "Recent job runs.")
+@ApiModel(description = "Paginated recent job runs.")
 
 public class InlineResponse2003 {
   public static final String JSON_PROPERTY_ITEMS = "items";
   @JsonProperty(JSON_PROPERTY_ITEMS)
   private List<InlineResponse2003Items> items = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_NEXT_PAGE_TOKEN = "next_page_token";
+  @JsonProperty(JSON_PROPERTY_NEXT_PAGE_TOKEN)
+  private String nextPageToken;
 
   public InlineResponse2003 items(List<InlineResponse2003Items> items) {
     this.items = items;
@@ -57,6 +61,24 @@ public class InlineResponse2003 {
     this.items = items;
   }
 
+  public InlineResponse2003 nextPageToken(String nextPageToken) {
+    this.nextPageToken = nextPageToken;
+    return this;
+  }
+
+   /**
+   * A token to pass as a &#x60;page-token&#x60; query parameter to return the next page of results.
+   * @return nextPageToken
+  **/
+  @ApiModelProperty(required = true, value = "A token to pass as a `page-token` query parameter to return the next page of results.")
+  public String getNextPageToken() {
+    return nextPageToken;
+  }
+
+  public void setNextPageToken(String nextPageToken) {
+    this.nextPageToken = nextPageToken;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -67,12 +89,13 @@ public class InlineResponse2003 {
       return false;
     }
     InlineResponse2003 inlineResponse2003 = (InlineResponse2003) o;
-    return Objects.equals(this.items, inlineResponse2003.items);
+    return Objects.equals(this.items, inlineResponse2003.items) &&
+        Objects.equals(this.nextPageToken, inlineResponse2003.nextPageToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items);
+    return Objects.hash(items, nextPageToken);
   }
 
 
@@ -81,6 +104,7 @@ public class InlineResponse2003 {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2003 {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

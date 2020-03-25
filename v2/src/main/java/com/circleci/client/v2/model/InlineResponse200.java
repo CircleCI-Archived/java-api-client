@@ -25,9 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Paged workflow summary metrics.
+ * Paginated workflow summary metrics.
  */
-@ApiModel(description = "Paged workflow summary metrics.")
+@ApiModel(description = "Paginated workflow summary metrics.")
 
 public class InlineResponse200 {
   public static final String JSON_PROPERTY_ITEMS = "items";

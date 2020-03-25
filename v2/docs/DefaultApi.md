@@ -1380,7 +1380,7 @@ Name | Type | Description  | Notes
 
 ## getProjectJobRuns
 
-> InlineResponse2003 getProjectJobRuns(projectSlug, workflowName, jobName, branch)
+> InlineResponse2003 getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken)
 
 Get recent runs of a workflow job
 
@@ -1424,8 +1424,9 @@ public class Example {
         String workflowName = build-and-test; // String | The name of the workflow.
         String jobName = lint; // String | The name of the job.
         String branch = "branch_example"; // String | The name of a vcs branch.
+        String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
-            InlineResponse2003 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, branch);
+            InlineResponse2003 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectJobRuns");
@@ -1447,6 +1448,7 @@ Name | Type | Description  | Notes
  **workflowName** | **String**| The name of the workflow. |
  **jobName** | **String**| The name of the job. |
  **branch** | **String**| The name of a vcs branch. | [optional]
+ **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
 
 ### Return type
 
@@ -1464,7 +1466,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Recent job runs |  -  |
+| **200** | A paginated list of recent job runs |  -  |
 
 
 ## getProjectWorkflowJobMetrics
@@ -1640,12 +1642,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Summary metrics by workflow |  -  |
+| **200** | A paginated list of summary metrics by workflow |  -  |
 
 
 ## getProjectWorkflowRuns
 
-> InlineResponse2001 getProjectWorkflowRuns(projectSlug, workflowName, branch)
+> InlineResponse2001 getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken)
 
 Get recent runs of a workflow
 
@@ -1688,8 +1690,9 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String branch = "branch_example"; // String | The name of a vcs branch.
+        String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
-            InlineResponse2001 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, branch);
+            InlineResponse2001 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectWorkflowRuns");
@@ -1710,6 +1713,7 @@ Name | Type | Description  | Notes
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
  **branch** | **String**| The name of a vcs branch. | [optional]
+ **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
 
 ### Return type
 
@@ -1727,7 +1731,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Recent workflow runs |  -  |
+| **200** | A paginated list of recent workflow runs |  -  |
 
 
 ## getTests

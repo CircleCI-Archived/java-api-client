@@ -48,4 +48,12 @@ public class InlineResponse2003Test {
         // TODO: test items
     }
 
+    /**
+     * Test the property 'nextPageToken'
+     */
+    @Test
+    public void nextPageTokenTest() {
+        // TODO: test nextPageToken
+    }
+
 }

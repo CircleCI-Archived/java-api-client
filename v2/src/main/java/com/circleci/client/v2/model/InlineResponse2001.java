@@ -25,14 +25,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Recent workflow runs.
+ * Paginated recent workflow runs.
  */
-@ApiModel(description = "Recent workflow runs.")
+@ApiModel(description = "Paginated recent workflow runs.")
 
 public class InlineResponse2001 {
   public static final String JSON_PROPERTY_ITEMS = "items";
   @JsonProperty(JSON_PROPERTY_ITEMS)
   private List<InlineResponse2001Items> items = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_NEXT_PAGE_TOKEN = "next_page_token";
+  @JsonProperty(JSON_PROPERTY_NEXT_PAGE_TOKEN)
+  private String nextPageToken;
 
   public InlineResponse2001 items(List<InlineResponse2001Items> items) {
     this.items = items;
@@ -57,6 +61,24 @@ public class InlineResponse2001 {
     this.items = items;
   }
 
+  public InlineResponse2001 nextPageToken(String nextPageToken) {
+    this.nextPageToken = nextPageToken;
+    return this;
+  }
+
+   /**
+   * A token to pass as a &#x60;page-token&#x60; query parameter to return the next page of results.
+   * @return nextPageToken
+  **/
+  @ApiModelProperty(required = true, value = "A token to pass as a `page-token` query parameter to return the next page of results.")
+  public String getNextPageToken() {
+    return nextPageToken;
+  }
+
+  public void setNextPageToken(String nextPageToken) {
+    this.nextPageToken = nextPageToken;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -67,12 +89,13 @@ public class InlineResponse2001 {
       return false;
     }
     InlineResponse2001 inlineResponse2001 = (InlineResponse2001) o;
-    return Objects.equals(this.items, inlineResponse2001.items);
+    return Objects.equals(this.items, inlineResponse2001.items) &&
+        Objects.equals(this.nextPageToken, inlineResponse2001.nextPageToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items);
+    return Objects.hash(items, nextPageToken);
   }
 
 
@@ -81,6 +104,7 @@ public class InlineResponse2001 {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2001 {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

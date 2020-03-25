@@ -336,7 +336,8 @@ public class DefaultApiTest {
         String workflowName = null;
         String jobName = null;
         String branch = null;
-        InlineResponse2003 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, branch);
+        String pageToken = null;
+        InlineResponse2003 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken);
 
         // TODO: test validations
     }
@@ -391,7 +392,8 @@ public class DefaultApiTest {
         String projectSlug = null;
         String workflowName = null;
         String branch = null;
-        InlineResponse2001 response = api.getProjectWorkflowRuns(projectSlug, workflowName, branch);
+        String pageToken = null;
+        InlineResponse2001 response = api.getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken);
 
         // TODO: test validations
     }

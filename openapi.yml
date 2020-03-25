@@ -22,7 +22,7 @@ paths:
       operationId: getProjectWorkflowMetrics
       responses:
         200:
-          description: Summary metrics by workflow
+          description: A paginated list of summary metrics by workflow
           content:
             application/json:
               schema:
@@ -144,7 +144,7 @@ paths:
                 required:
                 - items
                 - next_page_token
-                description: Paged workflow summary metrics.
+                description: Paginated workflow summary metrics.
       parameters:
       - in: path
         name: project-slug
@@ -178,7 +178,7 @@ paths:
       operationId: getProjectWorkflowRuns
       responses:
         200:
-          description: Recent workflow runs
+          description: A paginated list of recent workflow runs
           content:
             application/json:
               schema:
@@ -230,9 +230,14 @@ paths:
                       - credits-used
                       - status
                     description: Recent workflow runs.
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
                 required:
                 - items
-                description: Recent workflow runs.
+                - next_page_token
+                description: Paginated recent workflow runs.
       parameters:
       - in: path
         name: project-slug
@@ -252,6 +257,13 @@ paths:
       - in: query
         name: branch
         description: The name of a vcs branch.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
+      - in: query
+        name: page-token
+        description: A token to retrieve the next page of results.
         schema:
           type: string
         required: false
@@ -422,7 +434,7 @@ paths:
       operationId: getProjectJobRuns
       responses:
         200:
-          description: Recent job runs
+          description: A paginated list of recent job runs
           content:
             application/json:
               schema:
@@ -468,9 +480,14 @@ paths:
                       - status
                       - credits-used
                     description: Recent job runs.
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
                 required:
                 - items
-                description: Recent job runs.
+                - next_page_token
+                description: Paginated recent job runs.
       parameters:
       - in: path
         name: project-slug
@@ -497,6 +514,13 @@ paths:
       - in: query
         name: branch
         description: The name of a vcs branch.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
+      - in: query
+        name: page-token
+        description: A token to retrieve the next page of results.
         schema:
           type: string
         required: false
