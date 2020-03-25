@@ -692,13 +692,19 @@ paths:
                         description: The code revision the pipeline ran.
                         example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                       branch:
-                        type: string
+                        allOf:
+                        - type: string
+                        - {}
                         description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                         example: feature/design-new-api
-                      tag:
                         type: string
+                      tag:
+                        allOf:
+                        - type: string
+                        - {}
                         description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                         example: v3.1.4159
+                        type: string
                       commit:
                         type: object
                         properties:
@@ -1684,13 +1690,19 @@ paths:
               type: object
               properties:
                 branch:
-                  type: string
+                  allOf:
+                  - type: string
+                  - {}
                   description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                   example: feature/design-new-api
-                tag:
                   type: string
+                tag:
+                  allOf:
+                  - type: string
+                  - {}
                   description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                   example: v3.1.4159
+                  type: string
                 parameters:
                   type: object
                   additionalProperties:
@@ -1829,13 +1841,19 @@ paths:
                               description: The code revision the pipeline ran.
                               example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             branch:
-                              type: string
+                              allOf:
+                              - type: string
+                              - {}
                               description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                               example: feature/design-new-api
-                            tag:
                               type: string
+                            tag:
+                              allOf:
+                              - type: string
+                              - {}
                               description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                               example: v3.1.4159
+                              type: string
                             commit:
                               type: object
                               properties:
@@ -2025,13 +2043,19 @@ paths:
                               description: The code revision the pipeline ran.
                               example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             branch:
-                              type: string
+                              allOf:
+                              - type: string
+                              - {}
                               description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                               example: feature/design-new-api
-                            tag:
                               type: string
+                            tag:
+                              allOf:
+                              - type: string
+                              - {}
                               description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                               example: v3.1.4159
+                              type: string
                             commit:
                               type: object
                               properties:
@@ -2208,13 +2232,19 @@ paths:
                         description: The code revision the pipeline ran.
                         example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                       branch:
-                        type: string
+                        allOf:
+                        - type: string
+                        - {}
                         description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                         example: feature/design-new-api
-                      tag:
                         type: string
+                      tag:
+                        allOf:
+                        - type: string
+                        - {}
                         description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
                         example: v3.1.4159
+                        type: string
                       commit:
                         type: object
                         properties:
