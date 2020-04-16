@@ -2619,8 +2619,8 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-        String xAttributionLogin = "xAttributionLogin_example"; // String | The login or user-readable identifier for the pipeline's triggerer.
-        String xAttributionActorId = "xAttributionActorId_example"; // String | The id the integration uses to identify the pipeline's triggerer.
+        String xAttributionLogin = "xAttributionLogin_example"; // String | The login or user-readable identifier for the pipeline's triggerer. Internal use only.
+        String xAttributionActorId = "xAttributionActorId_example"; // String | The id the integration uses to identify the pipeline's triggerer. Internal use only.
         TriggerPipelineParameters triggerPipelineParameters = new TriggerPipelineParameters(); // TriggerPipelineParameters | 
         try {
             PipelineLight result = apiInstance.triggerPipeline(projectSlug, xAttributionLogin, xAttributionActorId, triggerPipelineParameters);
@@ -2642,8 +2642,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
- **xAttributionLogin** | **String**| The login or user-readable identifier for the pipeline&#39;s triggerer. | [optional]
- **xAttributionActorId** | **String**| The id the integration uses to identify the pipeline&#39;s triggerer. | [optional]
+ **xAttributionLogin** | **String**| The login or user-readable identifier for the pipeline&#39;s triggerer. Internal use only. | [optional]
+ **xAttributionActorId** | **String**| The id the integration uses to identify the pipeline&#39;s triggerer. Internal use only. | [optional]
  **triggerPipelineParameters** | [**TriggerPipelineParameters**](TriggerPipelineParameters.md)|  | [optional]
 
 ### Return type

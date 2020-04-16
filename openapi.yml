@@ -1697,13 +1697,13 @@ paths:
         allowReserved: true
       - in: header
         name: x-attribution-login
-        description: The login or user-readable identifier for the pipeline's triggerer.
+        description: The login or user-readable identifier for the pipeline's triggerer. Internal use only.
         schema:
           type: string
         required: false
       - in: header
         name: x-attribution-actor-id
-        description: The id the integration uses to identify the pipeline's triggerer.
+        description: The id the integration uses to identify the pipeline's triggerer. Internal use only.
         schema:
           type: string
         required: false
