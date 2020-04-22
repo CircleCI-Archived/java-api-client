@@ -1123,7 +1123,7 @@ public class DefaultApi {
       }
   /**
    * Get recent runs of a workflow job
-   * Get recent runs of a job within a workflow. The past 250 job runs, going back at most 90 days, are returned.
+   * Get recent runs of a job within a workflow. Runs going back at most 90 days are returned.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
@@ -1143,7 +1143,7 @@ public class DefaultApi {
 
   /**
    * Get recent runs of a workflow job
-   * Get recent runs of a job within a workflow. The past 250 job runs, going back at most 90 days, are returned.
+   * Get recent runs of a job within a workflow. Runs going back at most 90 days are returned.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
@@ -1208,7 +1208,7 @@ public class DefaultApi {
       }
   /**
    * Get summary metrics for a project workflow&#39;s jobs.
-   * Get summary metrics for a project workflow&#39;s jobs. Job runs going back 90 days are included in the aggregation window.
+   * Get summary metrics for a project workflow&#39;s jobs. Job runs going back at most 90 days are included in the aggregation window.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
@@ -1227,7 +1227,7 @@ public class DefaultApi {
 
   /**
    * Get summary metrics for a project workflow&#39;s jobs.
-   * Get summary metrics for a project workflow&#39;s jobs. Job runs going back 90 days are included in the aggregation window.
+   * Get summary metrics for a project workflow&#39;s jobs. Job runs going back at most 90 days are included in the aggregation window.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
@@ -1285,7 +1285,7 @@ public class DefaultApi {
       }
   /**
    * Get summary metrics for a project&#39;s workflows
-   * Get summary metrics for a project&#39;s workflows. The past 250 workflow runs, going back at most 90 days, are included in the aggregations.
+   * Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
@@ -1303,7 +1303,7 @@ public class DefaultApi {
 
   /**
    * Get summary metrics for a project&#39;s workflows
-   * Get summary metrics for a project&#39;s workflows. The past 250 workflow runs, going back at most 90 days, are included in the aggregations.
+   * Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
@@ -1354,7 +1354,7 @@ public class DefaultApi {
       }
   /**
    * Get recent runs of a workflow
-   * Get recent runs of a workflow. The past 250 workflow runs, going back at most 90 days, are returned.
+   * Get recent runs of a workflow. Runs going back at most 90 days are returned.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param branch The name of a vcs branch. (optional)
@@ -1373,7 +1373,7 @@ public class DefaultApi {
 
   /**
    * Get recent runs of a workflow
-   * Get recent runs of a workflow. The past 250 workflow runs, going back at most 90 days, are returned.
+   * Get recent runs of a workflow. Runs going back at most 90 days are returned.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param branch The name of a vcs branch. (optional)

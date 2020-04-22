@@ -325,7 +325,7 @@ public class DefaultApiTest {
     /**
      * Get recent runs of a workflow job
      *
-     * Get recent runs of a job within a workflow. The past 250 job runs, going back at most 90 days, are returned.
+     * Get recent runs of a job within a workflow. Runs going back at most 90 days are returned.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -345,7 +345,7 @@ public class DefaultApiTest {
     /**
      * Get summary metrics for a project workflow&#39;s jobs.
      *
-     * Get summary metrics for a project workflow&#39;s jobs. Job runs going back 90 days are included in the aggregation window.
+     * Get summary metrics for a project workflow&#39;s jobs. Job runs going back at most 90 days are included in the aggregation window.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -364,7 +364,7 @@ public class DefaultApiTest {
     /**
      * Get summary metrics for a project&#39;s workflows
      *
-     * Get summary metrics for a project&#39;s workflows. The past 250 workflow runs, going back at most 90 days, are included in the aggregations.
+     * Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -382,7 +382,7 @@ public class DefaultApiTest {
     /**
      * Get recent runs of a workflow
      *
-     * Get recent runs of a workflow. The past 250 workflow runs, going back at most 90 days, are returned.
+     * Get recent runs of a workflow. Runs going back at most 90 days are returned.
      *
      * @throws ApiException
      *          if the Api call fails

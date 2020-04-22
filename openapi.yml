@@ -15,7 +15,7 @@ paths:
   /insights/{project-slug}/workflows:
     get:
       summary: Get summary metrics for a project's workflows
-      description: Get summary metrics for a project's workflows. The past 250 workflow runs, going back at most 90 days, are included in the aggregations.
+      description: Get summary metrics for a project's workflows. Workflow runs going back at most 90 days are included in the aggregation window.
       tags:
       - Insights
       - Preview
@@ -171,7 +171,7 @@ paths:
   /insights/{project-slug}/workflows/{workflow-name}:
     get:
       summary: Get recent runs of a workflow
-      description: Get recent runs of a workflow. The past 250 workflow runs, going back at most 90 days, are returned.
+      description: Get recent runs of a workflow. Runs going back at most 90 days are returned.
       tags:
       - Insights
       - Preview
@@ -271,7 +271,7 @@ paths:
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
-      description: Get summary metrics for a project workflow's jobs. Job runs going back 90 days are included in the aggregation window.
+      description: Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window.
       tags:
       - Insights
       - Preview
@@ -427,7 +427,7 @@ paths:
   /insights/{project-slug}/workflows/{workflow-name}/jobs/{job-name}:
     get:
       summary: Get recent runs of a workflow job
-      description: Get recent runs of a job within a workflow. The past 250 job runs, going back at most 90 days, are returned.
+      description: Get recent runs of a job within a workflow. Runs going back at most 90 days are returned.
       tags:
       - Insights
       - Preview
