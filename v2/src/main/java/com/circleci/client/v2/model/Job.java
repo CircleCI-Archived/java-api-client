@@ -110,6 +110,10 @@ public class Job {
   @JsonProperty(JSON_PROPERTY_STOPPED_AT)
   private OffsetDateTime stoppedAt;
 
+  public static final String JSON_PROPERTY_APPROVAL_REQUEST_ID = "approval_request_id";
+  @JsonProperty(JSON_PROPERTY_APPROVAL_REQUEST_ID)
+  private UUID approvalRequestId;
+
   public Job canceledBy(UUID canceledBy) {
     this.canceledBy = canceledBy;
     return this;
@@ -161,7 +165,8 @@ public class Job {
    * The number of the job.
    * @return jobNumber
   **/
-  @ApiModelProperty(required = true, value = "The number of the job.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of the job.")
   public Long getJobNumber() {
     return jobNumber;
   }
@@ -316,6 +321,25 @@ public class Job {
     this.stoppedAt = stoppedAt;
   }
 
+  public Job approvalRequestId(UUID approvalRequestId) {
+    this.approvalRequestId = approvalRequestId;
+    return this;
+  }
+
+   /**
+   * The unique ID of the job.
+   * @return approvalRequestId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique ID of the job.")
+  public UUID getApprovalRequestId() {
+    return approvalRequestId;
+  }
+
+  public void setApprovalRequestId(UUID approvalRequestId) {
+    this.approvalRequestId = approvalRequestId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -336,12 +360,13 @@ public class Job {
         Objects.equals(this.projectSlug, job.projectSlug) &&
         Objects.equals(this.status, job.status) &&
         Objects.equals(this.type, job.type) &&
-        Objects.equals(this.stoppedAt, job.stoppedAt);
+        Objects.equals(this.stoppedAt, job.stoppedAt) &&
+        Objects.equals(this.approvalRequestId, job.approvalRequestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(canceledBy, dependencies, jobNumber, id, startedAt, name, approvedBy, projectSlug, status, type, stoppedAt);
+    return Objects.hash(canceledBy, dependencies, jobNumber, id, startedAt, name, approvedBy, projectSlug, status, type, stoppedAt, approvalRequestId);
   }
 
 
@@ -360,6 +385,7 @@ public class Job {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    stoppedAt: ").append(toIndentedString(stoppedAt)).append("\n");
+    sb.append("    approvalRequestId: ").append(toIndentedString(approvalRequestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

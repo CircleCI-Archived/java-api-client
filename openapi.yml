@@ -2669,10 +2669,13 @@ paths:
                           format: date-time
                           x-nullable: true
                           description: The time when the job stopped.
+                        approval_request_id:
+                          type: string
+                          format: uuid
+                          description: The unique ID of the job.
                       required:
                       - id
                       - name
-                      - job_number
                       - started_at
                       - dependencies
                       - project_slug

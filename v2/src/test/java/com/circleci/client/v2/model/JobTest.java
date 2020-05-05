@@ -129,4 +129,12 @@ public class JobTest {
         // TODO: test stoppedAt
     }
 
+    /**
+     * Test the property 'approvalRequestId'
+     */
+    @Test
+    public void approvalRequestIdTest() {
+        // TODO: test approvalRequestId
+    }
+
 }
