@@ -15,7 +15,7 @@ paths:
   /insights/{project-slug}/workflows:
     get:
       summary: Get summary metrics for a project's workflows
-      description: Get summary metrics for a project's workflows. Workflow runs going back at most 90 days are included in the aggregation window.
+      description: Get summary metrics for a project's workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
       tags:
       - Insights
       - Preview
@@ -271,7 +271,7 @@ paths:
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
-      description: Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window.
+      description: Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
       tags:
       - Insights
       - Preview

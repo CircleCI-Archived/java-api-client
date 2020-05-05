@@ -1475,7 +1475,7 @@ Name | Type | Description  | Notes
 
 Get summary metrics for a project workflow&#39;s jobs.
 
-Get summary metrics for a project workflow&#39;s jobs. Job runs going back at most 90 days are included in the aggregation window.
+Get summary metrics for a project workflow&#39;s jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
 
 ### Example
 
@@ -1564,7 +1564,7 @@ Name | Type | Description  | Notes
 
 Get summary metrics for a project&#39;s workflows
 
-Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window.
+Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
 
 ### Example
 
