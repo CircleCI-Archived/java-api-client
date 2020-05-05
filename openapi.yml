@@ -822,6 +822,19 @@ paths:
                     items:
                       type: object
                       properties:
+                        canceler_id:
+                          type: string
+                          format: uuid
+                        starter_id:
+                          type: string
+                          format: uuid
+                        pipeline_id:
+                          type: string
+                          format: uuid
+                          description: The ID of the pipeline this workflow belongs to.
+                        errorer_id:
+                          type: string
+                          format: uuid
                         id:
                           type: string
                           format: uuid
@@ -830,6 +843,10 @@ paths:
                           type: string
                           description: The name of the workflow.
                           example: build-and-test
+                        project_slug:
+                          type: string
+                          description: The project-slug for the pipeline this workflow belongs to.
+                          example: gh/CircleCI-Public/api-preview-docs
                         status:
                           enum:
                           - success
@@ -843,6 +860,10 @@ paths:
                           - unauthorized
                           type: string
                           description: The current status of the workflow.
+                        pipeline_number:
+                          type: integer
+                          format: int64
+                          description: The number of the pipeline this workflow belongs to.
                         created_at:
                           type: string
                           format: date-time
@@ -852,18 +873,6 @@ paths:
                           format: date-time
                           x-nullable: true
                           description: The date and time the workflow stopped.
-                        pipeline_id:
-                          type: string
-                          format: uuid
-                          description: The ID of the pipeline this workflow belongs to.
-                        pipeline_number:
-                          type: integer
-                          format: int64
-                          description: The number of the pipeline this workflow belongs to.
-                        project_slug:
-                          type: string
-                          description: The project-slug for the pipeline this workflow belongs to.
-                          example: gh/CircleCI-Public/api-preview-docs
                       required:
                       - id
                       - name
@@ -873,6 +882,7 @@ paths:
                       - pipeline_id
                       - pipeline_number
                       - project_slug
+                      - starter_id
                       description: A workflow
                       title: Workflow
                     description: A list of workflows.
@@ -2485,6 +2495,19 @@ paths:
               schema:
                 type: object
                 properties:
+                  canceler_id:
+                    type: string
+                    format: uuid
+                  starter_id:
+                    type: string
+                    format: uuid
+                  pipeline_id:
+                    type: string
+                    format: uuid
+                    description: The ID of the pipeline this workflow belongs to.
+                  errorer_id:
+                    type: string
+                    format: uuid
                   id:
                     type: string
                     format: uuid
@@ -2493,6 +2516,10 @@ paths:
                     type: string
                     description: The name of the workflow.
                     example: build-and-test
+                  project_slug:
+                    type: string
+                    description: The project-slug for the pipeline this workflow belongs to.
+                    example: gh/CircleCI-Public/api-preview-docs
                   status:
                     enum:
                     - success
@@ -2506,6 +2533,10 @@ paths:
                     - unauthorized
                     type: string
                     description: The current status of the workflow.
+                  pipeline_number:
+                    type: integer
+                    format: int64
+                    description: The number of the pipeline this workflow belongs to.
                   created_at:
                     type: string
                     format: date-time
@@ -2515,18 +2546,6 @@ paths:
                     format: date-time
                     x-nullable: true
                     description: The date and time the workflow stopped.
-                  pipeline_id:
-                    type: string
-                    format: uuid
-                    description: The ID of the pipeline this workflow belongs to.
-                  pipeline_number:
-                    type: integer
-                    format: int64
-                    description: The number of the pipeline this workflow belongs to.
-                  project_slug:
-                    type: string
-                    description: The project-slug for the pipeline this workflow belongs to.
-                    example: gh/CircleCI-Public/api-preview-docs
                 required:
                 - id
                 - name
@@ -2536,6 +2555,7 @@ paths:
                 - pipeline_id
                 - pipeline_number
                 - project_slug
+                - starter_id
                 description: A workflow
                 title: Workflow
       parameters:

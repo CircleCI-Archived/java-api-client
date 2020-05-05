@@ -40,6 +40,38 @@ public class WorkflowTest {
     }
 
     /**
+     * Test the property 'cancelerId'
+     */
+    @Test
+    public void cancelerIdTest() {
+        // TODO: test cancelerId
+    }
+
+    /**
+     * Test the property 'starterId'
+     */
+    @Test
+    public void starterIdTest() {
+        // TODO: test starterId
+    }
+
+    /**
+     * Test the property 'pipelineId'
+     */
+    @Test
+    public void pipelineIdTest() {
+        // TODO: test pipelineId
+    }
+
+    /**
+     * Test the property 'errorerId'
+     */
+    @Test
+    public void errorerIdTest() {
+        // TODO: test errorerId
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test
@@ -56,11 +88,27 @@ public class WorkflowTest {
     }
 
     /**
+     * Test the property 'projectSlug'
+     */
+    @Test
+    public void projectSlugTest() {
+        // TODO: test projectSlug
+    }
+
+    /**
      * Test the property 'status'
      */
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'pipelineNumber'
+     */
+    @Test
+    public void pipelineNumberTest() {
+        // TODO: test pipelineNumber
     }
 
     /**
@@ -77,30 +125,6 @@ public class WorkflowTest {
     @Test
     public void stoppedAtTest() {
         // TODO: test stoppedAt
-    }
-
-    /**
-     * Test the property 'pipelineId'
-     */
-    @Test
-    public void pipelineIdTest() {
-        // TODO: test pipelineId
-    }
-
-    /**
-     * Test the property 'pipelineNumber'
-     */
-    @Test
-    public void pipelineNumberTest() {
-        // TODO: test pipelineNumber
-    }
-
-    /**
-     * Test the property 'projectSlug'
-     */
-    @Test
-    public void projectSlugTest() {
-        // TODO: test projectSlug
     }
 
 }

@@ -29,6 +29,22 @@ import java.util.UUID;
 @ApiModel(description = "A workflow")
 
 public class Workflow {
+  public static final String JSON_PROPERTY_CANCELER_ID = "canceler_id";
+  @JsonProperty(JSON_PROPERTY_CANCELER_ID)
+  private UUID cancelerId;
+
+  public static final String JSON_PROPERTY_STARTER_ID = "starter_id";
+  @JsonProperty(JSON_PROPERTY_STARTER_ID)
+  private UUID starterId;
+
+  public static final String JSON_PROPERTY_PIPELINE_ID = "pipeline_id";
+  @JsonProperty(JSON_PROPERTY_PIPELINE_ID)
+  private UUID pipelineId;
+
+  public static final String JSON_PROPERTY_ERRORER_ID = "errorer_id";
+  @JsonProperty(JSON_PROPERTY_ERRORER_ID)
+  private UUID errorerId;
+
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
   private UUID id;
@@ -36,6 +52,10 @@ public class Workflow {
   public static final String JSON_PROPERTY_NAME = "name";
   @JsonProperty(JSON_PROPERTY_NAME)
   private String name;
+
+  public static final String JSON_PROPERTY_PROJECT_SLUG = "project_slug";
+  @JsonProperty(JSON_PROPERTY_PROJECT_SLUG)
+  private String projectSlug;
 
   /**
    * The current status of the workflow.
@@ -90,6 +110,10 @@ public class Workflow {
   @JsonProperty(JSON_PROPERTY_STATUS)
   private StatusEnum status;
 
+  public static final String JSON_PROPERTY_PIPELINE_NUMBER = "pipeline_number";
+  @JsonProperty(JSON_PROPERTY_PIPELINE_NUMBER)
+  private Long pipelineNumber;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   private OffsetDateTime createdAt;
@@ -98,17 +122,79 @@ public class Workflow {
   @JsonProperty(JSON_PROPERTY_STOPPED_AT)
   private OffsetDateTime stoppedAt;
 
-  public static final String JSON_PROPERTY_PIPELINE_ID = "pipeline_id";
-  @JsonProperty(JSON_PROPERTY_PIPELINE_ID)
-  private UUID pipelineId;
+  public Workflow cancelerId(UUID cancelerId) {
+    this.cancelerId = cancelerId;
+    return this;
+  }
 
-  public static final String JSON_PROPERTY_PIPELINE_NUMBER = "pipeline_number";
-  @JsonProperty(JSON_PROPERTY_PIPELINE_NUMBER)
-  private Long pipelineNumber;
+   /**
+   * Get cancelerId
+   * @return cancelerId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public UUID getCancelerId() {
+    return cancelerId;
+  }
 
-  public static final String JSON_PROPERTY_PROJECT_SLUG = "project_slug";
-  @JsonProperty(JSON_PROPERTY_PROJECT_SLUG)
-  private String projectSlug;
+  public void setCancelerId(UUID cancelerId) {
+    this.cancelerId = cancelerId;
+  }
+
+  public Workflow starterId(UUID starterId) {
+    this.starterId = starterId;
+    return this;
+  }
+
+   /**
+   * Get starterId
+   * @return starterId
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public UUID getStarterId() {
+    return starterId;
+  }
+
+  public void setStarterId(UUID starterId) {
+    this.starterId = starterId;
+  }
+
+  public Workflow pipelineId(UUID pipelineId) {
+    this.pipelineId = pipelineId;
+    return this;
+  }
+
+   /**
+   * The ID of the pipeline this workflow belongs to.
+   * @return pipelineId
+  **/
+  @ApiModelProperty(required = true, value = "The ID of the pipeline this workflow belongs to.")
+  public UUID getPipelineId() {
+    return pipelineId;
+  }
+
+  public void setPipelineId(UUID pipelineId) {
+    this.pipelineId = pipelineId;
+  }
+
+  public Workflow errorerId(UUID errorerId) {
+    this.errorerId = errorerId;
+    return this;
+  }
+
+   /**
+   * Get errorerId
+   * @return errorerId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public UUID getErrorerId() {
+    return errorerId;
+  }
+
+  public void setErrorerId(UUID errorerId) {
+    this.errorerId = errorerId;
+  }
 
   public Workflow id(UUID id) {
     this.id = id;
@@ -146,6 +232,24 @@ public class Workflow {
     this.name = name;
   }
 
+  public Workflow projectSlug(String projectSlug) {
+    this.projectSlug = projectSlug;
+    return this;
+  }
+
+   /**
+   * The project-slug for the pipeline this workflow belongs to.
+   * @return projectSlug
+  **/
+  @ApiModelProperty(example = "gh/CircleCI-Public/api-preview-docs", required = true, value = "The project-slug for the pipeline this workflow belongs to.")
+  public String getProjectSlug() {
+    return projectSlug;
+  }
+
+  public void setProjectSlug(String projectSlug) {
+    this.projectSlug = projectSlug;
+  }
+
   public Workflow status(StatusEnum status) {
     this.status = status;
     return this;
@@ -162,6 +266,24 @@ public class Workflow {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+  }
+
+  public Workflow pipelineNumber(Long pipelineNumber) {
+    this.pipelineNumber = pipelineNumber;
+    return this;
+  }
+
+   /**
+   * The number of the pipeline this workflow belongs to.
+   * @return pipelineNumber
+  **/
+  @ApiModelProperty(required = true, value = "The number of the pipeline this workflow belongs to.")
+  public Long getPipelineNumber() {
+    return pipelineNumber;
+  }
+
+  public void setPipelineNumber(Long pipelineNumber) {
+    this.pipelineNumber = pipelineNumber;
   }
 
   public Workflow createdAt(OffsetDateTime createdAt) {
@@ -200,60 +322,6 @@ public class Workflow {
     this.stoppedAt = stoppedAt;
   }
 
-  public Workflow pipelineId(UUID pipelineId) {
-    this.pipelineId = pipelineId;
-    return this;
-  }
-
-   /**
-   * The ID of the pipeline this workflow belongs to.
-   * @return pipelineId
-  **/
-  @ApiModelProperty(required = true, value = "The ID of the pipeline this workflow belongs to.")
-  public UUID getPipelineId() {
-    return pipelineId;
-  }
-
-  public void setPipelineId(UUID pipelineId) {
-    this.pipelineId = pipelineId;
-  }
-
-  public Workflow pipelineNumber(Long pipelineNumber) {
-    this.pipelineNumber = pipelineNumber;
-    return this;
-  }
-
-   /**
-   * The number of the pipeline this workflow belongs to.
-   * @return pipelineNumber
-  **/
-  @ApiModelProperty(required = true, value = "The number of the pipeline this workflow belongs to.")
-  public Long getPipelineNumber() {
-    return pipelineNumber;
-  }
-
-  public void setPipelineNumber(Long pipelineNumber) {
-    this.pipelineNumber = pipelineNumber;
-  }
-
-  public Workflow projectSlug(String projectSlug) {
-    this.projectSlug = projectSlug;
-    return this;
-  }
-
-   /**
-   * The project-slug for the pipeline this workflow belongs to.
-   * @return projectSlug
-  **/
-  @ApiModelProperty(example = "gh/CircleCI-Public/api-preview-docs", required = true, value = "The project-slug for the pipeline this workflow belongs to.")
-  public String getProjectSlug() {
-    return projectSlug;
-  }
-
-  public void setProjectSlug(String projectSlug) {
-    this.projectSlug = projectSlug;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -264,19 +332,22 @@ public class Workflow {
       return false;
     }
     Workflow workflow = (Workflow) o;
-    return Objects.equals(this.id, workflow.id) &&
-        Objects.equals(this.name, workflow.name) &&
-        Objects.equals(this.status, workflow.status) &&
-        Objects.equals(this.createdAt, workflow.createdAt) &&
-        Objects.equals(this.stoppedAt, workflow.stoppedAt) &&
+    return Objects.equals(this.cancelerId, workflow.cancelerId) &&
+        Objects.equals(this.starterId, workflow.starterId) &&
         Objects.equals(this.pipelineId, workflow.pipelineId) &&
+        Objects.equals(this.errorerId, workflow.errorerId) &&
+        Objects.equals(this.id, workflow.id) &&
+        Objects.equals(this.name, workflow.name) &&
+        Objects.equals(this.projectSlug, workflow.projectSlug) &&
+        Objects.equals(this.status, workflow.status) &&
         Objects.equals(this.pipelineNumber, workflow.pipelineNumber) &&
-        Objects.equals(this.projectSlug, workflow.projectSlug);
+        Objects.equals(this.createdAt, workflow.createdAt) &&
+        Objects.equals(this.stoppedAt, workflow.stoppedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, status, createdAt, stoppedAt, pipelineId, pipelineNumber, projectSlug);
+    return Objects.hash(cancelerId, starterId, pipelineId, errorerId, id, name, projectSlug, status, pipelineNumber, createdAt, stoppedAt);
   }
 
 
@@ -284,14 +355,17 @@ public class Workflow {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Workflow {\n");
+    sb.append("    cancelerId: ").append(toIndentedString(cancelerId)).append("\n");
+    sb.append("    starterId: ").append(toIndentedString(starterId)).append("\n");
+    sb.append("    pipelineId: ").append(toIndentedString(pipelineId)).append("\n");
+    sb.append("    errorerId: ").append(toIndentedString(errorerId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectSlug: ").append(toIndentedString(projectSlug)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    pipelineNumber: ").append(toIndentedString(pipelineNumber)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    stoppedAt: ").append(toIndentedString(stoppedAt)).append("\n");
-    sb.append("    pipelineId: ").append(toIndentedString(pipelineId)).append("\n");
-    sb.append("    pipelineNumber: ").append(toIndentedString(pipelineNumber)).append("\n");
-    sb.append("    projectSlug: ").append(toIndentedString(projectSlug)).append("\n");
     sb.append("}");
     return sb.toString();
   }
