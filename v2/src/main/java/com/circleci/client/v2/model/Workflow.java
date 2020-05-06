@@ -41,6 +41,10 @@ public class Workflow {
   @JsonProperty(JSON_PROPERTY_PIPELINE_ID)
   private UUID pipelineId;
 
+  public static final String JSON_PROPERTY_CANCELED_BY = "canceled_by";
+  @JsonProperty(JSON_PROPERTY_CANCELED_BY)
+  private UUID canceledBy;
+
   public static final String JSON_PROPERTY_ERRORER_ID = "errorer_id";
   @JsonProperty(JSON_PROPERTY_ERRORER_ID)
   private UUID errorerId;
@@ -56,6 +60,10 @@ public class Workflow {
   public static final String JSON_PROPERTY_PROJECT_SLUG = "project_slug";
   @JsonProperty(JSON_PROPERTY_PROJECT_SLUG)
   private String projectSlug;
+
+  public static final String JSON_PROPERTY_ERRORED_BY = "errored_by";
+  @JsonProperty(JSON_PROPERTY_ERRORED_BY)
+  private UUID erroredBy;
 
   /**
    * The current status of the workflow.
@@ -109,6 +117,10 @@ public class Workflow {
   public static final String JSON_PROPERTY_STATUS = "status";
   @JsonProperty(JSON_PROPERTY_STATUS)
   private StatusEnum status;
+
+  public static final String JSON_PROPERTY_STARTED_BY = "started_by";
+  @JsonProperty(JSON_PROPERTY_STARTED_BY)
+  private UUID startedBy;
 
   public static final String JSON_PROPERTY_PIPELINE_NUMBER = "pipeline_number";
   @JsonProperty(JSON_PROPERTY_PIPELINE_NUMBER)
@@ -175,6 +187,25 @@ public class Workflow {
 
   public void setPipelineId(UUID pipelineId) {
     this.pipelineId = pipelineId;
+  }
+
+  public Workflow canceledBy(UUID canceledBy) {
+    this.canceledBy = canceledBy;
+    return this;
+  }
+
+   /**
+   * Get canceledBy
+   * @return canceledBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public UUID getCanceledBy() {
+    return canceledBy;
+  }
+
+  public void setCanceledBy(UUID canceledBy) {
+    this.canceledBy = canceledBy;
   }
 
   public Workflow errorerId(UUID errorerId) {
@@ -250,6 +281,25 @@ public class Workflow {
     this.projectSlug = projectSlug;
   }
 
+  public Workflow erroredBy(UUID erroredBy) {
+    this.erroredBy = erroredBy;
+    return this;
+  }
+
+   /**
+   * Get erroredBy
+   * @return erroredBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public UUID getErroredBy() {
+    return erroredBy;
+  }
+
+  public void setErroredBy(UUID erroredBy) {
+    this.erroredBy = erroredBy;
+  }
+
   public Workflow status(StatusEnum status) {
     this.status = status;
     return this;
@@ -266,6 +316,24 @@ public class Workflow {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+  }
+
+  public Workflow startedBy(UUID startedBy) {
+    this.startedBy = startedBy;
+    return this;
+  }
+
+   /**
+   * Get startedBy
+   * @return startedBy
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public UUID getStartedBy() {
+    return startedBy;
+  }
+
+  public void setStartedBy(UUID startedBy) {
+    this.startedBy = startedBy;
   }
 
   public Workflow pipelineNumber(Long pipelineNumber) {
@@ -335,11 +403,14 @@ public class Workflow {
     return Objects.equals(this.cancelerId, workflow.cancelerId) &&
         Objects.equals(this.starterId, workflow.starterId) &&
         Objects.equals(this.pipelineId, workflow.pipelineId) &&
+        Objects.equals(this.canceledBy, workflow.canceledBy) &&
         Objects.equals(this.errorerId, workflow.errorerId) &&
         Objects.equals(this.id, workflow.id) &&
         Objects.equals(this.name, workflow.name) &&
         Objects.equals(this.projectSlug, workflow.projectSlug) &&
+        Objects.equals(this.erroredBy, workflow.erroredBy) &&
         Objects.equals(this.status, workflow.status) &&
+        Objects.equals(this.startedBy, workflow.startedBy) &&
         Objects.equals(this.pipelineNumber, workflow.pipelineNumber) &&
         Objects.equals(this.createdAt, workflow.createdAt) &&
         Objects.equals(this.stoppedAt, workflow.stoppedAt);
@@ -347,7 +418,7 @@ public class Workflow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelerId, starterId, pipelineId, errorerId, id, name, projectSlug, status, pipelineNumber, createdAt, stoppedAt);
+    return Objects.hash(cancelerId, starterId, pipelineId, canceledBy, errorerId, id, name, projectSlug, erroredBy, status, startedBy, pipelineNumber, createdAt, stoppedAt);
   }
 
 
@@ -358,11 +429,14 @@ public class Workflow {
     sb.append("    cancelerId: ").append(toIndentedString(cancelerId)).append("\n");
     sb.append("    starterId: ").append(toIndentedString(starterId)).append("\n");
     sb.append("    pipelineId: ").append(toIndentedString(pipelineId)).append("\n");
+    sb.append("    canceledBy: ").append(toIndentedString(canceledBy)).append("\n");
     sb.append("    errorerId: ").append(toIndentedString(errorerId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectSlug: ").append(toIndentedString(projectSlug)).append("\n");
+    sb.append("    erroredBy: ").append(toIndentedString(erroredBy)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    startedBy: ").append(toIndentedString(startedBy)).append("\n");
     sb.append("    pipelineNumber: ").append(toIndentedString(pipelineNumber)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    stoppedAt: ").append(toIndentedString(stoppedAt)).append("\n");

@@ -64,6 +64,14 @@ public class WorkflowTest {
     }
 
     /**
+     * Test the property 'canceledBy'
+     */
+    @Test
+    public void canceledByTest() {
+        // TODO: test canceledBy
+    }
+
+    /**
      * Test the property 'errorerId'
      */
     @Test
@@ -96,11 +104,27 @@ public class WorkflowTest {
     }
 
     /**
+     * Test the property 'erroredBy'
+     */
+    @Test
+    public void erroredByTest() {
+        // TODO: test erroredBy
+    }
+
+    /**
      * Test the property 'status'
      */
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'startedBy'
+     */
+    @Test
+    public void startedByTest() {
+        // TODO: test startedBy
     }
 
     /**
