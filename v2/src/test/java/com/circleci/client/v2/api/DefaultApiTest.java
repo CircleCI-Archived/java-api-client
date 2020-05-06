@@ -59,6 +59,23 @@ public class DefaultApiTest {
 
     
     /**
+     * Approve a job
+     *
+     * Approves a pending approval job in a workflow.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void approvePendingApprovalJobByIdTest() throws ApiException {
+        UUID approvalRequestId = null;
+        UUID id = null;
+        MessageResponse response = api.approvePendingApprovalJobById(approvalRequestId, id);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Cancel job
      *
      * Cancel job with a given job number.

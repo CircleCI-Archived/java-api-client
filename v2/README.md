@@ -101,13 +101,13 @@ public class DefaultApiExample {
         basic_auth.setPassword("YOUR PASSWORD");
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
-        Object jobNumber = 123; // Object | The number of the job.
-        String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        UUID approvalRequestId = new UUID(); // UUID | The ID of the job being approved.
+        UUID id = new UUID(); // UUID | The unique ID of the workflow.
         try {
-            MessageResponse result = apiInstance.cancelJob(jobNumber, projectSlug);
+            MessageResponse result = apiInstance.approvePendingApprovalJobById(approvalRequestId, id);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#cancelJob");
+            System.err.println("Exception when calling DefaultApi#approvePendingApprovalJobById");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,6 +124,7 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**approvePendingApprovalJobById**](docs/DefaultApi.md#approvePendingApprovalJobById) | **POST** /workflow/{id}/approve/{approval_request_id} | Approve a job
 *DefaultApi* | [**cancelJob**](docs/DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 *DefaultApi* | [**cancelWorkflow**](docs/DefaultApi.md#cancelWorkflow) | **POST** /workflow/{id}/cancel | Cancel a workflow
 *DefaultApi* | [**createCheckoutKey**](docs/DefaultApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key

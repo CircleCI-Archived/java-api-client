@@ -2586,6 +2586,43 @@ paths:
           type: string
           format: uuid
         required: true
+  /workflow/{id}/approve/{approval_request_id}:
+    post:
+      summary: Approve a job
+      description: Approves a pending approval job in a workflow.
+      tags:
+      - Workflow
+      operationId: approvePendingApprovalJobById
+      responses:
+        202:
+          description: A confirmation message.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable message
+                required:
+                - message
+                description: message response
+                title: MessageResponse
+      parameters:
+      - in: path
+        name: approval_request_id
+        description: The ID of the job being approved.
+        schema:
+          type: string
+          format: uuid
+        required: true
+      - in: path
+        name: id
+        description: The unique ID of the workflow.
+        schema:
+          type: string
+          format: uuid
+        required: true
   /workflow/{id}/cancel:
     post:
       summary: Cancel a workflow
