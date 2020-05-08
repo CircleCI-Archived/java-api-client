@@ -1733,7 +1733,7 @@ Name | Type | Description  | Notes
 
 ## getProjectWorkflowRuns
 
-> InlineResponse2001 getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken)
+> InlineResponse2001 getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken)
 
 Get recent runs of a workflow
 
@@ -1775,10 +1775,12 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
+        OffsetDateTime startDate = 2020-04-24T18:51:54Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-05-08T18:51:54Z; // OffsetDateTime | Include only executions that started before this date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
-            InlineResponse2001 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken);
+            InlineResponse2001 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectWorkflowRuns");
@@ -1798,6 +1800,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
+ **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. |
+ **endDate** | **OffsetDateTime**| Include only executions that started before this date. |
  **branch** | **String**| The name of a vcs branch. | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
 

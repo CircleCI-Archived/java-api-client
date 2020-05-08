@@ -22,6 +22,7 @@ import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
+import java.time.OffsetDateTime;
 import com.circleci.client.v2.model.Pipeline;
 import com.circleci.client.v2.model.PipelineConfig;
 import com.circleci.client.v2.model.PipelineLight;
@@ -1428,6 +1429,8 @@ public class DefaultApi {
    * Get recent runs of a workflow. Runs going back at most 90 days are returned.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
+   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
+   * @param endDate Include only executions that started before this date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return InlineResponse2001
@@ -1438,8 +1441,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 getProjectWorkflowRuns(String projectSlug, String workflowName, String branch, String pageToken) throws ApiException {
-    return getProjectWorkflowRunsWithHttpInfo(projectSlug, workflowName, branch, pageToken).getData();
+  public InlineResponse2001 getProjectWorkflowRuns(String projectSlug, String workflowName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
+    return getProjectWorkflowRunsWithHttpInfo(projectSlug, workflowName, startDate, endDate, branch, pageToken).getData();
       }
 
   /**
@@ -1447,6 +1450,8 @@ public class DefaultApi {
    * Get recent runs of a workflow. Runs going back at most 90 days are returned.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
+   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
+   * @param endDate Include only executions that started before this date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
@@ -1457,7 +1462,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, String branch, String pageToken) throws ApiException {
+  public ApiResponse<InlineResponse2001> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1470,10 +1475,22 @@ public class DefaultApi {
       throw new ApiException(400, "Missing the required parameter 'workflowName' when calling getProjectWorkflowRuns");
     }
     
+    // verify the required parameter 'startDate' is set
+    if (startDate == null) {
+      throw new ApiException(400, "Missing the required parameter 'startDate' when calling getProjectWorkflowRuns");
+    }
+    
+    // verify the required parameter 'endDate' is set
+    if (endDate == null) {
+      throw new ApiException(400, "Missing the required parameter 'endDate' when calling getProjectWorkflowRuns");
+    }
+    
     // create path and map variables
     String localVarPath = "/insights/{project-slug}/workflows/{workflow-name}"
       .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
-      .replaceAll("\\{" + "workflow-name" + "\\}", apiClient.escapeString(workflowName.toString()));
+      .replaceAll("\\{" + "workflow-name" + "\\}", apiClient.escapeString(workflowName.toString()))
+      .replaceAll("\\{" + "start-date" + "\\}", apiClient.escapeString(startDate.toString()))
+      .replaceAll("\\{" + "end-date" + "\\}", apiClient.escapeString(endDate.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

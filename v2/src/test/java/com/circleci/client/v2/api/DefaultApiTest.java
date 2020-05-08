@@ -28,6 +28,7 @@ import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
+import java.time.OffsetDateTime;
 import com.circleci.client.v2.model.Pipeline;
 import com.circleci.client.v2.model.PipelineConfig;
 import com.circleci.client.v2.model.PipelineLight;
@@ -408,9 +409,11 @@ public class DefaultApiTest {
     public void getProjectWorkflowRunsTest() throws ApiException {
         String projectSlug = null;
         String workflowName = null;
+        OffsetDateTime startDate = null;
+        OffsetDateTime endDate = null;
         String branch = null;
         String pageToken = null;
-        InlineResponse2001 response = api.getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken);
+        InlineResponse2001 response = api.getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken);
 
         // TODO: test validations
     }
