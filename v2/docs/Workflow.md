@@ -6,11 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cancelerId** | [**UUID**](UUID.md) |  |  [optional]
-**starterId** | [**UUID**](UUID.md) |  | 
 **pipelineId** | [**UUID**](UUID.md) | The ID of the pipeline this workflow belongs to. | 
 **canceledBy** | [**UUID**](UUID.md) |  |  [optional]
-**errorerId** | [**UUID**](UUID.md) |  |  [optional]
 **id** | [**UUID**](UUID.md) | The unique ID of the workflow. | 
 **name** | **String** | The name of the workflow. | 
 **projectSlug** | **String** | The project-slug for the pipeline this workflow belongs to. | 

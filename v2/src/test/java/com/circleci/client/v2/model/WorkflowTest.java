@@ -40,22 +40,6 @@ public class WorkflowTest {
     }
 
     /**
-     * Test the property 'cancelerId'
-     */
-    @Test
-    public void cancelerIdTest() {
-        // TODO: test cancelerId
-    }
-
-    /**
-     * Test the property 'starterId'
-     */
-    @Test
-    public void starterIdTest() {
-        // TODO: test starterId
-    }
-
-    /**
      * Test the property 'pipelineId'
      */
     @Test
@@ -69,14 +53,6 @@ public class WorkflowTest {
     @Test
     public void canceledByTest() {
         // TODO: test canceledBy
-    }
-
-    /**
-     * Test the property 'errorerId'
-     */
-    @Test
-    public void errorerIdTest() {
-        // TODO: test errorerId
     }
 
     /**

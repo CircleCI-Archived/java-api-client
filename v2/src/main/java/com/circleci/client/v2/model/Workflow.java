@@ -29,14 +29,6 @@ import java.util.UUID;
 @ApiModel(description = "A workflow")
 
 public class Workflow {
-  public static final String JSON_PROPERTY_CANCELER_ID = "canceler_id";
-  @JsonProperty(JSON_PROPERTY_CANCELER_ID)
-  private UUID cancelerId;
-
-  public static final String JSON_PROPERTY_STARTER_ID = "starter_id";
-  @JsonProperty(JSON_PROPERTY_STARTER_ID)
-  private UUID starterId;
-
   public static final String JSON_PROPERTY_PIPELINE_ID = "pipeline_id";
   @JsonProperty(JSON_PROPERTY_PIPELINE_ID)
   private UUID pipelineId;
@@ -44,10 +36,6 @@ public class Workflow {
   public static final String JSON_PROPERTY_CANCELED_BY = "canceled_by";
   @JsonProperty(JSON_PROPERTY_CANCELED_BY)
   private UUID canceledBy;
-
-  public static final String JSON_PROPERTY_ERRORER_ID = "errorer_id";
-  @JsonProperty(JSON_PROPERTY_ERRORER_ID)
-  private UUID errorerId;
 
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
@@ -134,43 +122,6 @@ public class Workflow {
   @JsonProperty(JSON_PROPERTY_STOPPED_AT)
   private OffsetDateTime stoppedAt;
 
-  public Workflow cancelerId(UUID cancelerId) {
-    this.cancelerId = cancelerId;
-    return this;
-  }
-
-   /**
-   * Get cancelerId
-   * @return cancelerId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  public UUID getCancelerId() {
-    return cancelerId;
-  }
-
-  public void setCancelerId(UUID cancelerId) {
-    this.cancelerId = cancelerId;
-  }
-
-  public Workflow starterId(UUID starterId) {
-    this.starterId = starterId;
-    return this;
-  }
-
-   /**
-   * Get starterId
-   * @return starterId
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public UUID getStarterId() {
-    return starterId;
-  }
-
-  public void setStarterId(UUID starterId) {
-    this.starterId = starterId;
-  }
-
   public Workflow pipelineId(UUID pipelineId) {
     this.pipelineId = pipelineId;
     return this;
@@ -206,25 +157,6 @@ public class Workflow {
 
   public void setCanceledBy(UUID canceledBy) {
     this.canceledBy = canceledBy;
-  }
-
-  public Workflow errorerId(UUID errorerId) {
-    this.errorerId = errorerId;
-    return this;
-  }
-
-   /**
-   * Get errorerId
-   * @return errorerId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  public UUID getErrorerId() {
-    return errorerId;
-  }
-
-  public void setErrorerId(UUID errorerId) {
-    this.errorerId = errorerId;
   }
 
   public Workflow id(UUID id) {
@@ -400,11 +332,8 @@ public class Workflow {
       return false;
     }
     Workflow workflow = (Workflow) o;
-    return Objects.equals(this.cancelerId, workflow.cancelerId) &&
-        Objects.equals(this.starterId, workflow.starterId) &&
-        Objects.equals(this.pipelineId, workflow.pipelineId) &&
+    return Objects.equals(this.pipelineId, workflow.pipelineId) &&
         Objects.equals(this.canceledBy, workflow.canceledBy) &&
-        Objects.equals(this.errorerId, workflow.errorerId) &&
         Objects.equals(this.id, workflow.id) &&
         Objects.equals(this.name, workflow.name) &&
         Objects.equals(this.projectSlug, workflow.projectSlug) &&
@@ -418,7 +347,7 @@ public class Workflow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelerId, starterId, pipelineId, canceledBy, errorerId, id, name, projectSlug, erroredBy, status, startedBy, pipelineNumber, createdAt, stoppedAt);
+    return Objects.hash(pipelineId, canceledBy, id, name, projectSlug, erroredBy, status, startedBy, pipelineNumber, createdAt, stoppedAt);
   }
 
 
@@ -426,11 +355,8 @@ public class Workflow {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Workflow {\n");
-    sb.append("    cancelerId: ").append(toIndentedString(cancelerId)).append("\n");
-    sb.append("    starterId: ").append(toIndentedString(starterId)).append("\n");
     sb.append("    pipelineId: ").append(toIndentedString(pipelineId)).append("\n");
     sb.append("    canceledBy: ").append(toIndentedString(canceledBy)).append("\n");
-    sb.append("    errorerId: ").append(toIndentedString(errorerId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectSlug: ").append(toIndentedString(projectSlug)).append("\n");

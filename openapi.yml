@@ -275,7 +275,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-04-27T13:00:12Z'
+        example: '2020-04-27T13:59:18Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date.
@@ -283,7 +283,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-05-11T13:00:12Z'
+        example: '2020-05-11T13:59:18Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -838,20 +838,11 @@ paths:
                     items:
                       type: object
                       properties:
-                        canceler_id:
-                          type: string
-                          format: uuid
-                        starter_id:
-                          type: string
-                          format: uuid
                         pipeline_id:
                           type: string
                           format: uuid
                           description: The ID of the pipeline this workflow belongs to.
                         canceled_by:
-                          type: string
-                          format: uuid
-                        errorer_id:
                           type: string
                           format: uuid
                         id:
@@ -907,7 +898,6 @@ paths:
                       - pipeline_id
                       - pipeline_number
                       - project_slug
-                      - starter_id
                       - started_by
                       description: A workflow
                       title: Workflow
@@ -2521,20 +2511,11 @@ paths:
               schema:
                 type: object
                 properties:
-                  canceler_id:
-                    type: string
-                    format: uuid
-                  starter_id:
-                    type: string
-                    format: uuid
                   pipeline_id:
                     type: string
                     format: uuid
                     description: The ID of the pipeline this workflow belongs to.
                   canceled_by:
-                    type: string
-                    format: uuid
-                  errorer_id:
                     type: string
                     format: uuid
                   id:
@@ -2590,7 +2571,6 @@ paths:
                 - pipeline_id
                 - pipeline_number
                 - project_slug
-                - starter_id
                 - started_by
                 description: A workflow
                 title: Workflow
