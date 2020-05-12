@@ -275,7 +275,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-04-28T14:17:17Z'
+        example: '2020-04-28T17:12:27Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date.
@@ -283,7 +283,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-05-12T14:17:17Z'
+        example: '2020-05-12T17:12:27Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -541,6 +541,22 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
+      - in: path
+        name: start-date
+        description: Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        schema:
+          type: string
+          format: date-time
+        required: false
+        example: '2020-04-28T17:12:27Z'
+      - in: path
+        name: end-date
+        description: Include only executions that started before this date.
+        schema:
+          type: string
+          format: date-time
+        required: false
+        example: '2020-05-12T17:12:27Z'
   /me:
     get:
       summary: User Information

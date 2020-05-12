@@ -1199,6 +1199,8 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
+   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
+   * @param endDate Include only executions that started before this date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return InlineResponse2003
@@ -1209,8 +1211,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 getProjectJobRuns(String projectSlug, String workflowName, String jobName, String branch, String pageToken) throws ApiException {
-    return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, branch, pageToken).getData();
+  public InlineResponse2003 getProjectJobRuns(String projectSlug, String workflowName, String jobName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
+    return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken).getData();
       }
 
   /**
@@ -1219,6 +1221,8 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
+   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
+   * @param endDate Include only executions that started before this date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
@@ -1229,7 +1233,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, String branch, String pageToken) throws ApiException {
+  public ApiResponse<InlineResponse2003> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1247,11 +1251,23 @@ public class DefaultApi {
       throw new ApiException(400, "Missing the required parameter 'jobName' when calling getProjectJobRuns");
     }
     
+    // verify the required parameter 'startDate' is set
+    if (startDate == null) {
+      throw new ApiException(400, "Missing the required parameter 'startDate' when calling getProjectJobRuns");
+    }
+    
+    // verify the required parameter 'endDate' is set
+    if (endDate == null) {
+      throw new ApiException(400, "Missing the required parameter 'endDate' when calling getProjectJobRuns");
+    }
+    
     // create path and map variables
     String localVarPath = "/insights/{project-slug}/workflows/{workflow-name}/jobs/{job-name}"
       .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
       .replaceAll("\\{" + "workflow-name" + "\\}", apiClient.escapeString(workflowName.toString()))
-      .replaceAll("\\{" + "job-name" + "\\}", apiClient.escapeString(jobName.toString()));
+      .replaceAll("\\{" + "job-name" + "\\}", apiClient.escapeString(jobName.toString()))
+      .replaceAll("\\{" + "start-date" + "\\}", apiClient.escapeString(startDate.toString()))
+      .replaceAll("\\{" + "end-date" + "\\}", apiClient.escapeString(endDate.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
