@@ -1509,8 +1509,8 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String jobName = lint; // String | The name of the job.
-        OffsetDateTime startDate = 2020-04-30T16:05:07Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-05-14T16:05:07Z; // OffsetDateTime | Include only executions that started before this date.
+        OffsetDateTime startDate = 2020-04-30T17:12:11Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-05-14T17:12:11Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
@@ -1536,7 +1536,7 @@ Name | Type | Description  | Notes
  **workflowName** | **String**| The name of the workflow. |
  **jobName** | **String**| The name of the job. |
  **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. |
- **endDate** | **OffsetDateTime**| Include only executions that started before this date. |
+ **endDate** | **OffsetDateTime**| Include only executions that started before this date. This date can be at most 90 days after the start-date. |
  **branch** | **String**| The name of a vcs branch. | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
 
@@ -1779,8 +1779,8 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
-        OffsetDateTime startDate = 2020-04-30T16:05:07Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-05-14T16:05:07Z; // OffsetDateTime | Include only executions that started before this date.
+        OffsetDateTime startDate = 2020-04-30T17:12:11Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-05-14T17:12:11Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
@@ -1805,7 +1805,7 @@ Name | Type | Description  | Notes
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
  **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. |
- **endDate** | **OffsetDateTime**| Include only executions that started before this date. |
+ **endDate** | **OffsetDateTime**| Include only executions that started before this date. This date can be at most 90 days after the start-date. |
  **branch** | **String**| The name of a vcs branch. | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
 

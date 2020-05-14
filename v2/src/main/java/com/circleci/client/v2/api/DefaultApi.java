@@ -1200,7 +1200,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
-   * @param endDate Include only executions that started before this date. (required)
+   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return InlineResponse2003
@@ -1222,7 +1222,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
-   * @param endDate Include only executions that started before this date. (required)
+   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
@@ -1446,7 +1446,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
-   * @param endDate Include only executions that started before this date. (required)
+   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return InlineResponse2001
@@ -1467,7 +1467,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
-   * @param endDate Include only executions that started before this date. (required)
+   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
