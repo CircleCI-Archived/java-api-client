@@ -1509,8 +1509,8 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String jobName = lint; // String | The name of the job.
-        OffsetDateTime startDate = 2020-05-07T21:26:13Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-05-21T21:26:13Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-05-08T12:03:12Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-05-22T12:03:12Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
@@ -1779,8 +1779,8 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
-        OffsetDateTime startDate = 2020-05-07T21:26:13Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-05-21T21:26:13Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-05-08T12:03:12Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-05-22T12:03:12Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
