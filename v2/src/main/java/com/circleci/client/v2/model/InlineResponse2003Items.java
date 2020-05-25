@@ -85,7 +85,7 @@ public class InlineResponse2003Items {
   @JsonProperty(JSON_PROPERTY_STATUS)
   private StatusEnum status;
 
-  public static final String JSON_PROPERTY_CREDITS_USED = "credits-used";
+  public static final String JSON_PROPERTY_CREDITS_USED = "credits_used";
   @JsonProperty(JSON_PROPERTY_CREDITS_USED)
   private Long creditsUsed;
 

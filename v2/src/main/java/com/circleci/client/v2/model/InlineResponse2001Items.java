@@ -44,7 +44,7 @@ public class InlineResponse2001Items {
   @JsonProperty(JSON_PROPERTY_STOPPED_AT)
   private OffsetDateTime stoppedAt;
 
-  public static final String JSON_PROPERTY_CREDITS_USED = "credits-used";
+  public static final String JSON_PROPERTY_CREDITS_USED = "credits_used";
   @JsonProperty(JSON_PROPERTY_CREDITS_USED)
   private Long creditsUsed;
 

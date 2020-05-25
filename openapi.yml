@@ -207,7 +207,7 @@ paths:
                           format: date-time
                           x-nullable: true
                           description: The date and time the workflow stopped.
-                        credits-used:
+                        credits_used:
                           type: integer
                           format: int64
                           minimum: 0
@@ -227,7 +227,7 @@ paths:
                       - duration
                       - created_at
                       - stopped_at
-                      - credits-used
+                      - credits_used
                       - status
                     description: Recent workflow runs.
                   next_page_token:
@@ -275,7 +275,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-05-11T16:24:30Z'
+        example: '2020-05-11T17:35:14Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -283,7 +283,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-05-25T16:24:30Z'
+        example: '2020-05-25T17:35:14Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -484,7 +484,7 @@ paths:
                           type: string
                           x-nullable: true
                           description: Job status.
-                        credits-used:
+                        credits_used:
                           type: integer
                           format: int64
                           minimum: 0
@@ -494,7 +494,7 @@ paths:
                       - started_at
                       - stopped_at
                       - status
-                      - credits-used
+                      - credits_used
                     description: Recent job runs.
                   next_page_token:
                     type: string
@@ -548,7 +548,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-05-11T16:24:30Z'
+        example: '2020-05-11T17:35:14Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -556,7 +556,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-05-25T16:24:30Z'
+        example: '2020-05-25T17:35:14Z'
   /me:
     get:
       summary: User Information
