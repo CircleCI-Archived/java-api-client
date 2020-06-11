@@ -275,7 +275,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-05-28T12:23:07Z'
+        example: '2020-05-28T12:36:28Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -283,7 +283,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-06-11T12:23:07Z'
+        example: '2020-06-11T12:36:28Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -548,7 +548,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-05-28T12:23:07Z'
+        example: '2020-05-28T12:36:28Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -556,7 +556,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-06-11T12:23:07Z'
+        example: '2020-06-11T12:36:28Z'
   /me:
     get:
       summary: User Information
@@ -2413,6 +2413,15 @@ paths:
                           x-nullable: true
                           description: The failure message associated with the test.
                           example: ''
+                        source:
+                          type: string
+                          description: The program that generated the test results
+                          example: ''
+                        run_time:
+                          type: number
+                          format: double
+                          description: The time it took to run the test in seconds
+                          example: ''
                         file:
                           type: string
                           description: The file in which the test is defined.
@@ -2431,6 +2440,8 @@ paths:
                           example: ''
                       required:
                       - message
+                      - source
+                      - run_time
                       - file
                       - result
                       - name

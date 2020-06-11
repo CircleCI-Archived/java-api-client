@@ -30,6 +30,14 @@ public class TestsResponseItems {
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   private String message;
 
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  private String source;
+
+  public static final String JSON_PROPERTY_RUN_TIME = "run_time";
+  @JsonProperty(JSON_PROPERTY_RUN_TIME)
+  private Double runTime;
+
   public static final String JSON_PROPERTY_FILE = "file";
   @JsonProperty(JSON_PROPERTY_FILE)
   private String file;
@@ -62,6 +70,42 @@ public class TestsResponseItems {
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+  public TestsResponseItems source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * The program that generated the test results
+   * @return source
+  **/
+  @ApiModelProperty(required = true, value = "The program that generated the test results")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  public TestsResponseItems runTime(Double runTime) {
+    this.runTime = runTime;
+    return this;
+  }
+
+   /**
+   * The time it took to run the test in seconds
+   * @return runTime
+  **/
+  @ApiModelProperty(required = true, value = "The time it took to run the test in seconds")
+  public Double getRunTime() {
+    return runTime;
+  }
+
+  public void setRunTime(Double runTime) {
+    this.runTime = runTime;
   }
 
   public TestsResponseItems file(String file) {
@@ -147,6 +191,8 @@ public class TestsResponseItems {
     }
     TestsResponseItems testsResponseItems = (TestsResponseItems) o;
     return Objects.equals(this.message, testsResponseItems.message) &&
+        Objects.equals(this.source, testsResponseItems.source) &&
+        Objects.equals(this.runTime, testsResponseItems.runTime) &&
         Objects.equals(this.file, testsResponseItems.file) &&
         Objects.equals(this.result, testsResponseItems.result) &&
         Objects.equals(this.name, testsResponseItems.name) &&
@@ -155,7 +201,7 @@ public class TestsResponseItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, file, result, name, classname);
+    return Objects.hash(message, source, runTime, file, result, name, classname);
   }
 
 
@@ -164,6 +210,8 @@ public class TestsResponseItems {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestsResponseItems {\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    runTime: ").append(toIndentedString(runTime)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

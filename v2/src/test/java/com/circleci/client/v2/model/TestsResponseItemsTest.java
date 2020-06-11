@@ -46,6 +46,22 @@ public class TestsResponseItemsTest {
     }
 
     /**
+     * Test the property 'source'
+     */
+    @Test
+    public void sourceTest() {
+        // TODO: test source
+    }
+
+    /**
+     * Test the property 'runTime'
+     */
+    @Test
+    public void runTimeTest() {
+        // TODO: test runTime
+    }
+
+    /**
      * Test the property 'file'
      */
     @Test
