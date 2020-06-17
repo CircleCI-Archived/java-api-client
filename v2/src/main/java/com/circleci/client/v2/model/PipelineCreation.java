@@ -24,11 +24,11 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 /**
- * NOTE: The definition of pipeline is subject to change.
+ * A pipeline creation response.
  */
-@ApiModel(description = "NOTE: The definition of pipeline is subject to change.")
+@ApiModel(description = "A pipeline creation response.")
 
-public class PipelineLight {
+public class PipelineCreation {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
   private UUID id;
@@ -82,7 +82,7 @@ public class PipelineLight {
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   private OffsetDateTime createdAt;
 
-  public PipelineLight id(UUID id) {
+  public PipelineCreation id(UUID id) {
     this.id = id;
     return this;
   }
@@ -100,7 +100,7 @@ public class PipelineLight {
     this.id = id;
   }
 
-  public PipelineLight state(StateEnum state) {
+  public PipelineCreation state(StateEnum state) {
     this.state = state;
     return this;
   }
@@ -118,7 +118,7 @@ public class PipelineLight {
     this.state = state;
   }
 
-  public PipelineLight number(Long number) {
+  public PipelineCreation number(Long number) {
     this.number = number;
     return this;
   }
@@ -136,7 +136,7 @@ public class PipelineLight {
     this.number = number;
   }
 
-  public PipelineLight createdAt(OffsetDateTime createdAt) {
+  public PipelineCreation createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -163,11 +163,11 @@ public class PipelineLight {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PipelineLight pipelineLight = (PipelineLight) o;
-    return Objects.equals(this.id, pipelineLight.id) &&
-        Objects.equals(this.state, pipelineLight.state) &&
-        Objects.equals(this.number, pipelineLight.number) &&
-        Objects.equals(this.createdAt, pipelineLight.createdAt);
+    PipelineCreation pipelineCreation = (PipelineCreation) o;
+    return Objects.equals(this.id, pipelineCreation.id) &&
+        Objects.equals(this.state, pipelineCreation.state) &&
+        Objects.equals(this.number, pipelineCreation.number) &&
+        Objects.equals(this.createdAt, pipelineCreation.createdAt);
   }
 
   @Override
@@ -179,7 +179,7 @@ public class PipelineLight {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineLight {\n");
+    sb.append("class PipelineCreation {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");

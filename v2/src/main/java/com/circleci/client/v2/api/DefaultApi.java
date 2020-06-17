@@ -25,7 +25,7 @@ import com.circleci.client.v2.model.MessageResponse;
 import java.time.OffsetDateTime;
 import com.circleci.client.v2.model.Pipeline;
 import com.circleci.client.v2.model.PipelineConfig;
-import com.circleci.client.v2.model.PipelineLight;
+import com.circleci.client.v2.model.PipelineCreation;
 import com.circleci.client.v2.model.PipelineListResponse;
 import com.circleci.client.v2.model.Project;
 import com.circleci.client.v2.model.RerunWorkflowParameters;
@@ -2266,7 +2266,7 @@ public class DefaultApi {
    * @param xAttributionLogin The login or user-readable identifier for the pipeline&#39;s triggerer. Internal use only. (optional)
    * @param xAttributionActorId The id the integration uses to identify the pipeline&#39;s triggerer. Internal use only. (optional)
    * @param triggerPipelineParameters  (optional)
-   * @return PipelineLight
+   * @return PipelineCreation
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2274,7 +2274,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> The created pipeline. </td><td>  -  </td></tr>
      </table>
    */
-  public PipelineLight triggerPipeline(String projectSlug, String xAttributionLogin, String xAttributionActorId, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
+  public PipelineCreation triggerPipeline(String projectSlug, String xAttributionLogin, String xAttributionActorId, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
     return triggerPipelineWithHttpInfo(projectSlug, xAttributionLogin, xAttributionActorId, triggerPipelineParameters).getData();
       }
 
@@ -2285,7 +2285,7 @@ public class DefaultApi {
    * @param xAttributionLogin The login or user-readable identifier for the pipeline&#39;s triggerer. Internal use only. (optional)
    * @param xAttributionActorId The id the integration uses to identify the pipeline&#39;s triggerer. Internal use only. (optional)
    * @param triggerPipelineParameters  (optional)
-   * @return ApiResponse&lt;PipelineLight&gt;
+   * @return ApiResponse&lt;PipelineCreation&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2293,7 +2293,7 @@ public class DefaultApi {
         <tr><td> 201 </td><td> The created pipeline. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PipelineLight> triggerPipelineWithHttpInfo(String projectSlug, String xAttributionLogin, String xAttributionActorId, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
+  public ApiResponse<PipelineCreation> triggerPipelineWithHttpInfo(String projectSlug, String xAttributionLogin, String xAttributionActorId, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
     Object localVarPostBody = triggerPipelineParameters;
     
     // verify the required parameter 'projectSlug' is set
@@ -2329,7 +2329,7 @@ if (xAttributionActorId != null)
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<PipelineLight> localVarReturnType = new GenericType<PipelineLight>() {};
+    GenericType<PipelineCreation> localVarReturnType = new GenericType<PipelineCreation>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

@@ -31,7 +31,7 @@ import com.circleci.client.v2.model.MessageResponse;
 import java.time.OffsetDateTime;
 import com.circleci.client.v2.model.Pipeline;
 import com.circleci.client.v2.model.PipelineConfig;
-import com.circleci.client.v2.model.PipelineLight;
+import com.circleci.client.v2.model.PipelineCreation;
 import com.circleci.client.v2.model.PipelineListResponse;
 import com.circleci.client.v2.model.Project;
 import com.circleci.client.v2.model.RerunWorkflowParameters;
@@ -618,7 +618,7 @@ public class DefaultApiTest {
         String xAttributionLogin = null;
         String xAttributionActorId = null;
         TriggerPipelineParameters triggerPipelineParameters = null;
-        PipelineLight response = api.triggerPipeline(projectSlug, xAttributionLogin, xAttributionActorId, triggerPipelineParameters);
+        PipelineCreation response = api.triggerPipeline(projectSlug, xAttributionLogin, xAttributionActorId, triggerPipelineParameters);
 
         // TODO: test validations
     }

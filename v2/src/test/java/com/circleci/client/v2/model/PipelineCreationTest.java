@@ -26,17 +26,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PipelineLight
+ * Model tests for PipelineCreation
  */
-public class PipelineLightTest {
-    private final PipelineLight model = new PipelineLight();
+public class PipelineCreationTest {
+    private final PipelineCreation model = new PipelineCreation();
 
     /**
-     * Model tests for PipelineLight
+     * Model tests for PipelineCreation
      */
     @Test
-    public void testPipelineLight() {
-        // TODO: test PipelineLight
+    public void testPipelineCreation() {
+        // TODO: test PipelineCreation
     }
 
     /**

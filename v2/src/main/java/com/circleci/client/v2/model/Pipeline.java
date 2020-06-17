@@ -29,9 +29,9 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * NOTE: The definition of pipeline is subject to change.
+ * A pipeline response.
  */
-@ApiModel(description = "NOTE: The definition of pipeline is subject to change.")
+@ApiModel(description = "A pipeline response.")
 
 public class Pipeline {
   public static final String JSON_PROPERTY_ID = "id";

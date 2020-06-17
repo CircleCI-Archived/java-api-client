@@ -195,7 +195,7 @@ Class | Method | HTTP request | Description
  - [MessageResponse](docs/MessageResponse.md)
  - [Pipeline](docs/Pipeline.md)
  - [PipelineConfig](docs/PipelineConfig.md)
- - [PipelineLight](docs/PipelineLight.md)
+ - [PipelineCreation](docs/PipelineCreation.md)
  - [PipelineListResponse](docs/PipelineListResponse.md)
  - [PipelineListResponseErrors](docs/PipelineListResponseErrors.md)
  - [PipelineListResponseTrigger](docs/PipelineListResponseTrigger.md)
