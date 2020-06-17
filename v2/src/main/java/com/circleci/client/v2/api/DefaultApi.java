@@ -1923,6 +1923,80 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Get a list of pipelines
+   * Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
+   * @param orgSlug Org slug in the form &#x60;vcs-slug/org-name&#x60; (required)
+   * @param mine Only include entries created by your user. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
+   * @return PipelineListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+     </table>
+   */
+  public PipelineListResponse listPipelines(String orgSlug, Boolean mine, String pageToken) throws ApiException {
+    return listPipelinesWithHttpInfo(orgSlug, mine, pageToken).getData();
+      }
+
+  /**
+   * Get a list of pipelines
+   * Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
+   * @param orgSlug Org slug in the form &#x60;vcs-slug/org-name&#x60; (required)
+   * @param mine Only include entries created by your user. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
+   * @return ApiResponse&lt;PipelineListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<PipelineListResponse> listPipelinesWithHttpInfo(String orgSlug, Boolean mine, String pageToken) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'orgSlug' is set
+    if (orgSlug == null) {
+      throw new ApiException(400, "Missing the required parameter 'orgSlug' when calling listPipelines");
+    }
+    
+    // verify the required parameter 'mine' is set
+    if (mine == null) {
+      throw new ApiException(400, "Missing the required parameter 'mine' when calling listPipelines");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/pipeline"
+      .replaceAll("\\{" + "org-slug" + "\\}", apiClient.escapeString(orgSlug.toString()))
+      .replaceAll("\\{" + "mine" + "\\}", apiClient.escapeString(mine.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<PipelineListResponse> localVarReturnType = new GenericType<PipelineListResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Get all pipelines
    * Returns all pipelines for this project.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)

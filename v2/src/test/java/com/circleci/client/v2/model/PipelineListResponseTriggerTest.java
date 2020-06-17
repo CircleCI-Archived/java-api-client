@@ -13,7 +13,7 @@
 
 package com.circleci.client.v2.model;
 
-import com.circleci.client.v2.model.PipelineTriggerActor;
+import com.circleci.client.v2.model.PipelineListResponseTriggerActor;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -26,17 +26,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PipelineTrigger
+ * Model tests for PipelineListResponseTrigger
  */
-public class PipelineTriggerTest {
-    private final PipelineTrigger model = new PipelineTrigger();
+public class PipelineListResponseTriggerTest {
+    private final PipelineListResponseTrigger model = new PipelineListResponseTrigger();
 
     /**
-     * Model tests for PipelineTrigger
+     * Model tests for PipelineListResponseTrigger
      */
     @Test
-    public void testPipelineTrigger() {
-        // TODO: test PipelineTrigger
+    public void testPipelineListResponseTrigger() {
+        // TODO: test PipelineListResponseTrigger
     }
 
     /**

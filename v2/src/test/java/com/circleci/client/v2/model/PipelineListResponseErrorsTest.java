@@ -24,17 +24,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PipelineErrors
+ * Model tests for PipelineListResponseErrors
  */
-public class PipelineErrorsTest {
-    private final PipelineErrors model = new PipelineErrors();
+public class PipelineListResponseErrorsTest {
+    private final PipelineListResponseErrors model = new PipelineListResponseErrors();
 
     /**
-     * Model tests for PipelineErrors
+     * Model tests for PipelineListResponseErrors
      */
     @Test
-    public void testPipelineErrors() {
-        // TODO: test PipelineErrors
+    public void testPipelineListResponseErrors() {
+        // TODO: test PipelineListResponseErrors
     }
 
     /**

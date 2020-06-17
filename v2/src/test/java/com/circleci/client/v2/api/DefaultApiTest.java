@@ -519,6 +519,24 @@ public class DefaultApiTest {
     }
     
     /**
+     * Get a list of pipelines
+     *
+     * Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listPipelinesTest() throws ApiException {
+        String orgSlug = null;
+        Boolean mine = null;
+        String pageToken = null;
+        PipelineListResponse response = api.listPipelines(orgSlug, mine, pageToken);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get all pipelines
      *
      * Returns all pipelines for this project.

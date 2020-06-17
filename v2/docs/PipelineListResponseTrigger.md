@@ -1,6 +1,6 @@
 
 
-# PipelineTrigger
+# PipelineListResponseTrigger
 
 ## Properties
 
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**TypeEnum**](#TypeEnum) | The type of trigger. | 
 **receivedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the trigger was received. | 
-**actor** | [**PipelineTriggerActor**](PipelineTriggerActor.md) |  | 
+**actor** | [**PipelineListResponseTriggerActor**](PipelineListResponseTriggerActor.md) |  | 
 
 
 

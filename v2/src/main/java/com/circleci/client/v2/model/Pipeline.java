@@ -15,9 +15,9 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.circleci.client.v2.model.PipelineErrors;
-import com.circleci.client.v2.model.PipelineTrigger;
-import com.circleci.client.v2.model.PipelineVcs;
+import com.circleci.client.v2.model.PipelineListResponseErrors;
+import com.circleci.client.v2.model.PipelineListResponseTrigger;
+import com.circleci.client.v2.model.PipelineListResponseVcs;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -40,7 +40,7 @@ public class Pipeline {
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   @JsonProperty(JSON_PROPERTY_ERRORS)
-  private List<PipelineErrors> errors = new ArrayList<>();
+  private List<PipelineListResponseErrors> errors = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROJECT_SLUG = "project_slug";
   @JsonProperty(JSON_PROPERTY_PROJECT_SLUG)
@@ -101,11 +101,11 @@ public class Pipeline {
 
   public static final String JSON_PROPERTY_TRIGGER = "trigger";
   @JsonProperty(JSON_PROPERTY_TRIGGER)
-  private PipelineTrigger trigger = null;
+  private PipelineListResponseTrigger trigger = null;
 
   public static final String JSON_PROPERTY_VCS = "vcs";
   @JsonProperty(JSON_PROPERTY_VCS)
-  private PipelineVcs vcs = null;
+  private PipelineListResponseVcs vcs = null;
 
   public Pipeline id(UUID id) {
     this.id = id;
@@ -125,12 +125,12 @@ public class Pipeline {
     this.id = id;
   }
 
-  public Pipeline errors(List<PipelineErrors> errors) {
+  public Pipeline errors(List<PipelineListResponseErrors> errors) {
     this.errors = errors;
     return this;
   }
 
-  public Pipeline addErrorsItem(PipelineErrors errorsItem) {
+  public Pipeline addErrorsItem(PipelineListResponseErrors errorsItem) {
     this.errors.add(errorsItem);
     return this;
   }
@@ -140,11 +140,11 @@ public class Pipeline {
    * @return errors
   **/
   @ApiModelProperty(required = true, value = "A sequence of errors that have occurred within the pipeline.")
-  public List<PipelineErrors> getErrors() {
+  public List<PipelineListResponseErrors> getErrors() {
     return errors;
   }
 
-  public void setErrors(List<PipelineErrors> errors) {
+  public void setErrors(List<PipelineListResponseErrors> errors) {
     this.errors = errors;
   }
 
@@ -239,7 +239,7 @@ public class Pipeline {
     this.createdAt = createdAt;
   }
 
-  public Pipeline trigger(PipelineTrigger trigger) {
+  public Pipeline trigger(PipelineListResponseTrigger trigger) {
     this.trigger = trigger;
     return this;
   }
@@ -249,15 +249,15 @@ public class Pipeline {
    * @return trigger
   **/
   @ApiModelProperty(required = true, value = "")
-  public PipelineTrigger getTrigger() {
+  public PipelineListResponseTrigger getTrigger() {
     return trigger;
   }
 
-  public void setTrigger(PipelineTrigger trigger) {
+  public void setTrigger(PipelineListResponseTrigger trigger) {
     this.trigger = trigger;
   }
 
-  public Pipeline vcs(PipelineVcs vcs) {
+  public Pipeline vcs(PipelineListResponseVcs vcs) {
     this.vcs = vcs;
     return this;
   }
@@ -268,11 +268,11 @@ public class Pipeline {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  public PipelineVcs getVcs() {
+  public PipelineListResponseVcs getVcs() {
     return vcs;
   }
 
-  public void setVcs(PipelineVcs vcs) {
+  public void setVcs(PipelineListResponseVcs vcs) {
     this.vcs = vcs;
   }
 

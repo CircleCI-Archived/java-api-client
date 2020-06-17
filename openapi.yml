@@ -275,7 +275,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-06-03T09:57:32Z'
+        example: '2020-06-03T11:12:54Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -283,7 +283,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-06-17T09:57:32Z'
+        example: '2020-06-17T11:12:54Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -548,7 +548,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-06-03T09:57:32Z'
+        example: '2020-06-03T11:12:54Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -556,7 +556,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-06-17T09:57:32Z'
+        example: '2020-06-17T11:12:54Z'
   /me:
     get:
       summary: User Information
@@ -628,6 +628,200 @@ paths:
                   - name
                   - avatar_url
                   title: Collaboration
+  /pipeline:
+    get:
+      summary: Get a list of pipelines
+      description: Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
+      tags:
+      - Pipeline
+      - Preview
+      operationId: listPipelines
+      responses:
+        200:
+          description: A sequence of pipelines.
+          links:
+            NextPipelinePage:
+              operationId: listPipelines
+              parameters:
+                page-token: $response.body#/next_page_token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                          description: The unique ID of the pipeline.
+                        errors:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              type:
+                                enum:
+                                - config
+                                - plan
+                                type: string
+                                description: The type of error.
+                              message:
+                                type: string
+                                description: A human-readable error message.
+                            required:
+                            - type
+                            - message
+                            description: An error with a type and message.
+                          description: A sequence of errors that have occurred within the pipeline.
+                        project_slug:
+                          type: string
+                          description: The project-slug for the pipeline.
+                          example: gh/CircleCI-Public/api-preview-docs
+                        updated_at:
+                          type: string
+                          format: date-time
+                          description: The date and time the pipeline was last updated.
+                        number:
+                          type: integer
+                          format: int64
+                          description: The number of the pipeline.
+                        state:
+                          enum:
+                          - created
+                          - errored
+                          - pending
+                          type: string
+                          description: The current state of the pipeline.
+                        created_at:
+                          type: string
+                          format: date-time
+                          description: The date and time the pipeline was created.
+                        trigger:
+                          type: object
+                          properties:
+                            type:
+                              enum:
+                              - explicit
+                              - api
+                              - webhook
+                              type: string
+                              description: The type of trigger.
+                            received_at:
+                              type: string
+                              format: date-time
+                              description: The date and time the trigger was received.
+                            actor:
+                              type: object
+                              properties:
+                                login:
+                                  type: string
+                                  description: The login information for the user on the VCS.
+                                  title: Login
+                                avatar_url:
+                                  type: string
+                                  x-nullable: true
+                                  description: URL to the user's avatar on the VCS
+                              required:
+                              - login
+                              - avatar_url
+                              description: The user who triggered the Pipeline.
+                          required:
+                          - type
+                          - received_at
+                          - actor
+                          description: A summary of the trigger.
+                        vcs:
+                          type: object
+                          properties:
+                            provider_name:
+                              type: string
+                              description: Name of the VCS provider (e.g. GitHub, Bitbucket).
+                              example: GitHub
+                            origin_repository_url:
+                              type: string
+                              description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
+                              example: https://github.com/CircleCI-Public/api-preview-docs
+                            target_repository_url:
+                              type: string
+                              description: URL for the repository the trigger targets (i.e. the repository where the PR will be merged). For fork-PR pipelines, this is the URL to the parent repo. For other pipelines, the `origin_` and `target_repository_url`s will be the same.
+                              example: https://github.com/CircleCI-Public/api-preview-docs
+                            revision:
+                              type: string
+                              description: The code revision the pipeline ran.
+                              example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
+                            branch:
+                              type: string
+                              description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                              example: feature/design-new-api
+                            tag:
+                              type: string
+                              description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                              example: v3.1.4159
+                            commit:
+                              type: object
+                              properties:
+                                subject:
+                                  type: string
+                                  x-nullable: true
+                                  description: The subject of the commit message.
+                                body:
+                                  type: string
+                                  x-nullable: true
+                                  description: The body of the commit message.
+                              required:
+                              - subject
+                              - body
+                              description: The latest commit in the pipeline.
+                          required:
+                          - provider_name
+                          - origin_repository_url
+                          - target_repository_url
+                          - revision
+                          description: VCS information for the pipeline.
+                      required:
+                      - id
+                      - number
+                      - project_slug
+                      - created_at
+                      - errors
+                      - state
+                      - trigger
+                      description: 'NOTE: The definition of pipeline is subject to change.'
+                      title: Pipeline
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
+                required:
+                - items
+                - next_page_token
+                description: List of pipelines
+                title: PipelineListResponse
+      parameters:
+      - in: path
+        name: org-slug
+        description: Org slug in the form `vcs-slug/org-name`
+        schema:
+          type: string
+        required: false
+        example: gh/CircleCI-Public
+      - in: query
+        name: page-token
+        description: A token to retrieve the next page of results.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
+      - in: path
+        name: mine
+        description: Only include entries created by your user.
+        schema:
+          type: boolean
+        required: false
   /pipeline/{pipeline-id}:
     get:
       summary: Get a pipeline

@@ -15,7 +15,7 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.circleci.client.v2.model.PipelineVcsCommit;
+import com.circleci.client.v2.model.PipelineListResponseVcsCommit;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "VCS information for the pipeline.")
 
-public class PipelineVcs {
+public class PipelineListResponseVcs {
   public static final String JSON_PROPERTY_PROVIDER_NAME = "provider_name";
   @JsonProperty(JSON_PROPERTY_PROVIDER_NAME)
   private String providerName;
@@ -54,9 +54,9 @@ public class PipelineVcs {
 
   public static final String JSON_PROPERTY_COMMIT = "commit";
   @JsonProperty(JSON_PROPERTY_COMMIT)
-  private PipelineVcsCommit commit = null;
+  private PipelineListResponseVcsCommit commit = null;
 
-  public PipelineVcs providerName(String providerName) {
+  public PipelineListResponseVcs providerName(String providerName) {
     this.providerName = providerName;
     return this;
   }
@@ -74,7 +74,7 @@ public class PipelineVcs {
     this.providerName = providerName;
   }
 
-  public PipelineVcs originRepositoryUrl(String originRepositoryUrl) {
+  public PipelineListResponseVcs originRepositoryUrl(String originRepositoryUrl) {
     this.originRepositoryUrl = originRepositoryUrl;
     return this;
   }
@@ -92,7 +92,7 @@ public class PipelineVcs {
     this.originRepositoryUrl = originRepositoryUrl;
   }
 
-  public PipelineVcs targetRepositoryUrl(String targetRepositoryUrl) {
+  public PipelineListResponseVcs targetRepositoryUrl(String targetRepositoryUrl) {
     this.targetRepositoryUrl = targetRepositoryUrl;
     return this;
   }
@@ -110,7 +110,7 @@ public class PipelineVcs {
     this.targetRepositoryUrl = targetRepositoryUrl;
   }
 
-  public PipelineVcs revision(String revision) {
+  public PipelineListResponseVcs revision(String revision) {
     this.revision = revision;
     return this;
   }
@@ -128,7 +128,7 @@ public class PipelineVcs {
     this.revision = revision;
   }
 
-  public PipelineVcs branch(String branch) {
+  public PipelineListResponseVcs branch(String branch) {
     this.branch = branch;
     return this;
   }
@@ -147,7 +147,7 @@ public class PipelineVcs {
     this.branch = branch;
   }
 
-  public PipelineVcs tag(String tag) {
+  public PipelineListResponseVcs tag(String tag) {
     this.tag = tag;
     return this;
   }
@@ -166,7 +166,7 @@ public class PipelineVcs {
     this.tag = tag;
   }
 
-  public PipelineVcs commit(PipelineVcsCommit commit) {
+  public PipelineListResponseVcs commit(PipelineListResponseVcsCommit commit) {
     this.commit = commit;
     return this;
   }
@@ -177,11 +177,11 @@ public class PipelineVcs {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  public PipelineVcsCommit getCommit() {
+  public PipelineListResponseVcsCommit getCommit() {
     return commit;
   }
 
-  public void setCommit(PipelineVcsCommit commit) {
+  public void setCommit(PipelineListResponseVcsCommit commit) {
     this.commit = commit;
   }
 
@@ -194,14 +194,14 @@ public class PipelineVcs {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PipelineVcs pipelineVcs = (PipelineVcs) o;
-    return Objects.equals(this.providerName, pipelineVcs.providerName) &&
-        Objects.equals(this.originRepositoryUrl, pipelineVcs.originRepositoryUrl) &&
-        Objects.equals(this.targetRepositoryUrl, pipelineVcs.targetRepositoryUrl) &&
-        Objects.equals(this.revision, pipelineVcs.revision) &&
-        Objects.equals(this.branch, pipelineVcs.branch) &&
-        Objects.equals(this.tag, pipelineVcs.tag) &&
-        Objects.equals(this.commit, pipelineVcs.commit);
+    PipelineListResponseVcs pipelineListResponseVcs = (PipelineListResponseVcs) o;
+    return Objects.equals(this.providerName, pipelineListResponseVcs.providerName) &&
+        Objects.equals(this.originRepositoryUrl, pipelineListResponseVcs.originRepositoryUrl) &&
+        Objects.equals(this.targetRepositoryUrl, pipelineListResponseVcs.targetRepositoryUrl) &&
+        Objects.equals(this.revision, pipelineListResponseVcs.revision) &&
+        Objects.equals(this.branch, pipelineListResponseVcs.branch) &&
+        Objects.equals(this.tag, pipelineListResponseVcs.tag) &&
+        Objects.equals(this.commit, pipelineListResponseVcs.commit);
   }
 
   @Override
@@ -213,7 +213,7 @@ public class PipelineVcs {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineVcs {\n");
+    sb.append("class PipelineListResponseVcs {\n");
     sb.append("    providerName: ").append(toIndentedString(providerName)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    targetRepositoryUrl: ").append(toIndentedString(targetRepositoryUrl)).append("\n");

@@ -15,29 +15,25 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.circleci.client.v2.model.PipelineTriggerActor;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 
 /**
- * A summary of the trigger.
+ * An error with a type and message.
  */
-@ApiModel(description = "A summary of the trigger.")
+@ApiModel(description = "An error with a type and message.")
 
-public class PipelineTrigger {
+public class PipelineListResponseErrors {
   /**
-   * The type of trigger.
+   * The type of error.
    */
   public enum TypeEnum {
-    EXPLICIT("explicit"),
+    CONFIG("config"),
     
-    API("api"),
-    
-    WEBHOOK("webhook");
+    PLAN("plan");
 
     private String value;
 
@@ -70,24 +66,20 @@ public class PipelineTrigger {
   @JsonProperty(JSON_PROPERTY_TYPE)
   private TypeEnum type;
 
-  public static final String JSON_PROPERTY_RECEIVED_AT = "received_at";
-  @JsonProperty(JSON_PROPERTY_RECEIVED_AT)
-  private OffsetDateTime receivedAt;
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  private String message;
 
-  public static final String JSON_PROPERTY_ACTOR = "actor";
-  @JsonProperty(JSON_PROPERTY_ACTOR)
-  private PipelineTriggerActor actor = null;
-
-  public PipelineTrigger type(TypeEnum type) {
+  public PipelineListResponseErrors type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
    /**
-   * The type of trigger.
+   * The type of error.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "The type of trigger.")
+  @ApiModelProperty(required = true, value = "The type of error.")
   public TypeEnum getType() {
     return type;
   }
@@ -96,40 +88,22 @@ public class PipelineTrigger {
     this.type = type;
   }
 
-  public PipelineTrigger receivedAt(OffsetDateTime receivedAt) {
-    this.receivedAt = receivedAt;
+  public PipelineListResponseErrors message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * The date and time the trigger was received.
-   * @return receivedAt
+   * A human-readable error message.
+   * @return message
   **/
-  @ApiModelProperty(required = true, value = "The date and time the trigger was received.")
-  public OffsetDateTime getReceivedAt() {
-    return receivedAt;
+  @ApiModelProperty(required = true, value = "A human-readable error message.")
+  public String getMessage() {
+    return message;
   }
 
-  public void setReceivedAt(OffsetDateTime receivedAt) {
-    this.receivedAt = receivedAt;
-  }
-
-  public PipelineTrigger actor(PipelineTriggerActor actor) {
-    this.actor = actor;
-    return this;
-  }
-
-   /**
-   * Get actor
-   * @return actor
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public PipelineTriggerActor getActor() {
-    return actor;
-  }
-
-  public void setActor(PipelineTriggerActor actor) {
-    this.actor = actor;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -141,25 +115,23 @@ public class PipelineTrigger {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PipelineTrigger pipelineTrigger = (PipelineTrigger) o;
-    return Objects.equals(this.type, pipelineTrigger.type) &&
-        Objects.equals(this.receivedAt, pipelineTrigger.receivedAt) &&
-        Objects.equals(this.actor, pipelineTrigger.actor);
+    PipelineListResponseErrors pipelineListResponseErrors = (PipelineListResponseErrors) o;
+    return Objects.equals(this.type, pipelineListResponseErrors.type) &&
+        Objects.equals(this.message, pipelineListResponseErrors.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, receivedAt, actor);
+    return Objects.hash(type, message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineTrigger {\n");
+    sb.append("class PipelineListResponseErrors {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    receivedAt: ").append(toIndentedString(receivedAt)).append("\n");
-    sb.append("    actor: ").append(toIndentedString(actor)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

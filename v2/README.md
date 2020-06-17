@@ -151,6 +151,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**listCheckoutKeys**](docs/DefaultApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
 *DefaultApi* | [**listEnvVars**](docs/DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | List all environment variables
 *DefaultApi* | [**listMyPipelines**](docs/DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
+*DefaultApi* | [**listPipelines**](docs/DefaultApi.md#listPipelines) | **GET** /pipeline | Get a list of pipelines
 *DefaultApi* | [**listPipelinesForProject**](docs/DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
 *DefaultApi* | [**listWorkflowJobs**](docs/DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/job | Get a workflow&#39;s jobs
 *DefaultApi* | [**listWorkflowsByPipelineId**](docs/DefaultApi.md#listWorkflowsByPipelineId) | **GET** /pipeline/{pipeline-id}/workflow | Get a pipeline&#39;s workflows
@@ -194,13 +195,13 @@ Class | Method | HTTP request | Description
  - [MessageResponse](docs/MessageResponse.md)
  - [Pipeline](docs/Pipeline.md)
  - [PipelineConfig](docs/PipelineConfig.md)
- - [PipelineErrors](docs/PipelineErrors.md)
  - [PipelineLight](docs/PipelineLight.md)
  - [PipelineListResponse](docs/PipelineListResponse.md)
- - [PipelineTrigger](docs/PipelineTrigger.md)
- - [PipelineTriggerActor](docs/PipelineTriggerActor.md)
- - [PipelineVcs](docs/PipelineVcs.md)
- - [PipelineVcsCommit](docs/PipelineVcsCommit.md)
+ - [PipelineListResponseErrors](docs/PipelineListResponseErrors.md)
+ - [PipelineListResponseTrigger](docs/PipelineListResponseTrigger.md)
+ - [PipelineListResponseTriggerActor](docs/PipelineListResponseTriggerActor.md)
+ - [PipelineListResponseVcs](docs/PipelineListResponseVcs.md)
+ - [PipelineListResponseVcsCommit](docs/PipelineListResponseVcsCommit.md)
  - [Project](docs/Project.md)
  - [ProjectVcsInfo](docs/ProjectVcsInfo.md)
  - [RerunWorkflowParameters](docs/RerunWorkflowParameters.md)

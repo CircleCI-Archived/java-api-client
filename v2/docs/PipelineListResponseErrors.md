@@ -1,6 +1,6 @@
 
 
-# PipelineErrors
+# PipelineListResponseErrors
 
 ## Properties
 

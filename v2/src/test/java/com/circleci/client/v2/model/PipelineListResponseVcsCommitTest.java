@@ -24,33 +24,33 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PipelineTriggerActor
+ * Model tests for PipelineListResponseVcsCommit
  */
-public class PipelineTriggerActorTest {
-    private final PipelineTriggerActor model = new PipelineTriggerActor();
+public class PipelineListResponseVcsCommitTest {
+    private final PipelineListResponseVcsCommit model = new PipelineListResponseVcsCommit();
 
     /**
-     * Model tests for PipelineTriggerActor
+     * Model tests for PipelineListResponseVcsCommit
      */
     @Test
-    public void testPipelineTriggerActor() {
-        // TODO: test PipelineTriggerActor
+    public void testPipelineListResponseVcsCommit() {
+        // TODO: test PipelineListResponseVcsCommit
     }
 
     /**
-     * Test the property 'login'
+     * Test the property 'subject'
      */
     @Test
-    public void loginTest() {
-        // TODO: test login
+    public void subjectTest() {
+        // TODO: test subject
     }
 
     /**
-     * Test the property 'avatarUrl'
+     * Test the property 'body'
      */
     @Test
-    public void avatarUrlTest() {
-        // TODO: test avatarUrl
+    public void bodyTest() {
+        // TODO: test body
     }
 
 }

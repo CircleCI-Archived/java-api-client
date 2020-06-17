@@ -1,6 +1,6 @@
 
 
-# PipelineTriggerActor
+# PipelineListResponseTriggerActor
 
 ## Properties
 

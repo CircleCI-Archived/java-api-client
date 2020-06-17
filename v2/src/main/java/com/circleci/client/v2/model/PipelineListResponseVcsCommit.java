@@ -22,53 +22,53 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * The user who triggered the Pipeline.
+ * The latest commit in the pipeline.
  */
-@ApiModel(description = "The user who triggered the Pipeline.")
+@ApiModel(description = "The latest commit in the pipeline.")
 
-public class PipelineTriggerActor {
-  public static final String JSON_PROPERTY_LOGIN = "login";
-  @JsonProperty(JSON_PROPERTY_LOGIN)
-  private String login;
+public class PipelineListResponseVcsCommit {
+  public static final String JSON_PROPERTY_SUBJECT = "subject";
+  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  private String subject;
 
-  public static final String JSON_PROPERTY_AVATAR_URL = "avatar_url";
-  @JsonProperty(JSON_PROPERTY_AVATAR_URL)
-  private String avatarUrl;
+  public static final String JSON_PROPERTY_BODY = "body";
+  @JsonProperty(JSON_PROPERTY_BODY)
+  private String body;
 
-  public PipelineTriggerActor login(String login) {
-    this.login = login;
+  public PipelineListResponseVcsCommit subject(String subject) {
+    this.subject = subject;
     return this;
   }
 
    /**
-   * The login information for the user on the VCS.
-   * @return login
+   * The subject of the commit message.
+   * @return subject
   **/
-  @ApiModelProperty(required = true, value = "The login information for the user on the VCS.")
-  public String getLogin() {
-    return login;
+  @ApiModelProperty(required = true, value = "The subject of the commit message.")
+  public String getSubject() {
+    return subject;
   }
 
-  public void setLogin(String login) {
-    this.login = login;
+  public void setSubject(String subject) {
+    this.subject = subject;
   }
 
-  public PipelineTriggerActor avatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
+  public PipelineListResponseVcsCommit body(String body) {
+    this.body = body;
     return this;
   }
 
    /**
-   * URL to the user&#39;s avatar on the VCS
-   * @return avatarUrl
+   * The body of the commit message.
+   * @return body
   **/
-  @ApiModelProperty(required = true, value = "URL to the user's avatar on the VCS")
-  public String getAvatarUrl() {
-    return avatarUrl;
+  @ApiModelProperty(required = true, value = "The body of the commit message.")
+  public String getBody() {
+    return body;
   }
 
-  public void setAvatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
+  public void setBody(String body) {
+    this.body = body;
   }
 
 
@@ -80,23 +80,23 @@ public class PipelineTriggerActor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PipelineTriggerActor pipelineTriggerActor = (PipelineTriggerActor) o;
-    return Objects.equals(this.login, pipelineTriggerActor.login) &&
-        Objects.equals(this.avatarUrl, pipelineTriggerActor.avatarUrl);
+    PipelineListResponseVcsCommit pipelineListResponseVcsCommit = (PipelineListResponseVcsCommit) o;
+    return Objects.equals(this.subject, pipelineListResponseVcsCommit.subject) &&
+        Objects.equals(this.body, pipelineListResponseVcsCommit.body);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(login, avatarUrl);
+    return Objects.hash(subject, body);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineTriggerActor {\n");
-    sb.append("    login: ").append(toIndentedString(login)).append("\n");
-    sb.append("    avatarUrl: ").append(toIndentedString(avatarUrl)).append("\n");
+    sb.append("class PipelineListResponseVcsCommit {\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("}");
     return sb.toString();
   }
