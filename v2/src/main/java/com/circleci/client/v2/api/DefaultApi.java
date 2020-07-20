@@ -13,13 +13,19 @@ import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
 import com.circleci.client.v2.model.CheckoutKeyListResponse;
 import com.circleci.client.v2.model.Collaboration;
+import com.circleci.client.v2.model.Context;
 import com.circleci.client.v2.model.EnvironmentVariableListResponse;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
+import com.circleci.client.v2.model.InlineObject;
+import com.circleci.client.v2.model.InlineObject1;
 import com.circleci.client.v2.model.InlineResponse200;
 import com.circleci.client.v2.model.InlineResponse2001;
+import com.circleci.client.v2.model.InlineResponse2001Items;
 import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
+import com.circleci.client.v2.model.InlineResponse2004;
+import com.circleci.client.v2.model.InlineResponse2005;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import java.time.OffsetDateTime;
@@ -62,6 +68,79 @@ public class DefaultApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Create or update environment variable
+   * Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+   * @param contextId ID of the context (UUID) (required)
+   * @param envVarName The name of the environment variable (required)
+   * @param inlineObject1  (optional)
+   * @return InlineResponse2001Items
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The new environment variable </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse2001Items addEnvironmentVariableToContext(UUID contextId, String envVarName, InlineObject1 inlineObject1) throws ApiException {
+    return addEnvironmentVariableToContextWithHttpInfo(contextId, envVarName, inlineObject1).getData();
+      }
+
+  /**
+   * Create or update environment variable
+   * Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+   * @param contextId ID of the context (UUID) (required)
+   * @param envVarName The name of the environment variable (required)
+   * @param inlineObject1  (optional)
+   * @return ApiResponse&lt;InlineResponse2001Items&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The new environment variable </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse2001Items> addEnvironmentVariableToContextWithHttpInfo(UUID contextId, String envVarName, InlineObject1 inlineObject1) throws ApiException {
+    Object localVarPostBody = inlineObject1;
+    
+    // verify the required parameter 'contextId' is set
+    if (contextId == null) {
+      throw new ApiException(400, "Missing the required parameter 'contextId' when calling addEnvironmentVariableToContext");
+    }
+    
+    // verify the required parameter 'envVarName' is set
+    if (envVarName == null) {
+      throw new ApiException(400, "Missing the required parameter 'envVarName' when calling addEnvironmentVariableToContext");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/context/{context-id}/environment-variable/{env-var-name}"
+      .replaceAll("\\{" + "context-id" + "\\}", apiClient.escapeString(contextId.toString()))
+      .replaceAll("\\{" + "env-var-name" + "\\}", apiClient.escapeString(envVarName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponse2001Items> localVarReturnType = new GenericType<InlineResponse2001Items>() {};
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
   /**
    * Approve a job
    * Approves a pending approval job in a workflow.
@@ -333,6 +412,63 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Create a new context
+   * 
+   * @param inlineObject  (optional)
+   * @return Context
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The new context </td><td>  -  </td></tr>
+     </table>
+   */
+  public Context createContext(InlineObject inlineObject) throws ApiException {
+    return createContextWithHttpInfo(inlineObject).getData();
+      }
+
+  /**
+   * Create a new context
+   * 
+   * @param inlineObject  (optional)
+   * @return ApiResponse&lt;Context&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The new context </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Context> createContextWithHttpInfo(InlineObject inlineObject) throws ApiException {
+    Object localVarPostBody = inlineObject;
+    
+    // create path and map variables
+    String localVarPath = "/context";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<Context> localVarReturnType = new GenericType<Context>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Create an environment variable
    * Creates a new environment variable.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
@@ -469,6 +605,69 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Delete a context
+   * 
+   * @param contextId ID of the context (UUID) (required)
+   * @return MessageResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A confirmation message </td><td>  -  </td></tr>
+     </table>
+   */
+  public MessageResponse deleteContext(UUID contextId) throws ApiException {
+    return deleteContextWithHttpInfo(contextId).getData();
+      }
+
+  /**
+   * Delete a context
+   * 
+   * @param contextId ID of the context (UUID) (required)
+   * @return ApiResponse&lt;MessageResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A confirmation message </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<MessageResponse> deleteContextWithHttpInfo(UUID contextId) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'contextId' is set
+    if (contextId == null) {
+      throw new ApiException(400, "Missing the required parameter 'contextId' when calling deleteContext");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/context/{context-id}"
+      .replaceAll("\\{" + "context-id" + "\\}", apiClient.escapeString(contextId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<MessageResponse> localVarReturnType = new GenericType<MessageResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Delete an environment variable
    * Deletes the environment variable named :name.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
@@ -515,6 +714,77 @@ public class DefaultApi {
     String localVarPath = "/project/{project-slug}/envvar/{name}"
       .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<MessageResponse> localVarReturnType = new GenericType<MessageResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Delete an environment variable
+   * Delete an environment variable from a context.
+   * @param envVarName The name of the environment variable (required)
+   * @param contextId ID of the context (UUID) (required)
+   * @return MessageResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A confirmation message </td><td>  -  </td></tr>
+     </table>
+   */
+  public MessageResponse deleteEnvironmentVariableFromContext(String envVarName, UUID contextId) throws ApiException {
+    return deleteEnvironmentVariableFromContextWithHttpInfo(envVarName, contextId).getData();
+      }
+
+  /**
+   * Delete an environment variable
+   * Delete an environment variable from a context.
+   * @param envVarName The name of the environment variable (required)
+   * @param contextId ID of the context (UUID) (required)
+   * @return ApiResponse&lt;MessageResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A confirmation message </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<MessageResponse> deleteEnvironmentVariableFromContextWithHttpInfo(String envVarName, UUID contextId) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'envVarName' is set
+    if (envVarName == null) {
+      throw new ApiException(400, "Missing the required parameter 'envVarName' when calling deleteEnvironmentVariableFromContext");
+    }
+    
+    // verify the required parameter 'contextId' is set
+    if (contextId == null) {
+      throw new ApiException(400, "Missing the required parameter 'contextId' when calling deleteEnvironmentVariableFromContext");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/context/{context-id}/environment-variable/{env-var-name}"
+      .replaceAll("\\{" + "env-var-name" + "\\}", apiClient.escapeString(envVarName.toString()))
+      .replaceAll("\\{" + "context-id" + "\\}", apiClient.escapeString(contextId.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -663,6 +933,69 @@ public class DefaultApi {
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
     GenericType<List<Collaboration>> localVarReturnType = new GenericType<List<Collaboration>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get a context
+   * Returns basic information about a context.
+   * @param contextId ID of the context (UUID) (required)
+   * @return Context
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The context </td><td>  -  </td></tr>
+     </table>
+   */
+  public Context getContext(UUID contextId) throws ApiException {
+    return getContextWithHttpInfo(contextId).getData();
+      }
+
+  /**
+   * Get a context
+   * Returns basic information about a context.
+   * @param contextId ID of the context (UUID) (required)
+   * @return ApiResponse&lt;Context&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The context </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Context> getContextWithHttpInfo(UUID contextId) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'contextId' is set
+    if (contextId == null) {
+      throw new ApiException(400, "Missing the required parameter 'contextId' when calling getContext");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/context/{context-id}"
+      .replaceAll("\\{" + "context-id" + "\\}", apiClient.escapeString(contextId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<Context> localVarReturnType = new GenericType<Context>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1203,7 +1536,7 @@ public class DefaultApi {
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
-   * @return InlineResponse2003
+   * @return InlineResponse2005
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1211,7 +1544,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 getProjectJobRuns(String projectSlug, String workflowName, String jobName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
+  public InlineResponse2005 getProjectJobRuns(String projectSlug, String workflowName, String jobName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
     return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken).getData();
       }
 
@@ -1225,7 +1558,7 @@ public class DefaultApi {
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
-   * @return ApiResponse&lt;InlineResponse2003&gt;
+   * @return ApiResponse&lt;InlineResponse2005&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1233,7 +1566,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
+  public ApiResponse<InlineResponse2005> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1291,7 +1624,7 @@ public class DefaultApi {
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
+    GenericType<InlineResponse2005> localVarReturnType = new GenericType<InlineResponse2005>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1301,7 +1634,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
-   * @return InlineResponse2002
+   * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1309,7 +1642,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of summary metrics by workflow job. </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2002 getProjectWorkflowJobMetrics(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
+  public InlineResponse2004 getProjectWorkflowJobMetrics(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
     return getProjectWorkflowJobMetricsWithHttpInfo(projectSlug, workflowName, pageToken, branch).getData();
       }
 
@@ -1320,7 +1653,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
-   * @return ApiResponse&lt;InlineResponse2002&gt;
+   * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1328,7 +1661,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of summary metrics by workflow job. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2002> getProjectWorkflowJobMetricsWithHttpInfo(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
+  public ApiResponse<InlineResponse2004> getProjectWorkflowJobMetricsWithHttpInfo(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1368,7 +1701,7 @@ public class DefaultApi {
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
+    GenericType<InlineResponse2004> localVarReturnType = new GenericType<InlineResponse2004>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1377,7 +1710,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
-   * @return InlineResponse200
+   * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1385,7 +1718,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of summary metrics by workflow </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse200 getProjectWorkflowMetrics(String projectSlug, String pageToken, String branch) throws ApiException {
+  public InlineResponse2002 getProjectWorkflowMetrics(String projectSlug, String pageToken, String branch) throws ApiException {
     return getProjectWorkflowMetricsWithHttpInfo(projectSlug, pageToken, branch).getData();
       }
 
@@ -1395,7 +1728,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
-   * @return ApiResponse&lt;InlineResponse200&gt;
+   * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1403,7 +1736,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of summary metrics by workflow </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse200> getProjectWorkflowMetricsWithHttpInfo(String projectSlug, String pageToken, String branch) throws ApiException {
+  public ApiResponse<InlineResponse2002> getProjectWorkflowMetricsWithHttpInfo(String projectSlug, String pageToken, String branch) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1437,7 +1770,7 @@ public class DefaultApi {
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
+    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1449,7 +1782,7 @@ public class DefaultApi {
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
-   * @return InlineResponse2001
+   * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1457,7 +1790,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 getProjectWorkflowRuns(String projectSlug, String workflowName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
+  public InlineResponse2003 getProjectWorkflowRuns(String projectSlug, String workflowName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
     return getProjectWorkflowRunsWithHttpInfo(projectSlug, workflowName, startDate, endDate, branch, pageToken).getData();
       }
 
@@ -1470,7 +1803,7 @@ public class DefaultApi {
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
-   * @return ApiResponse&lt;InlineResponse2001&gt;
+   * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1478,7 +1811,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
+  public ApiResponse<InlineResponse2003> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1530,7 +1863,7 @@ public class DefaultApi {
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
+    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1794,6 +2127,88 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * List contexts
+   * List all contexts for an owner.
+   * @param ownerId The unique ID of the owner of the context. Specify either this or owner-slug. (required)
+   * @param ownerSlug A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts. (required)
+   * @param ownerType The type of the owner. Defaults to \&quot;organization\&quot;. Accounts are only used as context owners in server. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
+   * @return InlineResponse200
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A paginated list of contexts </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse200 listContexts(UUID ownerId, String ownerSlug, String ownerType, String pageToken) throws ApiException {
+    return listContextsWithHttpInfo(ownerId, ownerSlug, ownerType, pageToken).getData();
+      }
+
+  /**
+   * List contexts
+   * List all contexts for an owner.
+   * @param ownerId The unique ID of the owner of the context. Specify either this or owner-slug. (required)
+   * @param ownerSlug A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts. (required)
+   * @param ownerType The type of the owner. Defaults to \&quot;organization\&quot;. Accounts are only used as context owners in server. (required)
+   * @param pageToken A token to retrieve the next page of results. (optional)
+   * @return ApiResponse&lt;InlineResponse200&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A paginated list of contexts </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse200> listContextsWithHttpInfo(UUID ownerId, String ownerSlug, String ownerType, String pageToken) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'ownerId' is set
+    if (ownerId == null) {
+      throw new ApiException(400, "Missing the required parameter 'ownerId' when calling listContexts");
+    }
+    
+    // verify the required parameter 'ownerSlug' is set
+    if (ownerSlug == null) {
+      throw new ApiException(400, "Missing the required parameter 'ownerSlug' when calling listContexts");
+    }
+    
+    // verify the required parameter 'ownerType' is set
+    if (ownerType == null) {
+      throw new ApiException(400, "Missing the required parameter 'ownerType' when calling listContexts");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/context"
+      .replaceAll("\\{" + "owner-id" + "\\}", apiClient.escapeString(ownerId.toString()))
+      .replaceAll("\\{" + "owner-slug" + "\\}", apiClient.escapeString(ownerSlug.toString()))
+      .replaceAll("\\{" + "owner-type" + "\\}", apiClient.escapeString(ownerType.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * List all environment variables
    * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
@@ -1854,6 +2269,69 @@ public class DefaultApi {
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
     GenericType<EnvironmentVariableListResponse> localVarReturnType = new GenericType<EnvironmentVariableListResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * List environment variables
+   * List information about environment variables in a context, not including their values.
+   * @param contextId ID of the context (UUID) (required)
+   * @return InlineResponse2001
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A paginated list of environment variables </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse2001 listEnvironmentVariablesFromContext(UUID contextId) throws ApiException {
+    return listEnvironmentVariablesFromContextWithHttpInfo(contextId).getData();
+      }
+
+  /**
+   * List environment variables
+   * List information about environment variables in a context, not including their values.
+   * @param contextId ID of the context (UUID) (required)
+   * @return ApiResponse&lt;InlineResponse2001&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A paginated list of environment variables </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse2001> listEnvironmentVariablesFromContextWithHttpInfo(UUID contextId) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'contextId' is set
+    if (contextId == null) {
+      throw new ApiException(400, "Missing the required parameter 'contextId' when calling listEnvironmentVariablesFromContext");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/context/{context-id}/environment-variable"
+      .replaceAll("\\{" + "context-id" + "\\}", apiClient.escapeString(contextId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

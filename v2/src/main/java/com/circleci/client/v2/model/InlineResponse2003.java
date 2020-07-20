@@ -25,9 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Paginated recent job runs.
+ * Paginated recent workflow runs.
  */
-@ApiModel(description = "Paginated recent job runs.")
+@ApiModel(description = "Paginated recent workflow runs.")
 
 public class InlineResponse2003 {
   public static final String JSON_PROPERTY_ITEMS = "items";
@@ -49,10 +49,10 @@ public class InlineResponse2003 {
   }
 
    /**
-   * Recent job runs.
+   * Recent workflow runs.
    * @return items
   **/
-  @ApiModelProperty(required = true, value = "Recent job runs.")
+  @ApiModelProperty(required = true, value = "Recent workflow runs.")
   public List<InlineResponse2003Items> getItems() {
     return items;
   }

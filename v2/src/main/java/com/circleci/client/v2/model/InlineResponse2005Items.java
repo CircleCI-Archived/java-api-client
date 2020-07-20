@@ -24,39 +24,31 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 /**
- * InlineResponse2003Items
+ * InlineResponse2005Items
  */
 
-public class InlineResponse2003Items {
+public class InlineResponse2005Items {
   public static final String JSON_PROPERTY_ID = "id";
   @JsonProperty(JSON_PROPERTY_ID)
   private UUID id;
 
-  public static final String JSON_PROPERTY_DURATION = "duration";
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  private Long duration;
-
-  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  private OffsetDateTime createdAt;
+  public static final String JSON_PROPERTY_STARTED_AT = "started_at";
+  @JsonProperty(JSON_PROPERTY_STARTED_AT)
+  private OffsetDateTime startedAt;
 
   public static final String JSON_PROPERTY_STOPPED_AT = "stopped_at";
   @JsonProperty(JSON_PROPERTY_STOPPED_AT)
   private OffsetDateTime stoppedAt;
 
-  public static final String JSON_PROPERTY_CREDITS_USED = "credits_used";
-  @JsonProperty(JSON_PROPERTY_CREDITS_USED)
-  private Long creditsUsed;
-
   /**
-   * Workflow status.
+   * Job status.
    */
   public enum StatusEnum {
     SUCCESS("success"),
     
-    FAILED("failed"),
+    NOT_RUN("not_run"),
     
-    ERROR("error"),
+    FAILED("failed"),
     
     CANCELED("canceled"),
     
@@ -93,16 +85,20 @@ public class InlineResponse2003Items {
   @JsonProperty(JSON_PROPERTY_STATUS)
   private StatusEnum status;
 
-  public InlineResponse2003Items id(UUID id) {
+  public static final String JSON_PROPERTY_CREDITS_USED = "credits_used";
+  @JsonProperty(JSON_PROPERTY_CREDITS_USED)
+  private Long creditsUsed;
+
+  public InlineResponse2005Items id(UUID id) {
     this.id = id;
     return this;
   }
 
    /**
-   * The unique ID of the workflow.
+   * The unique ID of the job.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "The unique ID of the workflow.")
+  @ApiModelProperty(required = true, value = "The unique ID of the job.")
   public UUID getId() {
     return id;
   }
@@ -111,53 +107,34 @@ public class InlineResponse2003Items {
     this.id = id;
   }
 
-  public InlineResponse2003Items duration(Long duration) {
-    this.duration = duration;
+  public InlineResponse2005Items startedAt(OffsetDateTime startedAt) {
+    this.startedAt = startedAt;
     return this;
   }
 
    /**
-   * The duration in seconds of a run.
-   * minimum: 0
-   * @return duration
+   * The date and time the job started.
+   * @return startedAt
   **/
-  @ApiModelProperty(required = true, value = "The duration in seconds of a run.")
-  public Long getDuration() {
-    return duration;
+  @ApiModelProperty(required = true, value = "The date and time the job started.")
+  public OffsetDateTime getStartedAt() {
+    return startedAt;
   }
 
-  public void setDuration(Long duration) {
-    this.duration = duration;
+  public void setStartedAt(OffsetDateTime startedAt) {
+    this.startedAt = startedAt;
   }
 
-  public InlineResponse2003Items createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * The date and time the workflow was created.
-   * @return createdAt
-  **/
-  @ApiModelProperty(required = true, value = "The date and time the workflow was created.")
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public InlineResponse2003Items stoppedAt(OffsetDateTime stoppedAt) {
+  public InlineResponse2005Items stoppedAt(OffsetDateTime stoppedAt) {
     this.stoppedAt = stoppedAt;
     return this;
   }
 
    /**
-   * The date and time the workflow stopped.
+   * The time when the job stopped.
    * @return stoppedAt
   **/
-  @ApiModelProperty(required = true, value = "The date and time the workflow stopped.")
+  @ApiModelProperty(required = true, value = "The time when the job stopped.")
   public OffsetDateTime getStoppedAt() {
     return stoppedAt;
   }
@@ -166,7 +143,25 @@ public class InlineResponse2003Items {
     this.stoppedAt = stoppedAt;
   }
 
-  public InlineResponse2003Items creditsUsed(Long creditsUsed) {
+  public InlineResponse2005Items status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Job status.
+   * @return status
+  **/
+  @ApiModelProperty(required = true, value = "Job status.")
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+  public InlineResponse2005Items creditsUsed(Long creditsUsed) {
     this.creditsUsed = creditsUsed;
     return this;
   }
@@ -185,24 +180,6 @@ public class InlineResponse2003Items {
     this.creditsUsed = creditsUsed;
   }
 
-  public InlineResponse2003Items status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Workflow status.
-   * @return status
-  **/
-  @ApiModelProperty(required = true, value = "Workflow status.")
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -212,31 +189,29 @@ public class InlineResponse2003Items {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse2003Items inlineResponse2003Items = (InlineResponse2003Items) o;
-    return Objects.equals(this.id, inlineResponse2003Items.id) &&
-        Objects.equals(this.duration, inlineResponse2003Items.duration) &&
-        Objects.equals(this.createdAt, inlineResponse2003Items.createdAt) &&
-        Objects.equals(this.stoppedAt, inlineResponse2003Items.stoppedAt) &&
-        Objects.equals(this.creditsUsed, inlineResponse2003Items.creditsUsed) &&
-        Objects.equals(this.status, inlineResponse2003Items.status);
+    InlineResponse2005Items inlineResponse2005Items = (InlineResponse2005Items) o;
+    return Objects.equals(this.id, inlineResponse2005Items.id) &&
+        Objects.equals(this.startedAt, inlineResponse2005Items.startedAt) &&
+        Objects.equals(this.stoppedAt, inlineResponse2005Items.stoppedAt) &&
+        Objects.equals(this.status, inlineResponse2005Items.status) &&
+        Objects.equals(this.creditsUsed, inlineResponse2005Items.creditsUsed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, duration, createdAt, stoppedAt, creditsUsed, status);
+    return Objects.hash(id, startedAt, stoppedAt, status, creditsUsed);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2003Items {\n");
+    sb.append("class InlineResponse2005Items {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    stoppedAt: ").append(toIndentedString(stoppedAt)).append("\n");
-    sb.append("    creditsUsed: ").append(toIndentedString(creditsUsed)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    creditsUsed: ").append(toIndentedString(creditsUsed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

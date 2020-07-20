@@ -6,11 +6,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**UUID**](UUID.md) | The unique ID of the job. | 
-**startedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the job started. | 
-**stoppedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The time when the job stopped. | 
-**status** | [**StatusEnum**](#StatusEnum) | Job status. | 
+**id** | [**UUID**](UUID.md) | The unique ID of the workflow. | 
+**duration** | **Long** | The duration in seconds of a run. | 
+**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the workflow was created. | 
+**stoppedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the workflow stopped. | 
 **creditsUsed** | **Long** | The number of credits used during execution | 
+**status** | [**StatusEnum**](#StatusEnum) | Workflow status. | 
 
 
 
@@ -19,8 +20,8 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 SUCCESS | &quot;success&quot;
-NOT_RUN | &quot;not_run&quot;
 FAILED | &quot;failed&quot;
+ERROR | &quot;error&quot;
 CANCELED | &quot;canceled&quot;
 UNAUTHORIZED | &quot;unauthorized&quot;
 

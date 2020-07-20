@@ -48,11 +48,19 @@ public class InlineResponse2003ItemsTest {
     }
 
     /**
-     * Test the property 'startedAt'
+     * Test the property 'duration'
      */
     @Test
-    public void startedAtTest() {
-        // TODO: test startedAt
+    public void durationTest() {
+        // TODO: test duration
+    }
+
+    /**
+     * Test the property 'createdAt'
+     */
+    @Test
+    public void createdAtTest() {
+        // TODO: test createdAt
     }
 
     /**
@@ -64,19 +72,19 @@ public class InlineResponse2003ItemsTest {
     }
 
     /**
-     * Test the property 'status'
-     */
-    @Test
-    public void statusTest() {
-        // TODO: test status
-    }
-
-    /**
      * Test the property 'creditsUsed'
      */
     @Test
     public void creditsUsedTest() {
         // TODO: test creditsUsed
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
     }
 
 }

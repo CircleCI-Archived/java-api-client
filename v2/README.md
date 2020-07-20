@@ -101,13 +101,14 @@ public class DefaultApiExample {
         basic_auth.setPassword("YOUR PASSWORD");
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
-        UUID approvalRequestId = new UUID(); // UUID | The ID of the job being approved.
-        UUID id = new UUID(); // UUID | The unique ID of the workflow.
+        UUID contextId = new UUID(); // UUID | ID of the context (UUID)
+        String envVarName = POSTGRES_USER; // String | The name of the environment variable
+        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
         try {
-            MessageResponse result = apiInstance.approvePendingApprovalJobById(approvalRequestId, id);
+            InlineResponse2001Items result = apiInstance.addEnvironmentVariableToContext(contextId, envVarName, inlineObject1);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#approvePendingApprovalJobById");
+            System.err.println("Exception when calling DefaultApi#addEnvironmentVariableToContext");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,15 +125,20 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**addEnvironmentVariableToContext**](docs/DefaultApi.md#addEnvironmentVariableToContext) | **PUT** /context/{context-id}/environment-variable/{env-var-name} | Create or update environment variable
 *DefaultApi* | [**approvePendingApprovalJobById**](docs/DefaultApi.md#approvePendingApprovalJobById) | **POST** /workflow/{id}/approve/{approval_request_id} | Approve a job
 *DefaultApi* | [**cancelJob**](docs/DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 *DefaultApi* | [**cancelWorkflow**](docs/DefaultApi.md#cancelWorkflow) | **POST** /workflow/{id}/cancel | Cancel a workflow
 *DefaultApi* | [**createCheckoutKey**](docs/DefaultApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
+*DefaultApi* | [**createContext**](docs/DefaultApi.md#createContext) | **POST** /context | Create a new context
 *DefaultApi* | [**createEnvVar**](docs/DefaultApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
 *DefaultApi* | [**deleteCheckoutKey**](docs/DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
+*DefaultApi* | [**deleteContext**](docs/DefaultApi.md#deleteContext) | **DELETE** /context/{context-id} | Delete a context
 *DefaultApi* | [**deleteEnvVar**](docs/DefaultApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable
+*DefaultApi* | [**deleteEnvironmentVariableFromContext**](docs/DefaultApi.md#deleteEnvironmentVariableFromContext) | **DELETE** /context/{context-id}/environment-variable/{env-var-name} | Delete an environment variable
 *DefaultApi* | [**getCheckoutKey**](docs/DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
 *DefaultApi* | [**getCollaborations**](docs/DefaultApi.md#getCollaborations) | **GET** /me/collaborations | Collaborations
+*DefaultApi* | [**getContext**](docs/DefaultApi.md#getContext) | **GET** /context/{context-id} | Get a context
 *DefaultApi* | [**getCurrentUser**](docs/DefaultApi.md#getCurrentUser) | **GET** /me | User Information
 *DefaultApi* | [**getEnvVar**](docs/DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get a masked environment variable
 *DefaultApi* | [**getJobArtifacts**](docs/DefaultApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
@@ -149,7 +155,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getUser**](docs/DefaultApi.md#getUser) | **GET** /user/{id} | User Information
 *DefaultApi* | [**getWorkflowById**](docs/DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
 *DefaultApi* | [**listCheckoutKeys**](docs/DefaultApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
+*DefaultApi* | [**listContexts**](docs/DefaultApi.md#listContexts) | **GET** /context | List contexts
 *DefaultApi* | [**listEnvVars**](docs/DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | List all environment variables
+*DefaultApi* | [**listEnvironmentVariablesFromContext**](docs/DefaultApi.md#listEnvironmentVariablesFromContext) | **GET** /context/{context-id}/environment-variable | List environment variables
 *DefaultApi* | [**listMyPipelines**](docs/DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 *DefaultApi* | [**listPipelines**](docs/DefaultApi.md#listPipelines) | **GET** /pipeline | Get a list of pipelines
 *DefaultApi* | [**listPipelinesForProject**](docs/DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
@@ -167,9 +175,13 @@ Class | Method | HTTP request | Description
  - [CheckoutKeyInput](docs/CheckoutKeyInput.md)
  - [CheckoutKeyListResponse](docs/CheckoutKeyListResponse.md)
  - [Collaboration](docs/Collaboration.md)
+ - [Context](docs/Context.md)
+ - [ContextOwner](docs/ContextOwner.md)
  - [EnvironmentVariableListResponse](docs/EnvironmentVariableListResponse.md)
  - [EnvironmentVariablePair](docs/EnvironmentVariablePair.md)
  - [EnvironmentVariablePair1](docs/EnvironmentVariablePair1.md)
+ - [InlineObject](docs/InlineObject.md)
+ - [InlineObject1](docs/InlineObject1.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse2001Items](docs/InlineResponse2001Items.md)
@@ -179,9 +191,12 @@ Class | Method | HTTP request | Description
  - [InlineResponse2002MetricsDurationMetrics](docs/InlineResponse2002MetricsDurationMetrics.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
  - [InlineResponse2003Items](docs/InlineResponse2003Items.md)
- - [InlineResponse200Items](docs/InlineResponse200Items.md)
- - [InlineResponse200Metrics](docs/InlineResponse200Metrics.md)
- - [InlineResponse200MetricsDurationMetrics](docs/InlineResponse200MetricsDurationMetrics.md)
+ - [InlineResponse2004](docs/InlineResponse2004.md)
+ - [InlineResponse2004Items](docs/InlineResponse2004Items.md)
+ - [InlineResponse2004Metrics](docs/InlineResponse2004Metrics.md)
+ - [InlineResponse2004MetricsDurationMetrics](docs/InlineResponse2004MetricsDurationMetrics.md)
+ - [InlineResponse2005](docs/InlineResponse2005.md)
+ - [InlineResponse2005Items](docs/InlineResponse2005Items.md)
  - [Job](docs/Job.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobDetailsContexts](docs/JobDetailsContexts.md)

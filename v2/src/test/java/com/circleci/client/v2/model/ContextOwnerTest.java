@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -26,41 +25,41 @@ import org.junit.Test;
 
 
 /**
- * Model tests for InlineResponse2001Items
+ * Model tests for ContextOwner
  */
-public class InlineResponse2001ItemsTest {
-    private final InlineResponse2001Items model = new InlineResponse2001Items();
+public class ContextOwnerTest {
+    private final ContextOwner model = new ContextOwner();
 
     /**
-     * Model tests for InlineResponse2001Items
+     * Model tests for ContextOwner
      */
     @Test
-    public void testInlineResponse2001Items() {
-        // TODO: test InlineResponse2001Items
+    public void testContextOwner() {
+        // TODO: test ContextOwner
     }
 
     /**
-     * Test the property 'variable'
+     * Test the property 'id'
      */
     @Test
-    public void variableTest() {
-        // TODO: test variable
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'createdAt'
+     * Test the property 'slug'
      */
     @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
+    public void slugTest() {
+        // TODO: test slug
     }
 
     /**
-     * Test the property 'contextId'
+     * Test the property 'type'
      */
     @Test
-    public void contextIdTest() {
-        // TODO: test contextId
+    public void typeTest() {
+        // TODO: test type
     }
 
 }

@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Metrics relating to a workflow job&#39;s runs.
+ * Metrics relating to a workflow&#39;s runs.
  */
-@ApiModel(description = "Metrics relating to a workflow job's runs.")
+@ApiModel(description = "Metrics relating to a workflow's runs.")
 
 public class InlineResponse2002Metrics {
   public static final String JSON_PROPERTY_SUCCESS_RATE = "success_rate";
@@ -47,6 +47,10 @@ public class InlineResponse2002Metrics {
   public static final String JSON_PROPERTY_THROUGHPUT = "throughput";
   @JsonProperty(JSON_PROPERTY_THROUGHPUT)
   private Float throughput;
+
+  public static final String JSON_PROPERTY_MTTR = "mttr";
+  @JsonProperty(JSON_PROPERTY_MTTR)
+  private Long mttr;
 
   public static final String JSON_PROPERTY_TOTAL_CREDITS_USED = "total_credits_used";
   @JsonProperty(JSON_PROPERTY_TOTAL_CREDITS_USED)
@@ -137,10 +141,10 @@ public class InlineResponse2002Metrics {
   }
 
    /**
-   * The average number of job runs per day.
+   * The average number of workflow runs per day.
    * @return throughput
   **/
-  @ApiModelProperty(required = true, value = "The average number of job runs per day.")
+  @ApiModelProperty(required = true, value = "The average number of workflow runs per day.")
   public Float getThroughput() {
     return throughput;
   }
@@ -149,17 +153,36 @@ public class InlineResponse2002Metrics {
     this.throughput = throughput;
   }
 
+  public InlineResponse2002Metrics mttr(Long mttr) {
+    this.mttr = mttr;
+    return this;
+  }
+
+   /**
+   * The mean time to recovery (mean time between failures and their next success) in seconds.
+   * minimum: 0
+   * @return mttr
+  **/
+  @ApiModelProperty(required = true, value = "The mean time to recovery (mean time between failures and their next success) in seconds.")
+  public Long getMttr() {
+    return mttr;
+  }
+
+  public void setMttr(Long mttr) {
+    this.mttr = mttr;
+  }
+
   public InlineResponse2002Metrics totalCreditsUsed(Long totalCreditsUsed) {
     this.totalCreditsUsed = totalCreditsUsed;
     return this;
   }
 
    /**
-   * The total credits consumed by the job in the aggregation window.
+   * The total credits consumed by the workflow in the aggregation window.
    * minimum: 0
    * @return totalCreditsUsed
   **/
-  @ApiModelProperty(required = true, value = "The total credits consumed by the job in the aggregation window.")
+  @ApiModelProperty(required = true, value = "The total credits consumed by the workflow in the aggregation window.")
   public Long getTotalCreditsUsed() {
     return totalCreditsUsed;
   }
@@ -201,13 +224,14 @@ public class InlineResponse2002Metrics {
         Objects.equals(this.failedRuns, inlineResponse2002Metrics.failedRuns) &&
         Objects.equals(this.successfulRuns, inlineResponse2002Metrics.successfulRuns) &&
         Objects.equals(this.throughput, inlineResponse2002Metrics.throughput) &&
+        Objects.equals(this.mttr, inlineResponse2002Metrics.mttr) &&
         Objects.equals(this.totalCreditsUsed, inlineResponse2002Metrics.totalCreditsUsed) &&
         Objects.equals(this.durationMetrics, inlineResponse2002Metrics.durationMetrics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successRate, totalRuns, failedRuns, successfulRuns, throughput, totalCreditsUsed, durationMetrics);
+    return Objects.hash(successRate, totalRuns, failedRuns, successfulRuns, throughput, mttr, totalCreditsUsed, durationMetrics);
   }
 
 
@@ -220,6 +244,7 @@ public class InlineResponse2002Metrics {
     sb.append("    failedRuns: ").append(toIndentedString(failedRuns)).append("\n");
     sb.append("    successfulRuns: ").append(toIndentedString(successfulRuns)).append("\n");
     sb.append("    throughput: ").append(toIndentedString(throughput)).append("\n");
+    sb.append("    mttr: ").append(toIndentedString(mttr)).append("\n");
     sb.append("    totalCreditsUsed: ").append(toIndentedString(totalCreditsUsed)).append("\n");
     sb.append("    durationMetrics: ").append(toIndentedString(durationMetrics)).append("\n");
     sb.append("}");

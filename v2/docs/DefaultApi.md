@@ -4,15 +4,20 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addEnvironmentVariableToContext**](DefaultApi.md#addEnvironmentVariableToContext) | **PUT** /context/{context-id}/environment-variable/{env-var-name} | Create or update environment variable
 [**approvePendingApprovalJobById**](DefaultApi.md#approvePendingApprovalJobById) | **POST** /workflow/{id}/approve/{approval_request_id} | Approve a job
 [**cancelJob**](DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 [**cancelWorkflow**](DefaultApi.md#cancelWorkflow) | **POST** /workflow/{id}/cancel | Cancel a workflow
 [**createCheckoutKey**](DefaultApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
+[**createContext**](DefaultApi.md#createContext) | **POST** /context | Create a new context
 [**createEnvVar**](DefaultApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
 [**deleteCheckoutKey**](DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
+[**deleteContext**](DefaultApi.md#deleteContext) | **DELETE** /context/{context-id} | Delete a context
 [**deleteEnvVar**](DefaultApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable
+[**deleteEnvironmentVariableFromContext**](DefaultApi.md#deleteEnvironmentVariableFromContext) | **DELETE** /context/{context-id}/environment-variable/{env-var-name} | Delete an environment variable
 [**getCheckoutKey**](DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
 [**getCollaborations**](DefaultApi.md#getCollaborations) | **GET** /me/collaborations | Collaborations
+[**getContext**](DefaultApi.md#getContext) | **GET** /context/{context-id} | Get a context
 [**getCurrentUser**](DefaultApi.md#getCurrentUser) | **GET** /me | User Information
 [**getEnvVar**](DefaultApi.md#getEnvVar) | **GET** /project/{project-slug}/envvar/{name} | Get a masked environment variable
 [**getJobArtifacts**](DefaultApi.md#getJobArtifacts) | **GET** /project/{project-slug}/{job-number}/artifacts | Get a job&#39;s artifacts
@@ -29,7 +34,9 @@ Method | HTTP request | Description
 [**getUser**](DefaultApi.md#getUser) | **GET** /user/{id} | User Information
 [**getWorkflowById**](DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
 [**listCheckoutKeys**](DefaultApi.md#listCheckoutKeys) | **GET** /project/{project-slug}/checkout-key | Get all checkout keys
+[**listContexts**](DefaultApi.md#listContexts) | **GET** /context | List contexts
 [**listEnvVars**](DefaultApi.md#listEnvVars) | **GET** /project/{project-slug}/envvar | List all environment variables
+[**listEnvironmentVariablesFromContext**](DefaultApi.md#listEnvironmentVariablesFromContext) | **GET** /context/{context-id}/environment-variable | List environment variables
 [**listMyPipelines**](DefaultApi.md#listMyPipelines) | **GET** /project/{project-slug}/pipeline/mine | Get your pipelines
 [**listPipelines**](DefaultApi.md#listPipelines) | **GET** /pipeline | Get a list of pipelines
 [**listPipelinesForProject**](DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
@@ -38,6 +45,93 @@ Method | HTTP request | Description
 [**rerunWorkflow**](DefaultApi.md#rerunWorkflow) | **POST** /workflow/{id}/rerun | Rerun a workflow
 [**triggerPipeline**](DefaultApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
 
+
+
+## addEnvironmentVariableToContext
+
+> InlineResponse2001Items addEnvironmentVariableToContext(contextId, envVarName, inlineObject1)
+
+Create or update environment variable
+
+Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        UUID contextId = new UUID(); // UUID | ID of the context (UUID)
+        String envVarName = POSTGRES_USER; // String | The name of the environment variable
+        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
+        try {
+            InlineResponse2001Items result = apiInstance.addEnvironmentVariableToContext(contextId, envVarName, inlineObject1);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#addEnvironmentVariableToContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contextId** | [**UUID**](.md)| ID of the context (UUID) |
+ **envVarName** | **String**| The name of the environment variable |
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse2001Items**](InlineResponse2001Items.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The new environment variable |  -  |
 
 
 ## approvePendingApprovalJobById
@@ -378,6 +472,87 @@ Name | Type | Description  | Notes
 | **201** | The checkout key. |  -  |
 
 
+## createContext
+
+> Context createContext(inlineObject)
+
+Create a new context
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        try {
+            Context result = apiInstance.createContext(inlineObject);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#createContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional]
+
+### Return type
+
+[**Context**](Context.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The new context |  -  |
+
+
 ## createEnvVar
 
 > EnvironmentVariablePair createEnvVar(projectSlug, environmentVariablePair1)
@@ -548,6 +723,87 @@ Name | Type | Description  | Notes
 | **200** | A confirmation message. |  -  |
 
 
+## deleteContext
+
+> MessageResponse deleteContext(contextId)
+
+Delete a context
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        UUID contextId = new UUID(); // UUID | ID of the context (UUID)
+        try {
+            MessageResponse result = apiInstance.deleteContext(contextId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#deleteContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contextId** | [**UUID**](.md)| ID of the context (UUID) |
+
+### Return type
+
+[**MessageResponse**](MessageResponse.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A confirmation message |  -  |
+
+
 ## deleteEnvVar
 
 > MessageResponse deleteEnvVar(projectSlug, name)
@@ -631,6 +887,91 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A confirmation message. |  -  |
+
+
+## deleteEnvironmentVariableFromContext
+
+> MessageResponse deleteEnvironmentVariableFromContext(envVarName, contextId)
+
+Delete an environment variable
+
+Delete an environment variable from a context.
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        String envVarName = POSTGRES_USER; // String | The name of the environment variable
+        UUID contextId = new UUID(); // UUID | ID of the context (UUID)
+        try {
+            MessageResponse result = apiInstance.deleteEnvironmentVariableFromContext(envVarName, contextId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#deleteEnvironmentVariableFromContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **envVarName** | **String**| The name of the environment variable |
+ **contextId** | [**UUID**](.md)| ID of the context (UUID) |
+
+### Return type
+
+[**MessageResponse**](MessageResponse.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A confirmation message |  -  |
 
 
 ## getCheckoutKey
@@ -795,6 +1136,89 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Collaborations |  -  |
+
+
+## getContext
+
+> Context getContext(contextId)
+
+Get a context
+
+Returns basic information about a context.
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        UUID contextId = new UUID(); // UUID | ID of the context (UUID)
+        try {
+            Context result = apiInstance.getContext(contextId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contextId** | [**UUID**](.md)| ID of the context (UUID) |
+
+### Return type
+
+[**Context**](Context.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The context |  -  |
 
 
 ## getCurrentUser
@@ -1467,7 +1891,7 @@ Name | Type | Description  | Notes
 
 ## getProjectJobRuns
 
-> InlineResponse2003 getProjectJobRuns(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken)
+> InlineResponse2005 getProjectJobRuns(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken)
 
 Get recent runs of a workflow job
 
@@ -1510,12 +1934,12 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String jobName = lint; // String | The name of the job.
-        OffsetDateTime startDate = 2020-07-03T16:30:16Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-07-17T16:30:16Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-07-06T18:55:43Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-07-20T18:55:43Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
-            InlineResponse2003 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken);
+            InlineResponse2005 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectJobRuns");
@@ -1543,7 +1967,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -1562,7 +1986,7 @@ Name | Type | Description  | Notes
 
 ## getProjectWorkflowJobMetrics
 
-> InlineResponse2002 getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch)
+> InlineResponse2004 getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch)
 
 Get summary metrics for a project workflow&#39;s jobs.
 
@@ -1607,7 +2031,7 @@ public class Example {
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         String branch = "branch_example"; // String | The name of a vcs branch.
         try {
-            InlineResponse2002 result = apiInstance.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch);
+            InlineResponse2004 result = apiInstance.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectWorkflowJobMetrics");
@@ -1632,7 +2056,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -1651,7 +2075,7 @@ Name | Type | Description  | Notes
 
 ## getProjectWorkflowMetrics
 
-> InlineResponse200 getProjectWorkflowMetrics(projectSlug, pageToken, branch)
+> InlineResponse2002 getProjectWorkflowMetrics(projectSlug, pageToken, branch)
 
 Get summary metrics for a project&#39;s workflows
 
@@ -1695,7 +2119,7 @@ public class Example {
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         String branch = "branch_example"; // String | The name of a vcs branch.
         try {
-            InlineResponse200 result = apiInstance.getProjectWorkflowMetrics(projectSlug, pageToken, branch);
+            InlineResponse2002 result = apiInstance.getProjectWorkflowMetrics(projectSlug, pageToken, branch);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectWorkflowMetrics");
@@ -1719,7 +2143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -1738,7 +2162,7 @@ Name | Type | Description  | Notes
 
 ## getProjectWorkflowRuns
 
-> InlineResponse2001 getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken)
+> InlineResponse2003 getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken)
 
 Get recent runs of a workflow
 
@@ -1780,12 +2204,12 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
-        OffsetDateTime startDate = 2020-07-03T16:30:16Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-07-17T16:30:16Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-07-06T18:55:43Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-07-20T18:55:43Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
-            InlineResponse2001 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken);
+            InlineResponse2003 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectWorkflowRuns");
@@ -1812,7 +2236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -2163,6 +2587,95 @@ Name | Type | Description  | Notes
 | **200** | A sequence of checkout keys. |  -  |
 
 
+## listContexts
+
+> InlineResponse200 listContexts(ownerId, ownerSlug, ownerType, pageToken)
+
+List contexts
+
+List all contexts for an owner.
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        UUID ownerId = new UUID(); // UUID | The unique ID of the owner of the context. Specify either this or owner-slug.
+        String ownerSlug = "ownerSlug_example"; // String | A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts.
+        String ownerType = "ownerType_example"; // String | The type of the owner. Defaults to \"organization\". Accounts are only used as context owners in server.
+        String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
+        try {
+            InlineResponse200 result = apiInstance.listContexts(ownerId, ownerSlug, ownerType, pageToken);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#listContexts");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ownerId** | [**UUID**](.md)| The unique ID of the owner of the context. Specify either this or owner-slug. |
+ **ownerSlug** | **String**| A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts. |
+ **ownerType** | **String**| The type of the owner. Defaults to \&quot;organization\&quot;. Accounts are only used as context owners in server. | [enum: account, organization]
+ **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A paginated list of contexts |  -  |
+
+
 ## listEnvVars
 
 > EnvironmentVariableListResponse listEnvVars(projectSlug)
@@ -2244,6 +2757,89 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A sequence of environment variables. |  -  |
+
+
+## listEnvironmentVariablesFromContext
+
+> InlineResponse2001 listEnvironmentVariablesFromContext(contextId)
+
+List environment variables
+
+List information about environment variables in a context, not including their values.
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        UUID contextId = new UUID(); // UUID | ID of the context (UUID)
+        try {
+            InlineResponse2001 result = apiInstance.listEnvironmentVariablesFromContext(contextId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#listEnvironmentVariablesFromContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contextId** | [**UUID**](.md)| ID of the context (UUID) |
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A paginated list of environment variables |  -  |
 
 
 ## listMyPipelines

@@ -28,106 +28,34 @@ import java.util.UUID;
  */
 
 public class InlineResponse2001Items {
-  public static final String JSON_PROPERTY_ID = "id";
-  @JsonProperty(JSON_PROPERTY_ID)
-  private UUID id;
-
-  public static final String JSON_PROPERTY_DURATION = "duration";
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  private Long duration;
+  public static final String JSON_PROPERTY_VARIABLE = "variable";
+  @JsonProperty(JSON_PROPERTY_VARIABLE)
+  private String variable;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   private OffsetDateTime createdAt;
 
-  public static final String JSON_PROPERTY_STOPPED_AT = "stopped_at";
-  @JsonProperty(JSON_PROPERTY_STOPPED_AT)
-  private OffsetDateTime stoppedAt;
+  public static final String JSON_PROPERTY_CONTEXT_ID = "context_id";
+  @JsonProperty(JSON_PROPERTY_CONTEXT_ID)
+  private UUID contextId;
 
-  public static final String JSON_PROPERTY_CREDITS_USED = "credits_used";
-  @JsonProperty(JSON_PROPERTY_CREDITS_USED)
-  private Long creditsUsed;
-
-  /**
-   * Workflow status.
-   */
-  public enum StatusEnum {
-    SUCCESS("success"),
-    
-    FAILED("failed"),
-    
-    ERROR("error"),
-    
-    CANCELED("canceled"),
-    
-    UNAUTHORIZED("unauthorized");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  private StatusEnum status;
-
-  public InlineResponse2001Items id(UUID id) {
-    this.id = id;
+  public InlineResponse2001Items variable(String variable) {
+    this.variable = variable;
     return this;
   }
 
    /**
-   * The unique ID of the workflow.
-   * @return id
+   * The name of the environment variable
+   * @return variable
   **/
-  @ApiModelProperty(required = true, value = "The unique ID of the workflow.")
-  public UUID getId() {
-    return id;
+  @ApiModelProperty(example = "POSTGRES_USER", required = true, value = "The name of the environment variable")
+  public String getVariable() {
+    return variable;
   }
 
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-  public InlineResponse2001Items duration(Long duration) {
-    this.duration = duration;
-    return this;
-  }
-
-   /**
-   * The duration in seconds of a run.
-   * minimum: 0
-   * @return duration
-  **/
-  @ApiModelProperty(required = true, value = "The duration in seconds of a run.")
-  public Long getDuration() {
-    return duration;
-  }
-
-  public void setDuration(Long duration) {
-    this.duration = duration;
+  public void setVariable(String variable) {
+    this.variable = variable;
   }
 
   public InlineResponse2001Items createdAt(OffsetDateTime createdAt) {
@@ -136,10 +64,10 @@ public class InlineResponse2001Items {
   }
 
    /**
-   * The date and time the workflow was created.
+   * The date and time the environment variable was created.
    * @return createdAt
   **/
-  @ApiModelProperty(required = true, value = "The date and time the workflow was created.")
+  @ApiModelProperty(required = true, value = "The date and time the environment variable was created.")
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -148,59 +76,22 @@ public class InlineResponse2001Items {
     this.createdAt = createdAt;
   }
 
-  public InlineResponse2001Items stoppedAt(OffsetDateTime stoppedAt) {
-    this.stoppedAt = stoppedAt;
+  public InlineResponse2001Items contextId(UUID contextId) {
+    this.contextId = contextId;
     return this;
   }
 
    /**
-   * The date and time the workflow stopped.
-   * @return stoppedAt
+   * ID of the context (UUID)
+   * @return contextId
   **/
-  @ApiModelProperty(required = true, value = "The date and time the workflow stopped.")
-  public OffsetDateTime getStoppedAt() {
-    return stoppedAt;
+  @ApiModelProperty(required = true, value = "ID of the context (UUID)")
+  public UUID getContextId() {
+    return contextId;
   }
 
-  public void setStoppedAt(OffsetDateTime stoppedAt) {
-    this.stoppedAt = stoppedAt;
-  }
-
-  public InlineResponse2001Items creditsUsed(Long creditsUsed) {
-    this.creditsUsed = creditsUsed;
-    return this;
-  }
-
-   /**
-   * The number of credits used during execution
-   * minimum: 0
-   * @return creditsUsed
-  **/
-  @ApiModelProperty(required = true, value = "The number of credits used during execution")
-  public Long getCreditsUsed() {
-    return creditsUsed;
-  }
-
-  public void setCreditsUsed(Long creditsUsed) {
-    this.creditsUsed = creditsUsed;
-  }
-
-  public InlineResponse2001Items status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Workflow status.
-   * @return status
-  **/
-  @ApiModelProperty(required = true, value = "Workflow status.")
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-  public void setStatus(StatusEnum status) {
-    this.status = status;
+  public void setContextId(UUID contextId) {
+    this.contextId = contextId;
   }
 
 
@@ -213,17 +104,14 @@ public class InlineResponse2001Items {
       return false;
     }
     InlineResponse2001Items inlineResponse2001Items = (InlineResponse2001Items) o;
-    return Objects.equals(this.id, inlineResponse2001Items.id) &&
-        Objects.equals(this.duration, inlineResponse2001Items.duration) &&
+    return Objects.equals(this.variable, inlineResponse2001Items.variable) &&
         Objects.equals(this.createdAt, inlineResponse2001Items.createdAt) &&
-        Objects.equals(this.stoppedAt, inlineResponse2001Items.stoppedAt) &&
-        Objects.equals(this.creditsUsed, inlineResponse2001Items.creditsUsed) &&
-        Objects.equals(this.status, inlineResponse2001Items.status);
+        Objects.equals(this.contextId, inlineResponse2001Items.contextId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, duration, createdAt, stoppedAt, creditsUsed, status);
+    return Objects.hash(variable, createdAt, contextId);
   }
 
 
@@ -231,12 +119,9 @@ public class InlineResponse2001Items {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2001Items {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    variable: ").append(toIndentedString(variable)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    stoppedAt: ").append(toIndentedString(stoppedAt)).append("\n");
-    sb.append("    creditsUsed: ").append(toIndentedString(creditsUsed)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    contextId: ").append(toIndentedString(contextId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

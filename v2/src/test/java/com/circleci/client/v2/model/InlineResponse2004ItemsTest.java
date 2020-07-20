@@ -13,76 +13,62 @@
 
 package com.circleci.client.v2.model;
 
+import com.circleci.client.v2.model.InlineResponse2004Metrics;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for InlineResponse200MetricsDurationMetrics
+ * Model tests for InlineResponse2004Items
  */
-public class InlineResponse200MetricsDurationMetricsTest {
-    private final InlineResponse200MetricsDurationMetrics model = new InlineResponse200MetricsDurationMetrics();
+public class InlineResponse2004ItemsTest {
+    private final InlineResponse2004Items model = new InlineResponse2004Items();
 
     /**
-     * Model tests for InlineResponse200MetricsDurationMetrics
+     * Model tests for InlineResponse2004Items
      */
     @Test
-    public void testInlineResponse200MetricsDurationMetrics() {
-        // TODO: test InlineResponse200MetricsDurationMetrics
+    public void testInlineResponse2004Items() {
+        // TODO: test InlineResponse2004Items
     }
 
     /**
-     * Test the property 'min'
+     * Test the property 'name'
      */
     @Test
-    public void minTest() {
-        // TODO: test min
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
-     * Test the property 'mean'
+     * Test the property 'windowStart'
      */
     @Test
-    public void meanTest() {
-        // TODO: test mean
+    public void windowStartTest() {
+        // TODO: test windowStart
     }
 
     /**
-     * Test the property 'median'
+     * Test the property 'windowEnd'
      */
     @Test
-    public void medianTest() {
-        // TODO: test median
+    public void windowEndTest() {
+        // TODO: test windowEnd
     }
 
     /**
-     * Test the property 'p95'
+     * Test the property 'metrics'
      */
     @Test
-    public void p95Test() {
-        // TODO: test p95
-    }
-
-    /**
-     * Test the property 'max'
-     */
-    @Test
-    public void maxTest() {
-        // TODO: test max
-    }
-
-    /**
-     * Test the property 'standardDeviation'
-     */
-    @Test
-    public void standardDeviationTest() {
-        // TODO: test standardDeviation
+    public void metricsTest() {
+        // TODO: test metrics
     }
 
 }

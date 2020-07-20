@@ -50,10 +50,10 @@ public class InlineResponse2002Items {
   }
 
    /**
-   * The name of the job.
+   * The name of the workflow.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "The name of the job.")
+  @ApiModelProperty(example = "build-and-test", required = true, value = "The name of the workflow.")
   public String getName() {
     return name;
   }
@@ -68,10 +68,10 @@ public class InlineResponse2002Items {
   }
 
    /**
-   * The start of the aggregation window for job metrics.
+   * The start of the aggregation window for workflow metrics.
    * @return windowStart
   **/
-  @ApiModelProperty(required = true, value = "The start of the aggregation window for job metrics.")
+  @ApiModelProperty(required = true, value = "The start of the aggregation window for workflow metrics.")
   public OffsetDateTime getWindowStart() {
     return windowStart;
   }
@@ -86,10 +86,10 @@ public class InlineResponse2002Items {
   }
 
    /**
-   * The end of the aggregation window for job metrics.
+   * The end of the aggregation window for workflow metrics.
    * @return windowEnd
   **/
-  @ApiModelProperty(required = true, value = "The end of the aggregation window for job metrics.")
+  @ApiModelProperty(required = true, value = "The end of the aggregation window for workflow metrics.")
   public OffsetDateTime getWindowEnd() {
     return windowEnd;
   }

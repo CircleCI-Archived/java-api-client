@@ -13,7 +13,7 @@
 
 package com.circleci.client.v2.model;
 
-import com.circleci.client.v2.model.InlineResponse200MetricsDurationMetrics;
+import com.circleci.client.v2.model.InlineResponse2004MetricsDurationMetrics;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -25,17 +25,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for InlineResponse200Metrics
+ * Model tests for InlineResponse2004Metrics
  */
-public class InlineResponse200MetricsTest {
-    private final InlineResponse200Metrics model = new InlineResponse200Metrics();
+public class InlineResponse2004MetricsTest {
+    private final InlineResponse2004Metrics model = new InlineResponse2004Metrics();
 
     /**
-     * Model tests for InlineResponse200Metrics
+     * Model tests for InlineResponse2004Metrics
      */
     @Test
-    public void testInlineResponse200Metrics() {
-        // TODO: test InlineResponse200Metrics
+    public void testInlineResponse2004Metrics() {
+        // TODO: test InlineResponse2004Metrics
     }
 
     /**
@@ -76,14 +76,6 @@ public class InlineResponse200MetricsTest {
     @Test
     public void throughputTest() {
         // TODO: test throughput
-    }
-
-    /**
-     * Test the property 'mttr'
-     */
-    @Test
-    public void mttrTest() {
-        // TODO: test mttr
     }
 
     /**

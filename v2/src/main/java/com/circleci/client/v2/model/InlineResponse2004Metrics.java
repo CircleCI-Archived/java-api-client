@@ -15,7 +15,7 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.circleci.client.v2.model.InlineResponse200MetricsDurationMetrics;
+import com.circleci.client.v2.model.InlineResponse2004MetricsDurationMetrics;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -23,11 +23,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Metrics relating to a workflow&#39;s runs.
+ * Metrics relating to a workflow job&#39;s runs.
  */
-@ApiModel(description = "Metrics relating to a workflow's runs.")
+@ApiModel(description = "Metrics relating to a workflow job's runs.")
 
-public class InlineResponse200Metrics {
+public class InlineResponse2004Metrics {
   public static final String JSON_PROPERTY_SUCCESS_RATE = "success_rate";
   @JsonProperty(JSON_PROPERTY_SUCCESS_RATE)
   private Float successRate;
@@ -48,19 +48,15 @@ public class InlineResponse200Metrics {
   @JsonProperty(JSON_PROPERTY_THROUGHPUT)
   private Float throughput;
 
-  public static final String JSON_PROPERTY_MTTR = "mttr";
-  @JsonProperty(JSON_PROPERTY_MTTR)
-  private Long mttr;
-
   public static final String JSON_PROPERTY_TOTAL_CREDITS_USED = "total_credits_used";
   @JsonProperty(JSON_PROPERTY_TOTAL_CREDITS_USED)
   private Long totalCreditsUsed;
 
   public static final String JSON_PROPERTY_DURATION_METRICS = "duration_metrics";
   @JsonProperty(JSON_PROPERTY_DURATION_METRICS)
-  private InlineResponse200MetricsDurationMetrics durationMetrics = null;
+  private InlineResponse2004MetricsDurationMetrics durationMetrics = null;
 
-  public InlineResponse200Metrics successRate(Float successRate) {
+  public InlineResponse2004Metrics successRate(Float successRate) {
     this.successRate = successRate;
     return this;
   }
@@ -78,7 +74,7 @@ public class InlineResponse200Metrics {
     this.successRate = successRate;
   }
 
-  public InlineResponse200Metrics totalRuns(Long totalRuns) {
+  public InlineResponse2004Metrics totalRuns(Long totalRuns) {
     this.totalRuns = totalRuns;
     return this;
   }
@@ -97,7 +93,7 @@ public class InlineResponse200Metrics {
     this.totalRuns = totalRuns;
   }
 
-  public InlineResponse200Metrics failedRuns(Long failedRuns) {
+  public InlineResponse2004Metrics failedRuns(Long failedRuns) {
     this.failedRuns = failedRuns;
     return this;
   }
@@ -116,7 +112,7 @@ public class InlineResponse200Metrics {
     this.failedRuns = failedRuns;
   }
 
-  public InlineResponse200Metrics successfulRuns(Long successfulRuns) {
+  public InlineResponse2004Metrics successfulRuns(Long successfulRuns) {
     this.successfulRuns = successfulRuns;
     return this;
   }
@@ -135,16 +131,16 @@ public class InlineResponse200Metrics {
     this.successfulRuns = successfulRuns;
   }
 
-  public InlineResponse200Metrics throughput(Float throughput) {
+  public InlineResponse2004Metrics throughput(Float throughput) {
     this.throughput = throughput;
     return this;
   }
 
    /**
-   * The average number of workflow runs per day.
+   * The average number of job runs per day.
    * @return throughput
   **/
-  @ApiModelProperty(required = true, value = "The average number of workflow runs per day.")
+  @ApiModelProperty(required = true, value = "The average number of job runs per day.")
   public Float getThroughput() {
     return throughput;
   }
@@ -153,36 +149,17 @@ public class InlineResponse200Metrics {
     this.throughput = throughput;
   }
 
-  public InlineResponse200Metrics mttr(Long mttr) {
-    this.mttr = mttr;
-    return this;
-  }
-
-   /**
-   * The mean time to recovery (mean time between failures and their next success) in seconds.
-   * minimum: 0
-   * @return mttr
-  **/
-  @ApiModelProperty(required = true, value = "The mean time to recovery (mean time between failures and their next success) in seconds.")
-  public Long getMttr() {
-    return mttr;
-  }
-
-  public void setMttr(Long mttr) {
-    this.mttr = mttr;
-  }
-
-  public InlineResponse200Metrics totalCreditsUsed(Long totalCreditsUsed) {
+  public InlineResponse2004Metrics totalCreditsUsed(Long totalCreditsUsed) {
     this.totalCreditsUsed = totalCreditsUsed;
     return this;
   }
 
    /**
-   * The total credits consumed by the workflow in the aggregation window.
+   * The total credits consumed by the job in the aggregation window.
    * minimum: 0
    * @return totalCreditsUsed
   **/
-  @ApiModelProperty(required = true, value = "The total credits consumed by the workflow in the aggregation window.")
+  @ApiModelProperty(required = true, value = "The total credits consumed by the job in the aggregation window.")
   public Long getTotalCreditsUsed() {
     return totalCreditsUsed;
   }
@@ -191,7 +168,7 @@ public class InlineResponse200Metrics {
     this.totalCreditsUsed = totalCreditsUsed;
   }
 
-  public InlineResponse200Metrics durationMetrics(InlineResponse200MetricsDurationMetrics durationMetrics) {
+  public InlineResponse2004Metrics durationMetrics(InlineResponse2004MetricsDurationMetrics durationMetrics) {
     this.durationMetrics = durationMetrics;
     return this;
   }
@@ -201,11 +178,11 @@ public class InlineResponse200Metrics {
    * @return durationMetrics
   **/
   @ApiModelProperty(required = true, value = "")
-  public InlineResponse200MetricsDurationMetrics getDurationMetrics() {
+  public InlineResponse2004MetricsDurationMetrics getDurationMetrics() {
     return durationMetrics;
   }
 
-  public void setDurationMetrics(InlineResponse200MetricsDurationMetrics durationMetrics) {
+  public void setDurationMetrics(InlineResponse2004MetricsDurationMetrics durationMetrics) {
     this.durationMetrics = durationMetrics;
   }
 
@@ -218,33 +195,31 @@ public class InlineResponse200Metrics {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200Metrics inlineResponse200Metrics = (InlineResponse200Metrics) o;
-    return Objects.equals(this.successRate, inlineResponse200Metrics.successRate) &&
-        Objects.equals(this.totalRuns, inlineResponse200Metrics.totalRuns) &&
-        Objects.equals(this.failedRuns, inlineResponse200Metrics.failedRuns) &&
-        Objects.equals(this.successfulRuns, inlineResponse200Metrics.successfulRuns) &&
-        Objects.equals(this.throughput, inlineResponse200Metrics.throughput) &&
-        Objects.equals(this.mttr, inlineResponse200Metrics.mttr) &&
-        Objects.equals(this.totalCreditsUsed, inlineResponse200Metrics.totalCreditsUsed) &&
-        Objects.equals(this.durationMetrics, inlineResponse200Metrics.durationMetrics);
+    InlineResponse2004Metrics inlineResponse2004Metrics = (InlineResponse2004Metrics) o;
+    return Objects.equals(this.successRate, inlineResponse2004Metrics.successRate) &&
+        Objects.equals(this.totalRuns, inlineResponse2004Metrics.totalRuns) &&
+        Objects.equals(this.failedRuns, inlineResponse2004Metrics.failedRuns) &&
+        Objects.equals(this.successfulRuns, inlineResponse2004Metrics.successfulRuns) &&
+        Objects.equals(this.throughput, inlineResponse2004Metrics.throughput) &&
+        Objects.equals(this.totalCreditsUsed, inlineResponse2004Metrics.totalCreditsUsed) &&
+        Objects.equals(this.durationMetrics, inlineResponse2004Metrics.durationMetrics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successRate, totalRuns, failedRuns, successfulRuns, throughput, mttr, totalCreditsUsed, durationMetrics);
+    return Objects.hash(successRate, totalRuns, failedRuns, successfulRuns, throughput, totalCreditsUsed, durationMetrics);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200Metrics {\n");
+    sb.append("class InlineResponse2004Metrics {\n");
     sb.append("    successRate: ").append(toIndentedString(successRate)).append("\n");
     sb.append("    totalRuns: ").append(toIndentedString(totalRuns)).append("\n");
     sb.append("    failedRuns: ").append(toIndentedString(failedRuns)).append("\n");
     sb.append("    successfulRuns: ").append(toIndentedString(successfulRuns)).append("\n");
     sb.append("    throughput: ").append(toIndentedString(throughput)).append("\n");
-    sb.append("    mttr: ").append(toIndentedString(mttr)).append("\n");
     sb.append("    totalCreditsUsed: ").append(toIndentedString(totalCreditsUsed)).append("\n");
     sb.append("    durationMetrics: ").append(toIndentedString(durationMetrics)).append("\n");
     sb.append("}");

@@ -22,11 +22,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Metrics relating to the duration of runs for a workflow.
+ * Metrics relating to the duration of runs for a workflow job.
  */
-@ApiModel(description = "Metrics relating to the duration of runs for a workflow.")
+@ApiModel(description = "Metrics relating to the duration of runs for a workflow job.")
 
-public class InlineResponse200MetricsDurationMetrics {
+public class InlineResponse2004MetricsDurationMetrics {
   public static final String JSON_PROPERTY_MIN = "min";
   @JsonProperty(JSON_PROPERTY_MIN)
   private Long min;
@@ -51,7 +51,7 @@ public class InlineResponse200MetricsDurationMetrics {
   @JsonProperty(JSON_PROPERTY_STANDARD_DEVIATION)
   private Float standardDeviation;
 
-  public InlineResponse200MetricsDurationMetrics min(Long min) {
+  public InlineResponse2004MetricsDurationMetrics min(Long min) {
     this.min = min;
     return this;
   }
@@ -70,7 +70,7 @@ public class InlineResponse200MetricsDurationMetrics {
     this.min = min;
   }
 
-  public InlineResponse200MetricsDurationMetrics mean(Long mean) {
+  public InlineResponse2004MetricsDurationMetrics mean(Long mean) {
     this.mean = mean;
     return this;
   }
@@ -89,7 +89,7 @@ public class InlineResponse200MetricsDurationMetrics {
     this.mean = mean;
   }
 
-  public InlineResponse200MetricsDurationMetrics median(Long median) {
+  public InlineResponse2004MetricsDurationMetrics median(Long median) {
     this.median = median;
     return this;
   }
@@ -108,7 +108,7 @@ public class InlineResponse200MetricsDurationMetrics {
     this.median = median;
   }
 
-  public InlineResponse200MetricsDurationMetrics p95(Long p95) {
+  public InlineResponse2004MetricsDurationMetrics p95(Long p95) {
     this.p95 = p95;
     return this;
   }
@@ -127,7 +127,7 @@ public class InlineResponse200MetricsDurationMetrics {
     this.p95 = p95;
   }
 
-  public InlineResponse200MetricsDurationMetrics max(Long max) {
+  public InlineResponse2004MetricsDurationMetrics max(Long max) {
     this.max = max;
     return this;
   }
@@ -146,7 +146,7 @@ public class InlineResponse200MetricsDurationMetrics {
     this.max = max;
   }
 
-  public InlineResponse200MetricsDurationMetrics standardDeviation(Float standardDeviation) {
+  public InlineResponse2004MetricsDurationMetrics standardDeviation(Float standardDeviation) {
     this.standardDeviation = standardDeviation;
     return this;
   }
@@ -173,13 +173,13 @@ public class InlineResponse200MetricsDurationMetrics {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200MetricsDurationMetrics inlineResponse200MetricsDurationMetrics = (InlineResponse200MetricsDurationMetrics) o;
-    return Objects.equals(this.min, inlineResponse200MetricsDurationMetrics.min) &&
-        Objects.equals(this.mean, inlineResponse200MetricsDurationMetrics.mean) &&
-        Objects.equals(this.median, inlineResponse200MetricsDurationMetrics.median) &&
-        Objects.equals(this.p95, inlineResponse200MetricsDurationMetrics.p95) &&
-        Objects.equals(this.max, inlineResponse200MetricsDurationMetrics.max) &&
-        Objects.equals(this.standardDeviation, inlineResponse200MetricsDurationMetrics.standardDeviation);
+    InlineResponse2004MetricsDurationMetrics inlineResponse2004MetricsDurationMetrics = (InlineResponse2004MetricsDurationMetrics) o;
+    return Objects.equals(this.min, inlineResponse2004MetricsDurationMetrics.min) &&
+        Objects.equals(this.mean, inlineResponse2004MetricsDurationMetrics.mean) &&
+        Objects.equals(this.median, inlineResponse2004MetricsDurationMetrics.median) &&
+        Objects.equals(this.p95, inlineResponse2004MetricsDurationMetrics.p95) &&
+        Objects.equals(this.max, inlineResponse2004MetricsDurationMetrics.max) &&
+        Objects.equals(this.standardDeviation, inlineResponse2004MetricsDurationMetrics.standardDeviation);
   }
 
   @Override
@@ -191,7 +191,7 @@ public class InlineResponse200MetricsDurationMetrics {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200MetricsDurationMetrics {\n");
+    sb.append("class InlineResponse2004MetricsDurationMetrics {\n");
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    mean: ").append(toIndentedString(mean)).append("\n");
     sb.append("    median: ").append(toIndentedString(median)).append("\n");

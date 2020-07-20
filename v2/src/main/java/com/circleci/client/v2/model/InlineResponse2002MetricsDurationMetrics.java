@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Metrics relating to the duration of runs for a workflow job.
+ * Metrics relating to the duration of runs for a workflow.
  */
-@ApiModel(description = "Metrics relating to the duration of runs for a workflow job.")
+@ApiModel(description = "Metrics relating to the duration of runs for a workflow.")
 
 public class InlineResponse2002MetricsDurationMetrics {
   public static final String JSON_PROPERTY_MIN = "min";

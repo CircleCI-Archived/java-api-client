@@ -79,6 +79,14 @@ public class InlineResponse2002MetricsTest {
     }
 
     /**
+     * Test the property 'mttr'
+     */
+    @Test
+    public void mttrTest() {
+        // TODO: test mttr
+    }
+
+    /**
      * Test the property 'totalCreditsUsed'
      */
     @Test

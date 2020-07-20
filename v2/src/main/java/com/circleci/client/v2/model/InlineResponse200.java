@@ -15,7 +15,7 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.circleci.client.v2.model.InlineResponse200Items;
+import com.circleci.client.v2.model.Context;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -25,39 +25,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Paginated workflow summary metrics.
+ * InlineResponse200
  */
-@ApiModel(description = "Paginated workflow summary metrics.")
 
 public class InlineResponse200 {
   public static final String JSON_PROPERTY_ITEMS = "items";
   @JsonProperty(JSON_PROPERTY_ITEMS)
-  private List<InlineResponse200Items> items = new ArrayList<>();
+  private List<Context> items = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NEXT_PAGE_TOKEN = "next_page_token";
   @JsonProperty(JSON_PROPERTY_NEXT_PAGE_TOKEN)
   private String nextPageToken;
 
-  public InlineResponse200 items(List<InlineResponse200Items> items) {
+  public InlineResponse200 items(List<Context> items) {
     this.items = items;
     return this;
   }
 
-  public InlineResponse200 addItemsItem(InlineResponse200Items itemsItem) {
+  public InlineResponse200 addItemsItem(Context itemsItem) {
     this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Workflow summary metrics.
+   * Get items
    * @return items
   **/
-  @ApiModelProperty(required = true, value = "Workflow summary metrics.")
-  public List<InlineResponse200Items> getItems() {
+  @ApiModelProperty(required = true, value = "")
+  public List<Context> getItems() {
     return items;
   }
 
-  public void setItems(List<InlineResponse200Items> items) {
+  public void setItems(List<Context> items) {
     this.items = items;
   }
 

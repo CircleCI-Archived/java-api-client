@@ -15,7 +15,7 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.circleci.client.v2.model.InlineResponse200Metrics;
+import com.circleci.client.v2.model.InlineResponse2004Metrics;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -24,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 
 /**
- * InlineResponse200Items
+ * InlineResponse2004Items
  */
 
-public class InlineResponse200Items {
+public class InlineResponse2004Items {
   public static final String JSON_PROPERTY_NAME = "name";
   @JsonProperty(JSON_PROPERTY_NAME)
   private String name;
@@ -42,18 +42,18 @@ public class InlineResponse200Items {
 
   public static final String JSON_PROPERTY_METRICS = "metrics";
   @JsonProperty(JSON_PROPERTY_METRICS)
-  private InlineResponse200Metrics metrics = null;
+  private InlineResponse2004Metrics metrics = null;
 
-  public InlineResponse200Items name(String name) {
+  public InlineResponse2004Items name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * The name of the workflow.
+   * The name of the job.
    * @return name
   **/
-  @ApiModelProperty(example = "build-and-test", required = true, value = "The name of the workflow.")
+  @ApiModelProperty(required = true, value = "The name of the job.")
   public String getName() {
     return name;
   }
@@ -62,16 +62,16 @@ public class InlineResponse200Items {
     this.name = name;
   }
 
-  public InlineResponse200Items windowStart(OffsetDateTime windowStart) {
+  public InlineResponse2004Items windowStart(OffsetDateTime windowStart) {
     this.windowStart = windowStart;
     return this;
   }
 
    /**
-   * The start of the aggregation window for workflow metrics.
+   * The start of the aggregation window for job metrics.
    * @return windowStart
   **/
-  @ApiModelProperty(required = true, value = "The start of the aggregation window for workflow metrics.")
+  @ApiModelProperty(required = true, value = "The start of the aggregation window for job metrics.")
   public OffsetDateTime getWindowStart() {
     return windowStart;
   }
@@ -80,16 +80,16 @@ public class InlineResponse200Items {
     this.windowStart = windowStart;
   }
 
-  public InlineResponse200Items windowEnd(OffsetDateTime windowEnd) {
+  public InlineResponse2004Items windowEnd(OffsetDateTime windowEnd) {
     this.windowEnd = windowEnd;
     return this;
   }
 
    /**
-   * The end of the aggregation window for workflow metrics.
+   * The end of the aggregation window for job metrics.
    * @return windowEnd
   **/
-  @ApiModelProperty(required = true, value = "The end of the aggregation window for workflow metrics.")
+  @ApiModelProperty(required = true, value = "The end of the aggregation window for job metrics.")
   public OffsetDateTime getWindowEnd() {
     return windowEnd;
   }
@@ -98,7 +98,7 @@ public class InlineResponse200Items {
     this.windowEnd = windowEnd;
   }
 
-  public InlineResponse200Items metrics(InlineResponse200Metrics metrics) {
+  public InlineResponse2004Items metrics(InlineResponse2004Metrics metrics) {
     this.metrics = metrics;
     return this;
   }
@@ -108,11 +108,11 @@ public class InlineResponse200Items {
    * @return metrics
   **/
   @ApiModelProperty(required = true, value = "")
-  public InlineResponse200Metrics getMetrics() {
+  public InlineResponse2004Metrics getMetrics() {
     return metrics;
   }
 
-  public void setMetrics(InlineResponse200Metrics metrics) {
+  public void setMetrics(InlineResponse2004Metrics metrics) {
     this.metrics = metrics;
   }
 
@@ -125,11 +125,11 @@ public class InlineResponse200Items {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200Items inlineResponse200Items = (InlineResponse200Items) o;
-    return Objects.equals(this.name, inlineResponse200Items.name) &&
-        Objects.equals(this.windowStart, inlineResponse200Items.windowStart) &&
-        Objects.equals(this.windowEnd, inlineResponse200Items.windowEnd) &&
-        Objects.equals(this.metrics, inlineResponse200Items.metrics);
+    InlineResponse2004Items inlineResponse2004Items = (InlineResponse2004Items) o;
+    return Objects.equals(this.name, inlineResponse2004Items.name) &&
+        Objects.equals(this.windowStart, inlineResponse2004Items.windowStart) &&
+        Objects.equals(this.windowEnd, inlineResponse2004Items.windowEnd) &&
+        Objects.equals(this.metrics, inlineResponse2004Items.metrics);
   }
 
   @Override
@@ -141,7 +141,7 @@ public class InlineResponse200Items {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200Items {\n");
+    sb.append("class InlineResponse2004Items {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    windowStart: ").append(toIndentedString(windowStart)).append("\n");
     sb.append("    windowEnd: ").append(toIndentedString(windowEnd)).append("\n");

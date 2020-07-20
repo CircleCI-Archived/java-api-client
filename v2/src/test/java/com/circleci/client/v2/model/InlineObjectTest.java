@@ -13,54 +13,45 @@
 
 package com.circleci.client.v2.model;
 
+import com.circleci.client.v2.model.ContextOwner;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for InlineResponse2001Items
+ * Model tests for InlineObject
  */
-public class InlineResponse2001ItemsTest {
-    private final InlineResponse2001Items model = new InlineResponse2001Items();
+public class InlineObjectTest {
+    private final InlineObject model = new InlineObject();
 
     /**
-     * Model tests for InlineResponse2001Items
+     * Model tests for InlineObject
      */
     @Test
-    public void testInlineResponse2001Items() {
-        // TODO: test InlineResponse2001Items
+    public void testInlineObject() {
+        // TODO: test InlineObject
     }
 
     /**
-     * Test the property 'variable'
+     * Test the property 'name'
      */
     @Test
-    public void variableTest() {
-        // TODO: test variable
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
-     * Test the property 'createdAt'
+     * Test the property 'owner'
      */
     @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'contextId'
-     */
-    @Test
-    public void contextIdTest() {
-        // TODO: test contextId
+    public void ownerTest() {
+        // TODO: test owner
     }
 
 }

@@ -15,7 +15,7 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.circleci.client.v2.model.InlineResponse2002Items;
+import com.circleci.client.v2.model.InlineResponse2005Items;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -25,43 +25,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Paginated workflow summary metrics.
+ * Paginated recent job runs.
  */
-@ApiModel(description = "Paginated workflow summary metrics.")
+@ApiModel(description = "Paginated recent job runs.")
 
-public class InlineResponse2002 {
+public class InlineResponse2005 {
   public static final String JSON_PROPERTY_ITEMS = "items";
   @JsonProperty(JSON_PROPERTY_ITEMS)
-  private List<InlineResponse2002Items> items = new ArrayList<>();
+  private List<InlineResponse2005Items> items = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NEXT_PAGE_TOKEN = "next_page_token";
   @JsonProperty(JSON_PROPERTY_NEXT_PAGE_TOKEN)
   private String nextPageToken;
 
-  public InlineResponse2002 items(List<InlineResponse2002Items> items) {
+  public InlineResponse2005 items(List<InlineResponse2005Items> items) {
     this.items = items;
     return this;
   }
 
-  public InlineResponse2002 addItemsItem(InlineResponse2002Items itemsItem) {
+  public InlineResponse2005 addItemsItem(InlineResponse2005Items itemsItem) {
     this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Workflow summary metrics.
+   * Recent job runs.
    * @return items
   **/
-  @ApiModelProperty(required = true, value = "Workflow summary metrics.")
-  public List<InlineResponse2002Items> getItems() {
+  @ApiModelProperty(required = true, value = "Recent job runs.")
+  public List<InlineResponse2005Items> getItems() {
     return items;
   }
 
-  public void setItems(List<InlineResponse2002Items> items) {
+  public void setItems(List<InlineResponse2005Items> items) {
     this.items = items;
   }
 
-  public InlineResponse2002 nextPageToken(String nextPageToken) {
+  public InlineResponse2005 nextPageToken(String nextPageToken) {
     this.nextPageToken = nextPageToken;
     return this;
   }
@@ -88,9 +88,9 @@ public class InlineResponse2002 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse2002 inlineResponse2002 = (InlineResponse2002) o;
-    return Objects.equals(this.items, inlineResponse2002.items) &&
-        Objects.equals(this.nextPageToken, inlineResponse2002.nextPageToken);
+    InlineResponse2005 inlineResponse2005 = (InlineResponse2005) o;
+    return Objects.equals(this.items, inlineResponse2005.items) &&
+        Objects.equals(this.nextPageToken, inlineResponse2005.nextPageToken);
   }
 
   @Override
@@ -102,7 +102,7 @@ public class InlineResponse2002 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2002 {\n");
+    sb.append("class InlineResponse2005 {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
     sb.append("}");

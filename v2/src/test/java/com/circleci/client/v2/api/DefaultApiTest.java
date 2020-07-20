@@ -19,13 +19,19 @@ import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
 import com.circleci.client.v2.model.CheckoutKeyListResponse;
 import com.circleci.client.v2.model.Collaboration;
+import com.circleci.client.v2.model.Context;
 import com.circleci.client.v2.model.EnvironmentVariableListResponse;
 import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
+import com.circleci.client.v2.model.InlineObject;
+import com.circleci.client.v2.model.InlineObject1;
 import com.circleci.client.v2.model.InlineResponse200;
 import com.circleci.client.v2.model.InlineResponse2001;
+import com.circleci.client.v2.model.InlineResponse2001Items;
 import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
+import com.circleci.client.v2.model.InlineResponse2004;
+import com.circleci.client.v2.model.InlineResponse2005;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import java.time.OffsetDateTime;
@@ -58,6 +64,24 @@ public class DefaultApiTest {
 
     private final DefaultApi api = new DefaultApi();
 
+    
+    /**
+     * Create or update environment variable
+     *
+     * Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addEnvironmentVariableToContextTest() throws ApiException {
+        UUID contextId = null;
+        String envVarName = null;
+        InlineObject1 inlineObject1 = null;
+        InlineResponse2001Items response = api.addEnvironmentVariableToContext(contextId, envVarName, inlineObject1);
+
+        // TODO: test validations
+    }
     
     /**
      * Approve a job
@@ -127,6 +151,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * Create a new context
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createContextTest() throws ApiException {
+        InlineObject inlineObject = null;
+        Context response = api.createContext(inlineObject);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create an environment variable
      *
      * Creates a new environment variable.
@@ -161,6 +201,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * Delete a context
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteContextTest() throws ApiException {
+        UUID contextId = null;
+        MessageResponse response = api.deleteContext(contextId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Delete an environment variable
      *
      * Deletes the environment variable named :name.
@@ -173,6 +229,23 @@ public class DefaultApiTest {
         String projectSlug = null;
         String name = null;
         MessageResponse response = api.deleteEnvVar(projectSlug, name);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete an environment variable
+     *
+     * Delete an environment variable from a context.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteEnvironmentVariableFromContextTest() throws ApiException {
+        String envVarName = null;
+        UUID contextId = null;
+        MessageResponse response = api.deleteEnvironmentVariableFromContext(envVarName, contextId);
 
         // TODO: test validations
     }
@@ -205,6 +278,22 @@ public class DefaultApiTest {
     @Test
     public void getCollaborationsTest() throws ApiException {
         List<Collaboration> response = api.getCollaborations();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a context
+     *
+     * Returns basic information about a context.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getContextTest() throws ApiException {
+        UUID contextId = null;
+        Context response = api.getContext(contextId);
 
         // TODO: test validations
     }
@@ -357,7 +446,7 @@ public class DefaultApiTest {
         OffsetDateTime endDate = null;
         String branch = null;
         String pageToken = null;
-        InlineResponse2003 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken);
+        InlineResponse2005 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken);
 
         // TODO: test validations
     }
@@ -376,7 +465,7 @@ public class DefaultApiTest {
         String workflowName = null;
         String pageToken = null;
         String branch = null;
-        InlineResponse2002 response = api.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch);
+        InlineResponse2004 response = api.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch);
 
         // TODO: test validations
     }
@@ -394,7 +483,7 @@ public class DefaultApiTest {
         String projectSlug = null;
         String pageToken = null;
         String branch = null;
-        InlineResponse200 response = api.getProjectWorkflowMetrics(projectSlug, pageToken, branch);
+        InlineResponse2002 response = api.getProjectWorkflowMetrics(projectSlug, pageToken, branch);
 
         // TODO: test validations
     }
@@ -415,7 +504,7 @@ public class DefaultApiTest {
         OffsetDateTime endDate = null;
         String branch = null;
         String pageToken = null;
-        InlineResponse2001 response = api.getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken);
+        InlineResponse2003 response = api.getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken);
 
         // TODO: test validations
     }
@@ -486,6 +575,25 @@ public class DefaultApiTest {
     }
     
     /**
+     * List contexts
+     *
+     * List all contexts for an owner.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listContextsTest() throws ApiException {
+        UUID ownerId = null;
+        String ownerSlug = null;
+        String ownerType = null;
+        String pageToken = null;
+        InlineResponse200 response = api.listContexts(ownerId, ownerSlug, ownerType, pageToken);
+
+        // TODO: test validations
+    }
+    
+    /**
      * List all environment variables
      *
      * Returns four &#39;x&#39; characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
@@ -497,6 +605,22 @@ public class DefaultApiTest {
     public void listEnvVarsTest() throws ApiException {
         String projectSlug = null;
         EnvironmentVariableListResponse response = api.listEnvVars(projectSlug);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List environment variables
+     *
+     * List information about environment variables in a context, not including their values.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listEnvironmentVariablesFromContextTest() throws ApiException {
+        UUID contextId = null;
+        InlineResponse2001 response = api.listEnvironmentVariablesFromContext(contextId);
 
         // TODO: test validations
     }

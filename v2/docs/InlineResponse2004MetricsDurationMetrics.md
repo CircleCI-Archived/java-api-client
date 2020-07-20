@@ -1,6 +1,6 @@
 
 
-# InlineResponse200MetricsDurationMetrics
+# InlineResponse2004MetricsDurationMetrics
 
 ## Properties
 

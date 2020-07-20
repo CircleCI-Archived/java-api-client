@@ -26,25 +26,33 @@ import org.junit.Test;
 
 
 /**
- * Model tests for InlineResponse2001Items
+ * Model tests for Context
  */
-public class InlineResponse2001ItemsTest {
-    private final InlineResponse2001Items model = new InlineResponse2001Items();
+public class ContextTest {
+    private final Context model = new Context();
 
     /**
-     * Model tests for InlineResponse2001Items
+     * Model tests for Context
      */
     @Test
-    public void testInlineResponse2001Items() {
-        // TODO: test InlineResponse2001Items
+    public void testContext() {
+        // TODO: test Context
     }
 
     /**
-     * Test the property 'variable'
+     * Test the property 'id'
      */
     @Test
-    public void variableTest() {
-        // TODO: test variable
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
@@ -53,14 +61,6 @@ public class InlineResponse2001ItemsTest {
     @Test
     public void createdAtTest() {
         // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'contextId'
-     */
-    @Test
-    public void contextIdTest() {
-        // TODO: test contextId
     }
 
 }

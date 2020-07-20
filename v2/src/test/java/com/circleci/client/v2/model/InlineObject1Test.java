@@ -18,49 +18,31 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for InlineResponse2001Items
+ * Model tests for InlineObject1
  */
-public class InlineResponse2001ItemsTest {
-    private final InlineResponse2001Items model = new InlineResponse2001Items();
+public class InlineObject1Test {
+    private final InlineObject1 model = new InlineObject1();
 
     /**
-     * Model tests for InlineResponse2001Items
+     * Model tests for InlineObject1
      */
     @Test
-    public void testInlineResponse2001Items() {
-        // TODO: test InlineResponse2001Items
+    public void testInlineObject1() {
+        // TODO: test InlineObject1
     }
 
     /**
-     * Test the property 'variable'
+     * Test the property 'value'
      */
     @Test
-    public void variableTest() {
-        // TODO: test variable
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'contextId'
-     */
-    @Test
-    public void contextIdTest() {
-        // TODO: test contextId
+    public void valueTest() {
+        // TODO: test value
     }
 
 }

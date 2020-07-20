@@ -12,6 +12,360 @@ security:
 - api_key_header: []
 - basic_auth: []
 paths:
+  /context:
+    get:
+      summary: List contexts
+      description: List all contexts for an owner.
+      tags:
+      - Context
+      - Preview
+      operationId: listContexts
+      responses:
+        200:
+          description: A paginated list of contexts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                          description: The unique ID of the context.
+                        name:
+                          type: string
+                          description: The user defined name of the context.
+                        created_at:
+                          type: string
+                          format: date-time
+                          description: The date and time the context was created.
+                          example: '2015-09-21T17:29:21.042Z'
+                      required:
+                      - id
+                      - name
+                      - created_at
+                      title: Context
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
+                required:
+                - items
+                - next_page_token
+      parameters:
+      - in: path
+        name: owner-id
+        description: The unique ID of the owner of the context. Specify either this or owner-slug.
+        schema:
+          type: string
+          format: uuid
+        required: false
+      - in: path
+        name: owner-slug
+        description: A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts.
+        schema:
+          type: string
+        required: false
+      - in: path
+        name: owner-type
+        description: The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
+        schema:
+          type: string
+          enum:
+          - account
+          - organization
+        required: false
+      - in: query
+        name: page-token
+        description: A token to retrieve the next page of results.
+        schema:
+          type: string
+        required: false
+        allowEmptyValue: true
+    post:
+      summary: Create a new context
+      tags:
+      - Context
+      - Preview
+      operationId: createContext
+      responses:
+        200:
+          description: The new context
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: The unique ID of the context.
+                  name:
+                    type: string
+                    description: The user defined name of the context.
+                  created_at:
+                    type: string
+                    format: date-time
+                    description: The date and time the context was created.
+                    example: '2015-09-21T17:29:21.042Z'
+                required:
+                - id
+                - name
+                - created_at
+                title: Context
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The user defined name of the context.
+                owner:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      description: The unique ID of the owner of the context. Specify either this or slug.
+                    slug:
+                      type: string
+                      description: A string that represents an organization. Specify either this or id. Cannot be used for accounts.
+                    type:
+                      enum:
+                      - account
+                      - organization
+                      type: string
+                      description: The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
+              required:
+              - name
+              - owner
+  /context/{context-id}:
+    delete:
+      summary: Delete a context
+      tags:
+      - Context
+      - Preview
+      operationId: deleteContext
+      responses:
+        200:
+          description: A confirmation message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable message
+                required:
+                - message
+                description: message response
+                title: MessageResponse
+      parameters:
+      - in: path
+        name: context-id
+        description: ID of the context (UUID)
+        schema:
+          type: string
+          format: uuid
+        required: true
+    get:
+      summary: Get a context
+      description: Returns basic information about a context.
+      tags:
+      - Context
+      - Preview
+      operationId: getContext
+      responses:
+        200:
+          description: The context
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: The unique ID of the context.
+                  name:
+                    type: string
+                    description: The user defined name of the context.
+                  created_at:
+                    type: string
+                    format: date-time
+                    description: The date and time the context was created.
+                    example: '2015-09-21T17:29:21.042Z'
+                required:
+                - id
+                - name
+                - created_at
+                title: Context
+      parameters:
+      - in: path
+        name: context-id
+        description: ID of the context (UUID)
+        schema:
+          type: string
+          format: uuid
+        required: true
+  /context/{context-id}/environment-variable:
+    get:
+      summary: List environment variables
+      description: List information about environment variables in a context, not including their values.
+      tags:
+      - Context
+      - Preview
+      operationId: listEnvironmentVariablesFromContext
+      responses:
+        200:
+          description: A paginated list of environment variables
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        variable:
+                          type: string
+                          description: The name of the environment variable
+                          example: POSTGRES_USER
+                        created_at:
+                          type: string
+                          format: date-time
+                          description: The date and time the environment variable was created.
+                          example: '2015-09-21T17:29:21.042Z'
+                        context_id:
+                          type: string
+                          format: uuid
+                          description: ID of the context (UUID)
+                      required:
+                      - variable
+                      - created_at
+                      - context_id
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
+                required:
+                - items
+                - next_page_token
+      parameters:
+      - in: path
+        name: context-id
+        description: ID of the context (UUID)
+        schema:
+          type: string
+          format: uuid
+        required: true
+  /context/{context-id}/environment-variable/{env-var-name}:
+    put:
+      summary: Create or update environment variable
+      description: Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+      tags:
+      - Context
+      - Preview
+      operationId: addEnvironmentVariableToContext
+      responses:
+        200:
+          description: The new environment variable
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  variable:
+                    type: string
+                    description: The name of the environment variable
+                    example: POSTGRES_USER
+                  created_at:
+                    type: string
+                    format: date-time
+                    description: The date and time the environment variable was created.
+                    example: '2015-09-21T17:29:21.042Z'
+                  context_id:
+                    type: string
+                    format: uuid
+                    description: ID of the context (UUID)
+                required:
+                - variable
+                - created_at
+                - context_id
+      parameters:
+      - in: path
+        name: context-id
+        description: ID of the context (UUID)
+        schema:
+          type: string
+          format: uuid
+        required: true
+      - in: path
+        name: env-var-name
+        description: The name of the environment variable
+        schema:
+          type: string
+        required: true
+        example: POSTGRES_USER
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: string
+                  description: The value of the environment variable
+                  example: some-secret-value
+              required:
+              - value
+    delete:
+      summary: Delete an environment variable
+      description: Delete an environment variable from a context.
+      tags:
+      - Context
+      - Preview
+      operationId: deleteEnvironmentVariableFromContext
+      responses:
+        200:
+          description: A confirmation message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable message
+                required:
+                - message
+                description: message response
+                title: MessageResponse
+      parameters:
+      - in: path
+        name: env-var-name
+        description: The name of the environment variable
+        schema:
+          type: string
+        required: true
+        example: POSTGRES_USER
+      - in: path
+        name: context-id
+        description: ID of the context (UUID)
+        schema:
+          type: string
+          format: uuid
+        required: true
   /insights/{project-slug}/workflows:
     get:
       summary: Get summary metrics for a project's workflows
@@ -275,7 +629,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-03T16:30:16Z'
+        example: '2020-07-06T18:55:43Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -283,7 +637,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-17T16:30:16Z'
+        example: '2020-07-20T18:55:43Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -548,7 +902,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-03T16:30:16Z'
+        example: '2020-07-06T18:55:43Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -556,7 +910,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-17T16:30:16Z'
+        example: '2020-07-20T18:55:43Z'
   /me:
     get:
       summary: User Information

@@ -26,41 +26,57 @@ import org.junit.Test;
 
 
 /**
- * Model tests for InlineResponse2001Items
+ * Model tests for InlineResponse2005Items
  */
-public class InlineResponse2001ItemsTest {
-    private final InlineResponse2001Items model = new InlineResponse2001Items();
+public class InlineResponse2005ItemsTest {
+    private final InlineResponse2005Items model = new InlineResponse2005Items();
 
     /**
-     * Model tests for InlineResponse2001Items
+     * Model tests for InlineResponse2005Items
      */
     @Test
-    public void testInlineResponse2001Items() {
-        // TODO: test InlineResponse2001Items
+    public void testInlineResponse2005Items() {
+        // TODO: test InlineResponse2005Items
     }
 
     /**
-     * Test the property 'variable'
+     * Test the property 'id'
      */
     @Test
-    public void variableTest() {
-        // TODO: test variable
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'createdAt'
+     * Test the property 'startedAt'
      */
     @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
+    public void startedAtTest() {
+        // TODO: test startedAt
     }
 
     /**
-     * Test the property 'contextId'
+     * Test the property 'stoppedAt'
      */
     @Test
-    public void contextIdTest() {
-        // TODO: test contextId
+    public void stoppedAtTest() {
+        // TODO: test stoppedAt
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
+    }
+
+    /**
+     * Test the property 'creditsUsed'
+     */
+    @Test
+    public void creditsUsedTest() {
+        // TODO: test creditsUsed
     }
 
 }
