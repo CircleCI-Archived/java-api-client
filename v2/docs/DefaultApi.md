@@ -4,7 +4,7 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addEnvironmentVariableToContext**](DefaultApi.md#addEnvironmentVariableToContext) | **PUT** /context/{context-id}/environment-variable/{env-var-name} | Create or update environment variable
+[**addEnvironmentVariableToContext**](DefaultApi.md#addEnvironmentVariableToContext) | **PUT** /context/{context-id}/environment-variable/{env-var-name} | Add or update an environment variable
 [**approvePendingApprovalJobById**](DefaultApi.md#approvePendingApprovalJobById) | **POST** /workflow/{id}/approve/{approval_request_id} | Approve a job
 [**cancelJob**](DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 [**cancelWorkflow**](DefaultApi.md#cancelWorkflow) | **POST** /workflow/{id}/cancel | Cancel a workflow
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**deleteCheckoutKey**](DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
 [**deleteContext**](DefaultApi.md#deleteContext) | **DELETE** /context/{context-id} | Delete a context
 [**deleteEnvVar**](DefaultApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable
-[**deleteEnvironmentVariableFromContext**](DefaultApi.md#deleteEnvironmentVariableFromContext) | **DELETE** /context/{context-id}/environment-variable/{env-var-name} | Delete an environment variable
+[**deleteEnvironmentVariableFromContext**](DefaultApi.md#deleteEnvironmentVariableFromContext) | **DELETE** /context/{context-id}/environment-variable/{env-var-name} | Remove an environment variable
 [**getCheckoutKey**](DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
 [**getCollaborations**](DefaultApi.md#getCollaborations) | **GET** /me/collaborations | Collaborations
 [**getContext**](DefaultApi.md#getContext) | **GET** /context/{context-id} | Get a context
@@ -51,9 +51,9 @@ Method | HTTP request | Description
 
 > InlineResponse2001Items addEnvironmentVariableToContext(contextId, envVarName, inlineObject1)
 
-Create or update environment variable
+Add or update an environment variable
 
-Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
 
 ### Example
 
@@ -893,7 +893,7 @@ Name | Type | Description  | Notes
 
 > MessageResponse deleteEnvironmentVariableFromContext(envVarName, contextId)
 
-Delete an environment variable
+Remove an environment variable
 
 Delete an environment variable from a context.
 
@@ -1934,8 +1934,8 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String jobName = lint; // String | The name of the job.
-        OffsetDateTime startDate = 2020-07-06T18:55:43Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-07-20T18:55:43Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-07-06T22:03:22Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-07-20T22:03:22Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {
@@ -2204,8 +2204,8 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
-        OffsetDateTime startDate = 2020-07-06T18:55:43Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-07-20T18:55:43Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-07-06T22:03:22Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-07-20T22:03:22Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         try {

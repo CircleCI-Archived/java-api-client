@@ -69,8 +69,8 @@ public class DefaultApi {
   }
 
   /**
-   * Create or update environment variable
-   * Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+   * Add or update an environment variable
+   * Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
    * @param contextId ID of the context (UUID) (required)
    * @param envVarName The name of the environment variable (required)
    * @param inlineObject1  (optional)
@@ -87,8 +87,8 @@ public class DefaultApi {
       }
 
   /**
-   * Create or update environment variable
-   * Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+   * Add or update an environment variable
+   * Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
    * @param contextId ID of the context (UUID) (required)
    * @param envVarName The name of the environment variable (required)
    * @param inlineObject1  (optional)
@@ -739,7 +739,7 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Delete an environment variable
+   * Remove an environment variable
    * Delete an environment variable from a context.
    * @param envVarName The name of the environment variable (required)
    * @param contextId ID of the context (UUID) (required)
@@ -756,7 +756,7 @@ public class DefaultApi {
       }
 
   /**
-   * Delete an environment variable
+   * Remove an environment variable
    * Delete an environment variable from a context.
    * @param envVarName The name of the environment variable (required)
    * @param contextId ID of the context (UUID) (required)

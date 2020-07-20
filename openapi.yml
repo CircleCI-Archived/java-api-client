@@ -271,8 +271,8 @@ paths:
         required: true
   /context/{context-id}/environment-variable/{env-var-name}:
     put:
-      summary: Create or update environment variable
-      description: Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+      summary: Add or update an environment variable
+      description: Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
       tags:
       - Context
       - Preview
@@ -330,7 +330,7 @@ paths:
               required:
               - value
     delete:
-      summary: Delete an environment variable
+      summary: Remove an environment variable
       description: Delete an environment variable from a context.
       tags:
       - Context
@@ -629,7 +629,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-06T18:55:43Z'
+        example: '2020-07-06T22:03:22Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -637,7 +637,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-20T18:55:43Z'
+        example: '2020-07-20T22:03:22Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -902,7 +902,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-06T18:55:43Z'
+        example: '2020-07-06T22:03:22Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -910,7 +910,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-20T18:55:43Z'
+        example: '2020-07-20T22:03:22Z'
   /me:
     get:
       summary: User Information

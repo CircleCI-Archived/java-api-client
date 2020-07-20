@@ -66,9 +66,9 @@ public class DefaultApiTest {
 
     
     /**
-     * Create or update environment variable
+     * Add or update an environment variable
      *
-     * Add or update an environment variable within a context. Returns information about the environment variable, not including its value.
+     * Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -234,7 +234,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Delete an environment variable
+     * Remove an environment variable
      *
      * Delete an environment variable from a context.
      *

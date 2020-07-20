@@ -125,7 +125,7 @@ All URIs are relative to *https://circleci.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**addEnvironmentVariableToContext**](docs/DefaultApi.md#addEnvironmentVariableToContext) | **PUT** /context/{context-id}/environment-variable/{env-var-name} | Create or update environment variable
+*DefaultApi* | [**addEnvironmentVariableToContext**](docs/DefaultApi.md#addEnvironmentVariableToContext) | **PUT** /context/{context-id}/environment-variable/{env-var-name} | Add or update an environment variable
 *DefaultApi* | [**approvePendingApprovalJobById**](docs/DefaultApi.md#approvePendingApprovalJobById) | **POST** /workflow/{id}/approve/{approval_request_id} | Approve a job
 *DefaultApi* | [**cancelJob**](docs/DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 *DefaultApi* | [**cancelWorkflow**](docs/DefaultApi.md#cancelWorkflow) | **POST** /workflow/{id}/cancel | Cancel a workflow
@@ -135,7 +135,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**deleteCheckoutKey**](docs/DefaultApi.md#deleteCheckoutKey) | **DELETE** /project/{project-slug}/checkout-key/{fingerprint} | Delete a checkout key
 *DefaultApi* | [**deleteContext**](docs/DefaultApi.md#deleteContext) | **DELETE** /context/{context-id} | Delete a context
 *DefaultApi* | [**deleteEnvVar**](docs/DefaultApi.md#deleteEnvVar) | **DELETE** /project/{project-slug}/envvar/{name} | Delete an environment variable
-*DefaultApi* | [**deleteEnvironmentVariableFromContext**](docs/DefaultApi.md#deleteEnvironmentVariableFromContext) | **DELETE** /context/{context-id}/environment-variable/{env-var-name} | Delete an environment variable
+*DefaultApi* | [**deleteEnvironmentVariableFromContext**](docs/DefaultApi.md#deleteEnvironmentVariableFromContext) | **DELETE** /context/{context-id}/environment-variable/{env-var-name} | Remove an environment variable
 *DefaultApi* | [**getCheckoutKey**](docs/DefaultApi.md#getCheckoutKey) | **GET** /project/{project-slug}/checkout-key/{fingerprint} | Get a checkout key
 *DefaultApi* | [**getCollaborations**](docs/DefaultApi.md#getCollaborations) | **GET** /me/collaborations | Collaborations
 *DefaultApi* | [**getContext**](docs/DefaultApi.md#getContext) | **GET** /context/{context-id} | Get a context
