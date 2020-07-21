@@ -442,11 +442,11 @@ public class DefaultApiTest {
         String projectSlug = null;
         String workflowName = null;
         String jobName = null;
-        OffsetDateTime startDate = null;
-        OffsetDateTime endDate = null;
         String branch = null;
         String pageToken = null;
-        InlineResponse2005 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken);
+        OffsetDateTime startDate = null;
+        OffsetDateTime endDate = null;
+        InlineResponse2005 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken, startDate, endDate);
 
         // TODO: test validations
     }
@@ -500,11 +500,11 @@ public class DefaultApiTest {
     public void getProjectWorkflowRunsTest() throws ApiException {
         String projectSlug = null;
         String workflowName = null;
-        OffsetDateTime startDate = null;
-        OffsetDateTime endDate = null;
         String branch = null;
         String pageToken = null;
-        InlineResponse2003 response = api.getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken);
+        OffsetDateTime startDate = null;
+        OffsetDateTime endDate = null;
+        InlineResponse2003 response = api.getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken, startDate, endDate);
 
         // TODO: test validations
     }
@@ -653,9 +653,9 @@ public class DefaultApiTest {
     @Test
     public void listPipelinesTest() throws ApiException {
         String orgSlug = null;
-        Boolean mine = null;
         String pageToken = null;
-        PipelineListResponse response = api.listPipelines(orgSlug, mine, pageToken);
+        Boolean mine = null;
+        PipelineListResponse response = api.listPipelines(orgSlug, pageToken, mine);
 
         // TODO: test validations
     }

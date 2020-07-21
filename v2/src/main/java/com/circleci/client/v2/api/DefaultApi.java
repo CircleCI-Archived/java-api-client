@@ -1532,10 +1532,10 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
-   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
-   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
+   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)
    * @return InlineResponse2005
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1544,8 +1544,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2005 getProjectJobRuns(String projectSlug, String workflowName, String jobName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
-    return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken).getData();
+  public InlineResponse2005 getProjectJobRuns(String projectSlug, String workflowName, String jobName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
+    return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, branch, pageToken, startDate, endDate).getData();
       }
 
   /**
@@ -1554,10 +1554,10 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
-   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
-   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
+   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)
    * @return ApiResponse&lt;InlineResponse2005&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1566,7 +1566,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2005> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
+  public ApiResponse<InlineResponse2005> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1584,23 +1584,11 @@ public class DefaultApi {
       throw new ApiException(400, "Missing the required parameter 'jobName' when calling getProjectJobRuns");
     }
     
-    // verify the required parameter 'startDate' is set
-    if (startDate == null) {
-      throw new ApiException(400, "Missing the required parameter 'startDate' when calling getProjectJobRuns");
-    }
-    
-    // verify the required parameter 'endDate' is set
-    if (endDate == null) {
-      throw new ApiException(400, "Missing the required parameter 'endDate' when calling getProjectJobRuns");
-    }
-    
     // create path and map variables
     String localVarPath = "/insights/{project-slug}/workflows/{workflow-name}/jobs/{job-name}"
       .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
       .replaceAll("\\{" + "workflow-name" + "\\}", apiClient.escapeString(workflowName.toString()))
-      .replaceAll("\\{" + "job-name" + "\\}", apiClient.escapeString(jobName.toString()))
-      .replaceAll("\\{" + "start-date" + "\\}", apiClient.escapeString(startDate.toString()))
-      .replaceAll("\\{" + "end-date" + "\\}", apiClient.escapeString(endDate.toString()));
+      .replaceAll("\\{" + "job-name" + "\\}", apiClient.escapeString(jobName.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1609,6 +1597,8 @@ public class DefaultApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start-date", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end-date", endDate));
 
     
     
@@ -1778,10 +1768,10 @@ public class DefaultApi {
    * Get recent runs of a workflow. Runs going back at most 90 days are returned.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
-   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
-   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
+   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1790,8 +1780,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 getProjectWorkflowRuns(String projectSlug, String workflowName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
-    return getProjectWorkflowRunsWithHttpInfo(projectSlug, workflowName, startDate, endDate, branch, pageToken).getData();
+  public InlineResponse2003 getProjectWorkflowRuns(String projectSlug, String workflowName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
+    return getProjectWorkflowRunsWithHttpInfo(projectSlug, workflowName, branch, pageToken, startDate, endDate).getData();
       }
 
   /**
@@ -1799,10 +1789,10 @@ public class DefaultApi {
    * Get recent runs of a workflow. Runs going back at most 90 days are returned.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
-   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (required)
-   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (required)
    * @param branch The name of a vcs branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
+   * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1811,7 +1801,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, OffsetDateTime startDate, OffsetDateTime endDate, String branch, String pageToken) throws ApiException {
+  public ApiResponse<InlineResponse2003> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1824,22 +1814,10 @@ public class DefaultApi {
       throw new ApiException(400, "Missing the required parameter 'workflowName' when calling getProjectWorkflowRuns");
     }
     
-    // verify the required parameter 'startDate' is set
-    if (startDate == null) {
-      throw new ApiException(400, "Missing the required parameter 'startDate' when calling getProjectWorkflowRuns");
-    }
-    
-    // verify the required parameter 'endDate' is set
-    if (endDate == null) {
-      throw new ApiException(400, "Missing the required parameter 'endDate' when calling getProjectWorkflowRuns");
-    }
-    
     // create path and map variables
     String localVarPath = "/insights/{project-slug}/workflows/{workflow-name}"
       .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
-      .replaceAll("\\{" + "workflow-name" + "\\}", apiClient.escapeString(workflowName.toString()))
-      .replaceAll("\\{" + "start-date" + "\\}", apiClient.escapeString(startDate.toString()))
-      .replaceAll("\\{" + "end-date" + "\\}", apiClient.escapeString(endDate.toString()));
+      .replaceAll("\\{" + "workflow-name" + "\\}", apiClient.escapeString(workflowName.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1848,6 +1826,8 @@ public class DefaultApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start-date", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end-date", endDate));
 
     
     
@@ -2388,9 +2368,9 @@ public class DefaultApi {
   /**
    * Get a list of pipelines
    * Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
-   * @param orgSlug Org slug in the form &#x60;vcs-slug/org-name&#x60; (required)
-   * @param mine Only include entries created by your user. (required)
+   * @param orgSlug Org slug in the form &#x60;vcs-slug/org-name&#x60; (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param mine Only include entries created by your user. (optional)
    * @return PipelineListResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2399,16 +2379,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
      </table>
    */
-  public PipelineListResponse listPipelines(String orgSlug, Boolean mine, String pageToken) throws ApiException {
-    return listPipelinesWithHttpInfo(orgSlug, mine, pageToken).getData();
+  public PipelineListResponse listPipelines(String orgSlug, String pageToken, Boolean mine) throws ApiException {
+    return listPipelinesWithHttpInfo(orgSlug, pageToken, mine).getData();
       }
 
   /**
    * Get a list of pipelines
    * Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
-   * @param orgSlug Org slug in the form &#x60;vcs-slug/org-name&#x60; (required)
-   * @param mine Only include entries created by your user. (required)
+   * @param orgSlug Org slug in the form &#x60;vcs-slug/org-name&#x60; (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
+   * @param mine Only include entries created by your user. (optional)
    * @return ApiResponse&lt;PipelineListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2417,30 +2397,20 @@ public class DefaultApi {
         <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PipelineListResponse> listPipelinesWithHttpInfo(String orgSlug, Boolean mine, String pageToken) throws ApiException {
+  public ApiResponse<PipelineListResponse> listPipelinesWithHttpInfo(String orgSlug, String pageToken, Boolean mine) throws ApiException {
     Object localVarPostBody = new Object();
     
-    // verify the required parameter 'orgSlug' is set
-    if (orgSlug == null) {
-      throw new ApiException(400, "Missing the required parameter 'orgSlug' when calling listPipelines");
-    }
-    
-    // verify the required parameter 'mine' is set
-    if (mine == null) {
-      throw new ApiException(400, "Missing the required parameter 'mine' when calling listPipelines");
-    }
-    
     // create path and map variables
-    String localVarPath = "/pipeline"
-      .replaceAll("\\{" + "org-slug" + "\\}", apiClient.escapeString(orgSlug.toString()))
-      .replaceAll("\\{" + "mine" + "\\}", apiClient.escapeString(mine.toString()));
+    String localVarPath = "/pipeline";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "org-slug", orgSlug));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "mine", mine));
 
     
     

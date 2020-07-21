@@ -1891,7 +1891,7 @@ Name | Type | Description  | Notes
 
 ## getProjectJobRuns
 
-> InlineResponse2005 getProjectJobRuns(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken)
+> InlineResponse2005 getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken, startDate, endDate)
 
 Get recent runs of a workflow job
 
@@ -1934,12 +1934,12 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String jobName = lint; // String | The name of the job.
-        OffsetDateTime startDate = 2020-07-07T17:37:07Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-07-21T17:37:07Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
+        OffsetDateTime startDate = 2020-07-07T18:17:33Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-07-21T18:17:33Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         try {
-            InlineResponse2005 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, startDate, endDate, branch, pageToken);
+            InlineResponse2005 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken, startDate, endDate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectJobRuns");
@@ -1960,10 +1960,10 @@ Name | Type | Description  | Notes
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
  **jobName** | **String**| The name of the job. |
- **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. |
- **endDate** | **OffsetDateTime**| Include only executions that started before this date. This date can be at most 90 days after the start-date. |
  **branch** | **String**| The name of a vcs branch. | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
+ **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. | [optional]
+ **endDate** | **OffsetDateTime**| Include only executions that started before this date. This date can be at most 90 days after the start-date. | [optional]
 
 ### Return type
 
@@ -2162,7 +2162,7 @@ Name | Type | Description  | Notes
 
 ## getProjectWorkflowRuns
 
-> InlineResponse2003 getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken)
+> InlineResponse2003 getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken, startDate, endDate)
 
 Get recent runs of a workflow
 
@@ -2204,12 +2204,12 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
-        OffsetDateTime startDate = 2020-07-07T17:37:07Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-07-21T17:37:07Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
+        OffsetDateTime startDate = 2020-07-07T18:17:33Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-07-21T18:17:33Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         try {
-            InlineResponse2003 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, startDate, endDate, branch, pageToken);
+            InlineResponse2003 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken, startDate, endDate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectWorkflowRuns");
@@ -2229,10 +2229,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
- **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. |
- **endDate** | **OffsetDateTime**| Include only executions that started before this date. This date can be at most 90 days after the start-date. |
  **branch** | **String**| The name of a vcs branch. | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
+ **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. | [optional]
+ **endDate** | **OffsetDateTime**| Include only executions that started before this date. This date can be at most 90 days after the start-date. | [optional]
 
 ### Return type
 
@@ -2929,7 +2929,7 @@ Name | Type | Description  | Notes
 
 ## listPipelines
 
-> PipelineListResponse listPipelines(orgSlug, mine, pageToken)
+> PipelineListResponse listPipelines(orgSlug, pageToken, mine)
 
 Get a list of pipelines
 
@@ -2970,10 +2970,10 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String orgSlug = gh/CircleCI-Public; // String | Org slug in the form `vcs-slug/org-name`
-        Boolean mine = true; // Boolean | Only include entries created by your user.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
+        Boolean mine = true; // Boolean | Only include entries created by your user.
         try {
-            PipelineListResponse result = apiInstance.listPipelines(orgSlug, mine, pageToken);
+            PipelineListResponse result = apiInstance.listPipelines(orgSlug, pageToken, mine);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#listPipelines");
@@ -2991,9 +2991,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orgSlug** | **String**| Org slug in the form &#x60;vcs-slug/org-name&#x60; |
- **mine** | **Boolean**| Only include entries created by your user. |
+ **orgSlug** | **String**| Org slug in the form &#x60;vcs-slug/org-name&#x60; | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
+ **mine** | **Boolean**| Only include entries created by your user. | [optional]
 
 ### Return type
 

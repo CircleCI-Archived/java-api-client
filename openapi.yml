@@ -622,22 +622,22 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
-      - in: path
+      - in: query
         name: start-date
         description: Include only executions that started at or after this date. This must be specified if an end-date is provided.
         schema:
           type: string
           format: date-time
         required: false
-        example: '2020-07-07T17:37:07Z'
-      - in: path
+        example: '2020-07-07T18:17:33Z'
+      - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
         schema:
           type: string
           format: date-time
         required: false
-        example: '2020-07-21T17:37:07Z'
+        example: '2020-07-21T18:17:33Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -895,22 +895,22 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
-      - in: path
+      - in: query
         name: start-date
         description: Include only executions that started at or after this date. This must be specified if an end-date is provided.
         schema:
           type: string
           format: date-time
         required: false
-        example: '2020-07-07T17:37:07Z'
-      - in: path
+        example: '2020-07-07T18:17:33Z'
+      - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
         schema:
           type: string
           format: date-time
         required: false
-        example: '2020-07-21T17:37:07Z'
+        example: '2020-07-21T18:17:33Z'
   /me:
     get:
       summary: User Information
@@ -1156,7 +1156,7 @@ paths:
                 description: List of pipelines
                 title: PipelineListResponse
       parameters:
-      - in: path
+      - in: query
         name: org-slug
         description: Org slug in the form `vcs-slug/org-name`
         schema:
@@ -1170,7 +1170,7 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
-      - in: path
+      - in: query
         name: mine
         description: Only include entries created by your user.
         schema:
