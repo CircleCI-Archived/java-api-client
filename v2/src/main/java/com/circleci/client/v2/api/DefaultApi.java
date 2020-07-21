@@ -2129,9 +2129,9 @@ public class DefaultApi {
   /**
    * List contexts
    * List all contexts for an owner.
-   * @param ownerId The unique ID of the owner of the context. Specify either this or owner-slug. (required)
-   * @param ownerSlug A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts. (required)
-   * @param ownerType The type of the owner. Defaults to \&quot;organization\&quot;. Accounts are only used as context owners in server. (required)
+   * @param ownerId The unique ID of the owner of the context. Specify either this or owner-slug. (optional)
+   * @param ownerSlug A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts. (optional)
+   * @param ownerType The type of the owner. Defaults to \&quot;organization\&quot;. Accounts are only used as context owners in server. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return InlineResponse200
    * @throws ApiException if fails to make API call
@@ -2148,9 +2148,9 @@ public class DefaultApi {
   /**
    * List contexts
    * List all contexts for an owner.
-   * @param ownerId The unique ID of the owner of the context. Specify either this or owner-slug. (required)
-   * @param ownerSlug A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts. (required)
-   * @param ownerType The type of the owner. Defaults to \&quot;organization\&quot;. Accounts are only used as context owners in server. (required)
+   * @param ownerId The unique ID of the owner of the context. Specify either this or owner-slug. (optional)
+   * @param ownerSlug A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts. (optional)
+   * @param ownerType The type of the owner. Defaults to \&quot;organization\&quot;. Accounts are only used as context owners in server. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @return ApiResponse&lt;InlineResponse200&gt;
    * @throws ApiException if fails to make API call
@@ -2163,32 +2163,17 @@ public class DefaultApi {
   public ApiResponse<InlineResponse200> listContextsWithHttpInfo(UUID ownerId, String ownerSlug, String ownerType, String pageToken) throws ApiException {
     Object localVarPostBody = new Object();
     
-    // verify the required parameter 'ownerId' is set
-    if (ownerId == null) {
-      throw new ApiException(400, "Missing the required parameter 'ownerId' when calling listContexts");
-    }
-    
-    // verify the required parameter 'ownerSlug' is set
-    if (ownerSlug == null) {
-      throw new ApiException(400, "Missing the required parameter 'ownerSlug' when calling listContexts");
-    }
-    
-    // verify the required parameter 'ownerType' is set
-    if (ownerType == null) {
-      throw new ApiException(400, "Missing the required parameter 'ownerType' when calling listContexts");
-    }
-    
     // create path and map variables
-    String localVarPath = "/context"
-      .replaceAll("\\{" + "owner-id" + "\\}", apiClient.escapeString(ownerId.toString()))
-      .replaceAll("\\{" + "owner-slug" + "\\}", apiClient.escapeString(ownerSlug.toString()))
-      .replaceAll("\\{" + "owner-type" + "\\}", apiClient.escapeString(ownerType.toString()));
+    String localVarPath = "/context";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "owner-id", ownerId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "owner-slug", ownerSlug));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "owner-type", ownerType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
 
     

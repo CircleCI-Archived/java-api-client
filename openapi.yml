@@ -58,20 +58,20 @@ paths:
                 - items
                 - next_page_token
       parameters:
-      - in: path
+      - in: query
         name: owner-id
         description: The unique ID of the owner of the context. Specify either this or owner-slug.
         schema:
           type: string
           format: uuid
         required: false
-      - in: path
+      - in: query
         name: owner-slug
         description: A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts.
         schema:
           type: string
         required: false
-      - in: path
+      - in: query
         name: owner-type
         description: The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
         schema:
@@ -629,7 +629,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-07T13:23:06Z'
+        example: '2020-07-07T17:37:07Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -637,7 +637,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-21T13:23:06Z'
+        example: '2020-07-21T17:37:07Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -902,7 +902,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-07T13:23:06Z'
+        example: '2020-07-07T17:37:07Z'
       - in: path
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -910,7 +910,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-21T13:23:06Z'
+        example: '2020-07-21T17:37:07Z'
   /me:
     get:
       summary: User Information
