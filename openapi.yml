@@ -57,6 +57,15 @@ paths:
                 required:
                 - items
                 - next_page_token
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: query
         name: owner-id
@@ -118,6 +127,15 @@ paths:
                 - name
                 - created_at
                 title: Context
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       requestBody:
         content:
           application/json:
@@ -168,6 +186,15 @@ paths:
                 - message
                 description: message response
                 title: MessageResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: context-id
@@ -208,6 +235,15 @@ paths:
                 - name
                 - created_at
                 title: Context
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: context-id
@@ -261,6 +297,15 @@ paths:
                 required:
                 - items
                 - next_page_token
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: context-id
@@ -302,6 +347,15 @@ paths:
                 - variable
                 - created_at
                 - context_id
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: context-id
@@ -351,6 +405,15 @@ paths:
                 - message
                 description: message response
                 title: MessageResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: env-var-name
@@ -499,6 +562,15 @@ paths:
                 - items
                 - next_page_token
                 description: Paginated workflow summary metrics.
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -592,6 +664,15 @@ paths:
                 - items
                 - next_page_token
                 description: Paginated recent workflow runs.
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -629,7 +710,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-15T10:31:43Z'
+        example: '2020-07-15T12:17:06Z'
       - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -637,7 +718,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-29T10:31:43Z'
+        example: '2020-07-29T12:17:06Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -764,6 +845,15 @@ paths:
                 - items
                 - next_page_token
                 description: Paginated workflow job summary metrics.
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -858,6 +948,15 @@ paths:
                 - items
                 - next_page_token
                 description: Paginated recent job runs.
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -902,7 +1001,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-15T10:31:43Z'
+        example: '2020-07-15T12:17:06Z'
       - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -910,7 +1009,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-07-29T10:31:43Z'
+        example: '2020-07-29T12:17:06Z'
   /me:
     get:
       summary: User Information
@@ -943,6 +1042,15 @@ paths:
                 - login
                 - name
                 title: User
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
   /me/collaborations:
     get:
       summary: Collaborations
@@ -982,6 +1090,15 @@ paths:
                   - name
                   - avatar_url
                   title: Collaboration
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
   /pipeline:
     get:
       summary: Get a list of pipelines
@@ -1155,6 +1272,15 @@ paths:
                 - next_page_token
                 description: List of pipelines
                 title: PipelineListResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: query
         name: org-slug
@@ -1334,6 +1460,15 @@ paths:
                 - trigger
                 description: A pipeline response.
                 title: Pipeline
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: pipeline-id
@@ -1368,6 +1503,15 @@ paths:
                 - compiled
                 description: The configuration strings for the pipeline.
                 title: PipelineConfig
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: pipeline-id
@@ -1476,6 +1620,15 @@ paths:
                 - next_page_token
                 description: A list of workflows and associated pagination token.
                 title: WorkflowListResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: pipeline-id
@@ -1547,6 +1700,15 @@ paths:
                 - vcs_info
                 description: 'NOTE: The definition of Project is subject to change.'
                 title: Project
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -1617,6 +1779,15 @@ paths:
                 - items
                 - next_page_token
                 title: CheckoutKeyListResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -1673,6 +1844,15 @@ paths:
                 - preferred
                 - created-at
                 title: CheckoutKey
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -1722,6 +1902,15 @@ paths:
                 - message
                 description: message response
                 title: MessageResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -1785,6 +1974,15 @@ paths:
                 - preferred
                 - created-at
                 title: CheckoutKey
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -1842,6 +2040,15 @@ paths:
                 - items
                 - next_page_token
                 title: EnvironmentVariableListResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -1878,6 +2085,15 @@ paths:
                 - name
                 - value
                 title: EnvironmentVariablePair
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -1928,6 +2144,15 @@ paths:
                 - message
                 description: message response
                 title: MessageResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -1971,6 +2196,15 @@ paths:
                 - name
                 - value
                 title: EnvironmentVariablePair
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -2176,6 +2410,15 @@ paths:
                 - messages
                 description: Job Details
                 title: Job Details
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: job-number
@@ -2214,6 +2457,15 @@ paths:
                 description: message response
                 title: MessageResponse
           description: ''
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: job-number
@@ -2270,6 +2522,15 @@ paths:
                 - created_at
                 description: A pipeline creation response.
                 title: PipelineCreation
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -2490,6 +2751,15 @@ paths:
                 - next_page_token
                 description: List of pipelines
                 title: PipelineListResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -2686,6 +2956,15 @@ paths:
                 - next_page_token
                 description: List of pipelines
                 title: PipelineListResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -2860,6 +3139,15 @@ paths:
                 - trigger
                 description: A pipeline response.
                 title: Pipeline
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: project-slug
@@ -2920,6 +3208,15 @@ paths:
                 - items
                 - next_page_token
                 title: ArtifactListResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: job-number
@@ -3003,6 +3300,15 @@ paths:
                 - items
                 - next_page_token
                 title: TestsResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: job-number
@@ -3050,6 +3356,15 @@ paths:
                 - login
                 - name
                 title: User
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: id
@@ -3149,6 +3464,15 @@ paths:
                 - started_by
                 description: A workflow
                 title: Workflow
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: id
@@ -3179,6 +3503,15 @@ paths:
                 - message
                 description: message response
                 title: MessageResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: approval_request_id
@@ -3216,6 +3549,15 @@ paths:
                 - message
                 description: message response
                 title: MessageResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: id
@@ -3319,6 +3661,15 @@ paths:
                 - items
                 - next_page_token
                 title: WorkflowJobListResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: id
@@ -3349,6 +3700,15 @@ paths:
                 - message
                 description: message response
                 title: MessageResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
       parameters:
       - in: path
         name: id

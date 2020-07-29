@@ -197,6 +197,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse2004MetricsDurationMetrics](docs/InlineResponse2004MetricsDurationMetrics.md)
  - [InlineResponse2005](docs/InlineResponse2005.md)
  - [InlineResponse2005Items](docs/InlineResponse2005Items.md)
+ - [InlineResponseDefault](docs/InlineResponseDefault.md)
  - [Job](docs/Job.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobDetailsContexts](docs/JobDetailsContexts.md)

@@ -132,6 +132,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The new environment variable |  -  |
+| **0** | Error response. |  -  |
 
 
 ## approvePendingApprovalJobById
@@ -217,6 +218,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | A confirmation message. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## cancelJob
@@ -302,6 +304,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** |  |  -  |
+| **0** | Error response. |  -  |
 
 
 ## cancelWorkflow
@@ -385,6 +388,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | A confirmation message. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## createCheckoutKey
@@ -470,6 +474,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The checkout key. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## createContext
@@ -551,6 +556,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The new context |  -  |
+| **0** | Error response. |  -  |
 
 
 ## createEnvVar
@@ -636,6 +642,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The environment variable. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## deleteCheckoutKey
@@ -721,6 +728,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A confirmation message. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## deleteContext
@@ -802,6 +810,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A confirmation message |  -  |
+| **0** | Error response. |  -  |
 
 
 ## deleteEnvVar
@@ -887,6 +896,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A confirmation message. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## deleteEnvironmentVariableFromContext
@@ -972,6 +982,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A confirmation message |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getCheckoutKey
@@ -1057,6 +1068,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The checkout key. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getCollaborations
@@ -1136,6 +1148,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Collaborations |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getContext
@@ -1219,6 +1232,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The context |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getCurrentUser
@@ -1298,6 +1312,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | User login information. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getEnvVar
@@ -1383,6 +1398,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The environment variable. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getJobArtifacts
@@ -1468,6 +1484,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of the job&#39;s artifacts. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getJobDetails
@@ -1553,6 +1570,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Job details. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getPipelineById
@@ -1636,6 +1654,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A pipeline object. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getPipelineByNumber
@@ -1721,6 +1740,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A pipeline object. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getPipelineConfigById
@@ -1804,6 +1824,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The configuration strings for the pipeline. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getProjectBySlug
@@ -1887,6 +1908,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A project object |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getProjectJobRuns
@@ -1936,8 +1958,8 @@ public class Example {
         String jobName = lint; // String | The name of the job.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
-        OffsetDateTime startDate = 2020-07-15T10:31:43Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-07-29T10:31:43Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-07-15T12:17:06Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-07-29T12:17:06Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         try {
             InlineResponse2005 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken, startDate, endDate);
             System.out.println(result);
@@ -1982,6 +2004,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of recent job runs |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getProjectWorkflowJobMetrics
@@ -2071,6 +2094,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of summary metrics by workflow job. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getProjectWorkflowMetrics
@@ -2158,6 +2182,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of summary metrics by workflow |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getProjectWorkflowRuns
@@ -2206,8 +2231,8 @@ public class Example {
         String workflowName = build-and-test; // String | The name of the workflow.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
-        OffsetDateTime startDate = 2020-07-15T10:31:43Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-07-29T10:31:43Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-07-15T12:17:06Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-07-29T12:17:06Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         try {
             InlineResponse2003 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken, startDate, endDate);
             System.out.println(result);
@@ -2251,6 +2276,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of recent workflow runs |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getTests
@@ -2336,6 +2362,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of test results. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getUser
@@ -2419,6 +2446,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | User login information. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## getWorkflowById
@@ -2502,6 +2530,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A workflow object. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## listCheckoutKeys
@@ -2585,6 +2614,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A sequence of checkout keys. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## listContexts
@@ -2674,6 +2704,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of contexts |  -  |
+| **0** | Error response. |  -  |
 
 
 ## listEnvVars
@@ -2757,6 +2788,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A sequence of environment variables. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## listEnvironmentVariablesFromContext
@@ -2840,6 +2872,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of environment variables |  -  |
+| **0** | Error response. |  -  |
 
 
 ## listMyPipelines
@@ -2925,6 +2958,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A sequence of pipelines. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## listPipelines
@@ -3012,6 +3046,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A sequence of pipelines. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## listPipelinesForProject
@@ -3099,6 +3134,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A sequence of pipelines. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## listWorkflowJobs
@@ -3182,6 +3218,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated sequence of jobs. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## listWorkflowsByPipelineId
@@ -3267,6 +3304,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of workflow objects. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## rerunWorkflow
@@ -3352,6 +3390,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | A confirmation message. |  -  |
+| **0** | Error response. |  -  |
 
 
 ## triggerPipeline
@@ -3441,4 +3480,5 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The created pipeline. |  -  |
+| **0** | Error response. |  -  |
 

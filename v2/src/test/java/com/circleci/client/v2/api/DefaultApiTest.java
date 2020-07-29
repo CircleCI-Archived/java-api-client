@@ -32,6 +32,7 @@ import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.InlineResponse2004;
 import com.circleci.client.v2.model.InlineResponse2005;
+import com.circleci.client.v2.model.InlineResponseDefault;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import java.time.OffsetDateTime;

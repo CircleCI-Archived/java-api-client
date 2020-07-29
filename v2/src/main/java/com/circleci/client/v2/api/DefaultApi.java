@@ -26,6 +26,7 @@ import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.InlineResponse2004;
 import com.circleci.client.v2.model.InlineResponse2005;
+import com.circleci.client.v2.model.InlineResponseDefault;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
 import java.time.OffsetDateTime;
@@ -80,6 +81,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The new environment variable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public InlineResponse2001Items addEnvironmentVariableToContext(UUID contextId, String envVarName, InlineObject1 inlineObject1) throws ApiException {
@@ -98,6 +100,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The new environment variable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse2001Items> addEnvironmentVariableToContextWithHttpInfo(UUID contextId, String envVarName, InlineObject1 inlineObject1) throws ApiException {
@@ -152,6 +155,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public MessageResponse approvePendingApprovalJobById(UUID approvalRequestId, UUID id) throws ApiException {
@@ -169,6 +173,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<MessageResponse> approvePendingApprovalJobByIdWithHttpInfo(UUID approvalRequestId, UUID id) throws ApiException {
@@ -223,6 +228,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public MessageResponse cancelJob(Object jobNumber, String projectSlug) throws ApiException {
@@ -240,6 +246,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<MessageResponse> cancelJobWithHttpInfo(Object jobNumber, String projectSlug) throws ApiException {
@@ -293,6 +300,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public MessageResponse cancelWorkflow(UUID id) throws ApiException {
@@ -309,6 +317,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<MessageResponse> cancelWorkflowWithHttpInfo(UUID id) throws ApiException {
@@ -357,6 +366,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The checkout key. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public CheckoutKey createCheckoutKey(String projectSlug, CheckoutKeyInput checkoutKeyInput) throws ApiException {
@@ -374,6 +384,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The checkout key. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<CheckoutKey> createCheckoutKeyWithHttpInfo(String projectSlug, CheckoutKeyInput checkoutKeyInput) throws ApiException {
@@ -421,6 +432,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The new context </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public Context createContext(InlineObject inlineObject) throws ApiException {
@@ -437,6 +449,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The new context </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Context> createContextWithHttpInfo(InlineObject inlineObject) throws ApiException {
@@ -479,6 +492,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The environment variable. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public EnvironmentVariablePair createEnvVar(String projectSlug, EnvironmentVariablePair1 environmentVariablePair1) throws ApiException {
@@ -496,6 +510,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The environment variable. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<EnvironmentVariablePair> createEnvVarWithHttpInfo(String projectSlug, EnvironmentVariablePair1 environmentVariablePair1) throws ApiException {
@@ -544,6 +559,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public MessageResponse deleteCheckoutKey(String projectSlug, String fingerprint) throws ApiException {
@@ -561,6 +577,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<MessageResponse> deleteCheckoutKeyWithHttpInfo(String projectSlug, String fingerprint) throws ApiException {
@@ -614,6 +631,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A confirmation message </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public MessageResponse deleteContext(UUID contextId) throws ApiException {
@@ -630,6 +648,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A confirmation message </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<MessageResponse> deleteContextWithHttpInfo(UUID contextId) throws ApiException {
@@ -678,6 +697,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public MessageResponse deleteEnvVar(String projectSlug, String name) throws ApiException {
@@ -695,6 +715,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<MessageResponse> deleteEnvVarWithHttpInfo(String projectSlug, String name) throws ApiException {
@@ -749,6 +770,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A confirmation message </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public MessageResponse deleteEnvironmentVariableFromContext(String envVarName, UUID contextId) throws ApiException {
@@ -766,6 +788,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A confirmation message </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<MessageResponse> deleteEnvironmentVariableFromContextWithHttpInfo(String envVarName, UUID contextId) throws ApiException {
@@ -820,6 +843,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The checkout key. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public CheckoutKey getCheckoutKey(String projectSlug, String fingerprint) throws ApiException {
@@ -837,6 +861,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The checkout key. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<CheckoutKey> getCheckoutKeyWithHttpInfo(String projectSlug, String fingerprint) throws ApiException {
@@ -889,6 +914,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Collaborations </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public List<Collaboration> getCollaborations() throws ApiException {
@@ -904,6 +930,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Collaborations </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<Collaboration>> getCollaborationsWithHttpInfo() throws ApiException {
@@ -945,6 +972,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The context </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public Context getContext(UUID contextId) throws ApiException {
@@ -961,6 +989,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The context </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Context> getContextWithHttpInfo(UUID contextId) throws ApiException {
@@ -1007,6 +1036,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> User login information. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public User getCurrentUser() throws ApiException {
@@ -1022,6 +1052,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> User login information. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<User> getCurrentUserWithHttpInfo() throws ApiException {
@@ -1064,6 +1095,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The environment variable. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public EnvironmentVariablePair getEnvVar(String projectSlug, String name) throws ApiException {
@@ -1081,6 +1113,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The environment variable. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<EnvironmentVariablePair> getEnvVarWithHttpInfo(String projectSlug, String name) throws ApiException {
@@ -1135,6 +1168,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of the job&#39;s artifacts. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ArtifactListResponse getJobArtifacts(Object jobNumber, String projectSlug) throws ApiException {
@@ -1152,6 +1186,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of the job&#39;s artifacts. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ArtifactListResponse> getJobArtifactsWithHttpInfo(Object jobNumber, String projectSlug) throws ApiException {
@@ -1206,6 +1241,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Job details. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public JobDetails getJobDetails(Object jobNumber, String projectSlug) throws ApiException {
@@ -1223,6 +1259,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Job details. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<JobDetails> getJobDetailsWithHttpInfo(Object jobNumber, String projectSlug) throws ApiException {
@@ -1276,6 +1313,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A pipeline object. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public Pipeline getPipelineById(UUID pipelineId) throws ApiException {
@@ -1292,6 +1330,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A pipeline object. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Pipeline> getPipelineByIdWithHttpInfo(UUID pipelineId) throws ApiException {
@@ -1340,6 +1379,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A pipeline object. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public Pipeline getPipelineByNumber(String projectSlug, Object pipelineNumber) throws ApiException {
@@ -1357,6 +1397,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A pipeline object. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Pipeline> getPipelineByNumberWithHttpInfo(String projectSlug, Object pipelineNumber) throws ApiException {
@@ -1410,6 +1451,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The configuration strings for the pipeline. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public PipelineConfig getPipelineConfigById(UUID pipelineId) throws ApiException {
@@ -1426,6 +1468,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The configuration strings for the pipeline. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<PipelineConfig> getPipelineConfigByIdWithHttpInfo(UUID pipelineId) throws ApiException {
@@ -1473,6 +1516,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A project object </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public Project getProjectBySlug(String projectSlug) throws ApiException {
@@ -1489,6 +1533,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A project object </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Project> getProjectBySlugWithHttpInfo(String projectSlug) throws ApiException {
@@ -1542,6 +1587,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public InlineResponse2005 getProjectJobRuns(String projectSlug, String workflowName, String jobName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
@@ -1564,6 +1610,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of recent job runs </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse2005> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
@@ -1630,6 +1677,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of summary metrics by workflow job. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public InlineResponse2004 getProjectWorkflowJobMetrics(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
@@ -1649,6 +1697,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of summary metrics by workflow job. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse2004> getProjectWorkflowJobMetricsWithHttpInfo(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
@@ -1706,6 +1755,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of summary metrics by workflow </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public InlineResponse2002 getProjectWorkflowMetrics(String projectSlug, String pageToken, String branch) throws ApiException {
@@ -1724,6 +1774,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of summary metrics by workflow </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse2002> getProjectWorkflowMetricsWithHttpInfo(String projectSlug, String pageToken, String branch) throws ApiException {
@@ -1778,6 +1829,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public InlineResponse2003 getProjectWorkflowRuns(String projectSlug, String workflowName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
@@ -1799,6 +1851,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of recent workflow runs </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse2003> getProjectWorkflowRunsWithHttpInfo(String projectSlug, String workflowName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
@@ -1857,6 +1910,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of test results. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public TestsResponse getTests(Object jobNumber, String projectSlug) throws ApiException {
@@ -1874,6 +1928,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of test results. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<TestsResponse> getTestsWithHttpInfo(Object jobNumber, String projectSlug) throws ApiException {
@@ -1927,6 +1982,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> User login information. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public User getUser(UUID id) throws ApiException {
@@ -1943,6 +1999,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> User login information. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<User> getUserWithHttpInfo(UUID id) throws ApiException {
@@ -1990,6 +2047,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A workflow object. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public Workflow getWorkflowById(UUID id) throws ApiException {
@@ -2006,6 +2064,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A workflow object. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Workflow> getWorkflowByIdWithHttpInfo(UUID id) throws ApiException {
@@ -2053,6 +2112,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of checkout keys. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public CheckoutKeyListResponse listCheckoutKeys(String projectSlug) throws ApiException {
@@ -2069,6 +2129,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of checkout keys. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<CheckoutKeyListResponse> listCheckoutKeysWithHttpInfo(String projectSlug) throws ApiException {
@@ -2119,6 +2180,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of contexts </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public InlineResponse200 listContexts(UUID ownerId, String ownerSlug, String ownerType, String pageToken) throws ApiException {
@@ -2138,6 +2200,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of contexts </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse200> listContextsWithHttpInfo(UUID ownerId, String ownerSlug, String ownerType, String pageToken) throws ApiException {
@@ -2183,6 +2246,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of environment variables. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public EnvironmentVariableListResponse listEnvVars(String projectSlug) throws ApiException {
@@ -2199,6 +2263,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of environment variables. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<EnvironmentVariableListResponse> listEnvVarsWithHttpInfo(String projectSlug) throws ApiException {
@@ -2246,6 +2311,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of environment variables </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public InlineResponse2001 listEnvironmentVariablesFromContext(UUID contextId) throws ApiException {
@@ -2262,6 +2328,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of environment variables </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse2001> listEnvironmentVariablesFromContextWithHttpInfo(UUID contextId) throws ApiException {
@@ -2310,6 +2377,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public PipelineListResponse listMyPipelines(String projectSlug, String pageToken) throws ApiException {
@@ -2327,6 +2395,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<PipelineListResponse> listMyPipelinesWithHttpInfo(String projectSlug, String pageToken) throws ApiException {
@@ -2377,6 +2446,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public PipelineListResponse listPipelines(String orgSlug, String pageToken, Boolean mine) throws ApiException {
@@ -2395,6 +2465,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<PipelineListResponse> listPipelinesWithHttpInfo(String orgSlug, String pageToken, Boolean mine) throws ApiException {
@@ -2441,6 +2512,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public PipelineListResponse listPipelinesForProject(String projectSlug, String branch, String pageToken) throws ApiException {
@@ -2459,6 +2531,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A sequence of pipelines. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<PipelineListResponse> listPipelinesForProjectWithHttpInfo(String projectSlug, String branch, String pageToken) throws ApiException {
@@ -2508,6 +2581,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated sequence of jobs. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public WorkflowJobListResponse listWorkflowJobs(UUID id) throws ApiException {
@@ -2524,6 +2598,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated sequence of jobs. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<WorkflowJobListResponse> listWorkflowJobsWithHttpInfo(UUID id) throws ApiException {
@@ -2572,6 +2647,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of workflow objects. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public WorkflowListResponse listWorkflowsByPipelineId(UUID pipelineId, String pageToken) throws ApiException {
@@ -2589,6 +2665,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A paginated list of workflow objects. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<WorkflowListResponse> listWorkflowsByPipelineIdWithHttpInfo(UUID pipelineId, String pageToken) throws ApiException {
@@ -2638,6 +2715,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public MessageResponse rerunWorkflow(UUID id, RerunWorkflowParameters rerunWorkflowParameters) throws ApiException {
@@ -2655,6 +2733,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<MessageResponse> rerunWorkflowWithHttpInfo(UUID id, RerunWorkflowParameters rerunWorkflowParameters) throws ApiException {
@@ -2705,6 +2784,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The created pipeline. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public PipelineCreation triggerPipeline(String projectSlug, String xAttributionLogin, String xAttributionActorId, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
@@ -2724,6 +2804,7 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The created pipeline. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<PipelineCreation> triggerPipelineWithHttpInfo(String projectSlug, String xAttributionLogin, String xAttributionActorId, TriggerPipelineParameters triggerPipelineParameters) throws ApiException {
