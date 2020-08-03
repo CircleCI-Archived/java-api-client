@@ -1958,8 +1958,8 @@ public class Example {
         String jobName = lint; // String | The name of the job.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
-        OffsetDateTime startDate = 2020-07-20T09:04:38Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-08-03T09:04:38Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-07-20T11:37:21Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-08-03T11:37:21Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         try {
             InlineResponse2005 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken, startDate, endDate);
             System.out.println(result);
@@ -2231,8 +2231,8 @@ public class Example {
         String workflowName = build-and-test; // String | The name of the workflow.
         String branch = "branch_example"; // String | The name of a vcs branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
-        OffsetDateTime startDate = 2020-07-20T09:04:38Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
-        OffsetDateTime endDate = 2020-08-03T09:04:38Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
+        OffsetDateTime startDate = 2020-07-20T11:37:21Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
+        OffsetDateTime endDate = 2020-08-03T11:37:21Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         try {
             InlineResponse2003 result = apiInstance.getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken, startDate, endDate);
             System.out.println(result);
