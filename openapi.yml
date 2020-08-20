@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: v2
   title: CircleCI API
-  description: This describes the resources that make up the CircleCI API v2. API v2 is currently in Preview. Additional documentation for this API can be found in the [API Preview Docs](https://github.com/CircleCI-Public/api-preview-docs/tree/master/docs). Breaking changes to the API will be announced in the [Breaking Changes log](https://github.com/CircleCI-Public/api-preview-docs/blob/master/docs/breaking.md). API V1 [remains accessible here](https://circleci.com/docs/api/v1/)
+  description: This describes the resources that make up the CircleCI API v2.
   license:
     name: MIT
 servers:
@@ -710,7 +710,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-06T11:51:24Z'
+        example: '2020-08-06T16:41:28Z'
       - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -718,7 +718,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-20T11:51:24Z'
+        example: '2020-08-20T16:41:28Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -1001,7 +1001,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-06T11:51:24Z'
+        example: '2020-08-06T16:41:28Z'
       - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -1009,7 +1009,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-20T11:51:24Z'
+        example: '2020-08-20T16:41:28Z'
   /me:
     get:
       summary: User Information
