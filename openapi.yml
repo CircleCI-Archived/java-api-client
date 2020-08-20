@@ -710,7 +710,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-06T16:41:28Z'
+        example: '2020-08-06T19:15:51Z'
       - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -718,7 +718,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-20T16:41:28Z'
+        example: '2020-08-20T19:15:51Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
@@ -1001,7 +1001,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-06T16:41:28Z'
+        example: '2020-08-06T19:15:51Z'
       - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -1009,7 +1009,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-20T16:41:28Z'
+        example: '2020-08-20T19:15:51Z'
   /me:
     get:
       summary: User Information
