@@ -18,7 +18,6 @@ paths:
       description: List all contexts for an owner.
       tags:
       - Context
-      - Preview
       operationId: listContexts
       responses:
         200:
@@ -100,7 +99,6 @@ paths:
       summary: Create a new context
       tags:
       - Context
-      - Preview
       operationId: createContext
       responses:
         200:
@@ -169,7 +167,6 @@ paths:
       summary: Delete a context
       tags:
       - Context
-      - Preview
       operationId: deleteContext
       responses:
         200:
@@ -208,7 +205,6 @@ paths:
       description: Returns basic information about a context.
       tags:
       - Context
-      - Preview
       operationId: getContext
       responses:
         200:
@@ -258,7 +254,6 @@ paths:
       description: List information about environment variables in a context, not including their values.
       tags:
       - Context
-      - Preview
       operationId: listEnvironmentVariablesFromContext
       responses:
         200:
@@ -320,7 +315,6 @@ paths:
       description: Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
       tags:
       - Context
-      - Preview
       operationId: addEnvironmentVariableToContext
       responses:
         200:
@@ -388,7 +382,6 @@ paths:
       description: Delete an environment variable from a context.
       tags:
       - Context
-      - Preview
       operationId: deleteEnvironmentVariableFromContext
       responses:
         200:
@@ -435,7 +428,6 @@ paths:
       description: Get summary metrics for a project's workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
       tags:
       - Insights
-      - Preview
       operationId: getProjectWorkflowMetrics
       responses:
         200:
@@ -600,7 +592,6 @@ paths:
       description: Get recent runs of a workflow. Runs going back at most 90 days are returned.
       tags:
       - Insights
-      - Preview
       operationId: getProjectWorkflowRuns
       responses:
         200:
@@ -710,7 +701,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-11T15:49:54Z'
+        example: '2020-08-11T18:20:59Z'
       - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -718,14 +709,13 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-25T15:49:54Z'
+        example: '2020-08-25T18:20:59Z'
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
       description: Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
       tags:
       - Insights
-      - Preview
       operationId: getProjectWorkflowJobMetrics
       responses:
         200:
@@ -890,7 +880,6 @@ paths:
       description: Get recent runs of a job within a workflow. Runs going back at most 90 days are returned.
       tags:
       - Insights
-      - Preview
       operationId: getProjectJobRuns
       responses:
         200:
@@ -1001,7 +990,7 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-11T15:49:54Z'
+        example: '2020-08-11T18:20:59Z'
       - in: query
         name: end-date
         description: Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -1009,14 +998,13 @@ paths:
           type: string
           format: date-time
         required: false
-        example: '2020-08-25T15:49:54Z'
+        example: '2020-08-25T18:20:59Z'
   /me:
     get:
       summary: User Information
       description: Provides information about the user that is currently signed in.
       tags:
       - User
-      - Preview
       operationId: getCurrentUser
       responses:
         200:
@@ -1064,7 +1052,6 @@ paths:
         * The organization of the current user's account
       tags:
       - User
-      - Preview
       operationId: getCollaborations
       responses:
         200:
@@ -1105,7 +1092,6 @@ paths:
       description: Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
       tags:
       - Pipeline
-      - Preview
       operationId: listPipelines
       responses:
         200:
@@ -1650,7 +1636,6 @@ paths:
       description: Retrieves a project by project slug.
       tags:
       - Project
-      - Preview
       operationId: getProjectBySlug
       responses:
         200:
@@ -1724,7 +1709,6 @@ paths:
       description: Returns a sequence of checkout keys for `:project`.
       tags:
       - Project
-      - Preview
       operationId: listCheckoutKeys
       responses:
         200:
@@ -1802,7 +1786,6 @@ paths:
       description: Creates a new checkout key. This API request is only usable with a user API token.
       tags:
       - Project
-      - Preview
       operationId: createCheckoutKey
       responses:
         201:
@@ -1885,7 +1868,6 @@ paths:
       description: Deletes the checkout key.
       tags:
       - Project
-      - Preview
       operationId: deleteCheckoutKey
       responses:
         200:
@@ -1932,7 +1914,6 @@ paths:
       description: Returns an individual checkout key.
       tags:
       - Project
-      - Preview
       operationId: getCheckoutKey
       responses:
         200:
@@ -2005,7 +1986,6 @@ paths:
       description: Returns four 'x' characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
       tags:
       - Project
-      - Preview
       operationId: listEnvVars
       responses:
         200:
@@ -2063,7 +2043,6 @@ paths:
       description: Creates a new environment variable.
       tags:
       - Project
-      - Preview
       operationId: createEnvVar
       responses:
         201:
@@ -2127,7 +2106,6 @@ paths:
       description: Deletes the environment variable named :name.
       tags:
       - Project
-      - Preview
       operationId: deleteEnvVar
       responses:
         200:
@@ -2174,7 +2152,6 @@ paths:
       description: Returns the masked value of environment variable :name.
       tags:
       - Project
-      - Preview
       operationId: getEnvVar
       responses:
         200:
@@ -2227,7 +2204,6 @@ paths:
       description: Returns job details.
       tags:
       - Job
-      - Preview
       operationId: getJobDetails
       responses:
         200:
@@ -2440,7 +2416,6 @@ paths:
       description: Cancel job with a given job number.
       tags:
       - Job
-      - Preview
       operationId: cancelJob
       responses:
         202:
@@ -3168,7 +3143,6 @@ paths:
       description: Returns a job's artifacts.
       tags:
       - Job
-      - Preview
       operationId: getJobArtifacts
       responses:
         200:
@@ -3238,7 +3212,6 @@ paths:
       description: Get test metadata for a build.
       tags:
       - Job
-      - Preview
       operationId: getTests
       responses:
         200:
@@ -3330,7 +3303,6 @@ paths:
       description: Provides information about the user with the given ID.
       tags:
       - User
-      - Preview
       operationId: getUser
       responses:
         200:
@@ -3754,3 +3726,13 @@ components:
       description: HTTP basic authentication. The username should be set as the circle-token value, and the password should be left blank. Note that project tokens are currently not supported on API v2.
       type: http
       scheme: basic
+tags:
+- name: Context
+  x-displayName: Context (Preview)
+- name: Insights
+- name: User
+  x-displayName: User (Preview)
+- name: Pipeline
+- name: Job
+  x-displayName: Job (Preview)
+- name: Workflow
