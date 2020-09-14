@@ -13,7 +13,7 @@
 
 package com.circleci.client.v2.model;
 
-import com.circleci.client.v2.model.ContextOwner;
+import com.circleci.client.v2.model.OneOfobjectobject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

@@ -15,7 +15,7 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.circleci.client.v2.model.ContextOwner;
+import com.circleci.client.v2.model.OneOfobjectobject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -33,7 +33,7 @@ public class InlineObject {
 
   public static final String JSON_PROPERTY_OWNER = "owner";
   @JsonProperty(JSON_PROPERTY_OWNER)
-  private ContextOwner owner = null;
+  private OneOfobjectobject owner = null;
 
   public InlineObject name(String name) {
     this.name = name;
@@ -53,7 +53,7 @@ public class InlineObject {
     this.name = name;
   }
 
-  public InlineObject owner(ContextOwner owner) {
+  public InlineObject owner(OneOfobjectobject owner) {
     this.owner = owner;
     return this;
   }
@@ -63,11 +63,11 @@ public class InlineObject {
    * @return owner
   **/
   @ApiModelProperty(required = true, value = "")
-  public ContextOwner getOwner() {
+  public OneOfobjectobject getOwner() {
     return owner;
   }
 
-  public void setOwner(ContextOwner owner) {
+  public void setOwner(OneOfobjectobject owner) {
     this.owner = owner;
   }
 

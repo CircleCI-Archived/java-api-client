@@ -144,21 +144,34 @@ paths:
                   type: string
                   description: The user defined name of the context.
                 owner:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                      format: uuid
-                      description: The unique ID of the owner of the context. Specify either this or slug.
-                    slug:
-                      type: string
-                      description: A string that represents an organization. Specify either this or id. Cannot be used for accounts.
-                    type:
-                      enum:
-                      - account
-                      - organization
-                      type: string
-                      description: The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
+                  oneOf:
+                  - type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                        description: The unique ID of the owner of the context. Specify either this or slug.
+                      type:
+                        enum:
+                        - account
+                        - organization
+                        type: string
+                        description: The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
+                        example: organization
+                    required:
+                    - id
+                  - type: object
+                    properties:
+                      slug:
+                        type: string
+                        description: A string that represents an organization. Specify either this or id. Cannot be used for accounts.
+                      type:
+                        enum:
+                        - organization
+                        type: string
+                        description: The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
+                    required:
+                    - slug
               required:
               - name
               - owner

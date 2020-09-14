@@ -176,7 +176,6 @@ Class | Method | HTTP request | Description
  - [CheckoutKeyListResponse](docs/CheckoutKeyListResponse.md)
  - [Collaboration](docs/Collaboration.md)
  - [Context](docs/Context.md)
- - [ContextOwner](docs/ContextOwner.md)
  - [EnvironmentVariableListResponse](docs/EnvironmentVariableListResponse.md)
  - [EnvironmentVariablePair](docs/EnvironmentVariablePair.md)
  - [EnvironmentVariablePair1](docs/EnvironmentVariablePair1.md)
