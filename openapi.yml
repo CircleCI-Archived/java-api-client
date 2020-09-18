@@ -1225,7 +1225,7 @@ paths:
                               example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             branch:
                               type: string
-                              description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                              description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                               example: feature/design-new-api
                             tag:
                               type: string
@@ -1422,7 +1422,7 @@ paths:
                         example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                       branch:
                         type: string
-                        description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                        description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                         example: feature/design-new-api
                       tag:
                         type: string
@@ -2548,7 +2548,7 @@ paths:
               properties:
                 branch:
                   type: string
-                  description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                  description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                   example: feature/design-new-api
                 tag:
                   type: string
@@ -2693,7 +2693,7 @@ paths:
                               example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             branch:
                               type: string
-                              description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                              description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                               example: feature/design-new-api
                             tag:
                               type: string
@@ -2898,7 +2898,7 @@ paths:
                               example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             branch:
                               type: string
-                              description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                              description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                               example: feature/design-new-api
                             tag:
                               type: string
@@ -3090,7 +3090,7 @@ paths:
                         example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                       branch:
                         type: string
-                        description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+                        description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                         example: feature/design-new-api
                       tag:
                         type: string
