@@ -3726,11 +3726,6 @@ paths:
               title: RerunWorkflowParameters
 components:
   securitySchemes:
-    api_key_query:
-      type: apiKey
-      name: circle-token
-      in: query
-      description: DEPRECATED - we will remove this option in the future
     api_key_header:
       type: apiKey
       name: Circle-Token
@@ -3739,6 +3734,11 @@ components:
       description: HTTP basic authentication. The username should be set as the circle-token value, and the password should be left blank. Note that project tokens are currently not supported on API v2.
       type: http
       scheme: basic
+    api_key_query:
+      type: apiKey
+      name: circle-token
+      in: query
+      description: DEPRECATED - we will remove this option in the future
 tags:
 - name: Context
   x-displayName: Context (Preview)
