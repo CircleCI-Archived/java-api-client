@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **startedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the job started. | 
 **stoppedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The time when the job stopped. | 
 **status** | [**StatusEnum**](#StatusEnum) | Job status. | 
-**creditsUsed** | **Long** | The number of credits used during execution | 
+**creditsUsed** | **Long** | The number of credits used during execution. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting. | 
 
 
 

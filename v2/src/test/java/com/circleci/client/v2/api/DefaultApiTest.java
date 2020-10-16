@@ -433,7 +433,7 @@ public class DefaultApiTest {
     /**
      * Get recent runs of a workflow job
      *
-     * Get recent runs of a job within a workflow. Runs going back at most 90 days are returned.
+     * Get recent runs of a job within a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -455,7 +455,7 @@ public class DefaultApiTest {
     /**
      * Get summary metrics for a project workflow&#39;s jobs.
      *
-     * Get summary metrics for a project workflow&#39;s jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
+     * Get summary metrics for a project workflow&#39;s jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -474,7 +474,7 @@ public class DefaultApiTest {
     /**
      * Get summary metrics for a project&#39;s workflows
      *
-     * Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
+     * Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -492,7 +492,7 @@ public class DefaultApiTest {
     /**
      * Get recent runs of a workflow
      *
-     * Get recent runs of a workflow. Runs going back at most 90 days are returned.
+     * Get recent runs of a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
      *
      * @throws ApiException
      *          if the Api call fails

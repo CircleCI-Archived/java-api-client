@@ -438,7 +438,7 @@ paths:
   /insights/{project-slug}/workflows:
     get:
       summary: Get summary metrics for a project's workflows
-      description: Get summary metrics for a project's workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
+      description: Get summary metrics for a project's workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
       tags:
       - Insights
       operationId: getProjectWorkflowMetrics
@@ -502,7 +502,7 @@ paths:
                               type: integer
                               format: int64
                               minimum: 0
-                              description: The total credits consumed by the workflow in the aggregation window.
+                              description: The total credits consumed by the workflow in the aggregation window. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting.
                             duration_metrics:
                               type: object
                               properties:
@@ -602,7 +602,7 @@ paths:
   /insights/{project-slug}/workflows/{workflow-name}:
     get:
       summary: Get recent runs of a workflow
-      description: Get recent runs of a workflow. Runs going back at most 90 days are returned.
+      description: Get recent runs of a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
       tags:
       - Insights
       operationId: getProjectWorkflowRuns
@@ -641,7 +641,7 @@ paths:
                           type: integer
                           format: int64
                           minimum: 0
-                          description: The number of credits used during execution
+                          description: The number of credits used during execution. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting.
                         status:
                           enum:
                           - success
@@ -726,7 +726,7 @@ paths:
   /insights/{project-slug}/workflows/{workflow-name}/jobs:
     get:
       summary: Get summary metrics for a project workflow's jobs.
-      description: Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.
+      description: Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
       tags:
       - Insights
       operationId: getProjectWorkflowJobMetrics
@@ -784,7 +784,7 @@ paths:
                               type: integer
                               format: int64
                               minimum: 0
-                              description: The total credits consumed by the job in the aggregation window.
+                              description: The total credits consumed by the job in the aggregation window. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting.
                             duration_metrics:
                               type: object
                               properties:
@@ -890,7 +890,7 @@ paths:
   /insights/{project-slug}/workflows/{workflow-name}/jobs/{job-name}:
     get:
       summary: Get recent runs of a workflow job
-      description: Get recent runs of a job within a workflow. Runs going back at most 90 days are returned.
+      description: Get recent runs of a job within a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
       tags:
       - Insights
       operationId: getProjectJobRuns
@@ -934,7 +934,7 @@ paths:
                           type: integer
                           format: int64
                           minimum: 0
-                          description: The number of credits used during execution
+                          description: The number of credits used during execution. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting.
                       required:
                       - id
                       - started_at

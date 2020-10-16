@@ -172,11 +172,11 @@ public class InlineResponse2003Items {
   }
 
    /**
-   * The number of credits used during execution
+   * The number of credits used during execution. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting.
    * minimum: 0
    * @return creditsUsed
   **/
-  @ApiModelProperty(required = true, value = "The number of credits used during execution")
+  @ApiModelProperty(required = true, value = "The number of credits used during execution. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting.")
   public Long getCreditsUsed() {
     return creditsUsed;
   }

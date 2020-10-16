@@ -178,11 +178,11 @@ public class InlineResponse2002Metrics {
   }
 
    /**
-   * The total credits consumed by the workflow in the aggregation window.
+   * The total credits consumed by the workflow in the aggregation window. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting.
    * minimum: 0
    * @return totalCreditsUsed
   **/
-  @ApiModelProperty(required = true, value = "The total credits consumed by the workflow in the aggregation window.")
+  @ApiModelProperty(required = true, value = "The total credits consumed by the workflow in the aggregation window. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting.")
   public Long getTotalCreditsUsed() {
     return totalCreditsUsed;
   }
