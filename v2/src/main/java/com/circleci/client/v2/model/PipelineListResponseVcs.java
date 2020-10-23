@@ -56,6 +56,10 @@ public class PipelineListResponseVcs {
   @JsonProperty(JSON_PROPERTY_COMMIT)
   private PipelineListResponseVcsCommit commit = null;
 
+  public static final String JSON_PROPERTY_REVIEW_ID = "review_id";
+  @JsonProperty(JSON_PROPERTY_REVIEW_ID)
+  private String reviewId;
+
   public PipelineListResponseVcs providerName(String providerName) {
     this.providerName = providerName;
     return this;
@@ -185,6 +189,25 @@ public class PipelineListResponseVcs {
     this.commit = commit;
   }
 
+  public PipelineListResponseVcs reviewId(String reviewId) {
+    this.reviewId = reviewId;
+    return this;
+  }
+
+   /**
+   * The code review id.
+   * @return reviewId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "123", value = "The code review id.")
+  public String getReviewId() {
+    return reviewId;
+  }
+
+  public void setReviewId(String reviewId) {
+    this.reviewId = reviewId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -201,12 +224,13 @@ public class PipelineListResponseVcs {
         Objects.equals(this.revision, pipelineListResponseVcs.revision) &&
         Objects.equals(this.branch, pipelineListResponseVcs.branch) &&
         Objects.equals(this.tag, pipelineListResponseVcs.tag) &&
-        Objects.equals(this.commit, pipelineListResponseVcs.commit);
+        Objects.equals(this.commit, pipelineListResponseVcs.commit) &&
+        Objects.equals(this.reviewId, pipelineListResponseVcs.reviewId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerName, originRepositoryUrl, targetRepositoryUrl, revision, branch, tag, commit);
+    return Objects.hash(providerName, originRepositoryUrl, targetRepositoryUrl, revision, branch, tag, commit, reviewId);
   }
 
 
@@ -221,6 +245,7 @@ public class PipelineListResponseVcs {
     sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    commit: ").append(toIndentedString(commit)).append("\n");
+    sb.append("    reviewId: ").append(toIndentedString(reviewId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1246,6 +1246,10 @@ paths:
                               - subject
                               - body
                               description: The latest commit in the pipeline.
+                            review_id:
+                              type: string
+                              description: The code review id.
+                              example: '123'
                           required:
                           - provider_name
                           - origin_repository_url
@@ -1443,6 +1447,10 @@ paths:
                         - subject
                         - body
                         description: The latest commit in the pipeline.
+                      review_id:
+                        type: string
+                        description: The code review id.
+                        example: '123'
                     required:
                     - provider_name
                     - origin_repository_url
@@ -2714,6 +2722,10 @@ paths:
                               - subject
                               - body
                               description: The latest commit in the pipeline.
+                            review_id:
+                              type: string
+                              description: The code review id.
+                              example: '123'
                           required:
                           - provider_name
                           - origin_repository_url
@@ -2919,6 +2931,10 @@ paths:
                               - subject
                               - body
                               description: The latest commit in the pipeline.
+                            review_id:
+                              type: string
+                              description: The code review id.
+                              example: '123'
                           required:
                           - provider_name
                           - origin_repository_url
@@ -3111,6 +3127,10 @@ paths:
                         - subject
                         - body
                         description: The latest commit in the pipeline.
+                      review_id:
+                        type: string
+                        description: The code review id.
+                        example: '123'
                     required:
                     - provider_name
                     - origin_repository_url

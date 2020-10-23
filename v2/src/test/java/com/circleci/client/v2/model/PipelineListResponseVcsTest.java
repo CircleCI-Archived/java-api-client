@@ -94,4 +94,12 @@ public class PipelineListResponseVcsTest {
         // TODO: test commit
     }
 
+    /**
+     * Test the property 'reviewId'
+     */
+    @Test
+    public void reviewIdTest() {
+        // TODO: test reviewId
+    }
+
 }
