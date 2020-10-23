@@ -599,6 +599,13 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
+      - in: path
+        name: reporting-window
+        description: The time window used to calculate summary metrics.
+        schema:
+          type: string
+        required: false
+        example: last-90-days
   /insights/{project-slug}/workflows/{workflow-name}:
     get:
       summary: Get recent runs of a workflow

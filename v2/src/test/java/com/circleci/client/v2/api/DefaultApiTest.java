@@ -482,9 +482,10 @@ public class DefaultApiTest {
     @Test
     public void getProjectWorkflowMetricsTest() throws ApiException {
         String projectSlug = null;
+        String reportingWindow = null;
         String pageToken = null;
         String branch = null;
-        InlineResponse2002 response = api.getProjectWorkflowMetrics(projectSlug, pageToken, branch);
+        InlineResponse2002 response = api.getProjectWorkflowMetrics(projectSlug, reportingWindow, pageToken, branch);
 
         // TODO: test validations
     }
