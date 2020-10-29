@@ -599,11 +599,14 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
-      - in: path
+      - in: query
         name: reporting-window
         description: The time window used to calculate summary metrics.
         schema:
           type: string
+          enum:
+          - last-90-days
+          - last-24-hours
         required: false
         example: last-90-days
   /insights/{project-slug}/workflows/{workflow-name}:
@@ -894,6 +897,16 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
+      - in: query
+        name: reporting-window
+        description: The time window used to calculate summary metrics.
+        schema:
+          type: string
+          enum:
+          - last-90-days
+          - last-24-hours
+        required: false
+        example: last-90-days
   /insights/{project-slug}/workflows/{workflow-name}/jobs/{job-name}:
     get:
       summary: Get recent runs of a workflow job

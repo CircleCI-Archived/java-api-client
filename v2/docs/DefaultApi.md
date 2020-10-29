@@ -2009,7 +2009,7 @@ Name | Type | Description  | Notes
 
 ## getProjectWorkflowJobMetrics
 
-> InlineResponse2004 getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch)
+> InlineResponse2004 getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch, reportingWindow)
 
 Get summary metrics for a project workflow&#39;s jobs.
 
@@ -2053,8 +2053,9 @@ public class Example {
         String workflowName = build-and-test; // String | The name of the workflow.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         String branch = "branch_example"; // String | The name of a vcs branch.
+        String reportingWindow = last-90-days; // String | The time window used to calculate summary metrics.
         try {
-            InlineResponse2004 result = apiInstance.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch);
+            InlineResponse2004 result = apiInstance.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch, reportingWindow);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectWorkflowJobMetrics");
@@ -2076,6 +2077,7 @@ Name | Type | Description  | Notes
  **workflowName** | **String**| The name of the workflow. |
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
  **branch** | **String**| The name of a vcs branch. | [optional]
+ **reportingWindow** | **String**| The time window used to calculate summary metrics. | [optional] [enum: last-90-days, last-24-hours]
 
 ### Return type
 
@@ -2099,7 +2101,7 @@ Name | Type | Description  | Notes
 
 ## getProjectWorkflowMetrics
 
-> InlineResponse2002 getProjectWorkflowMetrics(projectSlug, reportingWindow, pageToken, branch)
+> InlineResponse2002 getProjectWorkflowMetrics(projectSlug, pageToken, branch, reportingWindow)
 
 Get summary metrics for a project&#39;s workflows
 
@@ -2140,11 +2142,11 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-        String reportingWindow = last-90-days; // String | The time window used to calculate summary metrics.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         String branch = "branch_example"; // String | The name of a vcs branch.
+        String reportingWindow = last-90-days; // String | The time window used to calculate summary metrics.
         try {
-            InlineResponse2002 result = apiInstance.getProjectWorkflowMetrics(projectSlug, reportingWindow, pageToken, branch);
+            InlineResponse2002 result = apiInstance.getProjectWorkflowMetrics(projectSlug, pageToken, branch, reportingWindow);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectWorkflowMetrics");
@@ -2163,9 +2165,9 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
- **reportingWindow** | **String**| The time window used to calculate summary metrics. |
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
  **branch** | **String**| The name of a vcs branch. | [optional]
+ **reportingWindow** | **String**| The time window used to calculate summary metrics. | [optional] [enum: last-90-days, last-24-hours]
 
 ### Return type
 

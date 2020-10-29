@@ -1671,6 +1671,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
+   * @param reportingWindow The time window used to calculate summary metrics. (optional)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1680,8 +1681,8 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2004 getProjectWorkflowJobMetrics(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
-    return getProjectWorkflowJobMetricsWithHttpInfo(projectSlug, workflowName, pageToken, branch).getData();
+  public InlineResponse2004 getProjectWorkflowJobMetrics(String projectSlug, String workflowName, String pageToken, String branch, String reportingWindow) throws ApiException {
+    return getProjectWorkflowJobMetricsWithHttpInfo(projectSlug, workflowName, pageToken, branch, reportingWindow).getData();
       }
 
   /**
@@ -1691,6 +1692,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
+   * @param reportingWindow The time window used to calculate summary metrics. (optional)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1700,7 +1702,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> getProjectWorkflowJobMetricsWithHttpInfo(String projectSlug, String workflowName, String pageToken, String branch) throws ApiException {
+  public ApiResponse<InlineResponse2004> getProjectWorkflowJobMetricsWithHttpInfo(String projectSlug, String workflowName, String pageToken, String branch, String reportingWindow) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1725,6 +1727,7 @@ public class DefaultApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reporting-window", reportingWindow));
 
     
     
@@ -1747,9 +1750,9 @@ public class DefaultApi {
    * Get summary metrics for a project&#39;s workflows
    * Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
-   * @param reportingWindow The time window used to calculate summary metrics. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
+   * @param reportingWindow The time window used to calculate summary metrics. (optional)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1759,17 +1762,17 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2002 getProjectWorkflowMetrics(String projectSlug, String reportingWindow, String pageToken, String branch) throws ApiException {
-    return getProjectWorkflowMetricsWithHttpInfo(projectSlug, reportingWindow, pageToken, branch).getData();
+  public InlineResponse2002 getProjectWorkflowMetrics(String projectSlug, String pageToken, String branch, String reportingWindow) throws ApiException {
+    return getProjectWorkflowMetricsWithHttpInfo(projectSlug, pageToken, branch, reportingWindow).getData();
       }
 
   /**
    * Get summary metrics for a project&#39;s workflows
    * Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
-   * @param reportingWindow The time window used to calculate summary metrics. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
+   * @param reportingWindow The time window used to calculate summary metrics. (optional)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1779,7 +1782,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2002> getProjectWorkflowMetricsWithHttpInfo(String projectSlug, String reportingWindow, String pageToken, String branch) throws ApiException {
+  public ApiResponse<InlineResponse2002> getProjectWorkflowMetricsWithHttpInfo(String projectSlug, String pageToken, String branch, String reportingWindow) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1787,15 +1790,9 @@ public class DefaultApi {
       throw new ApiException(400, "Missing the required parameter 'projectSlug' when calling getProjectWorkflowMetrics");
     }
     
-    // verify the required parameter 'reportingWindow' is set
-    if (reportingWindow == null) {
-      throw new ApiException(400, "Missing the required parameter 'reportingWindow' when calling getProjectWorkflowMetrics");
-    }
-    
     // create path and map variables
     String localVarPath = "/insights/{project-slug}/workflows"
-      .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
-      .replaceAll("\\{" + "reporting-window" + "\\}", apiClient.escapeString(reportingWindow.toString()));
+      .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1804,6 +1801,7 @@ public class DefaultApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reporting-window", reportingWindow));
 
     
     
