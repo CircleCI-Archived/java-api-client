@@ -1231,22 +1231,26 @@ paths:
                               type: string
                               description: Name of the VCS provider (e.g. GitHub, Bitbucket).
                               example: GitHub
-                            origin_repository_url:
-                              type: string
-                              description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
-                              example: https://github.com/CircleCI-Public/api-preview-docs
                             target_repository_url:
                               type: string
                               description: URL for the repository the trigger targets (i.e. the repository where the PR will be merged). For fork-PR pipelines, this is the URL to the parent repo. For other pipelines, the `origin_` and `target_repository_url`s will be the same.
                               example: https://github.com/CircleCI-Public/api-preview-docs
-                            revision:
-                              type: string
-                              description: The code revision the pipeline ran.
-                              example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             branch:
                               type: string
                               description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                               example: feature/design-new-api
+                            review_id:
+                              type: string
+                              description: The code review id.
+                              example: '123'
+                            review_url:
+                              type: string
+                              description: The code review URL.
+                              example: https://github.com/CircleCI-Public/api-preview-docs/pull/123
+                            revision:
+                              type: string
+                              description: The code revision the pipeline ran.
+                              example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             tag:
                               type: string
                               description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
@@ -1266,10 +1270,10 @@ paths:
                               - subject
                               - body
                               description: The latest commit in the pipeline.
-                            review_id:
+                            origin_repository_url:
                               type: string
-                              description: The code review id.
-                              example: '123'
+                              description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
+                              example: https://github.com/CircleCI-Public/api-preview-docs
                           required:
                           - provider_name
                           - origin_repository_url
@@ -1432,22 +1436,26 @@ paths:
                         type: string
                         description: Name of the VCS provider (e.g. GitHub, Bitbucket).
                         example: GitHub
-                      origin_repository_url:
-                        type: string
-                        description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
-                        example: https://github.com/CircleCI-Public/api-preview-docs
                       target_repository_url:
                         type: string
                         description: URL for the repository the trigger targets (i.e. the repository where the PR will be merged). For fork-PR pipelines, this is the URL to the parent repo. For other pipelines, the `origin_` and `target_repository_url`s will be the same.
                         example: https://github.com/CircleCI-Public/api-preview-docs
-                      revision:
-                        type: string
-                        description: The code revision the pipeline ran.
-                        example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                       branch:
                         type: string
                         description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                         example: feature/design-new-api
+                      review_id:
+                        type: string
+                        description: The code review id.
+                        example: '123'
+                      review_url:
+                        type: string
+                        description: The code review URL.
+                        example: https://github.com/CircleCI-Public/api-preview-docs/pull/123
+                      revision:
+                        type: string
+                        description: The code revision the pipeline ran.
+                        example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                       tag:
                         type: string
                         description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
@@ -1467,10 +1475,10 @@ paths:
                         - subject
                         - body
                         description: The latest commit in the pipeline.
-                      review_id:
+                      origin_repository_url:
                         type: string
-                        description: The code review id.
-                        example: '123'
+                        description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
+                        example: https://github.com/CircleCI-Public/api-preview-docs
                     required:
                     - provider_name
                     - origin_repository_url
@@ -2707,22 +2715,26 @@ paths:
                               type: string
                               description: Name of the VCS provider (e.g. GitHub, Bitbucket).
                               example: GitHub
-                            origin_repository_url:
-                              type: string
-                              description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
-                              example: https://github.com/CircleCI-Public/api-preview-docs
                             target_repository_url:
                               type: string
                               description: URL for the repository the trigger targets (i.e. the repository where the PR will be merged). For fork-PR pipelines, this is the URL to the parent repo. For other pipelines, the `origin_` and `target_repository_url`s will be the same.
                               example: https://github.com/CircleCI-Public/api-preview-docs
-                            revision:
-                              type: string
-                              description: The code revision the pipeline ran.
-                              example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             branch:
                               type: string
                               description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                               example: feature/design-new-api
+                            review_id:
+                              type: string
+                              description: The code review id.
+                              example: '123'
+                            review_url:
+                              type: string
+                              description: The code review URL.
+                              example: https://github.com/CircleCI-Public/api-preview-docs/pull/123
+                            revision:
+                              type: string
+                              description: The code revision the pipeline ran.
+                              example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             tag:
                               type: string
                               description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
@@ -2742,10 +2754,10 @@ paths:
                               - subject
                               - body
                               description: The latest commit in the pipeline.
-                            review_id:
+                            origin_repository_url:
                               type: string
-                              description: The code review id.
-                              example: '123'
+                              description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
+                              example: https://github.com/CircleCI-Public/api-preview-docs
                           required:
                           - provider_name
                           - origin_repository_url
@@ -2916,22 +2928,26 @@ paths:
                               type: string
                               description: Name of the VCS provider (e.g. GitHub, Bitbucket).
                               example: GitHub
-                            origin_repository_url:
-                              type: string
-                              description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
-                              example: https://github.com/CircleCI-Public/api-preview-docs
                             target_repository_url:
                               type: string
                               description: URL for the repository the trigger targets (i.e. the repository where the PR will be merged). For fork-PR pipelines, this is the URL to the parent repo. For other pipelines, the `origin_` and `target_repository_url`s will be the same.
                               example: https://github.com/CircleCI-Public/api-preview-docs
-                            revision:
-                              type: string
-                              description: The code revision the pipeline ran.
-                              example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             branch:
                               type: string
                               description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                               example: feature/design-new-api
+                            review_id:
+                              type: string
+                              description: The code review id.
+                              example: '123'
+                            review_url:
+                              type: string
+                              description: The code review URL.
+                              example: https://github.com/CircleCI-Public/api-preview-docs/pull/123
+                            revision:
+                              type: string
+                              description: The code revision the pipeline ran.
+                              example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                             tag:
                               type: string
                               description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
@@ -2951,10 +2967,10 @@ paths:
                               - subject
                               - body
                               description: The latest commit in the pipeline.
-                            review_id:
+                            origin_repository_url:
                               type: string
-                              description: The code review id.
-                              example: '123'
+                              description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
+                              example: https://github.com/CircleCI-Public/api-preview-docs
                           required:
                           - provider_name
                           - origin_repository_url
@@ -3112,22 +3128,26 @@ paths:
                         type: string
                         description: Name of the VCS provider (e.g. GitHub, Bitbucket).
                         example: GitHub
-                      origin_repository_url:
-                        type: string
-                        description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
-                        example: https://github.com/CircleCI-Public/api-preview-docs
                       target_repository_url:
                         type: string
                         description: URL for the repository the trigger targets (i.e. the repository where the PR will be merged). For fork-PR pipelines, this is the URL to the parent repo. For other pipelines, the `origin_` and `target_repository_url`s will be the same.
                         example: https://github.com/CircleCI-Public/api-preview-docs
-                      revision:
-                        type: string
-                        description: The code revision the pipeline ran.
-                        example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                       branch:
                         type: string
                         description: The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
                         example: feature/design-new-api
+                      review_id:
+                        type: string
+                        description: The code review id.
+                        example: '123'
+                      review_url:
+                        type: string
+                        description: The code review URL.
+                        example: https://github.com/CircleCI-Public/api-preview-docs/pull/123
+                      revision:
+                        type: string
+                        description: The code revision the pipeline ran.
+                        example: f454a02b5d10fcccfd7d9dd7608a76d6493a98b4
                       tag:
                         type: string
                         description: The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
@@ -3147,10 +3167,10 @@ paths:
                         - subject
                         - body
                         description: The latest commit in the pipeline.
-                      review_id:
+                      origin_repository_url:
                         type: string
-                        description: The code review id.
-                        example: '123'
+                        description: URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
+                        example: https://github.com/CircleCI-Public/api-preview-docs
                     required:
                     - provider_name
                     - origin_repository_url

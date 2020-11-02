@@ -32,21 +32,25 @@ public class PipelineListResponseVcs {
   @JsonProperty(JSON_PROPERTY_PROVIDER_NAME)
   private String providerName;
 
-  public static final String JSON_PROPERTY_ORIGIN_REPOSITORY_URL = "origin_repository_url";
-  @JsonProperty(JSON_PROPERTY_ORIGIN_REPOSITORY_URL)
-  private String originRepositoryUrl;
-
   public static final String JSON_PROPERTY_TARGET_REPOSITORY_URL = "target_repository_url";
   @JsonProperty(JSON_PROPERTY_TARGET_REPOSITORY_URL)
   private String targetRepositoryUrl;
 
-  public static final String JSON_PROPERTY_REVISION = "revision";
-  @JsonProperty(JSON_PROPERTY_REVISION)
-  private String revision;
-
   public static final String JSON_PROPERTY_BRANCH = "branch";
   @JsonProperty(JSON_PROPERTY_BRANCH)
   private String branch;
+
+  public static final String JSON_PROPERTY_REVIEW_ID = "review_id";
+  @JsonProperty(JSON_PROPERTY_REVIEW_ID)
+  private String reviewId;
+
+  public static final String JSON_PROPERTY_REVIEW_URL = "review_url";
+  @JsonProperty(JSON_PROPERTY_REVIEW_URL)
+  private String reviewUrl;
+
+  public static final String JSON_PROPERTY_REVISION = "revision";
+  @JsonProperty(JSON_PROPERTY_REVISION)
+  private String revision;
 
   public static final String JSON_PROPERTY_TAG = "tag";
   @JsonProperty(JSON_PROPERTY_TAG)
@@ -56,9 +60,9 @@ public class PipelineListResponseVcs {
   @JsonProperty(JSON_PROPERTY_COMMIT)
   private PipelineListResponseVcsCommit commit = null;
 
-  public static final String JSON_PROPERTY_REVIEW_ID = "review_id";
-  @JsonProperty(JSON_PROPERTY_REVIEW_ID)
-  private String reviewId;
+  public static final String JSON_PROPERTY_ORIGIN_REPOSITORY_URL = "origin_repository_url";
+  @JsonProperty(JSON_PROPERTY_ORIGIN_REPOSITORY_URL)
+  private String originRepositoryUrl;
 
   public PipelineListResponseVcs providerName(String providerName) {
     this.providerName = providerName;
@@ -76,24 +80,6 @@ public class PipelineListResponseVcs {
 
   public void setProviderName(String providerName) {
     this.providerName = providerName;
-  }
-
-  public PipelineListResponseVcs originRepositoryUrl(String originRepositoryUrl) {
-    this.originRepositoryUrl = originRepositoryUrl;
-    return this;
-  }
-
-   /**
-   * URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the &#x60;origin_&#x60; and &#x60;target_repository_url&#x60;s will be the same.
-   * @return originRepositoryUrl
-  **/
-  @ApiModelProperty(example = "https://github.com/CircleCI-Public/api-preview-docs", required = true, value = "URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.")
-  public String getOriginRepositoryUrl() {
-    return originRepositoryUrl;
-  }
-
-  public void setOriginRepositoryUrl(String originRepositoryUrl) {
-    this.originRepositoryUrl = originRepositoryUrl;
   }
 
   public PipelineListResponseVcs targetRepositoryUrl(String targetRepositoryUrl) {
@@ -114,24 +100,6 @@ public class PipelineListResponseVcs {
     this.targetRepositoryUrl = targetRepositoryUrl;
   }
 
-  public PipelineListResponseVcs revision(String revision) {
-    this.revision = revision;
-    return this;
-  }
-
-   /**
-   * The code revision the pipeline ran.
-   * @return revision
-  **/
-  @ApiModelProperty(example = "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", required = true, value = "The code revision the pipeline ran.")
-  public String getRevision() {
-    return revision;
-  }
-
-  public void setRevision(String revision) {
-    this.revision = revision;
-  }
-
   public PipelineListResponseVcs branch(String branch) {
     this.branch = branch;
     return this;
@@ -149,6 +117,62 @@ public class PipelineListResponseVcs {
 
   public void setBranch(String branch) {
     this.branch = branch;
+  }
+
+  public PipelineListResponseVcs reviewId(String reviewId) {
+    this.reviewId = reviewId;
+    return this;
+  }
+
+   /**
+   * The code review id.
+   * @return reviewId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "123", value = "The code review id.")
+  public String getReviewId() {
+    return reviewId;
+  }
+
+  public void setReviewId(String reviewId) {
+    this.reviewId = reviewId;
+  }
+
+  public PipelineListResponseVcs reviewUrl(String reviewUrl) {
+    this.reviewUrl = reviewUrl;
+    return this;
+  }
+
+   /**
+   * The code review URL.
+   * @return reviewUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://github.com/CircleCI-Public/api-preview-docs/pull/123", value = "The code review URL.")
+  public String getReviewUrl() {
+    return reviewUrl;
+  }
+
+  public void setReviewUrl(String reviewUrl) {
+    this.reviewUrl = reviewUrl;
+  }
+
+  public PipelineListResponseVcs revision(String revision) {
+    this.revision = revision;
+    return this;
+  }
+
+   /**
+   * The code revision the pipeline ran.
+   * @return revision
+  **/
+  @ApiModelProperty(example = "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", required = true, value = "The code revision the pipeline ran.")
+  public String getRevision() {
+    return revision;
+  }
+
+  public void setRevision(String revision) {
+    this.revision = revision;
   }
 
   public PipelineListResponseVcs tag(String tag) {
@@ -189,23 +213,22 @@ public class PipelineListResponseVcs {
     this.commit = commit;
   }
 
-  public PipelineListResponseVcs reviewId(String reviewId) {
-    this.reviewId = reviewId;
+  public PipelineListResponseVcs originRepositoryUrl(String originRepositoryUrl) {
+    this.originRepositoryUrl = originRepositoryUrl;
     return this;
   }
 
    /**
-   * The code review id.
-   * @return reviewId
+   * URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the &#x60;origin_&#x60; and &#x60;target_repository_url&#x60;s will be the same.
+   * @return originRepositoryUrl
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "123", value = "The code review id.")
-  public String getReviewId() {
-    return reviewId;
+  @ApiModelProperty(example = "https://github.com/CircleCI-Public/api-preview-docs", required = true, value = "URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.")
+  public String getOriginRepositoryUrl() {
+    return originRepositoryUrl;
   }
 
-  public void setReviewId(String reviewId) {
-    this.reviewId = reviewId;
+  public void setOriginRepositoryUrl(String originRepositoryUrl) {
+    this.originRepositoryUrl = originRepositoryUrl;
   }
 
 
@@ -219,18 +242,19 @@ public class PipelineListResponseVcs {
     }
     PipelineListResponseVcs pipelineListResponseVcs = (PipelineListResponseVcs) o;
     return Objects.equals(this.providerName, pipelineListResponseVcs.providerName) &&
-        Objects.equals(this.originRepositoryUrl, pipelineListResponseVcs.originRepositoryUrl) &&
         Objects.equals(this.targetRepositoryUrl, pipelineListResponseVcs.targetRepositoryUrl) &&
-        Objects.equals(this.revision, pipelineListResponseVcs.revision) &&
         Objects.equals(this.branch, pipelineListResponseVcs.branch) &&
+        Objects.equals(this.reviewId, pipelineListResponseVcs.reviewId) &&
+        Objects.equals(this.reviewUrl, pipelineListResponseVcs.reviewUrl) &&
+        Objects.equals(this.revision, pipelineListResponseVcs.revision) &&
         Objects.equals(this.tag, pipelineListResponseVcs.tag) &&
         Objects.equals(this.commit, pipelineListResponseVcs.commit) &&
-        Objects.equals(this.reviewId, pipelineListResponseVcs.reviewId);
+        Objects.equals(this.originRepositoryUrl, pipelineListResponseVcs.originRepositoryUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerName, originRepositoryUrl, targetRepositoryUrl, revision, branch, tag, commit, reviewId);
+    return Objects.hash(providerName, targetRepositoryUrl, branch, reviewId, reviewUrl, revision, tag, commit, originRepositoryUrl);
   }
 
 
@@ -239,13 +263,14 @@ public class PipelineListResponseVcs {
     StringBuilder sb = new StringBuilder();
     sb.append("class PipelineListResponseVcs {\n");
     sb.append("    providerName: ").append(toIndentedString(providerName)).append("\n");
-    sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    targetRepositoryUrl: ").append(toIndentedString(targetRepositoryUrl)).append("\n");
-    sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
+    sb.append("    reviewId: ").append(toIndentedString(reviewId)).append("\n");
+    sb.append("    reviewUrl: ").append(toIndentedString(reviewUrl)).append("\n");
+    sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    commit: ").append(toIndentedString(commit)).append("\n");
-    sb.append("    reviewId: ").append(toIndentedString(reviewId)).append("\n");
+    sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

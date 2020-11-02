@@ -47,14 +47,6 @@ public class PipelineListResponseVcsTest {
     }
 
     /**
-     * Test the property 'originRepositoryUrl'
-     */
-    @Test
-    public void originRepositoryUrlTest() {
-        // TODO: test originRepositoryUrl
-    }
-
-    /**
      * Test the property 'targetRepositoryUrl'
      */
     @Test
@@ -63,19 +55,35 @@ public class PipelineListResponseVcsTest {
     }
 
     /**
-     * Test the property 'revision'
-     */
-    @Test
-    public void revisionTest() {
-        // TODO: test revision
-    }
-
-    /**
      * Test the property 'branch'
      */
     @Test
     public void branchTest() {
         // TODO: test branch
+    }
+
+    /**
+     * Test the property 'reviewId'
+     */
+    @Test
+    public void reviewIdTest() {
+        // TODO: test reviewId
+    }
+
+    /**
+     * Test the property 'reviewUrl'
+     */
+    @Test
+    public void reviewUrlTest() {
+        // TODO: test reviewUrl
+    }
+
+    /**
+     * Test the property 'revision'
+     */
+    @Test
+    public void revisionTest() {
+        // TODO: test revision
     }
 
     /**
@@ -95,11 +103,11 @@ public class PipelineListResponseVcsTest {
     }
 
     /**
-     * Test the property 'reviewId'
+     * Test the property 'originRepositoryUrl'
      */
     @Test
-    public void reviewIdTest() {
-        // TODO: test reviewId
+    public void originRepositoryUrlTest() {
+        // TODO: test originRepositoryUrl
     }
 
 }
