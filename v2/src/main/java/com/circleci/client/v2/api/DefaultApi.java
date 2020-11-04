@@ -1671,7 +1671,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
-   * @param reportingWindow The time window used to calculate summary metrics. (optional)
+   * @param reportingWindow The time window used to calculate summary metrics. (optional, default to null)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1681,7 +1681,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2004 getProjectWorkflowJobMetrics(String projectSlug, String workflowName, String pageToken, String branch, String reportingWindow) throws ApiException {
+  public InlineResponse2004 getProjectWorkflowJobMetrics(String projectSlug, String workflowName, String pageToken, String branch, Object reportingWindow) throws ApiException {
     return getProjectWorkflowJobMetricsWithHttpInfo(projectSlug, workflowName, pageToken, branch, reportingWindow).getData();
       }
 
@@ -1692,7 +1692,7 @@ public class DefaultApi {
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
-   * @param reportingWindow The time window used to calculate summary metrics. (optional)
+   * @param reportingWindow The time window used to calculate summary metrics. (optional, default to null)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1702,7 +1702,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> getProjectWorkflowJobMetricsWithHttpInfo(String projectSlug, String workflowName, String pageToken, String branch, String reportingWindow) throws ApiException {
+  public ApiResponse<InlineResponse2004> getProjectWorkflowJobMetricsWithHttpInfo(String projectSlug, String workflowName, String pageToken, String branch, Object reportingWindow) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1752,7 +1752,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
-   * @param reportingWindow The time window used to calculate summary metrics. (optional)
+   * @param reportingWindow The time window used to calculate summary metrics. (optional, default to null)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1762,7 +1762,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2002 getProjectWorkflowMetrics(String projectSlug, String pageToken, String branch, String reportingWindow) throws ApiException {
+  public InlineResponse2002 getProjectWorkflowMetrics(String projectSlug, String pageToken, String branch, Object reportingWindow) throws ApiException {
     return getProjectWorkflowMetricsWithHttpInfo(projectSlug, pageToken, branch, reportingWindow).getData();
       }
 
@@ -1772,7 +1772,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param branch The name of a vcs branch. (optional)
-   * @param reportingWindow The time window used to calculate summary metrics. (optional)
+   * @param reportingWindow The time window used to calculate summary metrics. (optional, default to null)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1782,7 +1782,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2002> getProjectWorkflowMetricsWithHttpInfo(String projectSlug, String pageToken, String branch, String reportingWindow) throws ApiException {
+  public ApiResponse<InlineResponse2002> getProjectWorkflowMetricsWithHttpInfo(String projectSlug, String pageToken, String branch, Object reportingWindow) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set

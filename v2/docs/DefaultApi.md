@@ -2053,7 +2053,7 @@ public class Example {
         String workflowName = build-and-test; // String | The name of the workflow.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         String branch = "branch_example"; // String | The name of a vcs branch.
-        String reportingWindow = last-90-days; // String | The time window used to calculate summary metrics.
+        Object reportingWindow = last-90-days; // Object | The time window used to calculate summary metrics.
         try {
             InlineResponse2004 result = apiInstance.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch, reportingWindow);
             System.out.println(result);
@@ -2077,7 +2077,7 @@ Name | Type | Description  | Notes
  **workflowName** | **String**| The name of the workflow. |
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
  **branch** | **String**| The name of a vcs branch. | [optional]
- **reportingWindow** | **String**| The time window used to calculate summary metrics. | [optional] [enum: last-90-days, last-24-hours]
+ **reportingWindow** | [**Object**](.md)| The time window used to calculate summary metrics. | [optional] [default to null]
 
 ### Return type
 
@@ -2144,7 +2144,7 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         String branch = "branch_example"; // String | The name of a vcs branch.
-        String reportingWindow = last-90-days; // String | The time window used to calculate summary metrics.
+        Object reportingWindow = last-90-days; // Object | The time window used to calculate summary metrics.
         try {
             InlineResponse2002 result = apiInstance.getProjectWorkflowMetrics(projectSlug, pageToken, branch, reportingWindow);
             System.out.println(result);
@@ -2167,7 +2167,7 @@ Name | Type | Description  | Notes
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
  **branch** | **String**| The name of a vcs branch. | [optional]
- **reportingWindow** | **String**| The time window used to calculate summary metrics. | [optional] [enum: last-90-days, last-24-hours]
+ **reportingWindow** | [**Object**](.md)| The time window used to calculate summary metrics. | [optional] [default to null]
 
 ### Return type
 
