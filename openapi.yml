@@ -602,7 +602,14 @@ paths:
       - in: query
         name: reporting-window
         description: The time window used to calculate summary metrics.
-        schema: {}
+        schema:
+          type: string
+          enum:
+          - last-7-days
+          - last-90-days
+          - last-24-hours
+          - last-30-days
+          - last-60-days
         required: false
         example: last-90-days
   /insights/{project-slug}/workflows/{workflow-name}:
@@ -896,7 +903,14 @@ paths:
       - in: query
         name: reporting-window
         description: The time window used to calculate summary metrics.
-        schema: {}
+        schema:
+          type: string
+          enum:
+          - last-7-days
+          - last-90-days
+          - last-24-hours
+          - last-30-days
+          - last-60-days
         required: false
         example: last-90-days
   /insights/{project-slug}/workflows/{workflow-name}/jobs/{job-name}:

@@ -466,7 +466,7 @@ public class DefaultApiTest {
         String workflowName = null;
         String pageToken = null;
         String branch = null;
-        Object reportingWindow = null;
+        String reportingWindow = null;
         InlineResponse2004 response = api.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch, reportingWindow);
 
         // TODO: test validations
@@ -485,7 +485,7 @@ public class DefaultApiTest {
         String projectSlug = null;
         String pageToken = null;
         String branch = null;
-        Object reportingWindow = null;
+        String reportingWindow = null;
         InlineResponse2002 response = api.getProjectWorkflowMetrics(projectSlug, pageToken, branch, reportingWindow);
 
         // TODO: test validations
