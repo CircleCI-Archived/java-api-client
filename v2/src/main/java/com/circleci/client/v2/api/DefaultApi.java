@@ -1577,7 +1577,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
-   * @param branch The name of a vcs branch. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)
@@ -1600,7 +1600,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
-   * @param branch The name of a vcs branch. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)
@@ -1670,7 +1670,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
-   * @param branch The name of a vcs branch. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
    * @param reportingWindow The time window used to calculate summary metrics. (optional)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
@@ -1691,7 +1691,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
-   * @param branch The name of a vcs branch. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
    * @param reportingWindow The time window used to calculate summary metrics. (optional)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
@@ -1751,7 +1751,7 @@ public class DefaultApi {
    * Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
-   * @param branch The name of a vcs branch. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
    * @param reportingWindow The time window used to calculate summary metrics. (optional)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
@@ -1771,7 +1771,7 @@ public class DefaultApi {
    * Get summary metrics for a project&#39;s workflows. Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param pageToken A token to retrieve the next page of results. (optional)
-   * @param branch The name of a vcs branch. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
    * @param reportingWindow The time window used to calculate summary metrics. (optional)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
@@ -1825,7 +1825,7 @@ public class DefaultApi {
    * Get recent runs of a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
-   * @param branch The name of a vcs branch. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)
@@ -1847,7 +1847,7 @@ public class DefaultApi {
    * Get recent runs of a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
-   * @param branch The name of a vcs branch. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)

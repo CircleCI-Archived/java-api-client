@@ -594,7 +594,7 @@ paths:
         allowEmptyValue: true
       - in: query
         name: branch
-        description: The name of a vcs branch.
+        description: The name of a vcs branch. If not passed we will scope the API call to the default branch.
         schema:
           type: string
         required: false
@@ -708,7 +708,7 @@ paths:
         example: build-and-test
       - in: query
         name: branch
-        description: The name of a vcs branch.
+        description: The name of a vcs branch. If not passed we will scope the API call to the default branch.
         schema:
           type: string
         required: false
@@ -895,7 +895,7 @@ paths:
         allowEmptyValue: true
       - in: query
         name: branch
-        description: The name of a vcs branch.
+        description: The name of a vcs branch. If not passed we will scope the API call to the default branch.
         schema:
           type: string
         required: false
@@ -1010,7 +1010,7 @@ paths:
         example: lint
       - in: query
         name: branch
-        description: The name of a vcs branch.
+        description: The name of a vcs branch. If not passed we will scope the API call to the default branch.
         schema:
           type: string
         required: false

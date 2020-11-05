@@ -1956,7 +1956,7 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String jobName = lint; // String | The name of the job.
-        String branch = "branch_example"; // String | The name of a vcs branch.
+        String branch = "branch_example"; // String | The name of a vcs branch. If not passed we will scope the API call to the default branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         OffsetDateTime startDate = 2020-08-21T13:26:29Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
         OffsetDateTime endDate = 2020-09-04T13:26:29Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -1982,7 +1982,7 @@ Name | Type | Description  | Notes
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
  **jobName** | **String**| The name of the job. |
- **branch** | **String**| The name of a vcs branch. | [optional]
+ **branch** | **String**| The name of a vcs branch. If not passed we will scope the API call to the default branch. | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
  **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. | [optional]
  **endDate** | **OffsetDateTime**| Include only executions that started before this date. This date can be at most 90 days after the start-date. | [optional]
@@ -2052,7 +2052,7 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
-        String branch = "branch_example"; // String | The name of a vcs branch.
+        String branch = "branch_example"; // String | The name of a vcs branch. If not passed we will scope the API call to the default branch.
         String reportingWindow = last-90-days; // String | The time window used to calculate summary metrics.
         try {
             InlineResponse2004 result = apiInstance.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch, reportingWindow);
@@ -2076,7 +2076,7 @@ Name | Type | Description  | Notes
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
- **branch** | **String**| The name of a vcs branch. | [optional]
+ **branch** | **String**| The name of a vcs branch. If not passed we will scope the API call to the default branch. | [optional]
  **reportingWindow** | **String**| The time window used to calculate summary metrics. | [optional] [enum: last-7-days, last-90-days, last-24-hours, last-30-days, last-60-days]
 
 ### Return type
@@ -2143,7 +2143,7 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
-        String branch = "branch_example"; // String | The name of a vcs branch.
+        String branch = "branch_example"; // String | The name of a vcs branch. If not passed we will scope the API call to the default branch.
         String reportingWindow = last-90-days; // String | The time window used to calculate summary metrics.
         try {
             InlineResponse2002 result = apiInstance.getProjectWorkflowMetrics(projectSlug, pageToken, branch, reportingWindow);
@@ -2166,7 +2166,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
- **branch** | **String**| The name of a vcs branch. | [optional]
+ **branch** | **String**| The name of a vcs branch. If not passed we will scope the API call to the default branch. | [optional]
  **reportingWindow** | **String**| The time window used to calculate summary metrics. | [optional] [enum: last-7-days, last-90-days, last-24-hours, last-30-days, last-60-days]
 
 ### Return type
@@ -2233,7 +2233,7 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
-        String branch = "branch_example"; // String | The name of a vcs branch.
+        String branch = "branch_example"; // String | The name of a vcs branch. If not passed we will scope the API call to the default branch.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         OffsetDateTime startDate = 2020-08-21T13:26:29Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
         OffsetDateTime endDate = 2020-09-04T13:26:29Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
@@ -2258,7 +2258,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
- **branch** | **String**| The name of a vcs branch. | [optional]
+ **branch** | **String**| The name of a vcs branch. If not passed we will scope the API call to the default branch. | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
  **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. | [optional]
  **endDate** | **OffsetDateTime**| Include only executions that started before this date. This date can be at most 90 days after the start-date. | [optional]
