@@ -24,6 +24,8 @@ Name | Value
 ---- | -----
 CREATED | &quot;created&quot;
 ERRORED | &quot;errored&quot;
+SETUP_PENDING | &quot;setup-pending&quot;
+SETUP | &quot;setup&quot;
 PENDING | &quot;pending&quot;
 
 

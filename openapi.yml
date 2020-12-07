@@ -1189,6 +1189,8 @@ paths:
                           enum:
                           - created
                           - errored
+                          - setup-pending
+                          - setup
                           - pending
                           type: string
                           description: The current state of the pipeline.
@@ -1394,6 +1396,8 @@ paths:
                     enum:
                     - created
                     - errored
+                    - setup-pending
+                    - setup
                     - pending
                     type: string
                     description: The current state of the pipeline.
@@ -2534,6 +2538,8 @@ paths:
                     enum:
                     - created
                     - errored
+                    - setup-pending
+                    - setup
                     - pending
                     type: string
                     description: The current state of the pipeline.
@@ -2673,6 +2679,8 @@ paths:
                           enum:
                           - created
                           - errored
+                          - setup-pending
+                          - setup
                           - pending
                           type: string
                           description: The current state of the pipeline.
@@ -2886,6 +2894,8 @@ paths:
                           enum:
                           - created
                           - errored
+                          - setup-pending
+                          - setup
                           - pending
                           type: string
                           description: The current state of the pipeline.
@@ -3086,6 +3096,8 @@ paths:
                     enum:
                     - created
                     - errored
+                    - setup-pending
+                    - setup
                     - pending
                     type: string
                     description: The current state of the pipeline.

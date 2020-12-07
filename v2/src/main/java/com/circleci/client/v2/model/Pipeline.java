@@ -62,6 +62,10 @@ public class Pipeline {
     
     ERRORED("errored"),
     
+    SETUP_PENDING("setup-pending"),
+    
+    SETUP("setup"),
+    
     PENDING("pending");
 
     private String value;
