@@ -8,6 +8,7 @@ import com.circleci.client.v2.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.circleci.client.v2.model.AnyOfobjectobject;
 import com.circleci.client.v2.model.ArtifactListResponse;
 import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
@@ -21,7 +22,6 @@ import com.circleci.client.v2.model.InlineObject;
 import com.circleci.client.v2.model.InlineObject1;
 import com.circleci.client.v2.model.InlineResponse200;
 import com.circleci.client.v2.model.InlineResponse2001;
-import com.circleci.client.v2.model.InlineResponse2001Items;
 import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.InlineResponse2004;
@@ -75,7 +75,7 @@ public class DefaultApi {
    * @param contextId ID of the context (UUID) (required)
    * @param envVarName The name of the environment variable (required)
    * @param inlineObject1  (optional)
-   * @return InlineResponse2001Items
+   * @return AnyOfobjectobject
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -84,7 +84,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001Items addEnvironmentVariableToContext(UUID contextId, String envVarName, InlineObject1 inlineObject1) throws ApiException {
+  public AnyOfobjectobject addEnvironmentVariableToContext(UUID contextId, String envVarName, InlineObject1 inlineObject1) throws ApiException {
     return addEnvironmentVariableToContextWithHttpInfo(contextId, envVarName, inlineObject1).getData();
       }
 
@@ -94,7 +94,7 @@ public class DefaultApi {
    * @param contextId ID of the context (UUID) (required)
    * @param envVarName The name of the environment variable (required)
    * @param inlineObject1  (optional)
-   * @return ApiResponse&lt;InlineResponse2001Items&gt;
+   * @return ApiResponse&lt;AnyOfobjectobject&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -103,7 +103,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001Items> addEnvironmentVariableToContextWithHttpInfo(UUID contextId, String envVarName, InlineObject1 inlineObject1) throws ApiException {
+  public ApiResponse<AnyOfobjectobject> addEnvironmentVariableToContextWithHttpInfo(UUID contextId, String envVarName, InlineObject1 inlineObject1) throws ApiException {
     Object localVarPostBody = inlineObject1;
     
     // verify the required parameter 'contextId' is set
@@ -141,7 +141,7 @@ public class DefaultApi {
 
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
-    GenericType<InlineResponse2001Items> localVarReturnType = new GenericType<InlineResponse2001Items>() {};
+    GenericType<AnyOfobjectobject> localVarReturnType = new GenericType<AnyOfobjectobject>() {};
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

@@ -14,6 +14,7 @@
 package com.circleci.client.v2.api;
 
 import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.model.AnyOfobjectobject;
 import com.circleci.client.v2.model.ArtifactListResponse;
 import com.circleci.client.v2.model.CheckoutKey;
 import com.circleci.client.v2.model.CheckoutKeyInput;
@@ -27,7 +28,6 @@ import com.circleci.client.v2.model.InlineObject;
 import com.circleci.client.v2.model.InlineObject1;
 import com.circleci.client.v2.model.InlineResponse200;
 import com.circleci.client.v2.model.InlineResponse2001;
-import com.circleci.client.v2.model.InlineResponse2001Items;
 import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.InlineResponse2004;
@@ -79,7 +79,7 @@ public class DefaultApiTest {
         UUID contextId = null;
         String envVarName = null;
         InlineObject1 inlineObject1 = null;
-        InlineResponse2001Items response = api.addEnvironmentVariableToContext(contextId, envVarName, inlineObject1);
+        AnyOfobjectobject response = api.addEnvironmentVariableToContext(contextId, envVarName, inlineObject1);
 
         // TODO: test validations
     }

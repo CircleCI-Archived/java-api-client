@@ -335,25 +335,40 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  variable:
-                    type: string
-                    description: The name of the environment variable
-                    example: POSTGRES_USER
-                  created_at:
-                    type: string
-                    format: date-time
-                    description: The date and time the environment variable was created.
-                    example: '2015-09-21T17:29:21.042Z'
-                  context_id:
-                    type: string
-                    format: uuid
-                    description: ID of the context (UUID)
-                required:
-                - variable
-                - created_at
-                - context_id
+                anyOf:
+                - type: object
+                  properties:
+                    context_id:
+                      type: string
+                      format: uuid
+                      description: ID of the context (UUID)
+                    created_at:
+                      type: string
+                      format: date-time
+                      description: The date and time the environment variable was created.
+                      example: '2015-09-21T17:29:21.042Z'
+                    variable:
+                      type: string
+                      description: The name of the environment variable
+                      example: POSTGRES_USER
+                    value:
+                      type: string
+                      description: The value of the environment variable
+                      example: some-secret-value
+                  required:
+                  - context_id
+                  - created_at
+                  - variable
+                  - value
+                - type: object
+                  properties:
+                    message:
+                      type: string
+                      description: A human-readable message
+                  required:
+                  - message
+                  description: message response
+                  title: MessageResponse
         default:
           content:
             application/json:

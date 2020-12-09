@@ -105,7 +105,7 @@ public class DefaultApiExample {
         String envVarName = POSTGRES_USER; // String | The name of the environment variable
         InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
         try {
-            InlineResponse2001Items result = apiInstance.addEnvironmentVariableToContext(contextId, envVarName, inlineObject1);
+            AnyOfobjectobject result = apiInstance.addEnvironmentVariableToContext(contextId, envVarName, inlineObject1);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#addEnvironmentVariableToContext");
