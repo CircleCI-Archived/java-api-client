@@ -54,6 +54,43 @@ public class Workflow {
   private UUID erroredBy;
 
   /**
+   * Tag used for the workflow
+   */
+  public enum TagEnum {
+    SETUP("setup");
+
+    private String value;
+
+    TagEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TagEnum fromValue(String value) {
+      for (TagEnum b : TagEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_TAG = "tag";
+  @JsonProperty(JSON_PROPERTY_TAG)
+  private TagEnum tag;
+
+  /**
    * The current status of the workflow.
    */
   public enum StatusEnum {
@@ -232,6 +269,25 @@ public class Workflow {
     this.erroredBy = erroredBy;
   }
 
+  public Workflow tag(TagEnum tag) {
+    this.tag = tag;
+    return this;
+  }
+
+   /**
+   * Tag used for the workflow
+   * @return tag
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "setup", value = "Tag used for the workflow")
+  public TagEnum getTag() {
+    return tag;
+  }
+
+  public void setTag(TagEnum tag) {
+    this.tag = tag;
+  }
+
   public Workflow status(StatusEnum status) {
     this.status = status;
     return this;
@@ -338,6 +394,7 @@ public class Workflow {
         Objects.equals(this.name, workflow.name) &&
         Objects.equals(this.projectSlug, workflow.projectSlug) &&
         Objects.equals(this.erroredBy, workflow.erroredBy) &&
+        Objects.equals(this.tag, workflow.tag) &&
         Objects.equals(this.status, workflow.status) &&
         Objects.equals(this.startedBy, workflow.startedBy) &&
         Objects.equals(this.pipelineNumber, workflow.pipelineNumber) &&
@@ -347,7 +404,7 @@ public class Workflow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pipelineId, canceledBy, id, name, projectSlug, erroredBy, status, startedBy, pipelineNumber, createdAt, stoppedAt);
+    return Objects.hash(pipelineId, canceledBy, id, name, projectSlug, erroredBy, tag, status, startedBy, pipelineNumber, createdAt, stoppedAt);
   }
 
 
@@ -361,6 +418,7 @@ public class Workflow {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectSlug: ").append(toIndentedString(projectSlug)).append("\n");
     sb.append("    erroredBy: ").append(toIndentedString(erroredBy)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    startedBy: ").append(toIndentedString(startedBy)).append("\n");
     sb.append("    pipelineNumber: ").append(toIndentedString(pipelineNumber)).append("\n");

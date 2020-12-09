@@ -12,11 +12,20 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the workflow. | 
 **projectSlug** | **String** | The project-slug for the pipeline this workflow belongs to. | 
 **erroredBy** | [**UUID**](UUID.md) |  |  [optional]
+**tag** | [**TagEnum**](#TagEnum) | Tag used for the workflow |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) | The current status of the workflow. | 
 **startedBy** | [**UUID**](UUID.md) |  | 
 **pipelineNumber** | **Long** | The number of the pipeline this workflow belongs to. | 
 **createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the workflow was created. | 
 **stoppedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the workflow stopped. | 
+
+
+
+## Enum: TagEnum
+
+Name | Value
+---- | -----
+SETUP | &quot;setup&quot;
 
 
 

@@ -1628,6 +1628,13 @@ paths:
                         errored_by:
                           type: string
                           format: uuid
+                        tag:
+                          enum:
+                          - setup
+                          type: string
+                          x-nullable: true
+                          description: Tag used for the workflow
+                          example: setup
                         status:
                           enum:
                           - success
@@ -3501,6 +3508,13 @@ paths:
                   errored_by:
                     type: string
                     format: uuid
+                  tag:
+                    enum:
+                    - setup
+                    type: string
+                    x-nullable: true
+                    description: Tag used for the workflow
+                    example: setup
                   status:
                     enum:
                     - success
