@@ -338,28 +338,23 @@ paths:
                 anyOf:
                 - type: object
                   properties:
-                    context_id:
+                    variable:
                       type: string
-                      format: uuid
-                      description: ID of the context (UUID)
+                      description: The name of the environment variable
+                      example: POSTGRES_USER
                     created_at:
                       type: string
                       format: date-time
                       description: The date and time the environment variable was created.
                       example: '2015-09-21T17:29:21.042Z'
-                    variable:
+                    context_id:
                       type: string
-                      description: The name of the environment variable
-                      example: POSTGRES_USER
-                    value:
-                      type: string
-                      description: The value of the environment variable
-                      example: some-secret-value
+                      format: uuid
+                      description: ID of the context (UUID)
                   required:
-                  - context_id
-                  - created_at
                   - variable
-                  - value
+                  - created_at
+                  - context_id
                 - type: object
                   properties:
                     message:
