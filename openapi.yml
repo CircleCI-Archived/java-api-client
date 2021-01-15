@@ -1790,6 +1790,7 @@ paths:
                       provider:
                         enum:
                         - Bitbucket
+                        - CircleCI
                         - GitHub
                         type: string
                         description: The VCS provider

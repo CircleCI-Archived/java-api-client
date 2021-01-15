@@ -37,6 +37,8 @@ public class ProjectVcsInfo {
   public enum ProviderEnum {
     BITBUCKET("Bitbucket"),
     
+    CIRCLECI("CircleCI"),
+    
     GITHUB("GitHub");
 
     private String value;

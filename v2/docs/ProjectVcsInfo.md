@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 BITBUCKET | &quot;Bitbucket&quot;
+CIRCLECI | &quot;CircleCI&quot;
 GITHUB | &quot;GitHub&quot;
 
 
