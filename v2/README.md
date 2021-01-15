@@ -129,6 +129,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**approvePendingApprovalJobById**](docs/DefaultApi.md#approvePendingApprovalJobById) | **POST** /workflow/{id}/approve/{approval_request_id} | Approve a job
 *DefaultApi* | [**cancelJob**](docs/DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 *DefaultApi* | [**cancelWorkflow**](docs/DefaultApi.md#cancelWorkflow) | **POST** /workflow/{id}/cancel | Cancel a workflow
+*DefaultApi* | [**continuePipeline**](docs/DefaultApi.md#continuePipeline) | **POST** /pipeline/continue | Continue a pipeline (Preview)
 *DefaultApi* | [**createCheckoutKey**](docs/DefaultApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
 *DefaultApi* | [**createContext**](docs/DefaultApi.md#createContext) | **POST** /context | Create a new context
 *DefaultApi* | [**createEnvVar**](docs/DefaultApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
@@ -181,6 +182,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentVariablePair1](docs/EnvironmentVariablePair1.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineObject1](docs/InlineObject1.md)
+ - [InlineObject2](docs/InlineObject2.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse2001Items](docs/InlineResponse2001Items.md)

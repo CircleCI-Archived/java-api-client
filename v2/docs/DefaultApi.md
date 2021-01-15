@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**approvePendingApprovalJobById**](DefaultApi.md#approvePendingApprovalJobById) | **POST** /workflow/{id}/approve/{approval_request_id} | Approve a job
 [**cancelJob**](DefaultApi.md#cancelJob) | **POST** /project/{project-slug}/job/{job-number}/cancel | Cancel job
 [**cancelWorkflow**](DefaultApi.md#cancelWorkflow) | **POST** /workflow/{id}/cancel | Cancel a workflow
+[**continuePipeline**](DefaultApi.md#continuePipeline) | **POST** /pipeline/continue | Continue a pipeline (Preview)
 [**createCheckoutKey**](DefaultApi.md#createCheckoutKey) | **POST** /project/{project-slug}/checkout-key | Create a new checkout key
 [**createContext**](DefaultApi.md#createContext) | **POST** /context | Create a new context
 [**createEnvVar**](DefaultApi.md#createEnvVar) | **POST** /project/{project-slug}/envvar | Create an environment variable
@@ -388,6 +389,90 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | A confirmation message. |  -  |
+| **0** | Error response. |  -  |
+
+
+## continuePipeline
+
+> MessageResponse continuePipeline(inlineObject2)
+
+Continue a pipeline (Preview)
+
+Continue a pipeline from the setup phase.
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
+        try {
+            MessageResponse result = apiInstance.continuePipeline(inlineObject2);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#continuePipeline");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+
+### Return type
+
+[**MessageResponse**](MessageResponse.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A confirmation message. |  -  |
 | **0** | Error response. |  -  |
 
 

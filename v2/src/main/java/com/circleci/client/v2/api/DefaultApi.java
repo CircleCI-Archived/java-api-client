@@ -20,6 +20,7 @@ import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
 import com.circleci.client.v2.model.InlineObject;
 import com.circleci.client.v2.model.InlineObject1;
+import com.circleci.client.v2.model.InlineObject2;
 import com.circleci.client.v2.model.InlineResponse200;
 import com.circleci.client.v2.model.InlineResponse2001;
 import com.circleci.client.v2.model.InlineResponse2002;
@@ -347,6 +348,65 @@ public class DefaultApi {
 
     final String[] localVarContentTypes = {
       
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<MessageResponse> localVarReturnType = new GenericType<MessageResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Continue a pipeline (Preview)
+   * Continue a pipeline from the setup phase.
+   * @param inlineObject2  (optional)
+   * @return MessageResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public MessageResponse continuePipeline(InlineObject2 inlineObject2) throws ApiException {
+    return continuePipelineWithHttpInfo(inlineObject2).getData();
+      }
+
+  /**
+   * Continue a pipeline (Preview)
+   * Continue a pipeline from the setup phase.
+   * @param inlineObject2  (optional)
+   * @return ApiResponse&lt;MessageResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A confirmation message. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<MessageResponse> continuePipelineWithHttpInfo(InlineObject2 inlineObject2) throws ApiException {
+    Object localVarPostBody = inlineObject2;
+    
+    // create path and map variables
+    String localVarPath = "/pipeline/continue";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

@@ -26,6 +26,7 @@ import com.circleci.client.v2.model.EnvironmentVariablePair;
 import com.circleci.client.v2.model.EnvironmentVariablePair1;
 import com.circleci.client.v2.model.InlineObject;
 import com.circleci.client.v2.model.InlineObject1;
+import com.circleci.client.v2.model.InlineObject2;
 import com.circleci.client.v2.model.InlineResponse200;
 import com.circleci.client.v2.model.InlineResponse2001;
 import com.circleci.client.v2.model.InlineResponse2002;
@@ -130,6 +131,22 @@ public class DefaultApiTest {
     public void cancelWorkflowTest() throws ApiException {
         UUID id = null;
         MessageResponse response = api.cancelWorkflow(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Continue a pipeline (Preview)
+     *
+     * Continue a pipeline from the setup phase.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void continuePipelineTest() throws ApiException {
+        InlineObject2 inlineObject2 = null;
+        MessageResponse response = api.continuePipeline(inlineObject2);
 
         // TODO: test validations
     }
