@@ -137,10 +137,10 @@ public class InlineResponse2004Metrics {
   }
 
    /**
-   * The average number of job runs per day.
+   * The average number of runs per day.
    * @return throughput
   **/
-  @ApiModelProperty(required = true, value = "The average number of job runs per day.")
+  @ApiModelProperty(required = true, value = "The average number of runs per day.")
   public Float getThroughput() {
     return throughput;
   }
