@@ -141,10 +141,10 @@ public class InlineResponse2002Metrics {
   }
 
    /**
-   * The average number of runs per day.
+   * The average number of workflow runs per day.
    * @return throughput
   **/
-  @ApiModelProperty(required = true, value = "The average number of runs per day.")
+  @ApiModelProperty(required = true, value = "The average number of workflow runs per day.")
   public Float getThroughput() {
     return throughput;
   }
