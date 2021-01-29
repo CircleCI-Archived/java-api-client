@@ -502,7 +502,7 @@ paths:
                             throughput:
                               type: number
                               format: float
-                              description: The average number of workflow runs per day.
+                              description: The average number of runs per day.
                             mttr:
                               type: integer
                               format: int64
@@ -802,7 +802,7 @@ paths:
                             throughput:
                               type: number
                               format: float
-                              description: The average number of job runs per day.
+                              description: The average number of runs per day.
                             total_credits_used:
                               type: integer
                               format: int64
