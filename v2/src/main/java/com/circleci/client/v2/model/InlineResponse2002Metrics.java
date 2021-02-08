@@ -28,25 +28,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Metrics relating to a workflow's runs.")
 
 public class InlineResponse2002Metrics {
-  public static final String JSON_PROPERTY_SUCCESS_RATE = "success_rate";
-  @JsonProperty(JSON_PROPERTY_SUCCESS_RATE)
-  private Float successRate;
-
   public static final String JSON_PROPERTY_TOTAL_RUNS = "total_runs";
   @JsonProperty(JSON_PROPERTY_TOTAL_RUNS)
   private Long totalRuns;
 
-  public static final String JSON_PROPERTY_FAILED_RUNS = "failed_runs";
-  @JsonProperty(JSON_PROPERTY_FAILED_RUNS)
-  private Long failedRuns;
-
   public static final String JSON_PROPERTY_SUCCESSFUL_RUNS = "successful_runs";
   @JsonProperty(JSON_PROPERTY_SUCCESSFUL_RUNS)
   private Long successfulRuns;
-
-  public static final String JSON_PROPERTY_THROUGHPUT = "throughput";
-  @JsonProperty(JSON_PROPERTY_THROUGHPUT)
-  private Float throughput;
 
   public static final String JSON_PROPERTY_MTTR = "mttr";
   @JsonProperty(JSON_PROPERTY_MTTR)
@@ -56,27 +44,25 @@ public class InlineResponse2002Metrics {
   @JsonProperty(JSON_PROPERTY_TOTAL_CREDITS_USED)
   private Long totalCreditsUsed;
 
+  public static final String JSON_PROPERTY_FAILED_RUNS = "failed_runs";
+  @JsonProperty(JSON_PROPERTY_FAILED_RUNS)
+  private Long failedRuns;
+
+  public static final String JSON_PROPERTY_SUCCESS_RATE = "success_rate";
+  @JsonProperty(JSON_PROPERTY_SUCCESS_RATE)
+  private Float successRate;
+
   public static final String JSON_PROPERTY_DURATION_METRICS = "duration_metrics";
   @JsonProperty(JSON_PROPERTY_DURATION_METRICS)
   private InlineResponse2002MetricsDurationMetrics durationMetrics = null;
 
-  public InlineResponse2002Metrics successRate(Float successRate) {
-    this.successRate = successRate;
-    return this;
-  }
+  public static final String JSON_PROPERTY_TOTAL_RECOVERIES = "total_recoveries";
+  @JsonProperty(JSON_PROPERTY_TOTAL_RECOVERIES)
+  private Long totalRecoveries;
 
-   /**
-   * The ratio of successful runs / total runs.
-   * @return successRate
-  **/
-  @ApiModelProperty(required = true, value = "The ratio of successful runs / total runs.")
-  public Float getSuccessRate() {
-    return successRate;
-  }
-
-  public void setSuccessRate(Float successRate) {
-    this.successRate = successRate;
-  }
+  public static final String JSON_PROPERTY_THROUGHPUT = "throughput";
+  @JsonProperty(JSON_PROPERTY_THROUGHPUT)
+  private Float throughput;
 
   public InlineResponse2002Metrics totalRuns(Long totalRuns) {
     this.totalRuns = totalRuns;
@@ -97,25 +83,6 @@ public class InlineResponse2002Metrics {
     this.totalRuns = totalRuns;
   }
 
-  public InlineResponse2002Metrics failedRuns(Long failedRuns) {
-    this.failedRuns = failedRuns;
-    return this;
-  }
-
-   /**
-   * The number of failed runs.
-   * minimum: 0
-   * @return failedRuns
-  **/
-  @ApiModelProperty(required = true, value = "The number of failed runs.")
-  public Long getFailedRuns() {
-    return failedRuns;
-  }
-
-  public void setFailedRuns(Long failedRuns) {
-    this.failedRuns = failedRuns;
-  }
-
   public InlineResponse2002Metrics successfulRuns(Long successfulRuns) {
     this.successfulRuns = successfulRuns;
     return this;
@@ -133,24 +100,6 @@ public class InlineResponse2002Metrics {
 
   public void setSuccessfulRuns(Long successfulRuns) {
     this.successfulRuns = successfulRuns;
-  }
-
-  public InlineResponse2002Metrics throughput(Float throughput) {
-    this.throughput = throughput;
-    return this;
-  }
-
-   /**
-   * The average number of runs per day.
-   * @return throughput
-  **/
-  @ApiModelProperty(required = true, value = "The average number of runs per day.")
-  public Float getThroughput() {
-    return throughput;
-  }
-
-  public void setThroughput(Float throughput) {
-    this.throughput = throughput;
   }
 
   public InlineResponse2002Metrics mttr(Long mttr) {
@@ -191,6 +140,43 @@ public class InlineResponse2002Metrics {
     this.totalCreditsUsed = totalCreditsUsed;
   }
 
+  public InlineResponse2002Metrics failedRuns(Long failedRuns) {
+    this.failedRuns = failedRuns;
+    return this;
+  }
+
+   /**
+   * The number of failed runs.
+   * minimum: 0
+   * @return failedRuns
+  **/
+  @ApiModelProperty(required = true, value = "The number of failed runs.")
+  public Long getFailedRuns() {
+    return failedRuns;
+  }
+
+  public void setFailedRuns(Long failedRuns) {
+    this.failedRuns = failedRuns;
+  }
+
+  public InlineResponse2002Metrics successRate(Float successRate) {
+    this.successRate = successRate;
+    return this;
+  }
+
+   /**
+   * The ratio of successful runs / total runs.
+   * @return successRate
+  **/
+  @ApiModelProperty(required = true, value = "The ratio of successful runs / total runs.")
+  public Float getSuccessRate() {
+    return successRate;
+  }
+
+  public void setSuccessRate(Float successRate) {
+    this.successRate = successRate;
+  }
+
   public InlineResponse2002Metrics durationMetrics(InlineResponse2002MetricsDurationMetrics durationMetrics) {
     this.durationMetrics = durationMetrics;
     return this;
@@ -209,6 +195,43 @@ public class InlineResponse2002Metrics {
     this.durationMetrics = durationMetrics;
   }
 
+  public InlineResponse2002Metrics totalRecoveries(Long totalRecoveries) {
+    this.totalRecoveries = totalRecoveries;
+    return this;
+  }
+
+   /**
+   * The number of recovered workflow executions per day.
+   * minimum: 0
+   * @return totalRecoveries
+  **/
+  @ApiModelProperty(required = true, value = "The number of recovered workflow executions per day.")
+  public Long getTotalRecoveries() {
+    return totalRecoveries;
+  }
+
+  public void setTotalRecoveries(Long totalRecoveries) {
+    this.totalRecoveries = totalRecoveries;
+  }
+
+  public InlineResponse2002Metrics throughput(Float throughput) {
+    this.throughput = throughput;
+    return this;
+  }
+
+   /**
+   * The average number of runs per day.
+   * @return throughput
+  **/
+  @ApiModelProperty(required = true, value = "The average number of runs per day.")
+  public Float getThroughput() {
+    return throughput;
+  }
+
+  public void setThroughput(Float throughput) {
+    this.throughput = throughput;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -219,19 +242,20 @@ public class InlineResponse2002Metrics {
       return false;
     }
     InlineResponse2002Metrics inlineResponse2002Metrics = (InlineResponse2002Metrics) o;
-    return Objects.equals(this.successRate, inlineResponse2002Metrics.successRate) &&
-        Objects.equals(this.totalRuns, inlineResponse2002Metrics.totalRuns) &&
-        Objects.equals(this.failedRuns, inlineResponse2002Metrics.failedRuns) &&
+    return Objects.equals(this.totalRuns, inlineResponse2002Metrics.totalRuns) &&
         Objects.equals(this.successfulRuns, inlineResponse2002Metrics.successfulRuns) &&
-        Objects.equals(this.throughput, inlineResponse2002Metrics.throughput) &&
         Objects.equals(this.mttr, inlineResponse2002Metrics.mttr) &&
         Objects.equals(this.totalCreditsUsed, inlineResponse2002Metrics.totalCreditsUsed) &&
-        Objects.equals(this.durationMetrics, inlineResponse2002Metrics.durationMetrics);
+        Objects.equals(this.failedRuns, inlineResponse2002Metrics.failedRuns) &&
+        Objects.equals(this.successRate, inlineResponse2002Metrics.successRate) &&
+        Objects.equals(this.durationMetrics, inlineResponse2002Metrics.durationMetrics) &&
+        Objects.equals(this.totalRecoveries, inlineResponse2002Metrics.totalRecoveries) &&
+        Objects.equals(this.throughput, inlineResponse2002Metrics.throughput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successRate, totalRuns, failedRuns, successfulRuns, throughput, mttr, totalCreditsUsed, durationMetrics);
+    return Objects.hash(totalRuns, successfulRuns, mttr, totalCreditsUsed, failedRuns, successRate, durationMetrics, totalRecoveries, throughput);
   }
 
 
@@ -239,14 +263,15 @@ public class InlineResponse2002Metrics {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2002Metrics {\n");
-    sb.append("    successRate: ").append(toIndentedString(successRate)).append("\n");
     sb.append("    totalRuns: ").append(toIndentedString(totalRuns)).append("\n");
-    sb.append("    failedRuns: ").append(toIndentedString(failedRuns)).append("\n");
     sb.append("    successfulRuns: ").append(toIndentedString(successfulRuns)).append("\n");
-    sb.append("    throughput: ").append(toIndentedString(throughput)).append("\n");
     sb.append("    mttr: ").append(toIndentedString(mttr)).append("\n");
     sb.append("    totalCreditsUsed: ").append(toIndentedString(totalCreditsUsed)).append("\n");
+    sb.append("    failedRuns: ").append(toIndentedString(failedRuns)).append("\n");
+    sb.append("    successRate: ").append(toIndentedString(successRate)).append("\n");
     sb.append("    durationMetrics: ").append(toIndentedString(durationMetrics)).append("\n");
+    sb.append("    totalRecoveries: ").append(toIndentedString(totalRecoveries)).append("\n");
+    sb.append("    throughput: ").append(toIndentedString(throughput)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -480,39 +480,37 @@ paths:
                         metrics:
                           type: object
                           properties:
-                            success_rate:
-                              type: number
-                              format: float
-                              description: The ratio of successful runs / total runs.
                             total_runs:
                               type: integer
                               format: int64
                               minimum: 0
                               description: The total number of runs.
-                            failed_runs:
-                              type: integer
-                              format: int64
-                              minimum: 0
-                              description: The number of failed runs.
                             successful_runs:
                               type: integer
                               format: int64
                               minimum: 0
                               description: The number of successful runs.
-                            throughput:
-                              type: number
-                              format: float
-                              description: The average number of runs per day.
                             mttr:
                               type: integer
                               format: int64
                               minimum: 0
+                              x-nullable: true
                               description: The mean time to recovery (mean time between failures and their next success) in seconds.
                             total_credits_used:
                               type: integer
                               format: int64
                               minimum: 0
+                              x-nullable: true
                               description: The total credits consumed by the workflow in the aggregation window. Note that Insights is not a real time financial reporting tool and should not be used for credit reporting.
+                            failed_runs:
+                              type: integer
+                              format: int64
+                              minimum: 0
+                              description: The number of failed runs.
+                            success_rate:
+                              type: number
+                              format: float
+                              description: The ratio of successful runs / total runs.
                             duration_metrics:
                               type: object
                               properties:
@@ -520,30 +518,36 @@ paths:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The minimum duration, in seconds, among a group of runs.
                                 mean:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The mean duration, in seconds, among a group of runs.
                                 median:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The median duration, in seconds, among a group of runs.
                                 p95:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The 95th percentile duration, in seconds, among a group of runs.
                                 max:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The max duration, in seconds, among a group of runs.
                                 standard_deviation:
                                   type: number
                                   format: float
+                                  x-nullable: true
                                   description: The standard deviation, in seconds, among a group of runs.
                               required:
                               - min
@@ -553,6 +557,16 @@ paths:
                               - max
                               - standard_deviation
                               description: Metrics relating to the duration of runs for a workflow.
+                            total_recoveries:
+                              type: integer
+                              format: int64
+                              minimum: 0
+                              x-nullable: true
+                              description: The number of recovered workflow executions per day.
+                            throughput:
+                              type: number
+                              format: float
+                              description: The average number of runs per day.
                           required:
                           - success_rate
                           - total_runs
@@ -560,6 +574,7 @@ paths:
                           - successful_runs
                           - throughput
                           - mttr
+                          - total_recoveries
                           - total_credits_used
                           - duration_metrics
                           description: Metrics relating to a workflow's runs.
@@ -650,6 +665,7 @@ paths:
                           type: integer
                           format: int64
                           minimum: 0
+                          x-nullable: true
                           description: The duration in seconds of a run.
                         created_at:
                           type: string
@@ -815,30 +831,36 @@ paths:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The minimum duration, in seconds, among a group of runs.
                                 mean:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The mean duration, in seconds, among a group of runs.
                                 median:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The median duration, in seconds, among a group of runs.
                                 p95:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The 95th percentile duration, in seconds, among a group of runs.
                                 max:
                                   type: integer
                                   format: int64
                                   minimum: 0
+                                  x-nullable: true
                                   description: The max duration, in seconds, among a group of runs.
                                 standard_deviation:
                                   type: number
                                   format: float
+                                  x-nullable: true
                                   description: The standard deviation, in seconds, among a group of runs.
                               required:
                               - min

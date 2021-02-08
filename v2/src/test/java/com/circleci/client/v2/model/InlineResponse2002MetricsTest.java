@@ -39,14 +39,6 @@ public class InlineResponse2002MetricsTest {
     }
 
     /**
-     * Test the property 'successRate'
-     */
-    @Test
-    public void successRateTest() {
-        // TODO: test successRate
-    }
-
-    /**
      * Test the property 'totalRuns'
      */
     @Test
@@ -55,27 +47,11 @@ public class InlineResponse2002MetricsTest {
     }
 
     /**
-     * Test the property 'failedRuns'
-     */
-    @Test
-    public void failedRunsTest() {
-        // TODO: test failedRuns
-    }
-
-    /**
      * Test the property 'successfulRuns'
      */
     @Test
     public void successfulRunsTest() {
         // TODO: test successfulRuns
-    }
-
-    /**
-     * Test the property 'throughput'
-     */
-    @Test
-    public void throughputTest() {
-        // TODO: test throughput
     }
 
     /**
@@ -95,11 +71,43 @@ public class InlineResponse2002MetricsTest {
     }
 
     /**
+     * Test the property 'failedRuns'
+     */
+    @Test
+    public void failedRunsTest() {
+        // TODO: test failedRuns
+    }
+
+    /**
+     * Test the property 'successRate'
+     */
+    @Test
+    public void successRateTest() {
+        // TODO: test successRate
+    }
+
+    /**
      * Test the property 'durationMetrics'
      */
     @Test
     public void durationMetricsTest() {
         // TODO: test durationMetrics
+    }
+
+    /**
+     * Test the property 'totalRecoveries'
+     */
+    @Test
+    public void totalRecoveriesTest() {
+        // TODO: test totalRecoveries
+    }
+
+    /**
+     * Test the property 'throughput'
+     */
+    @Test
+    public void throughputTest() {
+        // TODO: test throughput
     }
 
 }
