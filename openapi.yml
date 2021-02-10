@@ -1413,6 +1413,16 @@ paths:
                 configuration:
                   type: string
                   description: A configuration string for the pipeline.
+                parameters:
+                  type: object
+                  additionalProperties:
+                    anyOf:
+                    - type: integer
+                    - type: string
+                    - type: boolean
+                  description: An object containing pipeline parameters and their values.
+                  example:
+                    deploy_prod: true
               required:
               - continuation-key
               - configuration

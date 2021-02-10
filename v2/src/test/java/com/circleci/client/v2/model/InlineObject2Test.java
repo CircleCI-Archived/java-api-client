@@ -13,11 +13,15 @@
 
 package com.circleci.client.v2.model;
 
+import com.circleci.client.v2.model.AnyOfintegerstringboolean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -51,6 +55,14 @@ public class InlineObject2Test {
     @Test
     public void _configurationTest() {
         // TODO: test _configuration
+    }
+
+    /**
+     * Test the property 'parameters'
+     */
+    @Test
+    public void parametersTest() {
+        // TODO: test parameters
     }
 
 }

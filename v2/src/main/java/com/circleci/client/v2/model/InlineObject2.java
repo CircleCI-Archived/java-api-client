@@ -15,11 +15,15 @@ package com.circleci.client.v2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.circleci.client.v2.model.AnyOfintegerstringboolean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * InlineObject2
@@ -33,6 +37,10 @@ public class InlineObject2 {
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   private String _configuration;
+
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  private Map<String, AnyOfintegerstringboolean> parameters = new HashMap<>();
 
   public InlineObject2 continuationKey(String continuationKey) {
     this.continuationKey = continuationKey;
@@ -70,6 +78,33 @@ public class InlineObject2 {
     this._configuration = _configuration;
   }
 
+  public InlineObject2 parameters(Map<String, AnyOfintegerstringboolean> parameters) {
+    this.parameters = parameters;
+    return this;
+  }
+
+  public InlineObject2 putParametersItem(String key, AnyOfintegerstringboolean parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new HashMap<>();
+    }
+    this.parameters.put(key, parametersItem);
+    return this;
+  }
+
+   /**
+   * An object containing pipeline parameters and their values.
+   * @return parameters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "{\"deploy_prod\":true}", value = "An object containing pipeline parameters and their values.")
+  public Map<String, AnyOfintegerstringboolean> getParameters() {
+    return parameters;
+  }
+
+  public void setParameters(Map<String, AnyOfintegerstringboolean> parameters) {
+    this.parameters = parameters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,12 +116,13 @@ public class InlineObject2 {
     }
     InlineObject2 inlineObject2 = (InlineObject2) o;
     return Objects.equals(this.continuationKey, inlineObject2.continuationKey) &&
-        Objects.equals(this._configuration, inlineObject2._configuration);
+        Objects.equals(this._configuration, inlineObject2._configuration) &&
+        Objects.equals(this.parameters, inlineObject2.parameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(continuationKey, _configuration);
+    return Objects.hash(continuationKey, _configuration, parameters);
   }
 
 
@@ -96,6 +132,7 @@ public class InlineObject2 {
     sb.append("class InlineObject2 {\n");
     sb.append("    continuationKey: ").append(toIndentedString(continuationKey)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
