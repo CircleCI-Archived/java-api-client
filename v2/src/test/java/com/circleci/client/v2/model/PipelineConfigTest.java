@@ -53,4 +53,20 @@ public class PipelineConfigTest {
         // TODO: test compiled
     }
 
+    /**
+     * Test the property 'setupConfig'
+     */
+    @Test
+    public void setupConfigTest() {
+        // TODO: test setupConfig
+    }
+
+    /**
+     * Test the property 'compiledSetupConfig'
+     */
+    @Test
+    public void compiledSetupConfigTest() {
+        // TODO: test compiledSetupConfig
+    }
+
 }

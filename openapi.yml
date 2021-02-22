@@ -1632,6 +1632,12 @@ paths:
                   compiled:
                     type: string
                     description: The compiled configuration for the pipeline, after all orb expansion has been performed. If there were errors processing the pipeline's configuration, then this field may be empty.
+                  setup-config:
+                    type: string
+                    description: The setup configuration for the pipeline used for Setup Workflows. If there were errors processing the pipeline's configuration or if setup workflows are not enabled, then this field should not exist
+                  compiled-setup-config:
+                    type: string
+                    description: The compiled setup configuration for the pipeline, after all orb expansion has been performed. If there were errors processing the pipeline's setup workflows, then this field may be empty.
                 required:
                 - source
                 - compiled

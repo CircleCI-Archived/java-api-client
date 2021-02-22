@@ -35,6 +35,14 @@ public class PipelineConfig {
   @JsonProperty(JSON_PROPERTY_COMPILED)
   private String compiled;
 
+  public static final String JSON_PROPERTY_SETUP_CONFIG = "setup-config";
+  @JsonProperty(JSON_PROPERTY_SETUP_CONFIG)
+  private String setupConfig;
+
+  public static final String JSON_PROPERTY_COMPILED_SETUP_CONFIG = "compiled-setup-config";
+  @JsonProperty(JSON_PROPERTY_COMPILED_SETUP_CONFIG)
+  private String compiledSetupConfig;
+
   public PipelineConfig source(String source) {
     this.source = source;
     return this;
@@ -71,6 +79,44 @@ public class PipelineConfig {
     this.compiled = compiled;
   }
 
+  public PipelineConfig setupConfig(String setupConfig) {
+    this.setupConfig = setupConfig;
+    return this;
+  }
+
+   /**
+   * The setup configuration for the pipeline used for Setup Workflows. If there were errors processing the pipeline&#39;s configuration or if setup workflows are not enabled, then this field should not exist
+   * @return setupConfig
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The setup configuration for the pipeline used for Setup Workflows. If there were errors processing the pipeline's configuration or if setup workflows are not enabled, then this field should not exist")
+  public String getSetupConfig() {
+    return setupConfig;
+  }
+
+  public void setSetupConfig(String setupConfig) {
+    this.setupConfig = setupConfig;
+  }
+
+  public PipelineConfig compiledSetupConfig(String compiledSetupConfig) {
+    this.compiledSetupConfig = compiledSetupConfig;
+    return this;
+  }
+
+   /**
+   * The compiled setup configuration for the pipeline, after all orb expansion has been performed. If there were errors processing the pipeline&#39;s setup workflows, then this field may be empty.
+   * @return compiledSetupConfig
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The compiled setup configuration for the pipeline, after all orb expansion has been performed. If there were errors processing the pipeline's setup workflows, then this field may be empty.")
+  public String getCompiledSetupConfig() {
+    return compiledSetupConfig;
+  }
+
+  public void setCompiledSetupConfig(String compiledSetupConfig) {
+    this.compiledSetupConfig = compiledSetupConfig;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +128,14 @@ public class PipelineConfig {
     }
     PipelineConfig pipelineConfig = (PipelineConfig) o;
     return Objects.equals(this.source, pipelineConfig.source) &&
-        Objects.equals(this.compiled, pipelineConfig.compiled);
+        Objects.equals(this.compiled, pipelineConfig.compiled) &&
+        Objects.equals(this.setupConfig, pipelineConfig.setupConfig) &&
+        Objects.equals(this.compiledSetupConfig, pipelineConfig.compiledSetupConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(source, compiled);
+    return Objects.hash(source, compiled, setupConfig, compiledSetupConfig);
   }
 
 
@@ -97,6 +145,8 @@ public class PipelineConfig {
     sb.append("class PipelineConfig {\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    compiled: ").append(toIndentedString(compiled)).append("\n");
+    sb.append("    setupConfig: ").append(toIndentedString(setupConfig)).append("\n");
+    sb.append("    compiledSetupConfig: ").append(toIndentedString(compiledSetupConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }
