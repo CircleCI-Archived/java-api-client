@@ -85,6 +85,10 @@ public class InlineResponse2005Items {
   @JsonProperty(JSON_PROPERTY_STATUS)
   private StatusEnum status;
 
+  public static final String JSON_PROPERTY_DURATION = "duration";
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  private Long duration;
+
   public static final String JSON_PROPERTY_CREDITS_USED = "credits_used";
   @JsonProperty(JSON_PROPERTY_CREDITS_USED)
   private Long creditsUsed;
@@ -161,6 +165,25 @@ public class InlineResponse2005Items {
     this.status = status;
   }
 
+  public InlineResponse2005Items duration(Long duration) {
+    this.duration = duration;
+    return this;
+  }
+
+   /**
+   * The duration in seconds of a run.
+   * minimum: 0
+   * @return duration
+  **/
+  @ApiModelProperty(required = true, value = "The duration in seconds of a run.")
+  public Long getDuration() {
+    return duration;
+  }
+
+  public void setDuration(Long duration) {
+    this.duration = duration;
+  }
+
   public InlineResponse2005Items creditsUsed(Long creditsUsed) {
     this.creditsUsed = creditsUsed;
     return this;
@@ -194,12 +217,13 @@ public class InlineResponse2005Items {
         Objects.equals(this.startedAt, inlineResponse2005Items.startedAt) &&
         Objects.equals(this.stoppedAt, inlineResponse2005Items.stoppedAt) &&
         Objects.equals(this.status, inlineResponse2005Items.status) &&
+        Objects.equals(this.duration, inlineResponse2005Items.duration) &&
         Objects.equals(this.creditsUsed, inlineResponse2005Items.creditsUsed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, startedAt, stoppedAt, status, creditsUsed);
+    return Objects.hash(id, startedAt, stoppedAt, status, duration, creditsUsed);
   }
 
 
@@ -211,6 +235,7 @@ public class InlineResponse2005Items {
     sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    stoppedAt: ").append(toIndentedString(stoppedAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    creditsUsed: ").append(toIndentedString(creditsUsed)).append("\n");
     sb.append("}");
     return sb.toString();

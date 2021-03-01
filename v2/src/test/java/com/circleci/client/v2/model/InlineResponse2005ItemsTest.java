@@ -72,6 +72,14 @@ public class InlineResponse2005ItemsTest {
     }
 
     /**
+     * Test the property 'duration'
+     */
+    @Test
+    public void durationTest() {
+        // TODO: test duration
+    }
+
+    /**
      * Test the property 'creditsUsed'
      */
     @Test

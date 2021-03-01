@@ -988,6 +988,12 @@ paths:
                           type: string
                           x-nullable: true
                           description: Job status.
+                        duration:
+                          type: integer
+                          format: int64
+                          minimum: 0
+                          x-nullable: true
+                          description: The duration in seconds of a run.
                         credits_used:
                           type: integer
                           format: int64
@@ -998,6 +1004,7 @@ paths:
                       - started_at
                       - stopped_at
                       - status
+                      - duration
                       - credits_used
                     description: Recent job runs.
                   next_page_token:
