@@ -56,4 +56,12 @@ public class RerunWorkflowParametersTest {
         // TODO: test fromFailed
     }
 
+    /**
+     * Test the property 'sparseTree'
+     */
+    @Test
+    public void sparseTreeTest() {
+        // TODO: test sparseTree
+    }
+
 }

@@ -38,6 +38,10 @@ public class RerunWorkflowParameters {
   @JsonProperty(JSON_PROPERTY_FROM_FAILED)
   private Boolean fromFailed;
 
+  public static final String JSON_PROPERTY_SPARSE_TREE = "sparse_tree";
+  @JsonProperty(JSON_PROPERTY_SPARSE_TREE)
+  private Boolean sparseTree;
+
   public RerunWorkflowParameters jobs(List<UUID> jobs) {
     this.jobs = jobs;
     return this;
@@ -84,6 +88,25 @@ public class RerunWorkflowParameters {
     this.fromFailed = fromFailed;
   }
 
+  public RerunWorkflowParameters sparseTree(Boolean sparseTree) {
+    this.sparseTree = sparseTree;
+    return this;
+  }
+
+   /**
+   * Completes rerun using sparse trees logic, an optimization for workflows that have disconnected subgraphs. Requires jobs parameter and so is mutually exclusive with the from_failed parameter.
+   * @return sparseTree
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "Completes rerun using sparse trees logic, an optimization for workflows that have disconnected subgraphs. Requires jobs parameter and so is mutually exclusive with the from_failed parameter.")
+  public Boolean getSparseTree() {
+    return sparseTree;
+  }
+
+  public void setSparseTree(Boolean sparseTree) {
+    this.sparseTree = sparseTree;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -95,12 +118,13 @@ public class RerunWorkflowParameters {
     }
     RerunWorkflowParameters rerunWorkflowParameters = (RerunWorkflowParameters) o;
     return Objects.equals(this.jobs, rerunWorkflowParameters.jobs) &&
-        Objects.equals(this.fromFailed, rerunWorkflowParameters.fromFailed);
+        Objects.equals(this.fromFailed, rerunWorkflowParameters.fromFailed) &&
+        Objects.equals(this.sparseTree, rerunWorkflowParameters.sparseTree);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobs, fromFailed);
+    return Objects.hash(jobs, fromFailed, sparseTree);
   }
 
 
@@ -110,6 +134,7 @@ public class RerunWorkflowParameters {
     sb.append("class RerunWorkflowParameters {\n");
     sb.append("    jobs: ").append(toIndentedString(jobs)).append("\n");
     sb.append("    fromFailed: ").append(toIndentedString(fromFailed)).append("\n");
+    sb.append("    sparseTree: ").append(toIndentedString(sparseTree)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -3916,6 +3916,10 @@ paths:
                   type: boolean
                   description: Whether to rerun the workflow from the failed job. Mutually exclusive with the jobs parameter.
                   example: false
+                sparse_tree:
+                  type: boolean
+                  description: Completes rerun using sparse trees logic, an optimization for workflows that have disconnected subgraphs. Requires jobs parameter and so is mutually exclusive with the from_failed parameter.
+                  example: false
               x-nullable: true
               description: The information you can supply when rerunning a workflow.
               title: RerunWorkflowParameters
