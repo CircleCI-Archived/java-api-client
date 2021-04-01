@@ -62,10 +62,10 @@ public class InlineResponse2004Metrics {
   }
 
    /**
-   * The ratio of successful runs / total runs.
+   * Get successRate
    * @return successRate
   **/
-  @ApiModelProperty(required = true, value = "The ratio of successful runs / total runs.")
+  @ApiModelProperty(required = true, value = "")
   public Float getSuccessRate() {
     return successRate;
   }

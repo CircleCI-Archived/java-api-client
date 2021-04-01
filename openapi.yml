@@ -510,7 +510,6 @@ paths:
                             success_rate:
                               type: number
                               format: float
-                              description: The ratio of successful runs / total runs.
                             duration_metrics:
                               type: object
                               properties:
@@ -799,7 +798,6 @@ paths:
                             success_rate:
                               type: number
                               format: float
-                              description: The ratio of successful runs / total runs.
                             total_runs:
                               type: integer
                               format: int64

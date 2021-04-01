@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**successRate** | **Float** | The ratio of successful runs / total runs. | 
+**successRate** | **Float** |  | 
 **totalRuns** | **Long** | The total number of runs. | 
 **failedRuns** | **Long** | The number of failed runs. | 
 **successfulRuns** | **Long** | The number of successful runs. | 
