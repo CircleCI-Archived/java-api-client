@@ -460,11 +460,12 @@ public class DefaultApiTest {
         String projectSlug = null;
         String workflowName = null;
         String jobName = null;
+        Boolean allBranches = null;
         String branch = null;
         String pageToken = null;
         OffsetDateTime startDate = null;
         OffsetDateTime endDate = null;
-        InlineResponse2005 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken, startDate, endDate);
+        InlineResponse2005 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, allBranches, branch, pageToken, startDate, endDate);
 
         // TODO: test validations
     }
@@ -501,9 +502,10 @@ public class DefaultApiTest {
     public void getProjectWorkflowMetricsTest() throws ApiException {
         String projectSlug = null;
         String pageToken = null;
+        Boolean allBranches = null;
         String branch = null;
         String reportingWindow = null;
-        InlineResponse2002 response = api.getProjectWorkflowMetrics(projectSlug, pageToken, branch, reportingWindow);
+        InlineResponse2002 response = api.getProjectWorkflowMetrics(projectSlug, pageToken, allBranches, branch, reportingWindow);
 
         // TODO: test validations
     }
@@ -520,11 +522,12 @@ public class DefaultApiTest {
     public void getProjectWorkflowRunsTest() throws ApiException {
         String projectSlug = null;
         String workflowName = null;
+        Boolean allBranches = null;
         String branch = null;
         String pageToken = null;
         OffsetDateTime startDate = null;
         OffsetDateTime endDate = null;
-        InlineResponse2003 response = api.getProjectWorkflowRuns(projectSlug, workflowName, branch, pageToken, startDate, endDate);
+        InlineResponse2003 response = api.getProjectWorkflowRuns(projectSlug, workflowName, allBranches, branch, pageToken, startDate, endDate);
 
         // TODO: test validations
     }
