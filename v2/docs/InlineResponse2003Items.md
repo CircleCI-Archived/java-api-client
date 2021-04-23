@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | [**UUID**](UUID.md) | The unique ID of the workflow. | 
+**branch** | **String** | The VCS branch of a Workflow&#39;s trigger. | 
 **duration** | **Long** | The duration in seconds of a run. | 
 **createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the workflow was created. | 
 **stoppedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time the workflow stopped. | 

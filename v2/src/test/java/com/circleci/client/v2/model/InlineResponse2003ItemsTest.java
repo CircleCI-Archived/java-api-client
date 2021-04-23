@@ -48,6 +48,14 @@ public class InlineResponse2003ItemsTest {
     }
 
     /**
+     * Test the property 'branch'
+     */
+    @Test
+    public void branchTest() {
+        // TODO: test branch
+    }
+
+    /**
      * Test the property 'duration'
      */
     @Test

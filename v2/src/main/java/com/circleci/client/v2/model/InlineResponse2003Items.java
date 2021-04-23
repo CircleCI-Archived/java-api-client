@@ -32,6 +32,10 @@ public class InlineResponse2003Items {
   @JsonProperty(JSON_PROPERTY_ID)
   private UUID id;
 
+  public static final String JSON_PROPERTY_BRANCH = "branch";
+  @JsonProperty(JSON_PROPERTY_BRANCH)
+  private String branch;
+
   public static final String JSON_PROPERTY_DURATION = "duration";
   @JsonProperty(JSON_PROPERTY_DURATION)
   private Long duration;
@@ -109,6 +113,24 @@ public class InlineResponse2003Items {
 
   public void setId(UUID id) {
     this.id = id;
+  }
+
+  public InlineResponse2003Items branch(String branch) {
+    this.branch = branch;
+    return this;
+  }
+
+   /**
+   * The VCS branch of a Workflow&#39;s trigger.
+   * @return branch
+  **/
+  @ApiModelProperty(example = "main", required = true, value = "The VCS branch of a Workflow's trigger.")
+  public String getBranch() {
+    return branch;
+  }
+
+  public void setBranch(String branch) {
+    this.branch = branch;
   }
 
   public InlineResponse2003Items duration(Long duration) {
@@ -214,6 +236,7 @@ public class InlineResponse2003Items {
     }
     InlineResponse2003Items inlineResponse2003Items = (InlineResponse2003Items) o;
     return Objects.equals(this.id, inlineResponse2003Items.id) &&
+        Objects.equals(this.branch, inlineResponse2003Items.branch) &&
         Objects.equals(this.duration, inlineResponse2003Items.duration) &&
         Objects.equals(this.createdAt, inlineResponse2003Items.createdAt) &&
         Objects.equals(this.stoppedAt, inlineResponse2003Items.stoppedAt) &&
@@ -223,7 +246,7 @@ public class InlineResponse2003Items {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, duration, createdAt, stoppedAt, creditsUsed, status);
+    return Objects.hash(id, branch, duration, createdAt, stoppedAt, creditsUsed, status);
   }
 
 
@@ -232,6 +255,7 @@ public class InlineResponse2003Items {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2003Items {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    stoppedAt: ").append(toIndentedString(stoppedAt)).append("\n");

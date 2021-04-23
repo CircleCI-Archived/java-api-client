@@ -2096,7 +2096,7 @@ Name | Type | Description  | Notes
 
 ## getProjectWorkflowJobMetrics
 
-> InlineResponse2004 getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch, reportingWindow)
+> InlineResponse2004 getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, allBranches, branch, reportingWindow)
 
 Get summary metrics for a project workflow&#39;s jobs.
 
@@ -2139,10 +2139,11 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
+        Boolean allBranches = true; // Boolean | Whether to retrieve data for all branches combined.
         String branch = "branch_example"; // String | The name of a vcs branch. If not passed we will scope the API call to the default branch.
         String reportingWindow = last-90-days; // String | The time window used to calculate summary metrics.
         try {
-            InlineResponse2004 result = apiInstance.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, branch, reportingWindow);
+            InlineResponse2004 result = apiInstance.getProjectWorkflowJobMetrics(projectSlug, workflowName, pageToken, allBranches, branch, reportingWindow);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectWorkflowJobMetrics");
@@ -2163,6 +2164,7 @@ Name | Type | Description  | Notes
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
+ **allBranches** | **Boolean**| Whether to retrieve data for all branches combined. | [optional]
  **branch** | **String**| The name of a vcs branch. If not passed we will scope the API call to the default branch. | [optional]
  **reportingWindow** | **String**| The time window used to calculate summary metrics. | [optional] [enum: last-7-days, last-90-days, last-24-hours, last-30-days, last-60-days]
 
