@@ -323,6 +323,51 @@ paths:
           format: uuid
         required: true
   /context/{context-id}/environment-variable/{env-var-name}:
+    delete:
+      summary: Remove an environment variable
+      description: Delete an environment variable from a context.
+      tags:
+      - Context
+      operationId: deleteEnvironmentVariableFromContext
+      responses:
+        200:
+          description: A confirmation message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable message
+                required:
+                - message
+                description: message response
+                title: MessageResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
+      parameters:
+      - in: path
+        name: env-var-name
+        description: The name of the environment variable
+        schema:
+          type: string
+        required: true
+        example: POSTGRES_USER
+      - in: path
+        name: context-id
+        description: ID of the context (UUID)
+        schema:
+          type: string
+          format: uuid
+        required: true
     put:
       summary: Add or update an environment variable
       description: Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
@@ -400,51 +445,6 @@ paths:
                   example: some-secret-value
               required:
               - value
-    delete:
-      summary: Remove an environment variable
-      description: Delete an environment variable from a context.
-      tags:
-      - Context
-      operationId: deleteEnvironmentVariableFromContext
-      responses:
-        200:
-          description: A confirmation message
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: A human-readable message
-                required:
-                - message
-                description: message response
-                title: MessageResponse
-        default:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-          description: Error response.
-      parameters:
-      - in: path
-        name: env-var-name
-        description: The name of the environment variable
-        schema:
-          type: string
-        required: true
-        example: POSTGRES_USER
-      - in: path
-        name: context-id
-        description: ID of the context (UUID)
-        schema:
-          type: string
-          format: uuid
-        required: true
   /insights/{project-slug}/workflows:
     get:
       summary: Get summary metrics for a project's workflows
