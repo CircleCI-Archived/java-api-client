@@ -1998,7 +1998,7 @@ Name | Type | Description  | Notes
 
 ## getProjectJobRuns
 
-> InlineResponse2005 getProjectJobRuns(projectSlug, workflowName, jobName, allBranches, branch, pageToken, startDate, endDate)
+> InlineResponse2005 getProjectJobRuns(projectSlug, workflowName, jobName, branchRecentJobRuns, pageToken, startDate, endDate)
 
 Get recent runs of a workflow job
 
@@ -2041,13 +2041,12 @@ public class Example {
         String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
         String workflowName = build-and-test; // String | The name of the workflow.
         String jobName = lint; // String | The name of the job.
-        Boolean allBranches = true; // Boolean | Whether to retrieve data for all branches combined.
-        String branch = "branch_example"; // String | The name of a vcs branch. If not passed we will scope the API call to the default branch.
+        String branchRecentJobRuns = "branchRecentJobRuns_example"; // String | The name of a vcs branch. If not passed we will scope the API call to the default branch.     Note - Querying all branches is not supported yet.
         String pageToken = "pageToken_example"; // String | A token to retrieve the next page of results.
         OffsetDateTime startDate = 2020-08-21T13:26:29Z; // OffsetDateTime | Include only executions that started at or after this date. This must be specified if an end-date is provided.
         OffsetDateTime endDate = 2020-09-04T13:26:29Z; // OffsetDateTime | Include only executions that started before this date. This date can be at most 90 days after the start-date.
         try {
-            InlineResponse2005 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, allBranches, branch, pageToken, startDate, endDate);
+            InlineResponse2005 result = apiInstance.getProjectJobRuns(projectSlug, workflowName, jobName, branchRecentJobRuns, pageToken, startDate, endDate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getProjectJobRuns");
@@ -2068,8 +2067,7 @@ Name | Type | Description  | Notes
  **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
  **workflowName** | **String**| The name of the workflow. |
  **jobName** | **String**| The name of the job. |
- **allBranches** | **Boolean**| Whether to retrieve data for all branches combined. | [optional]
- **branch** | **String**| The name of a vcs branch. If not passed we will scope the API call to the default branch. | [optional]
+ **branchRecentJobRuns** | **String**| The name of a vcs branch. If not passed we will scope the API call to the default branch.     Note - Querying all branches is not supported yet. | [optional]
  **pageToken** | **String**| A token to retrieve the next page of results. | [optional]
  **startDate** | **OffsetDateTime**| Include only executions that started at or after this date. This must be specified if an end-date is provided. | [optional]
  **endDate** | **OffsetDateTime**| Include only executions that started before this date. This date can be at most 90 days after the start-date. | [optional]
