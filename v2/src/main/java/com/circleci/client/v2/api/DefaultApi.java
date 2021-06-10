@@ -1637,7 +1637,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
-   * @param branchRecentJobRuns The name of a vcs branch. If not passed we will scope the API call to the default branch.     Note - Querying all branches is not supported yet. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch.     Note - Querying all branches is not supported yet. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)
@@ -1650,8 +1650,8 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2005 getProjectJobRuns(String projectSlug, String workflowName, String jobName, String branchRecentJobRuns, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
-    return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, branchRecentJobRuns, pageToken, startDate, endDate).getData();
+  public InlineResponse2005 getProjectJobRuns(String projectSlug, String workflowName, String jobName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
+    return getProjectJobRunsWithHttpInfo(projectSlug, workflowName, jobName, branch, pageToken, startDate, endDate).getData();
       }
 
   /**
@@ -1660,7 +1660,7 @@ public class DefaultApi {
    * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
    * @param workflowName The name of the workflow. (required)
    * @param jobName The name of the job. (required)
-   * @param branchRecentJobRuns The name of a vcs branch. If not passed we will scope the API call to the default branch.     Note - Querying all branches is not supported yet. (optional)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch.     Note - Querying all branches is not supported yet. (optional)
    * @param pageToken A token to retrieve the next page of results. (optional)
    * @param startDate Include only executions that started at or after this date. This must be specified if an end-date is provided. (optional)
    * @param endDate Include only executions that started before this date. This date can be at most 90 days after the start-date. (optional)
@@ -1673,7 +1673,7 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2005> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, String branchRecentJobRuns, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
+  public ApiResponse<InlineResponse2005> getProjectJobRunsWithHttpInfo(String projectSlug, String workflowName, String jobName, String branch, String pageToken, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
     Object localVarPostBody = new Object();
     
     // verify the required parameter 'projectSlug' is set
@@ -1702,7 +1702,7 @@ public class DefaultApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch-recent-job-runs", branchRecentJobRuns));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page-token", pageToken));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start-date", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end-date", endDate));

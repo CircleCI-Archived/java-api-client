@@ -1066,7 +1066,7 @@ paths:
         required: true
         example: lint
       - in: query
-        name: branch-recent-job-runs
+        name: branch
         description: "The name of a vcs branch. If not passed we will scope the API call to the default branch. \n   Note - Querying all branches is not supported yet."
         schema:
           type: string

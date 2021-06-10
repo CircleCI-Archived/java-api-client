@@ -460,11 +460,11 @@ public class DefaultApiTest {
         String projectSlug = null;
         String workflowName = null;
         String jobName = null;
-        String branchRecentJobRuns = null;
+        String branch = null;
         String pageToken = null;
         OffsetDateTime startDate = null;
         OffsetDateTime endDate = null;
-        InlineResponse2005 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, branchRecentJobRuns, pageToken, startDate, endDate);
+        InlineResponse2005 response = api.getProjectJobRuns(projectSlug, workflowName, jobName, branch, pageToken, startDate, endDate);
 
         // TODO: test validations
     }
