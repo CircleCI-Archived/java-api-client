@@ -3957,7 +3957,6 @@ components:
       description: DEPRECATED - we will remove this option in the future
 tags:
 - name: Context
-  x-displayName: Context (Preview)
 - name: Insights
 - name: User
   x-displayName: User (Preview)
