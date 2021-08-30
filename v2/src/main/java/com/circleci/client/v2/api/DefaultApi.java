@@ -2780,6 +2780,69 @@ public class DefaultApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * 
+   * 
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @return InlineResponseDefault
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponseDefault projectProjectSlugSchedulePost(String projectSlug) throws ApiException {
+    return projectProjectSlugSchedulePostWithHttpInfo(projectSlug).getData();
+      }
+
+  /**
+   * 
+   * 
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @return ApiResponse&lt;InlineResponseDefault&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponseDefault> projectProjectSlugSchedulePostWithHttpInfo(String projectSlug) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'projectSlug' is set
+    if (projectSlug == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectSlug' when calling projectProjectSlugSchedulePost");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/project/{project-slug}/schedule"
+      .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponseDefault> localVarReturnType = new GenericType<InlineResponseDefault>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Rerun a workflow
    * Reruns a workflow.
    * @param id The unique ID of the workflow. (required)
@@ -2845,6 +2908,132 @@ public class DefaultApi {
 
     GenericType<MessageResponse> localVarReturnType = new GenericType<MessageResponse>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * 
+   * 
+   * @param scheduleId The unique ID of the schedule. (required)
+   * @return InlineResponseDefault
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponseDefault scheduleScheduleIdGet(UUID scheduleId) throws ApiException {
+    return scheduleScheduleIdGetWithHttpInfo(scheduleId).getData();
+      }
+
+  /**
+   * 
+   * 
+   * @param scheduleId The unique ID of the schedule. (required)
+   * @return ApiResponse&lt;InlineResponseDefault&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponseDefault> scheduleScheduleIdGetWithHttpInfo(UUID scheduleId) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      throw new ApiException(400, "Missing the required parameter 'scheduleId' when calling scheduleScheduleIdGet");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/schedule/{schedule-id}"
+      .replaceAll("\\{" + "schedule-id" + "\\}", apiClient.escapeString(scheduleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponseDefault> localVarReturnType = new GenericType<InlineResponseDefault>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * 
+   * 
+   * @param scheduleId The unique ID of the schedule. (required)
+   * @return InlineResponseDefault
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponseDefault scheduleScheduleIdPatch(UUID scheduleId) throws ApiException {
+    return scheduleScheduleIdPatchWithHttpInfo(scheduleId).getData();
+      }
+
+  /**
+   * 
+   * 
+   * @param scheduleId The unique ID of the schedule. (required)
+   * @return ApiResponse&lt;InlineResponseDefault&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponseDefault> scheduleScheduleIdPatchWithHttpInfo(UUID scheduleId) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      throw new ApiException(400, "Missing the required parameter 'scheduleId' when calling scheduleScheduleIdPatch");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/schedule/{schedule-id}"
+      .replaceAll("\\{" + "schedule-id" + "\\}", apiClient.escapeString(scheduleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponseDefault> localVarReturnType = new GenericType<InlineResponseDefault>() {};
+    return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Trigger a new pipeline

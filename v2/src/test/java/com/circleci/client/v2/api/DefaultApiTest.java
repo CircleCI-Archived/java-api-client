@@ -735,6 +735,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * 
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void projectProjectSlugSchedulePostTest() throws ApiException {
+        String projectSlug = null;
+        InlineResponseDefault response = api.projectProjectSlugSchedulePost(projectSlug);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Rerun a workflow
      *
      * Reruns a workflow.
@@ -747,6 +763,38 @@ public class DefaultApiTest {
         UUID id = null;
         RerunWorkflowParameters rerunWorkflowParameters = null;
         MessageResponse response = api.rerunWorkflow(id, rerunWorkflowParameters);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void scheduleScheduleIdGetTest() throws ApiException {
+        UUID scheduleId = null;
+        InlineResponseDefault response = api.scheduleScheduleIdGet(scheduleId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void scheduleScheduleIdPatchTest() throws ApiException {
+        UUID scheduleId = null;
+        InlineResponseDefault response = api.scheduleScheduleIdPatch(scheduleId);
 
         // TODO: test validations
     }
