@@ -33,6 +33,7 @@ import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.InlineResponse2004;
 import com.circleci.client.v2.model.InlineResponse2005;
+import com.circleci.client.v2.model.InlineResponse2006;
 import com.circleci.client.v2.model.InlineResponseDefault;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
@@ -528,6 +529,24 @@ public class DefaultApiTest {
         OffsetDateTime startDate = null;
         OffsetDateTime endDate = null;
         InlineResponse2003 response = api.getProjectWorkflowRuns(projectSlug, workflowName, allBranches, branch, pageToken, startDate, endDate);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get test metrics for a project&#39;s workflows
+     *
+     * Get test metrics for a project&#39;s workflows. Currently tests metrics are calculated based on 10 most recent workflow runs.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getProjectWorkflowTestMetricsTest() throws ApiException {
+        String projectSlug = null;
+        String workflowName = null;
+        String branch = null;
+        InlineResponse2006 response = api.getProjectWorkflowTestMetrics(projectSlug, workflowName, branch);
 
         // TODO: test validations
     }

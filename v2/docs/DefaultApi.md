@@ -31,6 +31,7 @@ Method | HTTP request | Description
 [**getProjectWorkflowJobMetrics**](DefaultApi.md#getProjectWorkflowJobMetrics) | **GET** /insights/{project-slug}/workflows/{workflow-name}/jobs | Get summary metrics for a project workflow&#39;s jobs.
 [**getProjectWorkflowMetrics**](DefaultApi.md#getProjectWorkflowMetrics) | **GET** /insights/{project-slug}/workflows | Get summary metrics for a project&#39;s workflows
 [**getProjectWorkflowRuns**](DefaultApi.md#getProjectWorkflowRuns) | **GET** /insights/{project-slug}/workflows/{workflow-name} | Get recent runs of a workflow
+[**getProjectWorkflowTestMetrics**](DefaultApi.md#getProjectWorkflowTestMetrics) | **GET** /insights/{project-slug}/workflows/{workflow-name}/test-metrics | Get test metrics for a project&#39;s workflows
 [**getTests**](DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
 [**getUser**](DefaultApi.md#getUser) | **GET** /user/{id} | User Information
 [**getWorkflowById**](DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
@@ -2374,6 +2375,94 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A paginated list of recent workflow runs |  -  |
+| **0** | Error response. |  -  |
+
+
+## getProjectWorkflowTestMetrics
+
+> InlineResponse2006 getProjectWorkflowTestMetrics(projectSlug, workflowName, branch)
+
+Get test metrics for a project&#39;s workflows
+
+Get test metrics for a project&#39;s workflows. Currently tests metrics are calculated based on 10 most recent workflow runs.
+
+### Example
+
+```java
+// Import classes:
+import com.circleci.client.v2.ApiClient;
+import com.circleci.client.v2.ApiException;
+import com.circleci.client.v2.Configuration;
+import com.circleci.client.v2.auth.*;
+import com.circleci.client.v2.models.*;
+import com.circleci.client.v2.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://circleci.com/api/v2");
+        
+        // Configure API key authorization: api_key_header
+        ApiKeyAuth api_key_header = (ApiKeyAuth) defaultClient.getAuthentication("api_key_header");
+        api_key_header.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_header.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: api_key_query
+        ApiKeyAuth api_key_query = (ApiKeyAuth) defaultClient.getAuthentication("api_key_query");
+        api_key_query.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key_query.setApiKeyPrefix("Token");
+
+        // Configure HTTP basic authorization: basic_auth
+        HttpBasicAuth basic_auth = (HttpBasicAuth) defaultClient.getAuthentication("basic_auth");
+        basic_auth.setUsername("YOUR USERNAME");
+        basic_auth.setPassword("YOUR PASSWORD");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        String projectSlug = gh/CircleCI-Public/api-preview-docs; // String | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        String workflowName = build-and-test; // String | The name of the workflow.
+        String branch = "branch_example"; // String | The name of a vcs branch. If not passed we will scope the API call to the default branch.
+        try {
+            InlineResponse2006 result = apiInstance.getProjectWorkflowTestMetrics(projectSlug, workflowName, branch);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getProjectWorkflowTestMetrics");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectSlug** | **String**| Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. |
+ **workflowName** | **String**| The name of the workflow. |
+ **branch** | **String**| The name of a vcs branch. If not passed we will scope the API call to the default branch. | [optional]
+
+### Return type
+
+[**InlineResponse2006**](InlineResponse2006.md)
+
+### Authorization
+
+[api_key_header](../README.md#api_key_header), [api_key_query](../README.md#api_key_query), [basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A list of test metrics by workflow |  -  |
 | **0** | Error response. |  -  |
 
 

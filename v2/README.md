@@ -152,6 +152,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getProjectWorkflowJobMetrics**](docs/DefaultApi.md#getProjectWorkflowJobMetrics) | **GET** /insights/{project-slug}/workflows/{workflow-name}/jobs | Get summary metrics for a project workflow&#39;s jobs.
 *DefaultApi* | [**getProjectWorkflowMetrics**](docs/DefaultApi.md#getProjectWorkflowMetrics) | **GET** /insights/{project-slug}/workflows | Get summary metrics for a project&#39;s workflows
 *DefaultApi* | [**getProjectWorkflowRuns**](docs/DefaultApi.md#getProjectWorkflowRuns) | **GET** /insights/{project-slug}/workflows/{workflow-name} | Get recent runs of a workflow
+*DefaultApi* | [**getProjectWorkflowTestMetrics**](docs/DefaultApi.md#getProjectWorkflowTestMetrics) | **GET** /insights/{project-slug}/workflows/{workflow-name}/test-metrics | Get test metrics for a project&#39;s workflows
 *DefaultApi* | [**getTests**](docs/DefaultApi.md#getTests) | **GET** /project/{project-slug}/{job-number}/tests | Get test metadata
 *DefaultApi* | [**getUser**](docs/DefaultApi.md#getUser) | **GET** /user/{id} | User Information
 *DefaultApi* | [**getWorkflowById**](docs/DefaultApi.md#getWorkflowById) | **GET** /workflow/{id} | Get a workflow
@@ -201,6 +202,10 @@ Class | Method | HTTP request | Description
  - [InlineResponse2004MetricsDurationMetrics](docs/InlineResponse2004MetricsDurationMetrics.md)
  - [InlineResponse2005](docs/InlineResponse2005.md)
  - [InlineResponse2005Items](docs/InlineResponse2005Items.md)
+ - [InlineResponse2006](docs/InlineResponse2006.md)
+ - [InlineResponse2006MostFailedTests](docs/InlineResponse2006MostFailedTests.md)
+ - [InlineResponse2006TestCounts](docs/InlineResponse2006TestCounts.md)
+ - [InlineResponse2006TestRuns](docs/InlineResponse2006TestRuns.md)
  - [InlineResponseDefault](docs/InlineResponseDefault.md)
  - [Job](docs/Job.md)
  - [JobDetails](docs/JobDetails.md)
