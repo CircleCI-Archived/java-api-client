@@ -165,10 +165,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**listPipelinesForProject**](docs/DefaultApi.md#listPipelinesForProject) | **GET** /project/{project-slug}/pipeline | Get all pipelines
 *DefaultApi* | [**listWorkflowJobs**](docs/DefaultApi.md#listWorkflowJobs) | **GET** /workflow/{id}/job | Get a workflow&#39;s jobs
 *DefaultApi* | [**listWorkflowsByPipelineId**](docs/DefaultApi.md#listWorkflowsByPipelineId) | **GET** /pipeline/{pipeline-id}/workflow | Get a pipeline&#39;s workflows
-*DefaultApi* | [**projectProjectSlugSchedulePost**](docs/DefaultApi.md#projectProjectSlugSchedulePost) | **POST** /project/{project-slug}/schedule | 
 *DefaultApi* | [**rerunWorkflow**](docs/DefaultApi.md#rerunWorkflow) | **POST** /workflow/{id}/rerun | Rerun a workflow
-*DefaultApi* | [**scheduleScheduleIdGet**](docs/DefaultApi.md#scheduleScheduleIdGet) | **GET** /schedule/{schedule-id} | 
-*DefaultApi* | [**scheduleScheduleIdPatch**](docs/DefaultApi.md#scheduleScheduleIdPatch) | **PATCH** /schedule/{schedule-id} | 
 *DefaultApi* | [**triggerPipeline**](docs/DefaultApi.md#triggerPipeline) | **POST** /project/{project-slug}/pipeline | Trigger a new pipeline
 
 

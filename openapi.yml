@@ -3561,27 +3561,6 @@ paths:
         description: The number of the pipeline.
         schema: {}
         required: true
-  /project/{project-slug}/schedule:
-    post:
-      parameters:
-      - in: path
-        name: project-slug
-        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-        schema:
-          type: string
-        required: true
-        example: gh/CircleCI-Public/api-preview-docs
-        allowReserved: true
-      responses:
-        default:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-          description: Error response.
   /project/{project-slug}/{job-number}/artifacts:
     get:
       summary: Get a job's artifacts
@@ -3742,45 +3721,6 @@ paths:
         required: true
         example: gh/CircleCI-Public/api-preview-docs
         allowReserved: true
-  /schedule/{schedule-id}:
-    get:
-      parameters:
-      - in: path
-        name: schedule-id
-        description: The unique ID of the schedule.
-        schema:
-          type: string
-          format: uuid
-        required: true
-      responses:
-        default:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-          description: Error response.
-    patch:
-      parameters:
-      - in: path
-        name: schedule-id
-        description: The unique ID of the schedule.
-        schema:
-          type: string
-          format: uuid
-        required: true
-      responses:
-        default:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-          description: Error response.
   /user/{id}:
     get:
       summary: User Information
