@@ -13,86 +13,6 @@ security:
 - api_key_query: []
 paths:
   /context:
-    post:
-      summary: Create a new context
-      tags:
-      - Context
-      operationId: createContext
-      responses:
-        200:
-          description: The new context
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    format: uuid
-                    description: The unique ID of the context.
-                  name:
-                    type: string
-                    description: The user defined name of the context.
-                  created_at:
-                    type: string
-                    format: date-time
-                    description: The date and time the context was created.
-                    example: '2015-09-21T17:29:21.042Z'
-                required:
-                - id
-                - name
-                - created_at
-                title: Context
-        default:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-          description: Error response.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: The user defined name of the context.
-                owner:
-                  oneOf:
-                  - type: object
-                    properties:
-                      id:
-                        type: string
-                        format: uuid
-                        description: The unique ID of the owner of the context. Specify either this or slug.
-                      type:
-                        enum:
-                        - account
-                        - organization
-                        type: string
-                        description: The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
-                        example: organization
-                    required:
-                    - id
-                  - type: object
-                    properties:
-                      slug:
-                        type: string
-                        description: A string that represents an organization. Specify either this or id. Cannot be used for accounts.
-                      type:
-                        enum:
-                        - organization
-                        type: string
-                        description: The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
-                    required:
-                    - slug
-              required:
-              - name
-              - owner
     get:
       summary: List contexts
       description: List all contexts for an owner.
@@ -175,6 +95,86 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
+    post:
+      summary: Create a new context
+      tags:
+      - Context
+      operationId: createContext
+      responses:
+        200:
+          description: The new context
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: The unique ID of the context.
+                  name:
+                    type: string
+                    description: The user defined name of the context.
+                  created_at:
+                    type: string
+                    format: date-time
+                    description: The date and time the context was created.
+                    example: '2015-09-21T17:29:21.042Z'
+                required:
+                - id
+                - name
+                - created_at
+                title: Context
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The user defined name of the context.
+                owner:
+                  oneOf:
+                  - type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                        description: The unique ID of the owner of the context. Specify either this or slug.
+                      type:
+                        enum:
+                        - account
+                        - organization
+                        type: string
+                        description: The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
+                        example: organization
+                    required:
+                    - id
+                  - type: object
+                    properties:
+                      slug:
+                        type: string
+                        description: A string that represents an organization. Specify either this or id. Cannot be used for accounts.
+                      type:
+                        enum:
+                        - organization
+                        type: string
+                        description: The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
+                    required:
+                    - slug
+              required:
+              - name
+              - owner
   /context/{context-id}:
     delete:
       summary: Delete a context
