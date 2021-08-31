@@ -27,6 +27,7 @@ import com.circleci.client.v2.model.InlineResponse2002;
 import com.circleci.client.v2.model.InlineResponse2003;
 import com.circleci.client.v2.model.InlineResponse2004;
 import com.circleci.client.v2.model.InlineResponse2005;
+import com.circleci.client.v2.model.InlineResponse2006;
 import com.circleci.client.v2.model.InlineResponseDefault;
 import com.circleci.client.v2.model.JobDetails;
 import com.circleci.client.v2.model.MessageResponse;
@@ -1972,6 +1973,82 @@ public class DefaultApi {
     String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
 
     GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get test metrics for a project&#39;s workflows
+   * Get test metrics for a project&#39;s workflows. Currently tests metrics are calculated based on 10 most recent workflow runs. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param workflowName The name of the workflow. (required)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
+   * @return InlineResponse2006
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A list of test metrics by workflow </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public InlineResponse2006 getProjectWorkflowTestMetrics(String projectSlug, String workflowName, String branch) throws ApiException {
+    return getProjectWorkflowTestMetricsWithHttpInfo(projectSlug, workflowName, branch).getData();
+      }
+
+  /**
+   * Get test metrics for a project&#39;s workflows
+   * Get test metrics for a project&#39;s workflows. Currently tests metrics are calculated based on 10 most recent workflow runs. Please note that Insights is not a real time financial reporting tool and should not be used for credit reporting. The most up to date credit information can be found in Plan Overview in the CircleCI UI.
+   * @param projectSlug Project slug in the form &#x60;vcs-slug/org-name/repo-name&#x60;. The &#x60;/&#x60; characters may be URL-escaped. (required)
+   * @param workflowName The name of the workflow. (required)
+   * @param branch The name of a vcs branch. If not passed we will scope the API call to the default branch. (optional)
+   * @return ApiResponse&lt;InlineResponse2006&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A list of test metrics by workflow </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error response. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InlineResponse2006> getProjectWorkflowTestMetricsWithHttpInfo(String projectSlug, String workflowName, String branch) throws ApiException {
+    Object localVarPostBody = new Object();
+    
+    // verify the required parameter 'projectSlug' is set
+    if (projectSlug == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectSlug' when calling getProjectWorkflowTestMetrics");
+    }
+    
+    // verify the required parameter 'workflowName' is set
+    if (workflowName == null) {
+      throw new ApiException(400, "Missing the required parameter 'workflowName' when calling getProjectWorkflowTestMetrics");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/insights/{project-slug}/workflows/{workflow-name}/test-metrics"
+      .replaceAll("\\{" + "project-slug" + "\\}", apiClient.escapeString(projectSlug.toString()))
+      .replaceAll("\\{" + "workflow-name" + "\\}", apiClient.escapeString(workflowName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "branch", branch));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key_header", "api_key_query", "basic_auth" };
+
+    GenericType<InlineResponse2006> localVarReturnType = new GenericType<InlineResponse2006>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
