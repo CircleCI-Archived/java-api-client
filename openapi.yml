@@ -13,86 +13,6 @@ security:
 - api_key_query: []
 paths:
   /context:
-    post:
-      summary: Create a new context
-      tags:
-      - Context
-      operationId: createContext
-      responses:
-        200:
-          description: The new context
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    format: uuid
-                    description: The unique ID of the context.
-                  name:
-                    type: string
-                    description: The user defined name of the context.
-                  created_at:
-                    type: string
-                    format: date-time
-                    description: The date and time the context was created.
-                    example: '2015-09-21T17:29:21.042Z'
-                required:
-                - id
-                - name
-                - created_at
-                title: Context
-        default:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-          description: Error response.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: The user defined name of the context.
-                owner:
-                  oneOf:
-                  - type: object
-                    properties:
-                      id:
-                        type: string
-                        format: uuid
-                        description: The unique ID of the owner of the context. Specify either this or slug.
-                      type:
-                        enum:
-                        - account
-                        - organization
-                        type: string
-                        description: The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
-                        example: organization
-                    required:
-                    - id
-                  - type: object
-                    properties:
-                      slug:
-                        type: string
-                        description: A string that represents an organization. Specify either this or id. Cannot be used for accounts.
-                      type:
-                        enum:
-                        - organization
-                        type: string
-                        description: The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
-                    required:
-                    - slug
-              required:
-              - name
-              - owner
     get:
       summary: List contexts
       description: List all contexts for an owner.
@@ -175,27 +95,36 @@ paths:
           type: string
         required: false
         allowEmptyValue: true
-  /context/{context-id}:
-    delete:
-      summary: Delete a context
+    post:
+      summary: Create a new context
       tags:
       - Context
-      operationId: deleteContext
+      operationId: createContext
       responses:
         200:
-          description: A confirmation message
+          description: The new context
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  message:
+                  id:
                     type: string
-                    description: A human-readable message
+                    format: uuid
+                    description: The unique ID of the context.
+                  name:
+                    type: string
+                    description: The user defined name of the context.
+                  created_at:
+                    type: string
+                    format: date-time
+                    description: The date and time the context was created.
+                    example: '2015-09-21T17:29:21.042Z'
                 required:
-                - message
-                description: message response
-                title: MessageResponse
+                - id
+                - name
+                - created_at
+                title: Context
         default:
           content:
             application/json:
@@ -205,14 +134,48 @@ paths:
                   message:
                     type: string
           description: Error response.
-      parameters:
-      - in: path
-        name: context-id
-        description: ID of the context (UUID)
-        schema:
-          type: string
-          format: uuid
-        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The user defined name of the context.
+                owner:
+                  oneOf:
+                  - type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                        description: The unique ID of the owner of the context. Specify either this or slug.
+                      type:
+                        enum:
+                        - account
+                        - organization
+                        type: string
+                        description: The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
+                        example: organization
+                    required:
+                    - id
+                  - type: object
+                    properties:
+                      slug:
+                        type: string
+                        description: A string that represents an organization. Specify either this or id. Cannot be used for accounts.
+                      type:
+                        enum:
+                        - organization
+                        type: string
+                        description: The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
+                    required:
+                    - slug
+              required:
+              - name
+              - owner
+  /context/{context-id}:
     get:
       summary: Get a context
       description: Returns basic information about a context.
@@ -244,6 +207,43 @@ paths:
                 - name
                 - created_at
                 title: Context
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
+      parameters:
+      - in: path
+        name: context-id
+        description: ID of the context (UUID)
+        schema:
+          type: string
+          format: uuid
+        required: true
+    delete:
+      summary: Delete a context
+      tags:
+      - Context
+      operationId: deleteContext
+      responses:
+        200:
+          description: A confirmation message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable message
+                required:
+                - message
+                description: message response
+                title: MessageResponse
         default:
           content:
             application/json:
@@ -2096,83 +2096,6 @@ paths:
         example: gh/CircleCI-Public/api-preview-docs
         allowReserved: true
   /project/{project-slug}/checkout-key:
-    get:
-      summary: Get all checkout keys
-      description: Returns a sequence of checkout keys for `:project`.
-      tags:
-      - Project
-      operationId: listCheckoutKeys
-      responses:
-        200:
-          description: A sequence of checkout keys.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  items:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        public-key:
-                          type: string
-                          description: A public SSH key.
-                          example: ssh-rsa ...
-                        type:
-                          enum:
-                          - deploy-key
-                          - github-user-key
-                          type: string
-                          description: The type of checkout key. This may be either `deploy-key` or `github-user-key`.
-                          title: CheckoutKeyType
-                          example: deploy-key
-                        fingerprint:
-                          type: string
-                          description: An SSH key fingerprint.
-                          example: c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f
-                        preferred:
-                          type: boolean
-                          description: A boolean value that indicates if this key is preferred.
-                          example: true
-                        created-at:
-                          type: string
-                          format: date-time
-                          description: The date and time the checkout key was created.
-                          example: '2015-09-21T17:29:21.042Z'
-                      required:
-                      - public-key
-                      - type
-                      - fingerprint
-                      - preferred
-                      - created-at
-                      title: CheckoutKey
-                  next_page_token:
-                    type: string
-                    x-nullable: true
-                    description: A token to pass as a `page-token` query parameter to return the next page of results.
-                required:
-                - items
-                - next_page_token
-                title: CheckoutKeyListResponse
-        default:
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-          description: Error response.
-      parameters:
-      - in: path
-        name: project-slug
-        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-        schema:
-          type: string
-        required: true
-        example: gh/CircleCI-Public/api-preview-docs
-        allowReserved: true
     post:
       summary: Create a new checkout key
       description: Creates a new checkout key. This API request is only usable with a user API token.
@@ -2254,6 +2177,83 @@ paths:
               required:
               - type
               title: CheckoutKeyInput
+    get:
+      summary: Get all checkout keys
+      description: Returns a sequence of checkout keys for `:project`.
+      tags:
+      - Project
+      operationId: listCheckoutKeys
+      responses:
+        200:
+          description: A sequence of checkout keys.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        public-key:
+                          type: string
+                          description: A public SSH key.
+                          example: ssh-rsa ...
+                        type:
+                          enum:
+                          - deploy-key
+                          - github-user-key
+                          type: string
+                          description: The type of checkout key. This may be either `deploy-key` or `github-user-key`.
+                          title: CheckoutKeyType
+                          example: deploy-key
+                        fingerprint:
+                          type: string
+                          description: An SSH key fingerprint.
+                          example: c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f
+                        preferred:
+                          type: boolean
+                          description: A boolean value that indicates if this key is preferred.
+                          example: true
+                        created-at:
+                          type: string
+                          format: date-time
+                          description: The date and time the checkout key was created.
+                          example: '2015-09-21T17:29:21.042Z'
+                      required:
+                      - public-key
+                      - type
+                      - fingerprint
+                      - preferred
+                      - created-at
+                      title: CheckoutKey
+                  next_page_token:
+                    type: string
+                    x-nullable: true
+                    description: A token to pass as a `page-token` query parameter to return the next page of results.
+                required:
+                - items
+                - next_page_token
+                title: CheckoutKeyListResponse
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+          description: Error response.
+      parameters:
+      - in: path
+        name: project-slug
+        description: Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+        schema:
+          type: string
+        required: true
+        example: gh/CircleCI-Public/api-preview-docs
+        allowReserved: true
   /project/{project-slug}/checkout-key/{fingerprint}:
     delete:
       summary: Delete a checkout key
